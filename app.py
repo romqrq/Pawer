@@ -8,7 +8,7 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 # Adding Mongo database name and URI linking to that database.
 # URI variable saved as environment variable on GitPod
-app.config["MONGO_DBNAME"] = 'Pawer-db'
+app.config["MONGO_DBNAME"] = 'pawer'
 app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 # Creating an instance of PyMongo
@@ -16,9 +16,9 @@ mongo = PyMongo(app)
 
 @app.route('/')
 
-@app.route('/get_user')
-def get_user():
-    return render_template('user_home.html', dogs = mongo.db.Dogs.find())
+@app.route('/user_home')
+def user_home():
+    return render_template('user_home.html', dogs = mongo.db.dogs.find())
     # return 'Hello'
 
 if __name__ == '__main__':
