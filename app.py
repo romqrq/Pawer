@@ -18,7 +18,7 @@ mongo = PyMongo(app)
 
 @app.route('/user_home')
 def user_home():
-    return render_template('user_home.html', dogs = mongo.db.dogs.find())
+    return render_template('user_home.html')
     # return 'Hello'
 
 if __name__ == '__main__':
