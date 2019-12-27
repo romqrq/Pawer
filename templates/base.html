@@ -12,8 +12,10 @@
 	<header>
 		<nav>
 			<div class="nav-wrapper">
-                <img class ="pawer-logo" src="./static/images/pawer_logo.png" alt="Pawer Logo">
-				<a href="{{url_for('user_home')}}" class="brand-logo">Pawer</a>
+				<div class="nav-logo">    
+                    <img class ="pawer-logo-img" src="./static/images/pawer_logo.png" alt="Pawer Logo">
+                    <a href="{{url_for('user_home')}}" class="pawer-logo-text">Pawer</a>
+                </div>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<li><a href="{{url_for('user_home')}}">Home</a></li>
