@@ -21,13 +21,24 @@ $blue-color: #1184ff;
 
 
 // Base.html
-
-.pawer-logo-img {
-    max-height: 100%;
+.nav {
+    height: 6rem;!important
 }
-.nav-logo{
-    
-}
-.pawer-logo-text {
+.nav-wrapper {
+    background-color: $yellow-color;
 
+    img {
+        max-height: 100%;
+    }
+    .pawer-logo-text{
+        font-family: "Alfa Slab One", "Sans Serif";
+    }
+}
+
+
+
+
+@media only screen and (min-width: 601px)
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 6rem;
 }

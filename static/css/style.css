@@ -4,7 +4,19 @@ html {
   scroll-behavior: smooth;
 }
 
-.pawer-logo-img {
+.nav {
+  height: 6rem;
+}
+
+.nav-wrapper {
+  background-color: #FCD23C;
+}
+
+.nav-wrapper img {
   max-height: 100%;
+}
+
+.nav-wrapper .pawer-logo-text {
+  font-family: "Alfa Slab One", "Sans Serif";
 }
 /*# sourceMappingURL=style.css.map */
