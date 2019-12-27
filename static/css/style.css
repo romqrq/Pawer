@@ -1,32 +1,10 @@
 /* General */
-
-@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lexend+Tera&display=swap');
-
-/* html {
-    scroll-behavior: smooth;
+@import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lexend+Tera&display=swap");
+html {
+  scroll-behavior: smooth;
 }
 
- @mixin border-radius {
-    -webkit-border-radius: 0.5rem!important;
-    -moz-border-radius: 0.5rem!important;
-    -ms-border-radius: 0.5rem!important;
-    border-radius: 0.5rem!important;
+.pawer-logo {
+  max-height: 100%;
 }
-
-
-$yellow-color: #FCD23C;
-$red-color: #D8414B;
-$black-color: #343334;
-$blue-color: #1184ff; */
-
-
-/* Base.html */
-
-/* .pawer-logo{
-    max-height: 100%;
-}
-
-.nav-wrapper{
-    background-color: #FCD23C;
-    padding: 1rem;
-} */
+/*# sourceMappingURL=style.css.map */
