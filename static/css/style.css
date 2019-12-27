@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lexend+Tera&display=swap');
 
-html {
+/* html {
     scroll-behavior: smooth;
 }
 
@@ -17,11 +17,16 @@ html {
 $yellow-color: #FCD23C;
 $red-color: #D8414B;
 $black-color: #343334;
-$blue-color: #1184ff;
+$blue-color: #1184ff; */
 
 
-// Base.html
+/* Base.html */
 
-.pawer-logo{
+/* .pawer-logo{
     max-height: 100%;
 }
+
+.nav-wrapper{
+    background-color: #FCD23C;
+    padding: 1rem;
+} */
