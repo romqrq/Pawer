@@ -5,7 +5,7 @@ html {
 }
 
 .nav {
-  height: 6rem;
+  padding: 1rem;
 }
 
 .nav-wrapper {
@@ -13,10 +13,40 @@ html {
 }
 
 .nav-wrapper img {
-  max-height: 100%;
+  max-height: 4rem;
+  margin: 0.2rem 0.5rem;
 }
 
 .nav-wrapper .pawer-logo-text {
   font-family: "Alfa Slab One", "Sans Serif";
+  font-size: 5rem;
+  color: #343334;
+}
+
+.nav-wrapper span {
+  color: #D8414B;
+  font-family: "Lexend Tera", "Sans Serif";
+  color: #343334;
+  font-size: 1.3rem;
+  line-height: 1.3rem;
+}
+
+.nav-wrapper .col.s2 {
+  padding: 0.5rem;
+}
+
+.nav-wrapper p {
+  margin: 0;
+  color: #D8414B;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+  font-weight: 600;
+}
+
+@media only screen and (min-width: 601px) {
+  .menu-icon {
+    font-size: 4rem !important;
+    margin: -0.5rem !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

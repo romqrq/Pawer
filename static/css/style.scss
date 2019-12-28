@@ -22,23 +22,48 @@ $blue-color: #1184ff;
 
 // Base.html
 .nav {
-    height: 6rem;!important
+    padding: 1rem;
 }
 .nav-wrapper {
     background-color: $yellow-color;
-
+    
     img {
-        max-height: 100%;
+        max-height: 4rem;
+        margin: 0.2rem 0.5rem;
     }
     .pawer-logo-text{
         font-family: "Alfa Slab One", "Sans Serif";
+        font-size: 5rem;
+        color: $black-color;
+    }
+    span {
+        color: $red-color;
+        font-family: "Lexend Tera", "Sans Serif";
+        color: $black-color;
+        font-size: 1.3rem;
+        line-height: 1.3rem;
+    }
+    .col.s2 {
+        padding: 0.5rem;
+    }
+    p {
+        margin: 0;
+        color: $red-color;
+        font-size: 1.2rem;
+        line-height: 1.3rem;
+        font-weight: 600;
     }
 }
 
 
 
 
-@media only screen and (min-width: 601px)
-nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-    height: 6rem;
+@media only screen and (min-width: 601px) {
+    nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+        // height: 6rem;
+    }
+    .menu-icon{
+        font-size: 4rem!important;
+        margin: -0.5rem!important;
+    }
 }
