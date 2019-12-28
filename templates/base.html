@@ -11,30 +11,35 @@
 <body>
 	<header>
 		<nav>
-			<div class="nav-wrapper">
-				<div class="nav-logo">    
-                    <img class ="pawer-logo-img" src="./static/images/pawer_logo.png" alt="Pawer Logo">
-                    <a href="{{url_for('user_home')}}" class="pawer-logo-text">Pawer</a>
+			<div class="row nav-wrapper">
+                <div class="col s2">
+                    <a href="#" data-activates="mobile-demo" class="left button-collapse col s1"><i class="black-text material-icons menu-icon">menu</i></a>
+                    <ul id="nav-mobile" class="hide-on-med-and-down">
+                        <li><a href="{{url_for('user_home')}}">Home</a></li>
+                        <li><a href="{{url_for('user_home')}}">Register</a></li>
+                        <li><a href="{{url_for('user_home')}}">Adoption</a></li>
+                        <li><a href="{{url_for('user_home')}}">Training</a></li>
+                        <li><a href="{{url_for('user_home')}}">Stores</a></li>
+                        
+                        
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="{{url_for('user_home')}}">Home</a></li>
+                        <li><a href="{{url_for('user_home')}}">Register</a></li>
+                        <li><a href="{{url_for('user_home')}}">Adoption</a></li>
+                        <li><a href="{{url_for('user_home')}}">Training</a></li>
+                        <li><a href="{{url_for('user_home')}}">Stores</a></li>          
+                    </ul>
                 </div>
-				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="{{url_for('user_home')}}">Home</a></li>
-                    <li><a href="{{url_for('user_home')}}">Register</a></li>
-                    <li><a href="{{url_for('user_home')}}">Adoption</a></li>
-                    <li><a href="{{url_for('user_home')}}">Training</a></li>
-                    <li><a href="{{url_for('user_home')}}">Stores</a></li>
-					
-					
-				</ul>
-				<ul class="side-nav" id="mobile-demo">
-					<li><a href="{{url_for('user_home')}}">Home</a></li>
-                    <li><a href="{{url_for('user_home')}}">Register</a></li>
-                    <li><a href="{{url_for('user_home')}}">Adoption</a></li>
-                    <li><a href="{{url_for('user_home')}}">Training</a></li>
-                    <li><a href="{{url_for('user_home')}}">Stores</a></li>
-                    
-					
-				</ul>
+                <div class="center col s8">
+                    <img class ="pawer-logo-img" src="./static/images/pawer_logo.png" alt="Pawer Logo">
+                    <a href="{{url_for('user_home')}}" class="pawer-logo-text">PAWER</a>
+                </div>
+                <div class="col s2">
+                    <p>| ADOPTION</p>
+                    <p>| TRAINING</p>
+                    <p>| STORES</p>
+                </div>
 			</div>
 		</nav>
 	</header>
