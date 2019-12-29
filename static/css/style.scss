@@ -27,15 +27,22 @@ $blue-color: #1184ff;
 .nav-wrapper {
     background-color: $yellow-color;
     
-    img {
-        max-height: 4rem;
-        margin: 0.2rem 0.5rem;
+    .logo-box {
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+
+        img {
+            max-height: 4rem;
+            margin: 0.2rem 0.5rem;
+        }
+        a {
+            font-family: "Alfa Slab One", "Sans Serif";
+            font-size: 5rem;
+            color: $black-color;
+        }  
     }
-    .pawer-logo-text{
-        font-family: "Alfa Slab One", "Sans Serif";
-        font-size: 5rem;
-        color: $black-color;
-    }
+    
     span {
         color: $red-color;
         font-family: "Lexend Tera", "Sans Serif";
@@ -44,7 +51,7 @@ $blue-color: #1184ff;
         line-height: 1.3rem;
     }
     .col.s2 {
-        padding: 0.5rem;
+        padding: 0.3rem;
     }
     p {
         margin: 0;

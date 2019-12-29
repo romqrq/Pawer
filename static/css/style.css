@@ -12,12 +12,24 @@ html {
   background-color: #FCD23C;
 }
 
-.nav-wrapper img {
+.nav-wrapper .logo-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.nav-wrapper .logo-box img {
   max-height: 4rem;
   margin: 0.2rem 0.5rem;
 }
 
-.nav-wrapper .pawer-logo-text {
+.nav-wrapper .logo-box a {
   font-family: "Alfa Slab One", "Sans Serif";
   font-size: 5rem;
   color: #343334;
@@ -32,7 +44,7 @@ html {
 }
 
 .nav-wrapper .col.s2 {
-  padding: 0.5rem;
+  padding: 0.3rem;
 }
 
 .nav-wrapper p {
