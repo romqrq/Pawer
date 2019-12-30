@@ -12,8 +12,8 @@
 	<header>
 		<nav>
 			<div class="row nav-wrapper">
-                <div class="col s2">
-                    <a href="#" data-activates="mobile-demo" class="left button-collapse col s1"><i class="black-text material-icons menu-icon">menu</i></a>
+                <div class="col s4">
+                    <a href="#" data-activates="mobile-menu" class="button-collapse col s1"><i class="material-icons menu-icon">menu</i></a>
                     <ul id="nav-mobile" class="hide-on-med-and-down">
                         <li><a href="{{url_for('user_home')}}">Home</a></li>
                         <li><a href="{{url_for('user_home')}}">Register</a></li>
@@ -23,7 +23,7 @@
                         
                         
                     </ul>
-                    <ul class="side-nav" id="mobile-demo">
+                    <ul class="side-nav" id="mobile-menu">
                         <li><a href="{{url_for('user_home')}}">Home</a></li>
                         <li><a href="{{url_for('user_home')}}">Register</a></li>
                         <li><a href="{{url_for('user_home')}}">Adoption</a></li>
@@ -31,15 +31,19 @@
                         <li><a href="{{url_for('user_home')}}">Stores</a></li>          
                     </ul>
                 </div>
-                <div class="col s8 logo-box">
+                <div class="col s4 logo-box">
                     <img src="./static/images/pawer_logo.png" alt="Pawer Logo">
                     <a class="header" href="{{url_for('user_home')}}" >PAWER</a>
+                    <div class="three-words">
+                        <p>|ADOPTION</p>
+                        <p>|TRAINING</p>
+                        <p>|STORES</p>
+                    </div>
                 </div>
-                <div class="col s2">
-                    <p>| ADOPTION</p>
-                    <p>| TRAINING</p>
-                    <p>| STORES</p>
+                <div class="col s4 register-box">
+                    <a class="btn waves-effect general-text register-button">Register</a>
                 </div>
+                
 			</div>
 		</nav>
 	</header>
