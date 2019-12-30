@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   font-family: "Alfa Slab One", sans-serif;
   font-size: 5rem;
@@ -13,15 +17,14 @@ html {
 .secondary-text {
   font-family: "Lexend Tera", sans-serif;
   color: #343334;
+  font-weight: 900;
+  font-size: 2.5rem;
 }
 
-.general-text {
+p {
   font-family: "Roboto", sans-serif;
   color: #343334;
-}
-
-.odd-section {
-  background-color: #FCD23C;
+  font-size: 1.5rem;
 }
 
 .parallax-container {
