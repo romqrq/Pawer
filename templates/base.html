@@ -33,7 +33,7 @@
                 </div>
                 <div class="col s8 logo-box">
                     <img src="./static/images/pawer_logo.png" alt="Pawer Logo">
-                    <a href="{{url_for('user_home')}}" >PAWER</a>
+                    <a class="header" href="{{url_for('user_home')}}" >PAWER</a>
                 </div>
                 <div class="col s2">
                     <p>| ADOPTION</p>
@@ -43,11 +43,9 @@
 			</div>
 		</nav>
 	</header>
-	<div class="container">
-		{% block content %}
+    {% block content %}
 
-		{% endblock %}
-	</div>
+    {% endblock %}
 
 	<!-- jQueryhere has to go BEFORE Materialize because jQuery needs to be active FIRST -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

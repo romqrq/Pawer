@@ -1,6 +1,6 @@
 /* General */
 
-@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lexend+Tera&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lexend+Tera|Roboto&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -19,7 +19,23 @@ $red-color: #D8414B;
 $black-color: #343334;
 $blue-color: #1184ff;
 
+.header {
+    font-family: "Alfa Slab One", sans-serif;
+    font-size: 5rem;
+    color: $black-color;
+} 
 
+.secondary-text {
+    font-family: "Lexend Tera", sans-serif;
+}
+
+.general-text {
+    font-family: "Roboto", sans-serif;
+}
+
+.odd-section {
+    background-color: $yellow-color;
+}
 // Base.html
 .nav {
     padding: 1rem;
@@ -36,11 +52,6 @@ $blue-color: #1184ff;
             max-height: 4rem;
             margin: 0.2rem 0.5rem;
         }
-        a {
-            font-family: "Alfa Slab One", "Sans Serif";
-            font-size: 5rem;
-            color: $black-color;
-        }  
     }
     
     span {
@@ -72,6 +83,9 @@ $blue-color: #1184ff;
         background-size: 50%;
         background-color: $yellow-color;
         
+        div {
+            width: 55%;
+        }
     }
 }
 
