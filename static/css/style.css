@@ -55,6 +55,11 @@ html {
   font-weight: 600;
 }
 
+/* User_home */
+.carousel .carousel-bg-1 {
+  background-image: url(../static/images/pawer_logo.png);
+}
+
 @media only screen and (min-width: 601px) {
   .menu-icon {
     font-size: 4rem !important;
