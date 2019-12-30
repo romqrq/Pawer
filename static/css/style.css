@@ -12,10 +12,12 @@ html {
 
 .secondary-text {
   font-family: "Lexend Tera", sans-serif;
+  color: #343334;
 }
 
 .general-text {
   font-family: "Roboto", sans-serif;
+  color: #343334;
 }
 
 .odd-section {
@@ -26,16 +28,27 @@ html {
   width: 100%;
 }
 
-.parallax-container .test-div {
-  height: 50vh;
-}
-
 .nav {
   padding: 1rem;
 }
 
 .nav-wrapper {
   background-color: #FCD23C;
+  padding: 0 1rem;
+}
+
+.nav-wrapper .menu-icon {
+  color: #343334;
+}
+
+.nav-wrapper li a {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #343334;
+}
+
+.nav-wrapper .button-collapse {
+  padding: 0.5rem 0;
 }
 
 .nav-wrapper .logo-box {
@@ -45,14 +58,29 @@ html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  padding: 0.2rem 0;
+}
+
+.nav-wrapper .logo-box .three-words {
+  padding: 0 0.3rem 0.6rem;
+  margin: auto;
+}
+
+.nav-wrapper .logo-box .three-words p {
+  margin: 0;
+  color: #D8414B;
+  font-size: 1.2rem;
+  line-height: 1.3rem;
+  font-weight: 600;
 }
 
 .nav-wrapper .logo-box img {
   max-height: 4rem;
-  margin: 0.2rem 0.5rem;
+}
+
+.nav-wrapper .register-box {
+  text-align: right;
+  font-size: 1.5rem;
 }
 
 .nav-wrapper span {
@@ -63,16 +91,10 @@ html {
   line-height: 1.3rem;
 }
 
-.nav-wrapper .col.s2 {
-  padding: 0.3rem;
-}
-
-.nav-wrapper p {
-  margin: 0;
-  color: #D8414B;
-  font-size: 1.2rem;
-  line-height: 1.3rem;
-  font-weight: 600;
+.nav-wrapper .register-button {
+  color: #343334;
+  font-weight: 700;
+  margin: auto;
 }
 
 /* User_home */
