@@ -79,7 +79,7 @@ p {
 
         .three-words {
             padding: 0 0.3rem 0.6rem;
-            margin: auto;
+            // margin: auto;
 
             p {
                 margin: 0;
@@ -142,5 +142,11 @@ p {
     .menu-icon{
         font-size: 4rem!important;
         margin: -0.5rem!important;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .nav-wrapper li a {
+        padding: 0.5rem;
     }
 }
