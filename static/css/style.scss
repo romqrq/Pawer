@@ -53,15 +53,25 @@ p {
 
 // Base.html
 
-.nav {
-    padding: 1rem;
+nav {
+    position: fixed;
 }
 .nav-wrapper {
     background-color: $yellow-color;
     padding: 0 1rem;
 
-    .menu-icon {
-        color: $black-color;
+    .menu-box {
+        display: flex;
+        padding: 0;
+        max-height: 100%;
+
+        .menu-icon {
+            color: $black-color;
+        }
+        
+        li {
+            max-height: 100%;
+        }
     }
 
     li a {
@@ -146,7 +156,14 @@ p {
 }
 
 @media screen and (max-width: 1025px) {
-    .nav-wrapper li a {
+    nav {
+        height: 5.5rem;
         padding: 0.5rem;
+        background-color: #FCD23C;
     }
+
+    .nav-wrapper li a {
+        padding: 0 0.5rem;
+    }
+
 }
