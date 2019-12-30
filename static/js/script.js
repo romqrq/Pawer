@@ -3,6 +3,7 @@ $(document).ready(function() {
         $('.collapsible').collapsible();
         $('select').material_select();
         $(".button-collapse").sideNav();
+        $('.parallax').parallax();
         $('.carousel').carousel();
     });
     $('.datepicker').pickadate({

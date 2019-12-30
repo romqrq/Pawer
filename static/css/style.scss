@@ -36,6 +36,19 @@ $blue-color: #1184ff;
 .odd-section {
     background-color: $yellow-color;
 }
+
+.parallax-container {
+    width: 100%;
+    .parallax {
+        img {
+            max-width: 20rem;
+        }
+    }
+
+}
+
+
+
 // Base.html
 .nav {
     padding: 1rem;

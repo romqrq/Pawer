@@ -22,6 +22,14 @@ html {
   background-color: #FCD23C;
 }
 
+.parallax-container {
+  width: 100%;
+}
+
+.parallax-container .test-div {
+  height: 50vh;
+}
+
 .nav {
   padding: 1rem;
 }

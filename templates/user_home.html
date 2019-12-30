@@ -1,30 +1,18 @@
 
 {% extends 'base.html' %}
 {% block content %}
-<section class="odd-section">
-    <div class="carousel carousel-slider center">
-        <div class="carousel-fixed-item center">
-        <a class="btn waves-effect white grey-text darken-text-2">screen1</a>
-        </div>
-        <div class="carousel-item white-text carousel-bg-1">
-        <div class="right">
-            <span class="header">PAWER</span>
-            <p class="secondary-text">text goes here</p>
-        </div>
-        </div>
-        <div class="carousel-item white-text carousel-bg-2">
-        <p class="">Second Panel</h2>
-        <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item white-text carousel-bg-3">
-        <h2>Third Panel</h2>
-        <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item white-text carousel-bg-4">
-        <h2>Fourth Panel</h2>
-        <p class="white-text">This is your fourth panel</p>
-        </div>
+<div class="parallax-container">
+    <div class="parallax"><img src="/static/images/pup_basket.jpeg"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <h2 class="header">Parallax</h2>
+        <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+        <div class="test-div"></div>
     </div>
-</section>
+</div>  
+<div class="parallax-container">
+    <div class="parallax"><img src="/static/images/dog_training.jpg"></div>
+</div>
 
 {% endblock %}
