@@ -6,6 +6,7 @@ html {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 .header {
@@ -95,6 +96,7 @@ nav {
 .nav-wrapper .register-box {
   text-align: right;
   font-size: 1.5rem;
+  padding: 0;
 }
 
 .nav-wrapper span {
