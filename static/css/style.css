@@ -4,6 +4,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  text-align: center;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -111,6 +115,16 @@ nav {
   color: #343334;
   font-weight: 700;
   margin: auto;
+}
+
+.page-footer {
+  background-color: #FCD23C;
+  color: #343334;
+  font-family: "Roboto", sans-serif;
+}
+
+.page-footer h5 {
+  font-weight: 900;
 }
 
 /* User_home */

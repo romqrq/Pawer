@@ -20,7 +20,9 @@ $blue-color: #1184ff;
 html {
     scroll-behavior: smooth;
 }
-
+body {
+    text-align: center;
+}
 a {
     text-decoration: none;
     color: black;
@@ -126,6 +128,16 @@ nav {
         margin: auto;
     }
 
+}
+
+.page-footer {
+    background-color: $yellow-color;
+    color: $black-color;
+    font-family: "Roboto", sans-serif;
+    
+    h5 {
+        font-weight: 900;
+    }
 }
 
 /* User_home */
