@@ -37,6 +37,11 @@ p {
   width: 100%;
 }
 
+[type="radio"]:not(:checked), [type="radio"]:checked {
+  position: relative;
+  opacity: 1;
+}
+
 nav {
   position: fixed;
   z-index: 2;
@@ -144,6 +149,14 @@ nav {
 
 .carousel .carousel-bg-1 div {
   width: 55%;
+}
+
+.card-title {
+  color: #343334;
+}
+
+.card-icon {
+  font-size: 7rem;
 }
 
 @media only screen and (min-width: 601px) {
