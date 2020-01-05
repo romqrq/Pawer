@@ -151,6 +151,10 @@ nav {
   width: 55%;
 }
 
+.card {
+  min-height: 100%;
+}
+
 .card-title {
   color: #343334;
 }
