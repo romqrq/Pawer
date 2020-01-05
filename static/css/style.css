@@ -33,11 +33,13 @@ p {
 }
 
 .parallax-container {
+  top: 5.5rem;
   width: 100%;
 }
 
 nav {
   position: fixed;
+  z-index: 2;
 }
 
 .nav-wrapper {
@@ -115,6 +117,10 @@ nav {
   color: #343334;
   font-weight: 700;
   margin: auto;
+}
+
+#sidenav-overlay {
+  z-index: 1;
 }
 
 .page-footer {

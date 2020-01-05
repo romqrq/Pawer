@@ -49,6 +49,7 @@ p {
 
 
 .parallax-container {
+    top: 5.5rem;
     width: 100%;
 }
 
@@ -58,6 +59,7 @@ p {
 
 nav {
     position: fixed;
+    z-index: 2;
 }
 .nav-wrapper {
     background-color: $yellow-color;
@@ -128,6 +130,10 @@ nav {
         margin: auto;
     }
 
+}
+
+#sidenav-overlay {
+    z-index: 1;
 }
 
 .page-footer {
