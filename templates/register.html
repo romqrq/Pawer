@@ -1,10 +1,18 @@
 
 {% extends 'base.html' %}
 {% block content %}
-
-<h3>Register</h3>
-
-<p>TEST</p>
-
+<div class="parallax-container">
+    <div class="parallax"><img src="/static/images/pup_basket.jpeg"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <h2 class="header">Find your best friend!</h2>
+        {{collections}}
+        {% for col in collections %}
+            <p>{{col}}</p>
+        {% endfor %}
+        <h4>Visit our <a href="#" >adoption page</a></h4>
+    </div>
+</div>  
 
 {% endblock %}
