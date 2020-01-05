@@ -21,9 +21,12 @@ def user_home():
     return render_template('user_home.html', dogs=mongo.db.dogs.find())
     # return 'Hello'
 
-@app.route('/register')
-def add_user():
-    return render_template('register.html', collections=mongo.db.list_collection_names())
+@app.route('/choose_account')
+def choose_account():
+    return render_template('choose_account.html', collections=mongo.db.list_collection_names())
+# @app.route('/register')
+# def add_user():
+#     return render_template('register.html', collections=mongo.db.list_collection_names())
 
     
 
