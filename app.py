@@ -21,9 +21,23 @@ def user_home():
     return render_template('user_home.html', dogs=mongo.db.dogs.find())
     # return 'Hello'
 
-@app.route('/register')
+@app.route('/register', methods=['POST'])
 def register():
-    return render_template('register.html')
+    let usr_type
+    user = True
+    store = False
+    service = False
+
+    if user == True:
+        usr_type = users
+    elif store == True:    
+        usr_type = stores
+    elif service == True:
+        usr_type = services
+
+    usr_type.insert_one(request.form.to_dict())
+
+    return redirect(url_for('user_home'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
