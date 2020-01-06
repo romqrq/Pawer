@@ -18,34 +18,40 @@ mongo = PyMongo(app)
 
 @app.route('/user_home')
 def user_home():
-    return render_template('user_home.html', dogs=mongo.db.dogs.find())
+    return render_template('user_home.html')
+
+#Reading 'dogs'
+@app.route('/dogs')
+def dogs_list():
+    return render_template('dogs.html', dogs=mongo.db.dogs.find())
+
 
 #Choosing type of account and adding a new user to database
 @app.route('/register')
 def register():
     return render_template('register.html', collections=mongo.db.list_collection_names())
 
+#Add dog
+@app.route('/new_dog', methods=['POST'])
+def insert_dogs():
+    dogs = mongo.db.dogs
+    #Converting form to dictionary for Mongo
+    dogs.insert_one(request.form.to_dict())
+    #Redirecting user to home screen
+    return redirect(url_for('user_home'))
+
 #Add user
-@app.route('/insert_user', methods=['POST'])
-def insert_user():
+@app.route('/new_user', methods=['POST'])
+def insert_users():
     users=mongo.db.users
     #Converting form to dictionary for Mongo
     users.insert_one(request.form.to_dict())
     #Redirecting user to home screen
     return redirect(url_for('user_home'))
 
-#Add dog
-@app.route('/insert_dog', methods=['POST'])
-def insert_dog():
-    dogs=mongo.db.dogs
-    #Converting form to dictionary for Mongo
-    dogs.insert_one(request.form.to_dict())
-    #Redirecting user to home screen
-    return redirect(url_for('user_home'))
-
 #Add service
-@app.route('/insert_service', methods=['POST'])
-def insert_service():
+@app.route('/new_service', methods=['POST'])
+def insert_services():
     services=mongo.db.services
     #Converting form to dictionary for Mongo
     services.insert_one(request.form.to_dict())
@@ -53,8 +59,8 @@ def insert_service():
     return redirect(url_for('user_home'))
 
 #Add store
-@app.route('/insert_store', methods=['POST'])
-def insert_store():
+@app.route('/new_store', methods=['POST'])
+def insert_stores():
     stores=mongo.db.stores
     #Converting form to dictionary for Mongo
     stores.insert_one(request.form.to_dict())
