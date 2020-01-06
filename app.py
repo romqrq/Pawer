@@ -29,7 +29,7 @@ def dogs_list():
 #Choosing type of account and adding a new user to database
 @app.route('/register')
 def register():
-    return render_template('register.html', collections=mongo.db.list_collection_names())
+    return render_template('register.html')
 
 #Add dog
 @app.route('/new_dog', methods=['POST'])
