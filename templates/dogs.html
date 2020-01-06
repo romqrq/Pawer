@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="parallax-container">
+    <div class="parallax"><img src="/static/images/pup_deck.jpg"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        {% for dog in dogs %}
+            <div class="task_header col s9">
+                <strong>{{dog.name}}</strong> - {{dog.breed}}
+                <span>{{dog.description}}</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>  
+
+{% endblock %}
