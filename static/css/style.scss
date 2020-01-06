@@ -166,15 +166,29 @@ nav {
 }
 
 // Choose_account
-.card {
-    min-height: 100%;
+
+.card-row {
+    display: flex;
+
+    .card {
+        min-height: 100%;
+        padding: 2.5rem 0 0;
+        
+        .card-title{
+            color: $black-color;
+            font-weight: 500;
+        }
+        .card-icon{
+            font-size: 7rem;
+        }
+        .card-content {
+            margin: 2rem 0;
+        }
+    }
+
 }
-.card-title{
-    color: $black-color;
-}
-.card-icon{
-    font-size: 7rem;
-}
+
+
 
 
 

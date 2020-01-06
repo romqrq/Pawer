@@ -7,8 +7,13 @@ $(document).ready(function() {
         $('.carousel').carousel();
     });
 
-    $('.with-gap').click(function(acc_type=users){
-        acc_type=this.value
+    $('.account-type').click(function(){
+        type_of_user = $(this).attr('value')
+        $("#add_user_form").html(`
+        
+        `)
+        
+        // $('#add_user_form').html(this.value)
 
     })
     $('.datepicker').pickadate({
