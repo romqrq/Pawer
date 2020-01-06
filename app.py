@@ -33,7 +33,7 @@ def register():
 
 #Add dog
 @app.route('/new_dog', methods=['POST'])
-def insert_dogs():
+def insert_dog():
     dogs = mongo.db.dogs
     #Converting form to dictionary for Mongo
     dogs.insert_one(request.form.to_dict())
@@ -42,7 +42,7 @@ def insert_dogs():
 
 #Add user
 @app.route('/new_user', methods=['POST'])
-def insert_users():
+def insert_user():
     users=mongo.db.users
     #Converting form to dictionary for Mongo
     users.insert_one(request.form.to_dict())
@@ -51,7 +51,7 @@ def insert_users():
 
 #Add service
 @app.route('/new_service', methods=['POST'])
-def insert_services():
+def insert_service():
     services=mongo.db.services
     #Converting form to dictionary for Mongo
     services.insert_one(request.form.to_dict())
@@ -60,7 +60,7 @@ def insert_services():
 
 #Add store
 @app.route('/new_store', methods=['POST'])
-def insert_stores():
+def insert_store():
     stores=mongo.db.stores
     #Converting form to dictionary for Mongo
     stores.insert_one(request.form.to_dict())
