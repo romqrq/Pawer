@@ -19,17 +19,24 @@ mongo = PyMongo(app)
 @app.route('/user_home')
 def user_home():
     return render_template('user_home.html', dogs=mongo.db.dogs.find())
-    # return 'Hello'
 
+#Choosing what type of account
 @app.route('/choose_account')
 def choose_account():
     return render_template('choose_account.html', collections=mongo.db.list_collection_names())
-# @app.route('/register')
-# def add_user():
-#     return render_template('register.html', collections=mongo.db.list_collection_names())
 
-    
+#Creating a new user and adding to database
+@app.route('/add_user')
+def add_user():
+    return render_template('add_user.html')
 
+@app.route('/insert_user', methods=['POST'])
+def insert_user():
+    users=mongo.db.users
+    #Converting form to dictionary for Mongo
+    users.insert_one(request.form.to_dict())
+    #Redirecting user to home screen
+    return redirect(url_for('user_home'))
 
 
 if __name__ == '__main__':
