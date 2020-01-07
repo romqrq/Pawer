@@ -8,7 +8,7 @@
     <div class="row container">
         <h2 class="header">Register</h2>
         <p>Choose one of the categories below to choose a type for your account</p>
-        <div class="row card-row">
+        <div class="row card-row-register">
             <div class="col s3">
                 <div class="card">
                     <span class="card-title">Dogs</span>
@@ -63,12 +63,12 @@
                 <form action="{{ url_for('insert_dog') }}" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="dog_breed" name="dog_breed" type="text" class="validate" required>
-                            <label for="dog_breed">Breed</label>
-                        </div>
-                        <div class="input-field col s6">
                             <input id="dog_name" name="dog_name" type="text" class="validate" required>
                             <label for="dog_name">Name</label>
+                        </div>
+                         <div class="input-field col s6">
+                            <input id="dog_breed" name="dog_breed" type="text" class="validate" required>
+                            <label for="dog_breed">Breed</label>
                         </div>
                     </div>
                     <div class="row">
