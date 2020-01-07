@@ -1,0 +1,41 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="parallax-container">
+    <div class="parallax"><img src="/static/images/pup_deck.jpg"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <div class="row card-row-find">
+            {% for service in services %}
+                <div class="card row find-row">
+                    <div class="col s3">
+                        <p class="card-title">{{service.type_of_service}}</p>
+                        <div class="card-image">
+                            <i class="material-icons card-icon">supervisor_account</i>
+                        </div>
+                    </div>
+                    <div class="col s2 buttons-row">
+                        <a href="#" class="waves-effect waves-light btn action-button-card">
+                            <i class="material-icons right action-button-card-icon">edit</i>
+                            <span>Edit</span>
+                        </a>
+                        <a href="#" class="waves-effect waves-light btn action-button-card">
+                            <i class="material-icons right action-button-card-icon">delete</i>
+                            <span>Delete</span>
+                        </a>
+                    </div>
+                    <div class="col s7">
+                        <div class="card-content">
+                            <p class="card-content-title">Description</p>
+                            <p>Provider: {{service.first_name}} {{service.last_name}}</p>
+                            <p class="truncate">{{service.service_description}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>  
+
+{% endblock %}
