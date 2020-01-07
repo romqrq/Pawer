@@ -170,9 +170,26 @@ nav {
 .card-row-register {
     display: flex;
 }
-.card-row-dogs {
+.card-row-find {
     display: flex;
     flex-direction: column;
+}
+.find-row {
+    display: flex;
+
+    .buttons-row {
+        margin: auto;
+
+        .action-button-card {
+            width: 100%;
+            padding: 0 0.5rem;
+            margin: 1rem 0;
+
+            .action-button-card-icon{
+                margin: 0 0.5rem;
+            }
+        }
+    }
 }
 
 .card {
@@ -182,24 +199,28 @@ nav {
     .card-title{
         color: $black-color;
         font-weight: 500;
+        margin-top: 0;
     }
     .card-icon{
         font-size: 7rem;
     }
     .card-content {
-        margin: 2rem 1rem;
+        margin: 0 2rem;
         padding: 0;
+        text-align: left;
     }
-    .dogs_buttons {
+    .cards_buttons {
         margin: 1rem;
     }
-    .buttons-row {
-        
+    .card-content-title {
+        font-size: 2rem;
     }
-    i {
+    .card-icon {
         opacity: 0.5;
     }
 }
+
+// dogs
 
 
 

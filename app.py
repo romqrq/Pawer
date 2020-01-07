@@ -69,6 +69,11 @@ def insert_store():
 def get_dogs():
     return render_template('dogs.html', dogs=mongo.db.dogs.find())
 
+#Find user
+@app.route('/users')
+def get_users():
+    return render_template('users.html', users=mongo.db.users.find())
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

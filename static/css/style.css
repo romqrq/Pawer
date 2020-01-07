@@ -158,7 +158,7 @@ nav {
   display: flex;
 }
 
-.card-row-dogs {
+.card-row-find {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -166,6 +166,26 @@ nav {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.find-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.find-row .buttons-row {
+  margin: auto;
+}
+
+.find-row .buttons-row .action-button-card {
+  width: 100%;
+  padding: 0 0.5rem;
+  margin: 1rem 0;
+}
+
+.find-row .buttons-row .action-button-card .action-button-card-icon {
+  margin: 0 0.5rem;
 }
 
 .card {
@@ -176,6 +196,7 @@ nav {
 .card .card-title {
   color: #343334;
   font-weight: 500;
+  margin-top: 0;
 }
 
 .card .card-icon {
@@ -183,15 +204,20 @@ nav {
 }
 
 .card .card-content {
-  margin: 2rem 1rem;
+  margin: 0 2rem;
   padding: 0;
+  text-align: left;
 }
 
-.card .dogs_buttons {
+.card .cards_buttons {
   margin: 1rem;
 }
 
-.card i {
+.card .card-content-title {
+  font-size: 2rem;
+}
+
+.card .card-icon {
   opacity: 0.5;
 }
 
