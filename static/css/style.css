@@ -90,6 +90,7 @@ nav {
 
 .nav-wrapper .logo-box .three-words {
   padding: 0 0.3rem 0.6rem;
+  text-align: left;
 }
 
 .nav-wrapper .logo-box .three-words p {
