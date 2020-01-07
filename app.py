@@ -79,6 +79,11 @@ def get_users():
 def get_services():
     return render_template('services.html', services=mongo.db.services.find())
 
+#Find stores
+@app.route('/stores')
+def get_stores():
+    return render_template('stores.html', stores=mongo.db.stores.find())
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
