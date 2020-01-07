@@ -20,17 +20,12 @@ mongo = PyMongo(app)
 def user_home():
     return render_template('user_home.html')
 
-#Reading 'dogs'
-@app.route('/dogs')
-def dogs_list():
-    return render_template('dogs.html', dogs=mongo.db.dogs.find())
-
-
 #Choosing type of account and adding a new user to database
 @app.route('/register')
 def register():
     return render_template('register.html')
-
+    
+#CREATE
 #Add dog
 @app.route('/new_dog', methods=['POST'])
 def insert_dog():
@@ -66,6 +61,13 @@ def insert_store():
     stores.insert_one(request.form.to_dict())
     #Redirecting user to home screen
     return redirect(url_for('user_home'))
+
+
+#READ
+#Find dog
+@app.route('/dogs')
+def get_dogs():
+    return render_template('dogs.html', dogs=mongo.db.dogs.find())
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
