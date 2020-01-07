@@ -74,6 +74,11 @@ def get_dogs():
 def get_users():
     return render_template('users.html', users=mongo.db.users.find())
 
+#Find service
+@app.route('/services')
+def get_services():
+    return render_template('services.html', services=mongo.db.services.find())
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
