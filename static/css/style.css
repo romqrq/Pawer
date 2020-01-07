@@ -152,28 +152,47 @@ nav {
   width: 55%;
 }
 
-.card-row {
+.card-row-register {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.card-row .card {
+.card-row-dogs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.card {
   min-height: 100%;
   padding: 2.5rem 0 0;
 }
 
-.card-row .card .card-title {
+.card .card-title {
   color: #343334;
   font-weight: 500;
 }
 
-.card-row .card .card-icon {
+.card .card-icon {
   font-size: 7rem;
 }
 
-.card-row .card .card-content {
-  margin: 2rem 0;
+.card .card-content {
+  margin: 2rem 1rem;
+  padding: 0;
+}
+
+.card .dogs_buttons {
+  margin: 1rem;
+}
+
+.card i {
+  opacity: 0.5;
 }
 
 @media only screen and (min-width: 601px) {

@@ -165,28 +165,42 @@ nav {
     }
 }
 
-// Choose_account
+// Cards
 
-.card-row {
+.card-row-register {
     display: flex;
-
-    .card {
-        min-height: 100%;
-        padding: 2.5rem 0 0;
-        
-        .card-title{
-            color: $black-color;
-            font-weight: 500;
-        }
-        .card-icon{
-            font-size: 7rem;
-        }
-        .card-content {
-            margin: 2rem 0;
-        }
-    }
-
 }
+.card-row-dogs {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    min-height: 100%;
+    padding: 2.5rem 0 0;
+    
+    .card-title{
+        color: $black-color;
+        font-weight: 500;
+    }
+    .card-icon{
+        font-size: 7rem;
+    }
+    .card-content {
+        margin: 2rem 1rem;
+        padding: 0;
+    }
+    .dogs_buttons {
+        margin: 1rem;
+    }
+    .buttons-row {
+        
+    }
+    i {
+        opacity: 0.5;
+    }
+}
+
 
 
 
