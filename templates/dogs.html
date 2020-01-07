@@ -7,10 +7,21 @@
 <div class="section white">
     <div class="row container">
         {% for dog in dogs %}
-            <div class="task_header col s9">
-                <strong>{{dog.name}}</strong> - {{dog.breed}}
-                <span>{{dog.description}}</span>
+        <div class="col s3">
+            <div class="card">
+                <span class="card-title">{{dog.dog_name}}</span>
+                <div class="card-image">
+                    <i class="material-icons card-icon">pets</i>
+                    <a value="stores" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse account-type"><i class="material-icons">add</i></a>
+                    <a value="stores" class="btn-floating btn-large halfway-fab waves-effect waves-light green pulse account-type"><i class="material-icons">add</i></a>
+
+                </div>
+                <div class="card-content">
+                    <h5>{{dog.dog_breed}}</h5>
+                    <p>{{dog.dog_description}}</p>
+                </div>
             </div>
+        </div>
         {% endfor %}
     </div>
 </div>  
