@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+# from bs4 import BeautifulSoup
 
 # Creating instance of Flask
 app = Flask(__name__)
@@ -29,9 +30,34 @@ def register():
     return render_template('register.html')
 
 #User Login
-@app.route('/login')
+@app.route('/login', methods = ['GET','POST'])
 def user_login():
     """ Loads page where users can login """
+    users = mongo.db.users
+    # services = mongo.db.services
+    # stores = mongo.db.stores
+    if request.method == 'POST':
+        login_user = users.find_one({'_email' : request.form["login_email"]})
+        # login_service = services.find_one({'_email' : request.form['_email']})
+        # login_store = stores.find_one({'_email' : request.form['_email']})
+        if login_user:
+            if request.form['password'] == login_user['password']:
+                session['username'] = login_user['_id']
+                return redirect(url_for('user_home'))
+        # if login_service:
+        #     if request.form['password'] == login_service['password']
+        #         session['username'] = login_service['_id']
+        #         return redirect(url_for('user_home'))
+        # if login_store:
+        #     if request.form['password'] == login_store['password']
+        #         session['username'] = login_store['_id']
+        #         return redirect(url_for('user_home'))
+    return render_template('login.html', user='invalid')
+
+        
+
+
+
     return render_template('login.html')
 
 
@@ -40,10 +66,17 @@ def user_login():
 @app.route('/new_dog', methods=['POST'])
 def insert_dog():
     """ Function to add dogs to the database """
-    dogs = mongo.db.dogs
-    #Converting form to dictionary for Mongo
-    dogs.insert_one(request.form.to_dict())
-    #Redirecting user to home screen
+    #Check if the user already exists in the database
+    if request.method == "POST":
+        dogs = mongo.db.dogs
+        existing_dog = dogs.find_one({'dog_name' : request.form['dog_name']})
+
+        if existing_dog is None:
+            dogs.insert_one(request.form.to_dict())
+            return redirect(url_for('register'))
+        
+        return render_template('register.html', dog = True)
+
     return redirect(url_for('user_home'))
 
 #Add user
