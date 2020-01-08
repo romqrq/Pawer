@@ -7,33 +7,34 @@
 <div class="section white">
     <div class="row container">
         <h2 class="header">Login</h2>
-        <p>Please select your account type:</p>
-        <div class="col s6 offset-s3 login-radio">
-            <label>
-                <input class="with-gap" value="user" name="group1" type="radio" checked/>
-                <span>User</span>
-            </label>
-            <label>
-                <input class="with-gap" value="service" name="group1" type="radio"/>
-                <span>Services</span>
-            </label>
-            <label>
-                <input class="with-gap" value="store" name="group1" type="radio"/>
-                <span>Stores</span>
-            </label>
-        </div>
-        <form action="{{ url_for('insert_dog') }}" method="POST" class="col s12">
+        <!-- {% if user == 'invalid' %}
+            <h5>Invalid User</h5>
+        {% endif %} -->
+        <form method="POST" action="{{ url_for('user_login') }}" class="col s6 offset-s3">
+            <p>Please select your account type:</p>
+            <!-- <div class="col s6 offset-s3 login-radio">
+                <label>
+                    <input class="with-gap" value="user" name="group1" type="radio" checked/>
+                    <span>User</span>
+                </label>
+                <label>
+                    <input class="with-gap" value="service" name="group1" type="radio"/>
+                    <span>Service</span>
+                </label>
+                <label>
+                    <input class="with-gap" value="store" name="group1" type="radio"/>
+                    <span>Store</span>
+                </label>
+            </div> -->
             <div class="row">
-                <div class="col s6 offset-s3">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="user_email" name="user_email" type="email" class="validate">
-                            <label for="user_email">Email</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <input id="password" name="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="login_email" name="login_email" type="email" class="validate">
+                        <label for="login_email">Email</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="password" name="password" type="password" class="validate">
+                        <label for="password">Password</label>
                     </div>
                 </div>
             </div>
