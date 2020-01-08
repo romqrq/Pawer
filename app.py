@@ -6,8 +6,8 @@ from bson.objectid import ObjectId
 
 # Creating instance of Flask
 app = Flask(__name__)
-<=========================================
-app.secret_key = SESSION_KEY
+#<=========================================
+app.secret_key = 'SESSION_KEY'
 # Adding Mongo database name and URI linking to that database.
 # URI variable saved as environment variable on GitPod
 app.config["MONGO_DBNAME"] = 'pawer'
