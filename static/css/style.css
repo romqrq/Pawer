@@ -123,6 +123,8 @@ nav {
   color: #343334;
   font-weight: 700;
   margin: auto;
+  padding: 0;
+  width: 35%;
 }
 
 #sidenav-overlay {
@@ -219,6 +221,12 @@ nav {
 
 .card .card-icon {
   opacity: 0.5;
+}
+
+.login-radio label {
+  margin: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 @media only screen and (min-width: 601px) {

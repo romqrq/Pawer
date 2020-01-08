@@ -6,7 +6,6 @@ from bson.objectid import ObjectId
 
 # Creating instance of Flask
 app = Flask(__name__)
-#<=========================================
 app.secret_key = 'SESSION_KEY'
 # Adding Mongo database name and URI linking to that database.
 # URI variable saved as environment variable on GitPod
@@ -28,7 +27,14 @@ def user_home():
 def register():
     """ Page where users can choose a type of account and register through the specific form"""
     return render_template('register.html')
-    
+
+#User Login
+@app.route('/login')
+def user_login():
+    """ Loads page where users can login """
+    return render_template('login.html')
+
+
 #CREATE
 #Add dog
 @app.route('/new_dog', methods=['POST'])
