@@ -6,193 +6,43 @@
 </div>
 <div class="section white">
     <div class="row container">
-        <h2 class="header">Register</h2>
-        <p>Choose one of the categories below to choose a type for your account</p>
-        <div class="row card-row-register">
-            <div class="col s3">
-                <div class="card">
-                    <p class="card-title">Dogs</p>
-                    <div class="card-image">
-                        <i class="material-icons card-icon">pets</i>
-                        <a value="dogs" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse account-type"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Add new dog to the database</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3">
-                <div class="card">
-                    <p class="card-title">User</p>
-                    <div class="card-image">
-                        <i class="material-icons card-icon">person</i>     
-                        <a value="users" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse account-type"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Adopt, hire a service or find the nearest store!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3">
-                <div class="card">
-                    <p class="card-title">Services</p>
-                    <div class="card-image">
-                        <i class="material-icons card-icon">supervisor_account</i>  
-                        <a value="services" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse account-type"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Offer your service and find new customers!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3">
-                <div class="card">
-                    <p class="card-title">Stores</p>
-                    <div class="card-image">
-                        <i class="material-icons card-icon">shopping_cart</i>
-                        <a value="stores" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse account-type"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Expose your brand to new consumers!</p>
-                    </div>
-                </div>
-            </div>
+        <h2 class="header">Login</h2>
+        <p>Please select your account type:</p>
+        <div class="col s6 offset-s3 login-radio">
+            <label>
+                <input class="with-gap" value="user" name="group1" type="radio" checked/>
+                <span>User</span>
+            </label>
+            <label>
+                <input class="with-gap" value="service" name="group1" type="radio"/>
+                <span>Services</span>
+            </label>
+            <label>
+                <input class="with-gap" value="store" name="group1" type="radio"/>
+                <span>Stores</span>
+            </label>
         </div>
-        <div class="row">
-            <div class="row hide" id="dogs">
-                <form action="{{ url_for('insert_dog') }}" method="POST" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="dog_name" name="dog_name" type="text" class="validate" required>
-                            <label for="dog_name">Name</label>
-                        </div>
-                         <div class="input-field col s6">
-                            <input id="dog_breed" name="dog_breed" type="text" class="validate" required>
-                            <label for="dog_breed">Breed</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="dog_description" name="dog_description" class="materialize-textarea"></textarea>
-                            <label for="icon_telephone">Short description</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button class="btn waves-effect waves-light" type="submit">Create Account
-                            <i class="material-icons right">playlist_add</i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <div class="row hide" id="users">
-                <form action="{{ url_for('insert_user') }}" method="POST" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="user_first_name" name="user_first_name" type="text" class="validate" required>
-                            <label for="user_first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="user_last_name" name="user_last_name" type="text" class="validate">
-                            <label for="user_last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" name="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
+        <form action="{{ url_for('insert_dog') }}" method="POST" class="col s12">
+            <div class="row">
+                <div class="col s6 offset-s3">
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="user_email" name="user_email" type="email" class="validate">
                             <label for="user_email">Email</label>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="switch">
-                            <label>
-                            <input id="is_staff" name="is_staff" type="checkbox">
-                            <span class="lever"></span>
-                            Is Staff
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="user_description" name="user_description" class="materialize-textarea"></textarea>
-                            <label for="user_description">Bio</label>
+                            <input id="password" name="password" type="password" class="validate">
+                            <label for="password">Password</label>
                         </div>
                     </div>
-                    <div class="row">
-                        <button class="btn waves-effect waves-light" type="submit">Create Account
-                            <i class="material-icons right">playlist_add</i>
-                        </button>
-                    </div>
-                </form>
+                </div>
             </div>
-            <div class="row hide" id="services">
-                <form action="{{ url_for('insert_service') }}" method="POST" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="service_first_name" name="service_first_name" type="text" class="validate" required>
-                            <label for="service_first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="service_last_name" name="service_last_name" type="text" class="validate">
-                            <label for="service_last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input id="type_of_service" name="type_of_service" type="text" class="validate" required>
-                            <label for="first_name">Type of service</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="service_description" name="service_description" class="materialize-textarea"></textarea>
-                            <label for="service_description">Short description</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="service_email" name="service_email" type="email" class="validate">
-                            <label for="service_email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button class="btn waves-effect waves-light" type="submit">Create Account
-                            <i class="material-icons right">playlist_add</i>
-                        </button>
-                    </div>
-                </form>
+            <div class="row">
+                <button class="btn waves-effect waves-light" type="submit">Login
+                    <i class="material-icons right">account_circle</i>
+                </button>
             </div>
-            <div class="row hide" id="stores">
-                <form action="{{ url_for('insert_store') }}" method="POST" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="store_name" name="store_name" type="text" class="validate">
-                            <label for="store_name">Store Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="store_address" name="store_address" type="text" class="validate" required>
-                            <label for="store_addres">Store Address</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="store_description" name="store_description" class="materialize-textarea"></textarea>
-                            <label for="store_description">Short description</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button class="btn waves-effect waves-light" type="submit">Create Account
-                            <i class="material-icons right">playlist_add</i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        </form>   
     </div>
 </div>  
 <div class="parallax-container">
