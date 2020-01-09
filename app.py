@@ -41,12 +41,15 @@ def user_login():
         if user_type == 'user':
             login_user = users.find_one({'_email' : request.form['login_email']})
             if login_user:    
+                user_id = str(login_user['_id'])
+                staff_user = str(login_user['is_staff'])
                 db_pwd = login_user['password']
                 if form_pwd == db_pwd:
-                # session['_id'] = users.login_user['_id']
-                # if login_user['is_staff']:
-                #     session['is_staff'] = login_user['is_staff']
+                    session['user_id'] = user_id
+                if login_user['is_staff']:
+                    session['is_staff'] = login_user['is_staff']
                     return render_template('login.html', user='valid')
+                return render_template('login.html', user='valid')
         if user_type == 'service':
             login_user = services.find_one({'_email' : request.form['login_email']})
             if login_user:
@@ -63,8 +66,6 @@ def user_login():
         else: return render_template('login.html', user='invalid')
  
     return render_template('login.html')
-           
-    # return render_template('login.html')
 
 
 #CREATE

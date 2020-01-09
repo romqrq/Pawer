@@ -13,7 +13,7 @@
         {% if user == 'valid' %}
             <h5>Successful login</h5>
         {% endif %}
-        <!-- <h5>{{db_pwd}}</h5> -->
+        <!-- <h5>{{user}}</h5> -->
         <form method="POST" action="{{ url_for('user_login') }}" class="col s6 offset-s3">
             <p>Please select your account type:</p>
             <div class="login-radio">
