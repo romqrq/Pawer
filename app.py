@@ -46,10 +46,9 @@ def user_login():
                 db_pwd = login_user['password']
                 if form_pwd == db_pwd:
                     session['user_id'] = user_id
-                if login_user['is_staff']:
-                    session['is_staff'] = login_user['is_staff']
+                    if staff_user:
+                        session['is_staff'] = staff_user
                     return render_template('login.html', user='valid')
-                return render_template('login.html', user='valid')
         if user_type == 'service':
             login_user = services.find_one({'_email' : request.form['login_email']})
             if login_user:
