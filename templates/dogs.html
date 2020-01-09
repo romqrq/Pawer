@@ -21,6 +21,7 @@
                             <i class="material-icons right action-button-card-icon">favorite</i>
                             <span>Adopt</span>
                         </a>
+                        {% if session['is_staff'] %}
                         <a href="#" class="waves-effect waves-light btn action-button-card">
                             <i class="material-icons right action-button-card-icon">edit</i>
                             <span>Edit</span>
@@ -29,6 +30,7 @@
                             <i class="material-icons right action-button-card-icon">delete</i>
                             <span>Delete</span>
                         </a>
+                        {% endif %}
                     </div>
                     <div class="col s7">
                         <div class="card-content">
