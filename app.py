@@ -15,7 +15,6 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
 
 # Creating an instance of PyMongo
 mongo = PyMongo(app)
-
 @app.route('/')
 
 @app.route('/user_home')
@@ -30,35 +29,42 @@ def register():
     return render_template('register.html')
 
 #User Login
-@app.route('/login', methods = ['GET','POST'])
+@app.route('/login', methods = ['GET', 'POST'])
 def user_login():
     """ Loads page where users can login """
     users = mongo.db.users
-    # services = mongo.db.services
-    # stores = mongo.db.stores
+    services = mongo.db.services
+    stores = mongo.db.stores
     if request.method == 'POST':
-        login_user = users.find_one({'_email' : request.form["login_email"]})
-        # login_service = services.find_one({'_email' : request.form['_email']})
-        # login_store = stores.find_one({'_email' : request.form['_email']})
-        if login_user:
-            if request.form['password'] == login_user['password']:
-                session['username'] = login_user['_id']
-                return redirect(url_for('user_home'))
-        # if login_service:
-        #     if request.form['password'] == login_service['password']
-        #         session['username'] = login_service['_id']
-        #         return redirect(url_for('user_home'))
-        # if login_store:
-        #     if request.form['password'] == login_store['password']
-        #         session['username'] = login_store['_id']
-        #         return redirect(url_for('user_home'))
-    return render_template('login.html', user='invalid')
+        user_type = request.form["user_type_radio"]
+        form_pwd = request.form['password']
+        if user_type == 'user':
+            login_user = users.find_one({'_email' : request.form['login_email']})
+            if login_user:    
+                db_pwd = login_user['password']
+                if form_pwd == db_pwd:
+                # session['_id'] = users.login_user['_id']
+                # if login_user['is_staff']:
+                #     session['is_staff'] = login_user['is_staff']
+                    return render_template('login.html', user='valid')
+        if user_type == 'service':
+            login_user = services.find_one({'_email' : request.form['login_email']})
+            if login_user:
+                db_pwd = login_user['password']
+                if form_pwd == db_pwd:
+                    return render_template('login.html', user='valid')
+        if user_type == 'store':
+            login_user = stores.find_one({'_email' : request.form['login_email']})
+            if login_user:
+                db_pwd = login_user['password']
+                if form_pwd == db_pwd:
+                    return render_template('login.html', user='valid')
 
-        
-
-
-
+        else: return render_template('login.html', user='invalid')
+ 
     return render_template('login.html')
+           
+    # return render_template('login.html')
 
 
 #CREATE
