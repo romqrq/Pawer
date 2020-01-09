@@ -22,7 +22,7 @@
                             <span>Adopt</span>
                         </a>
                         {% if session['is_staff'] %}
-                        <a href="{{ url_for('update_data', user_type='dog', user_id=dog._id) }}" name="update_dog" class="waves-effect waves-light btn action-button-card">
+                        <a href="{{ url_for('update_entry', entry_type='dog', entry_id=dog._id) }}" name="update_dog" class="waves-effect waves-light btn action-button-card">
                             <i class="material-icons right action-button-card-icon">edit</i>
                             <span>Edit</span>
                         </a>

@@ -141,6 +141,21 @@ def get_stores():
     """ Function to list stores contained in the database """
     return render_template('stores.html', stores=mongo.db.stores.find())
 
+#UPDATE
+@app.route('/admin/<entry_id>', methods=['POST'])
+def update_entry(entry_type, entry_id):
+    usr_type=mongo.db.entry_type
+    usr_type.update({'_id' : ObjectId(entry_id)}, 
+    {
+        'dog_name':request.form.get('dog_name'),
+        'dog_breed':request.form.get('dog_breed'),
+        'dog_description':request.form.get('dog_description')
+    })
+    return redirect(url_for('<entry_type>'))
+
+
+    
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
