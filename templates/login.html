@@ -7,25 +7,29 @@
 <div class="section white">
     <div class="row container">
         <h2 class="header">Login</h2>
-        <!-- {% if user == 'invalid' %}
+        {% if user == 'invalid' %}
             <h5>Invalid User</h5>
-        {% endif %} -->
+        {% endif %}
+        {% if user == 'valid' %}
+            <h5>Successful login</h5>
+        {% endif %}
+        <!-- <h5>{{db_pwd}}</h5> -->
         <form method="POST" action="{{ url_for('user_login') }}" class="col s6 offset-s3">
             <p>Please select your account type:</p>
-            <!-- <div class="col s6 offset-s3 login-radio">
+            <div class="login-radio">
                 <label>
-                    <input class="with-gap" value="user" name="group1" type="radio" checked/>
+                    <input class="with-gap" value="user" name="user_type_radio" type="radio" checked/>
                     <span>User</span>
                 </label>
                 <label>
-                    <input class="with-gap" value="service" name="group1" type="radio"/>
+                    <input class="with-gap" value="service" name="user_type_radio" type="radio"/>
                     <span>Service</span>
                 </label>
                 <label>
-                    <input class="with-gap" value="store" name="group1" type="radio"/>
+                    <input class="with-gap" value="store" name="user_type_radio" type="radio"/>
                     <span>Store</span>
                 </label>
-            </div> -->
+            </div>
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
