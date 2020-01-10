@@ -118,9 +118,15 @@ def insert_store():
 
 #READ
 #Find dog
-@app.route('/dogs')
+@app.route('/dogs', methods=['GET','POST'])
 def get_dogs():
     """ Function to list dogs contained in the database """
+    if request.method == 'POST':
+        if request.form['value']=='dogs':
+            usr_id = request.form['id']
+            usr_type = 'dogs'
+            return update_entry(usr_id, usr_type)
+
     return render_template('dogs.html', dogs=mongo.db.dogs.find())
 
 #Find user
@@ -142,16 +148,16 @@ def get_stores():
     return render_template('stores.html', stores=mongo.db.stores.find())
 
 #UPDATE
-@app.route('/admin/<entry_id>', methods=['POST'])
-def update_entry(entry_type, entry_id):
-    usr_type=mongo.db.entry_type
-    usr_type.update({'_id' : ObjectId(entry_id)}, 
+@app.route('/admin/<usr_type>/<usr_id>', methods=['GET', 'POST'])
+def update_entry(usr_id, usr_type):
+    user_type=mongo.db.usr_type
+    user_type.update({'_id' : ObjectId(usr_id)}, 
     {
         'dog_name':request.form.get('dog_name'),
         'dog_breed':request.form.get('dog_breed'),
         'dog_description':request.form.get('dog_description')
     })
-    return redirect(url_for('<entry_type>'))
+    return redirect(url_for('<usr_type>'))
 
 
     
