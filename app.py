@@ -157,7 +157,7 @@ def update_entry(usr_id, usr_type):
         'dog_breed':request.form.get('dog_breed'),
         'dog_description':request.form.get('dog_description')
     })
-    return render_template(url_for('usr_type'))
+    return render_template('dogs.html')
 
 
     
