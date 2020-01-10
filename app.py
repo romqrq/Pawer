@@ -150,14 +150,15 @@ def get_stores():
 #UPDATE
 @app.route('/admin/<usr_type>/<usr_id>', methods=['GET', 'POST'])
 def update_entry(usr_id, usr_type):
-    user_type=mongo.db.usr_type
-    user_type.update({'_id' : ObjectId(usr_id)}, 
-    {
-        'dog_name':request.form.get('dog_name'),
-        'dog_breed':request.form.get('dog_breed'),
-        'dog_description':request.form.get('dog_description')
-    })
-    return render_template('dogs.html')
+    if usr_type == 'dogs':
+        dogs=mongo.db.dogs
+        dogs.update({'_id' : ObjectId(usr_id)}, 
+        {
+            'dog_name':request.form.get('dog_name'),
+            'dog_breed':request.form.get('dog_breed'),
+            'dog_description':request.form.get('dog_description')
+        })
+    return render_template('dogs.html', edit_dog=mongo.db.dogs.find_one({'_id': usr_id}))
 
 
     
