@@ -16,22 +16,24 @@
                         </div>
                         <p class="card-breed">{{dog.dog_breed}}</p>
                     </div>
-                    <div class="col s2 buttons-row">
-                        <a href="#" class="waves-effect waves-light btn action-button-card">
-                            <i class="material-icons right action-button-card-icon">favorite</i>
-                            <span>Adopt</span>
-                        </a>
-                        {% if session['is_staff'] %}
-                        <a href="{{ url_for('update_entry', entry_type='dog', entry_id=dog._id) }}" name="update_dog" class="waves-effect waves-light btn action-button-card">
-                            <i class="material-icons right action-button-card-icon">edit</i>
-                            <span>Edit</span>
-                        </a>
-                        <a href="#" name="delete_dog" class="waves-effect waves-light btn action-button-card">
-                            <i class="material-icons right action-button-card-icon">delete</i>
-                            <span>Delete</span>
-                        </a>
-                        {% endif %}
-                    </div>
+                    <form method='POST' action="{{ url_for('update_entry', usr_id=dog._id, usr_type='dogs') }}">
+                        <div class="col s2 buttons-row">
+                            <a href="#" class="waves-effect waves-light btn action-button-card">
+                                <i class="material-icons right action-button-card-icon">favorite</i>
+                                <span>Adopt</span>
+                            </a>
+                            {% if session['is_staff'] %}
+                            <button type="submit" id="{{dog._id}}" name="edit" value="dogs" class="waves-effect waves-light btn action-button-card">
+                                <i class="material-icons right action-button-card-icon">edit</i>
+                                <span>Edit</span>
+                            </button>
+                            <a href="#" name="delete_dog" class="waves-effect waves-light btn action-button-card">
+                                <i class="material-icons right action-button-card-icon">delete</i>
+                                <span>Delete</span>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </form>
                     <div class="col s7">
                         <div class="card-content">
                             <p class="card-content-title">Description</p>
