@@ -158,8 +158,8 @@ def update_dog(usr_id):
     })
     return redirect(url_for('get_dogs', edit_dog=mongo.db.dogs.find_one({'_id': usr_id})))
 
-@app.route('/user/<usr_id>')
-def update_user():
+@app.route('/user/<usr_id>', methods=['GET', 'POST'])
+def update_user(usr_id):
     user=mongo.db.users
     user.update({'_id' : ObjectId(usr_id)},
     {
@@ -170,7 +170,7 @@ def update_user():
         'is_staff':request.form.get('is_staff'),
         'user_description':request.form.get('user_description')
     })
-    return redirect(url_for('get_user', edit_service=mongo.db.services.find_one({'_id': usr_id})))
+    return redirect(url_for('get_users', edit_user=mongo.db.users.find_one({'_id': usr_id})))
 
 
 @app.route('/services/<usr_id>', methods=['GET', 'POST'])
@@ -186,6 +186,19 @@ def update_service(user_id):
         'password':request.form.get('password')
     })
     return redirect(url_for('get_service', edit_service=mongo.db.services.find_one({'_id': usr_id})))
+
+@app.route('/stores/<usr_id>', methods=['GET', 'POST'])
+def update_store(usr_id):
+    store=mongo.db.stores
+    store.update({'_id' : ObjectId(usr_id)},
+    {
+        'store_name':request.form.get('store_name'),
+        'store_address':request.form.get('store_address'),
+        'store_description':request.form.get('store_description'),
+        '_email':request.form.get('_email')
+    })
+    return redirect(url_for('get_stores', edit_store=mongo.db.store.find_one({'_id': usr_id})))
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
