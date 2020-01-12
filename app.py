@@ -158,6 +158,21 @@ def update_dog(usr_id):
     })
     return redirect(url_for('get_dogs', edit_dog=mongo.db.dogs.find_one({'_id': usr_id})))
 
+@app.route('/user/<usr_id>')
+def update_user():
+    user=mongo.db.users
+    user.update({'_id' : ObjectId(usr_id)},
+    {
+        'first_name':request.form.get('first_name'),
+        'last_name':request.form.get('last_name'),
+        'password':request.form.get('password'),
+        '_email':request.form.get('_email'),
+        'is_staff':request.form.get('is_staff'),
+        'user_description':request.form.get('user_description')
+    })
+    return redirect(url_for('get_user', edit_service=mongo.db.services.find_one({'_id': usr_id})))
+
+
 @app.route('/services/<usr_id>', methods=['GET', 'POST'])
 def update_service(user_id):
     service=mongo.db.services
@@ -171,7 +186,6 @@ def update_service(user_id):
         'password':request.form.get('password')
     })
     return redirect(url_for('get_service', edit_service=mongo.db.services.find_one({'_id': usr_id})))
-
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

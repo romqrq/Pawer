@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <div class="col s2 buttons-row">
-                        <a href="#" class="waves-effect waves-light btn action-button-card">
+                        <a type="submit" id="{{user._id}}" name="edit" value="user" class="waves-effect waves-light btn action-button-card">
                             <i class="material-icons right action-button-card-icon">edit</i>
                             <span>Edit</span>
                         </a>
@@ -35,6 +35,54 @@
                         </div>
                     </div>
                 </div>
+                {% if session['is_staff'] %}
+                <div class="edit-form-box hide" id="{{ user._id }}">
+                    <form action="{{ url_for('update_user', usr_id=user._id) }}" method="POST" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="user_first_name" name="user_first_name" type="text" class="validate" required>
+                                <label for="user_first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="user_last_name" name="user_last_name" type="text" class="validate">
+                                <label for="user_last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" name="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="_email" name="_email" type="email" class="validate">
+                                <label for="_email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="switch">
+                                <label>
+                                <input id="is_staff" name="is_staff" type="checkbox">
+                                <span class="lever"></span>
+                                Is Staff
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="user_description" name="user_description" class="materialize-textarea"></textarea>
+                                <label for="user_description">Bio</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn waves-effect waves-light" type="submit">Create Account
+                                <i class="material-icons right">playlist_add</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
