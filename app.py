@@ -147,7 +147,7 @@ def get_stores():
     return render_template('stores.html', stores=mongo.db.stores.find())
 
 #UPDATE
-@app.route('/admin/<usr_id>', methods=['GET', 'POST'])
+@app.route('/dogs/successful/<usr_id>', methods=['GET', 'POST'])
 def update_dog(usr_id):
     dogs=mongo.db.dogs
     dogs.update({'_id' : ObjectId(usr_id)}, 
@@ -156,7 +156,7 @@ def update_dog(usr_id):
         'dog_breed':request.form.get('dog_breed'),
         'dog_description':request.form.get('dog_description')
     })
-    return render_template('dogs.html', edit_dog=mongo.db.dogs.find_one({'_id': usr_id}))
+    return render_template('successful.html', edit_dog=mongo.db.dogs.find_one({'_id': usr_id}))
 
 
     
