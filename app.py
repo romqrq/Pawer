@@ -121,11 +121,10 @@ def insert_store():
 @app.route('/dogs', methods=['GET','POST'])
 def get_dogs():
     """ Function to list dogs contained in the database """
-    if request.method == 'POST':
-        if request.form['value']=='dogs':
-            usr_id = request.form['id']
-            usr_type = 'dogs'
-            return update_entry(usr_id, usr_type)
+    # if request.method == 'POST':
+    #     if request.form['value']=='dogs':
+    #         usr_id = request.form['id']
+    #         return update_dog(usr_id)
 
     return render_template('dogs.html', dogs=mongo.db.dogs.find())
 
@@ -148,16 +147,15 @@ def get_stores():
     return render_template('stores.html', stores=mongo.db.stores.find())
 
 #UPDATE
-@app.route('/admin/<usr_type>/<usr_id>', methods=['GET', 'POST'])
-def update_entry(usr_id, usr_type):
-    if usr_type == 'dogs':
-        dogs=mongo.db.dogs
-        dogs.update({'_id' : ObjectId(usr_id)}, 
-        {
-            'dog_name':request.form.get('dog_name'),
-            'dog_breed':request.form.get('dog_breed'),
-            'dog_description':request.form.get('dog_description')
-        })
+@app.route('/admin/<usr_id>', methods=['GET', 'POST'])
+def update_dog(usr_id):
+    dogs=mongo.db.dogs
+    dogs.update({'_id' : ObjectId(usr_id)}, 
+    {
+        'dog_name':request.form.get('dog_name'),
+        'dog_breed':request.form.get('dog_breed'),
+        'dog_description':request.form.get('dog_description')
+    })
     return render_template('dogs.html', edit_dog=mongo.db.dogs.find_one({'_id': usr_id}))
 
 
