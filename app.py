@@ -121,11 +121,10 @@ def insert_store():
 @app.route('/dogs', methods=['GET','POST'])
 def get_dogs():
     """ Function to list dogs contained in the database """
-    if request.method == 'POST':
-        if request.form['value']=='dogs':
-            usr_id = request.form['id']
-            usr_type = 'dogs'
-            return update_entry(usr_id, usr_type)
+    # if request.method == 'POST':
+    #     if request.form['value']=='dogs':
+    #         usr_id = request.form['id']
+    #         return update_dog(usr_id)
 
     return render_template('dogs.html', dogs=mongo.db.dogs.find())
 
@@ -148,19 +147,58 @@ def get_stores():
     return render_template('stores.html', stores=mongo.db.stores.find())
 
 #UPDATE
-@app.route('/admin/<usr_type>/<usr_id>', methods=['GET', 'POST'])
-def update_entry(usr_id, usr_type):
-    user_type=mongo.db.usr_type
-    user_type.update({'_id' : ObjectId(usr_id)}, 
+@app.route('/dogs/<usr_id>', methods=['GET', 'POST'])
+def update_dog(usr_id):
+    dogs=mongo.db.dogs
+    dogs.update({'_id' : ObjectId(usr_id)}, 
     {
         'dog_name':request.form.get('dog_name'),
         'dog_breed':request.form.get('dog_breed'),
         'dog_description':request.form.get('dog_description')
     })
-    return render_template('dogs.html')
+    return redirect(url_for('get_dogs', edit_dog=mongo.db.dogs.find_one({'_id': usr_id})))
+
+@app.route('/user/<usr_id>', methods=['GET', 'POST'])
+def update_user(usr_id):
+    user=mongo.db.users
+    user.update({'_id' : ObjectId(usr_id)},
+    {
+        'first_name':request.form.get('first_name'),
+        'last_name':request.form.get('last_name'),
+        'password':request.form.get('password'),
+        '_email':request.form.get('_email'),
+        'is_staff':request.form.get('is_staff'),
+        'user_description':request.form.get('user_description')
+    })
+    return redirect(url_for('get_users', edit_user=mongo.db.users.find_one({'_id': usr_id})))
 
 
-    
+@app.route('/services/<usr_id>', methods=['GET', 'POST'])
+def update_service(user_id):
+    service=mongo.db.services
+    service.update({'_id' : ObjectId(usr_id)}, 
+    {
+        'first_name':request.form.get('first_name'),
+        'last_name':request.form.get('last_name'),
+        'type_of_service':request.form.get('type_of_service'),
+        'service_description':request.form.get('service_description'),
+        '_email':request.form.get('_email'),
+        'password':request.form.get('password')
+    })
+    return redirect(url_for('get_service', edit_service=mongo.db.services.find_one({'_id': usr_id})))
+
+@app.route('/stores/<usr_id>', methods=['GET', 'POST'])
+def update_store(usr_id):
+    store=mongo.db.stores
+    store.update({'_id' : ObjectId(usr_id)},
+    {
+        'store_name':request.form.get('store_name'),
+        'store_address':request.form.get('store_address'),
+        'store_description':request.form.get('store_description'),
+        '_email':request.form.get('_email')
+    })
+    return redirect(url_for('get_stores', edit_store=mongo.db.store.find_one({'_id': usr_id})))
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

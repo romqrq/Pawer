@@ -15,8 +15,9 @@
                             <i class="material-icons card-icon">supervisor_account</i>
                         </div>
                     </div>
+                    {% if session['is_staff'] %}
                     <div class="col s2 buttons-row">
-                        <a href="#" class="waves-effect waves-light btn action-button-card">
+                        <a type="submit" id="{{service._id}}" name="edit" value="service" class="waves-effect waves-light btn action-button-card">
                             <i class="material-icons right action-button-card-icon">edit</i>
                             <span>Edit</span>
                         </a>
@@ -25,6 +26,7 @@
                             <span>Delete</span>
                         </a>
                     </div>
+                    {% endif %}
                     <div class="col s7">
                         <div class="card-content">
                             <p class="card-content-title">Description</p>
@@ -33,6 +35,52 @@
                         </div>
                     </div>
                 </div>
+                {% if session['is_staff'] %}
+                <div class="edit-form-box hide" id="{{ service._id }}">
+                    <form action="{{ url_for('update_service', usr_id=service._id) }}" method="POST" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="service_first_name" name="service_first_name" type="text" class="validate" required>
+                                <label for="service_first_name">{{service.service_first_name}}</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="service_last_name" name="service_last_name" type="text" class="validate">
+                                <label for="service_last_name">{{service.service_last_name}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" name="password" type="password" class="validate">
+                                <label for="password">{{service.password}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="type_of_service" name="type_of_service" type="text" class="validate" required>
+                                <label for="first_name">{{service.type_of_service}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="service_description" name="service_description" class="materialize-textarea"></textarea>
+                                <label for="service_description">{{service.service_description}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="_email" name="_email" type="email" class="validate">
+                                <label for="_email">{{service._email}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="btn waves-effect waves-light" type="submit">Update Service
+                                <i class="material-icons right">playlist_add</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                {% endif %}
             {% endfor %}
         </div>
     </div>
