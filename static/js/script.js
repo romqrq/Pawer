@@ -15,9 +15,9 @@ $(document).ready(function() {
     })
 
     $('.action-button-card').click(function(){
-        dog_id = $(this).attr('id')
-        $(`.edit-form.box, #${dog_id}`).removeClass('hide')
-        $(`.edit-form-box`).not(`#${dog_id}`).addClass('hide')
+        user_id = $(this).attr('id')
+        $(`.edit-form-box, #${user_id}`).removeClass('hide')
+        $(`.edit-form-box`).not(`#${user_id}`).addClass('hide')
     })
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
