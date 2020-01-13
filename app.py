@@ -156,7 +156,9 @@ def update_dog(usr_id):
         'dog_breed':request.form.get('dog_breed'),
         'dog_description':request.form.get('dog_description')
     })
-    return redirect(url_for('get_dogs', edit_dog=mongo.db.dogs.find_one({'_id': usr_id})))
+    # return redirect(url_for('get_dogs', edit_dog=mongo.db.dogs.find_one({'_id': usr_id})))
+    return redirect(url_for('get_dogs'))
+
 
 @app.route('/user/<usr_id>', methods=['GET', 'POST'])
 def update_user(usr_id):
@@ -170,7 +172,7 @@ def update_user(usr_id):
         'is_staff':request.form.get('is_staff'),
         'user_description':request.form.get('user_description')
     })
-    return redirect(url_for('get_users', edit_user=mongo.db.users.find_one({'_id': usr_id})))
+    return redirect(url_for('get_users'))
 
 
 @app.route('/services/<usr_id>', methods=['GET', 'POST'])
@@ -185,7 +187,7 @@ def update_service(user_id):
         '_email':request.form.get('_email'),
         'password':request.form.get('password')
     })
-    return redirect(url_for('get_service', edit_service=mongo.db.services.find_one({'_id': usr_id})))
+    return redirect(url_for('get_service'))
 
 @app.route('/stores/<usr_id>', methods=['GET', 'POST'])
 def update_store(usr_id):
@@ -197,8 +199,28 @@ def update_store(usr_id):
         'store_description':request.form.get('store_description'),
         '_email':request.form.get('_email')
     })
-    return redirect(url_for('get_stores', edit_store=mongo.db.store.find_one({'_id': usr_id})))
+    return redirect(url_for('get_stores'))
 
+#DELETE
+@app.route('/dogs/<usr_id>', methods=['GET', 'POST'])
+def delete_dog(usr_id):
+    mongo.db.dogs.deleteOne({'_id': ObjectId(usr_id)})
+    return redirect(url_for('get_dogs'))
+
+@app.route('/users/<usr_id>', methods=['GET', 'POST'])
+def delete_user(usr_id):
+    mongo.db.users.deleteOne({'_id' : ObjectId(usr_id)})
+    return redirect(url_for('get_users'))
+
+@app.route('/service/<usr_id>', methods=['GET', 'POST'])
+def delete_service(usr_id):
+    mongo.db.services.deleteOne({'_id' : ObjectId(usr_id)})
+    return redirect(url_for('get_services'))
+
+@app.route('/stores/<usr_id>', methods=['GET', 'POST'])
+def delete_store(usr_id):
+    mongo.db.stores.deleteOne({'_id' : ObjectId(usr_id)})
+    return redirect(url_for('get_stores'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
