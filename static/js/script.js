@@ -14,7 +14,7 @@ $(document).ready(function() {
         console.log($(`#${form_type}`).siblings().not('.hide').addClass('hide'))
     })
 
-    $('.action-button-card').click(function(){
+    $('.action-button-card').not('.delete-button').click(function(){
         user_id = $(this).attr('id')
         $(`.edit-form-box, #${user_id}`).removeClass('hide')
         $(`.edit-form-box`).not(`#${user_id}`).addClass('hide')
