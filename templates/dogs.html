@@ -22,11 +22,11 @@
                             <span>Adopt</span>
                         </a>
                         {% if session['is_staff'] %}
-                        <a type="submit" id="{{dog._id}}" name="edit" value="dogs" class="waves-effect waves-light btn action-button-card">
+                        <a type="submit" id="{{dog._id}}" name="edit" value="dogs" class="waves-effect waves-light btn action-button-card edit_button">
                             <i class="material-icons right action-button-card-icon">edit</i>
                             <span>Edit</span>
                         </a>
-                        <a href="{{ url_for('delete_dog', usr_id=dog._id)}}" type="submit" id="{{dog._id}}" name="delete_dog" class="waves-effect waves-light btn action-button-card delete-button">
+                        <a type="submit" id="{{dog._id}}" name="delete_dog" class="waves-effect waves-light btn action-button-card delete-button">
                             <i class="material-icons right action-button-card-icon">delete</i>
                             <span>Delete</span>
                         </a>
@@ -61,6 +61,16 @@
                         <div class="row">
                             <button action="" class="btn waves-effect waves-light" type="submit">Update
                                 <i class="material-icons right">edit</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="delete-form-box hide" id="{{dog._id}}">
+                    <form action="{{ url_for('delete_dog', usr_id=dog._id) }}" method="POST" class="col s12 delete-dog-form">
+                        <div class="row">
+                           <h3>Are you sure ou want to delete?</h3>
+                            <button action="" class="btn waves-effect waves-light" type="submit">Yes, Delete
+                                <i class="material-icons right">delete</i>
                             </button>
                         </div>
                     </form>

@@ -14,10 +14,17 @@ $(document).ready(function() {
         console.log($(`#${form_type}`).siblings().not('.hide').addClass('hide'))
     })
 
-    $('.action-button-card').not('.delete-button').click(function(){
+    $('.edit_button').click(function(){
         user_id = $(this).attr('id')
-        $(`.edit-form-box, #${user_id}`).removeClass('hide')
-        $(`.edit-form-box`).not(`#${user_id}`).addClass('hide')
+        $(`.edit-form-box, #${user_id}`).not('.delete-form-box').removeClass('hide')
+        $(`.edit-form-box, .delete-form-box` ).not(`#${user_id}`).addClass('hide')
+        $(`.delete-form-box`).not('.hide').addClass('hide')
+    })
+    $('.delete-button').click(function(){
+        user_id = $(this).attr('id')
+        $(`.delete-form-box, #${user_id}`).not('.edit-form-box').removeClass('hide')
+        $(`.delete-form-box`).not(`#${user_id}`).addClass('hide')
+        $(`.edit-form-box`).not('.hide').addClass('hide')
     })
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
