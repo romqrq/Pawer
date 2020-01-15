@@ -209,17 +209,17 @@ def delete_dog(usr_id):
 
 @app.route('/users/<usr_id>', methods=['GET', 'POST'])
 def delete_user(usr_id):
-    mongo.db.users.deleteOne({'_id' : ObjectId(usr_id)})
+    mongo.db.users.deleteOne({'_id': ObjectId(usr_id)})
     return redirect(url_for('get_users'))
 
 @app.route('/service/<usr_id>', methods=['GET', 'POST'])
 def delete_service(usr_id):
-    mongo.db.services.deleteOne({'_id' : ObjectId(usr_id)})
+    mongo.db.services.deleteOne({'_id': ObjectId(usr_id)})
     return redirect(url_for('get_services'))
 
 @app.route('/stores/<usr_id>', methods=['GET', 'POST'])
 def delete_store(usr_id):
-    mongo.db.stores.deleteOne({'_id' : ObjectId(usr_id)})
+    mongo.db.stores.deleteOne({'_id': ObjectId(usr_id)})
     return redirect(url_for('get_stores'))
 
 if __name__ == '__main__':
