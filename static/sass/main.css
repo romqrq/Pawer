@@ -226,6 +226,14 @@ nav {
   opacity: 0.5;
 }
 
+.side-nav {
+  padding: 1rem 2rem !important;
+}
+
+.side-nav .nav-action-button {
+  margin: 0.5rem 0;
+}
+
 /* Media Queries */
 @media only screen and (min-width: 601px) {
   .menu-icon {
