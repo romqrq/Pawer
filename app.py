@@ -3,15 +3,20 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from os import path
+if path.exists('env.py'):
+    import env
 # from bs4 import BeautifulSoup
 
 # Creating instance of Flask
 app = Flask(__name__)
-app.secret_key = 'SESSION_KEY'
+# app.secret_key = 'SESSION_KEY'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 # Adding Mongo database name and URI linking to that database.
 # URI variable saved as environment variable on GitPod
 app.config["MONGO_DBNAME"] = 'pawer'
-app.config["MONGO_URI"] = os.getenv('MONGO_URI', 'mongodb://localhost')
+# MONGO_URI = os.environ.get('MONGO_URI')
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
 
 # Creating an instance of PyMongo
 mongo = PyMongo(app)
@@ -40,9 +45,12 @@ def user_login():
         form_pwd = request.form['password']
         if user_type == 'user':
             login_user = users.find_one({'_email' : request.form['login_email']})
+            #login not working for non staff members how to return 'is_staff' as 'off' from form?
+            
+                # staff_user = str(login_user['is_staff'])
             if login_user:    
                 user_id = str(login_user['_id'])
-                staff_user = str(login_user['is_staff'])
+                staff_user = str(login_user['is_staff'])    
                 db_pwd = login_user['password']
                 if form_pwd == db_pwd:
                     session['user_id'] = user_id
@@ -92,6 +100,8 @@ def insert_user():
     users=mongo.db.users
     #Converting form to dictionary for Mongo
     users.insert_one(request.form.to_dict())
+    # if request.form['is_staff']:
+    #     users.update({'_id': ObjectId })
     #Redirecting user to home screen
     return redirect(url_for('user_home'))
 
@@ -204,22 +214,22 @@ def update_store(usr_id):
 #DELETE
 @app.route('/dogs/<usr_id>', methods=['GET', 'POST'])
 def delete_dog(usr_id):
-    mongo.db.dogs.deleteOne({'_id': ObjectId(usr_id)})
+    mongo.db.dogs.remove({'_id': ObjectId(usr_id)})
     return redirect(url_for('get_dogs'))
 
 @app.route('/users/<usr_id>', methods=['GET', 'POST'])
 def delete_user(usr_id):
-    mongo.db.users.deleteOne({'_id': ObjectId(usr_id)})
+    mongo.db.users.remove({'_id': ObjectId(usr_id)})
     return redirect(url_for('get_users'))
 
 @app.route('/service/<usr_id>', methods=['GET', 'POST'])
 def delete_service(usr_id):
-    mongo.db.services.deleteOne({'_id': ObjectId(usr_id)})
+    mongo.db.services.remove({'_id': ObjectId(usr_id)})
     return redirect(url_for('get_services'))
 
 @app.route('/stores/<usr_id>', methods=['GET', 'POST'])
 def delete_store(usr_id):
-    mongo.db.stores.deleteOne({'_id': ObjectId(usr_id)})
+    mongo.db.stores.remove({'_id': ObjectId(usr_id)})
     return redirect(url_for('get_stores'))
 
 if __name__ == '__main__':
