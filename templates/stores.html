@@ -9,13 +9,13 @@
         <div class="row card-row-find">
             {% for store in stores %}
                 <div class="card row card-item-row">
-                    <div class="col s3">
+                    <div class="col s12 m3">
                         <p class="card-title">{{store.store_name}}</p>
                         <div class="card-image">
                             <i class="material-icons card-icon">shopping_cart</i>
                         </div>
                     </div>
-                    <div class="col s2 buttons-row">
+                    <div class="col s12 m2 buttons-row">
                         <a type="submit" id="{{store._id}}" name="edit" value="store" class="waves-effect waves-light btn card-action-button">
                             <i class="material-icons right card-action-button-icon">edit</i>
                             <span>Edit</span>
@@ -25,7 +25,7 @@
                             <span>Delete</span>
                         </a>
                     </div>
-                    <div class="col s7">
+                    <div class="col s12 m7">
                         <div class="card-content">
                             <p class="card-content-title">Description</p>
                             <p>Address: {{store.store_address}}</p>
