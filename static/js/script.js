@@ -4,9 +4,10 @@ $(document).ready(function() {
         $('select').material_select();
         $(".button-collapse").sideNav();
         $('.parallax').parallax();
-        $('.carousel').carousel();
     });
 
+    //On click it shows the form related to the account type being created while hiding 
+    //the other forms
     $('.account-type').click(function(){
         form_type = $(this).attr('value')
         $(`#${form_type}`).removeClass('hide')
@@ -14,12 +15,16 @@ $(document).ready(function() {
         console.log($(`#${form_type}`).siblings().not('.hide').addClass('hide'))
     })
 
+    //Event triggered by click to show "edit form" and hide the "delete form" any forms
+    //belonging to other user_id's are being displayed.
     $('.edit_button').click(function(){
         user_id = $(this).attr('id')
         $(`.edit-form-box, #${user_id}`).not('.delete-form-box').removeClass('hide')
         $(`.edit-form-box, .delete-form-box` ).not(`#${user_id}`).addClass('hide')
         $(`.delete-form-box`).not('.hide').addClass('hide')
     })
+    //Event triggered by click to show "delete form" and hide the "edit form" or any forms
+    //belonging to other user_id's are being displayed.
     $('.delete-button').click(function(){
         user_id = $(this).attr('id')
         $(`.delete-form-box, #${user_id}`).not('.edit-form-box').removeClass('hide')
