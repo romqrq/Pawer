@@ -1,3 +1,4 @@
+/* Presets */
 @import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lexend+Tera|Roboto&display=swap");
 html {
   scroll-behavior: smooth;
@@ -12,9 +13,17 @@ a {
   color: black;
 }
 
+.container {
+  padding: 1rem;
+}
+
 .parallax-container {
   top: 5.5rem;
   width: 100%;
+}
+
+.parallax-container .parallax img {
+  max-width: 300%;
 }
 
 [type="radio"]:not(:checked), [type="radio"]:checked {
@@ -22,96 +31,31 @@ a {
   opacity: 1;
 }
 
+#sidenav-overlay {
+  z-index: 1;
+}
+
+/* Typography */
+.heading-text {
+  font-family: "Alfa Slab One", sans-serif;
+  font-size: 3rem;
+  color: #343334;
+}
+
 .secondary-text {
   font-family: "Lexend Tera", sans-serif;
   color: #343334;
   font-weight: 900;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 p {
   font-family: "Roboto", sans-serif;
   color: #343334;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
-.nav-action-button {
-  color: #343334;
-  font-weight: 700;
-  margin: auto;
-  padding: 0;
-  width: 35%;
-}
-
-.card-action-button {
-  width: 100%;
-  padding: 0 0.5rem;
-  margin: 1rem 0;
-}
-
-.card-action-button-icon {
-  margin: 0 0.5rem;
-}
-
-.card {
-  min-height: 100%;
-  padding: 2.5rem 0 0;
-}
-
-.card .card-title {
-  color: #343334;
-  font-weight: 500;
-  margin-top: 0;
-}
-
-.card .card-icon {
-  font-size: 7rem;
-}
-
-.card .card-content {
-  margin: 0 2rem;
-  padding: 0;
-  text-align: left;
-}
-
-.card .card-content-title {
-  font-size: 2rem;
-}
-
-.card .card-icon {
-  opacity: 0.5;
-}
-
-.card-row-find {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.card-item-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.card-buttons-row {
-  margin: auto;
-}
-
-.page-footer {
-  background-color: #FCD23C;
-  color: #343334;
-  font-family: "Roboto", sans-serif;
-}
-
-.page-footer h5 {
-  font-weight: 900;
-}
-
+/* Header */
 nav {
   position: fixed;
   z-index: 2;
@@ -119,14 +63,13 @@ nav {
 
 .nav-wrapper {
   background-color: #FCD23C;
-  padding: 0 1rem;
 }
 
 .menu-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0;
+  padding: 0 !important;
   max-height: 100%;
 }
 
@@ -144,10 +87,6 @@ nav {
   color: #343334;
 }
 
-.button-collapse {
-  padding: 0.5rem 0;
-}
-
 .logo-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -155,37 +94,31 @@ nav {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0.2rem 0;
+  padding-left: 5rem !important;
+  max-height: 100%;
 }
 
 .logo-box img {
-  max-height: 4rem;
+  max-height: 2.3rem;
+  margin: auto;
 }
 
-.logo-box span {
-  color: #D8414B;
-  font-family: "Lexend Tera", "Sans Serif";
-  color: #343334;
-  font-size: 1.3rem;
-  line-height: 1.3rem;
-}
-
-.header {
+.pawer-logo-name {
   font-family: "Alfa Slab One", sans-serif;
-  font-size: 5rem;
+  font-size: 2.5rem;
   color: #343334;
 }
 
 .three-words {
-  padding: 0 0.3rem 0.6rem;
+  padding: 0.4rem 0.4rem;
   text-align: left;
 }
 
 .three-words p {
   margin: 0;
   color: #D8414B;
-  font-size: 1.2rem;
-  line-height: 1.3rem;
+  font-size: 1rem;
+  line-height: 1rem;
   font-weight: 600;
 }
 
@@ -195,40 +128,109 @@ nav {
   padding: 0;
 }
 
-#sidenav-overlay {
-  z-index: 1;
+/* Cards */
+.card-row-find {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
+.card-buttons-row {
+  margin: auto;
+}
+
+/* Footer */
+.page-footer {
+  background-color: #FCD23C;
+  color: #343334;
+  font-family: "Roboto", sans-serif;
+}
+
+.page-footer h5 {
+  font-weight: 900;
+}
+
+/* Login Page */
 .login-radio label {
   margin: 1rem;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
+/* Register Page */
 .card-row-register {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
+/* Buttons */
+.nav-action-button {
+  color: #343334;
+  font-weight: 700;
+  margin: auto;
+  padding: 0;
+  width: 35%;
+}
+
+.card-action-button {
+  width: 100%;
+  padding: 0 0.5rem;
+  margin: 1rem 0;
+  font-family: Lexend Tera, sans-serif;
+  font-weight: 600;
+}
+
+.card-action-button-icon {
+  margin: 0 0.5rem;
+}
+
+/* Cards */
+.card {
+  min-height: 100%;
+  padding: 2.5rem 0 0;
+}
+
+.card-title {
+  font-family: "Alfa Slab One", sans-serif;
+  color: #343334;
+  font-size: 2rem !important;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.card-breed {
+  font-family: Lexend Tera, sans-serif;
+}
+
+.card-icon {
+  font-size: 7rem;
+}
+
+.card-content {
+  margin: 0;
+  padding: 0;
+}
+
+.card-content-title {
+  font-size: 1.5rem;
+  font-family: "Alfa Slab One", sans-serif;
+  color: #343334 !important;
+}
+
+.card-icon {
+  opacity: 0.5;
+}
+
+/* Media Queries */
 @media only screen and (min-width: 601px) {
   .menu-icon {
     font-size: 4rem !important;
     margin: -0.5rem !important;
   }
 }
-
-@media screen and (max-width: 1025px) {
-  nav {
-    height: 5.5rem;
-    padding: 0.5rem;
-    background-color: #FCD23C;
-  }
-  .nav-wrapper li a {
-    padding: 0 0.5rem;
-  }
-}
-
-/* General */
-/* User_home */
 /*# sourceMappingURL=main.css.map */
