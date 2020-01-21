@@ -1,0 +1,19 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.parallax-container {
+    top: 5.5rem;
+    width: 100%;
+}
+
+[type="radio"]:not(:checked), [type="radio"]:checked {
+    position: relative;
+    opacity: 1;
+}

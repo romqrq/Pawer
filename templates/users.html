@@ -8,23 +8,25 @@
     <div class="row container">
         <div class="row card-row-find">
             {% for user in users %}
-                <div class="card row find-row">
+                <div class="card row card-item-row">
                     <div class="col s3">
                         <p class="card-title">{{user.first_name}} {{user.last_name}}</p>
                         <div class="card-image">
                             <i class="material-icons card-icon">person</i>
                         </div>
                     </div>
+                    {% if ( session['is_staff'] or user._id == session['_id'] ) %}
                     <div class="col s2 buttons-row">
-                        <a type="submit" id="{{user._id}}" name="edit" value="user" class="waves-effect waves-light btn action-button-card">
-                            <i class="material-icons right action-button-card-icon">edit</i>
+                        <a type="submit" id="{{user._id}}" name="edit" value="user" class="waves-effect waves-light btn card-action-button edit_button">
+                            <i class="material-icons right card-action-button-icon">edit</i>
                             <span>Edit</span>
                         </a>
-                        <a type="submit" id="{{user._id}}" name="delete_user" class="waves-effect waves-light btn action-button-card delete-button>
-                            <i class="material-icons right action-button-card-icon">delete</i>
+                        <a type="submit" id="{{user._id}}" name="delete_user" class="waves-effect waves-light btn card-action-button delete-button">
+                            <i class="material-icons right card-action-button-icon">delete</i>
                             <span>Delete</span>
                         </a>
                     </div>
+                    {% endif %}
                     <div class="col s7">
                         <div class="card-content">
                             {% if user.is_staff == 'on' %}
@@ -63,9 +65,10 @@
                         <div class="row">
                             <div class="switch">
                                 <label>
+                                Client
                                 <input id="is_staff" name="is_staff" type="checkbox">
                                 <span class="lever"></span>
-                                Is Staff
+                                Staff
                                 </label>
                             </div>
                         </div>
@@ -78,6 +81,16 @@
                         <div class="row">
                             <button class="btn waves-effect waves-light" type="submit">Update Account
                                 <i class="material-icons right">edit</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="delete-form-box hide" id="{{user._id}}">
+                    <form action="{{ url_for('delete_user', usr_id=user._id) }}" method="POST" class="col s12 delete-form">
+                        <div class="row">
+                           <h3>Are you sure ou want to delete?</h3>
+                            <button action="" class="btn waves-effect waves-light" type="submit">Yes, Delete
+                                <i class="material-icons right">delete</i>
                             </button>
                         </div>
                     </form>
