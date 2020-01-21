@@ -1,3 +1,5 @@
+/* Presets */
+
 html {
     scroll-behavior: smooth;
 }
@@ -8,12 +10,21 @@ a {
     text-decoration: none;
     color: black;
 }
+.container {
+    padding: 1rem;
+}
 .parallax-container {
     top: 5.5rem;
     width: 100%;
+}
+.parallax-container .parallax img {
+    max-width: 300%;
 }
 
 [type="radio"]:not(:checked), [type="radio"]:checked {
     position: relative;
     opacity: 1;
+}
+#sidenav-overlay {
+  z-index: 1;
 }

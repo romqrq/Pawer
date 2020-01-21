@@ -1,27 +1,31 @@
+/* Cards */
+
 .card {
     min-height: 100%;
     padding: 2.5rem 0 0;
-    
-    .card-title{
-        color: $black-color;
-        font-weight: 500;
-        margin-top: 0;
-    }
-    .card-icon{
-        font-size: 7rem;
-    }
-    .card-content {
-        margin: 0 2rem;
-        padding: 0;
-        text-align: left;
-    }
-    // .cards-buttons {
-    //     margin: 1rem;
-    // }
-    .card-content-title {
-        font-size: 2rem;
-    }
-    .card-icon {
-        opacity: 0.5;
-    }
+}
+.card-title{
+    font-family: "Alfa Slab One", sans-serif;
+    color: $black-color;
+    font-size: 2rem !important;
+    font-weight: 500;
+    margin-top: 0;
+}
+.card-breed {
+    font-family: Lexend Tera, sans-serif;
+}
+.card-icon{
+    font-size: 7rem;
+}
+.card-content {
+    margin: 0;
+    padding: 0;
+}
+.card-content-title {
+    font-size: 1.5rem;
+    font-family: "Alfa Slab One", sans-serif;
+    color: $black-color!important;
+}
+.card-icon {
+    opacity: 0.5;
 }
