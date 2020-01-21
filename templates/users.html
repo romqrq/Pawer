@@ -15,6 +15,7 @@
                             <i class="material-icons card-icon">person</i>
                         </div>
                     </div>
+                    {% if ( session['is_staff'] or user._id == session['_id'] ) %}
                     <div class="col s2 buttons-row">
                         <a type="submit" id="{{user._id}}" name="edit" value="user" class="waves-effect waves-light btn action-button-card edit_button">
                             <i class="material-icons right action-button-card-icon">edit</i>
@@ -25,6 +26,7 @@
                             <span>Delete</span>
                         </a>
                     </div>
+                    {% endif %}
                     <div class="col s7">
                         <div class="card-content">
                             {% if user.is_staff == 'on' %}
@@ -63,9 +65,10 @@
                         <div class="row">
                             <div class="switch">
                                 <label>
+                                Client
                                 <input id="is_staff" name="is_staff" type="checkbox">
                                 <span class="lever"></span>
-                                Is Staff
+                                Staff
                                 </label>
                             </div>
                         </div>

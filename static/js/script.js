@@ -26,6 +26,9 @@ $(document).ready(function() {
         $(`.delete-form-box`).not(`#${user_id}`).addClass('hide')
         $(`.edit-form-box`).not('.hide').addClass('hide')
     })
+    $('#is_staff').click(function(){
+        console.log(this)
+    })
     $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15, // Creates a dropdown of 15 years to control year,
