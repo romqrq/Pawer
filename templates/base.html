@@ -2,10 +2,14 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<!-- Material icons by google, possible to also use font awesome, no problem. -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
+	<link rel="stylesheet" href="{{url_for('static', filename='sass/main.css')}}" type="text/css" />
+	<title>PAWER</title>
 </head>
 
 <body>
@@ -37,8 +41,8 @@
                     </div>
                 </div>
                 <div class="col s4 register-box">
-                    <a href="{{url_for('register')}}" class="btn waves-effect general-text register-button">Register</a>
-                    <a href="{{url_for('user_login')}}" class="btn waves-effect general-text register-button">Login</a>
+                    <a href="{{url_for('register')}}" class="btn waves-effect general-text nav-action-button">Register</a>
+                    <a href="{{url_for('user_login')}}" class="btn waves-effect general-text nav-action-button">Login</a>
                 </div>
                 
 			</div>
