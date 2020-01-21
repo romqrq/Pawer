@@ -112,12 +112,6 @@ p {
   font-weight: 900;
 }
 
-.header {
-  font-family: "Alfa Slab One", sans-serif;
-  font-size: 5rem;
-  color: #343334;
-}
-
 nav {
   position: fixed;
   z-index: 2;
@@ -174,6 +168,12 @@ nav {
   color: #343334;
   font-size: 1.3rem;
   line-height: 1.3rem;
+}
+
+.header {
+  font-family: "Alfa Slab One", sans-serif;
+  font-size: 5rem;
+  color: #343334;
 }
 
 .three-words {
