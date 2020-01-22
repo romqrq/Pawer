@@ -85,6 +85,11 @@ nav {
 
 .menu-icon {
   color: #343334;
+  font-size: 2.5rem !important;
+}
+
+nav .button-collapse {
+  margin: 0 1rem;
 }
 
 .logo-box {
