@@ -25,10 +25,11 @@ nav {
 }
 .menu-icon {
     color: $black-color;
+    font-size: 2.5rem !important;
 }
-// .button-collapse {
-//     padding: 0.5rem 0;
-// }
+nav .button-collapse {
+    margin: 0 1rem;
+}
 .logo-box {
     display: flex;
     justify-content: center;
