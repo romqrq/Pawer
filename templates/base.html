@@ -26,6 +26,9 @@
                     </ul>
                     <ul class="side-nav" id="mobile-menu">
                         <li><a href="{{url_for('user_home')}}">Home</a></li>
+                        {% if session['is_staff'] %}
+                        <li><a href="{{url_for('get_users')}}">Users</a></li>
+                        {% endif %}
                         <li><a href="{{url_for('get_dogs')}}">Adoption</a></li>
                         <li><a href="{{url_for('get_services')}}">Services</a></li>
                         <li><a href="{{url_for('get_stores')}}">Stores</a></li> 
@@ -61,11 +64,11 @@
     <footer class="page-footer">
         <div class="container">
             <div class="row">
-                <div class="col s6">
+                <div class="col s6 m6">
                     <h5>About PAWER</h5>
                     <p>We are passionate about dogs and we want to make it easier for everyone to find their best friends.</p>
                 </div>
-                <div class="col offset-s2 s4">
+                <div class="col s6 offset-m2 m4">
                     <h5>Visit our Social Channels</h5>
                     <ul>
                         <li><a href="#!">Youtube</a></li>
