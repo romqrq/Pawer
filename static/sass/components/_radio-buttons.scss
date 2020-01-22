@@ -1,0 +1,14 @@
+/* Radio Buttons */
+
+.login-radio{
+    label{
+        margin: 0.5rem;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+}
+
+[type="radio"]:not(:checked), [type="radio"]:checked {
+    position: relative;
+    opacity: 1;
+}
