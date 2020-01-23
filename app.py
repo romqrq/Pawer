@@ -198,7 +198,7 @@ def update_service(usr_id):
             '_email': request.form.get('_email'),
             'password': request.form.get('password')
         })
-    return redirect(url_for('get_service'))
+    return redirect(url_for('get_services'))
 
 @app.route('/stores/<usr_id>', methods=['GET', 'POST'])
 def update_store(usr_id):
@@ -213,26 +213,23 @@ def update_store(usr_id):
     return redirect(url_for('get_stores'))
 
 # DELETE
-@app.route('/dogs/<usr_id>', methods=['GET', 'POST'])
-def delete_dog(usr_id):
-    mongo.db.dogs.remove({'_id': ObjectId(usr_id)})
-    return redirect(url_for('get_dogs'))
-
-@app.route('/users/<usr_id>', methods=['GET', 'POST'])
-def delete_user(usr_id):
-    mongo.db.users.remove({'_id': ObjectId(usr_id)})
-    return redirect(url_for('get_users'))
-
-@app.route('/service/<usr_id>', methods=['GET', 'POST'])
-def delete_service(usr_id):
-    mongo.db.services.remove({'_id': ObjectId(usr_id)})
-    return redirect(url_for('get_services'))
-
-@app.route('/stores/<usr_id>', methods=['GET', 'POST'])
-def delete_store(usr_id):
-    mongo.db.stores.remove({'_id': ObjectId(usr_id)})
-    return redirect(url_for('get_stores'))
-
+@app.route('/delete/<usr_type>/<usr_id>', methods=['GET', 'POST'])
+def delete_entry(usr_type, usr_id):
+    if usr_type == 'dogs':
+        usr = mongo.db.dogs
+        url = 'get_dogs'
+    elif usr_type == 'users':
+        usr = mongo.db.users
+        url = 'get_users'
+    elif usr_type == 'services':
+        usr = mongo.db.services
+        url = 'get_services'
+    else:
+        usr = mongo.db.stores
+        url = 'get_stores'
+    usr.delete_one({'_id': ObjectId(usr_id)})
+    return redirect(url_for(url))
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
