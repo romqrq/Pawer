@@ -17,11 +17,11 @@
                     </div>
                     {% if session['is_staff'] %}
                     <div class="col s12 m2 buttons-row">
-                        <a type="submit" id="{{service._id}}" name="edit" value="service" class="waves-effect waves-light btn card-action-button">
+                        <a type="submit" id="{{service._id}}" name="edit-service" value="service" class="waves-effect waves-light btn card-action-button edit-button">
                             <i class="material-icons right card-action-button-icon">edit</i>
                             <span>Edit</span>
                         </a>
-                        <a href="#" class="waves-effect waves-light btn card-action-button">
+                        <a type="submit" id="{{service._id}}" name="delete-service" class="waves-effect waves-light btn card-action-button delete-button">
                             <i class="material-icons right card-action-button-icon">delete</i>
                             <span>Delete</span>
                         </a>
@@ -79,7 +79,16 @@
                         </div>
                     </form>
                 </div>
-
+                <div class="delete-form-box hide" id="{{service._id}}">
+                    <form action="{{ url_for('delete_entry', usr_type='services', usr_id=service._id) }}" method="POST" class="col s12 delete-form">
+                        <div class="row">
+                           <h3>Are you sure ou want to delete?</h3>
+                            <button class="btn waves-effect waves-light" type="submit">Yes, Delete
+                                <i class="material-icons right">delete</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
                 {% endif %}
             {% endfor %}
         </div>
