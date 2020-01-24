@@ -11,53 +11,40 @@ $(document).ready(function() {
 $('.account-type').click(function(){
     form_type = $(this).attr('value')
     $(`#${form_type}`).removeClass('hide')
-    
-    console.log($(`#${form_type}`).siblings().not('.hide').addClass('hide'))
 });
 
 //Event triggered by click to show "edit form" and hide the "delete form" any forms
 //belonging to other user_id's are being displayed.
 $('.edit-button').click(function(){
+    // Get user id from card attribute id
     user_id = $(this).attr('id')
-    // $(`.edit-form-box, #${user_id}`).not('.delete-form-box').removeClass('hide')
-    // $(`.edit-form-box, .delete-form-box` ).not(`#${user_id}`).addClass('hide')
-    // $(`.delete-form-box`).not('.hide').addClass('hide')
-    // $(`.edit-form-box, #${user_id}`).scrollIntoView();
+    // Removes class "hide" from the element                                        
     $(`#${user_id}.edit-form-box`).removeClass('hide');
+    // Adds class "hide" to any other form that doens't have this id
     $('.edit-form-box').not(`#${user_id}`).addClass('hide');
+    // Adds class "hide" to delete form in case it is not hidden yet
     $('.delete-form-box').not('.hide').addClass('hide');
-    elTarget = $(`#${user_id}.edit-form-box`);
-    // setTimeout(scrollDown(elTarget), 1000);
-    // $(`.edit-form-box#${user_id}`).scrollIntoView();
-    // $(`#${user_id}.edit-form-box`).scrollIntoView();
-    // scrolldown(target)
+    // Scrolls and aligns the bottom of the form with the bottom of the screen
+    $('.edit-form-box').not('.hide').get(0).scrollIntoView(false)
 });
+
 //Event triggered by click to show "delete form" and hide the "edit form" or any forms
 //belonging to other user_id's are being displayed.
 $('.delete-button').click(function(){
+    // Get user id from card attribute id
     user_id = $(this).attr('id');
+    // Removes class "hide" from the element
     $(`#${user_id}.delete-form-box`).removeClass('hide');
+    // Adds class "hide" to any other form that doens't have this id
     $('.delete-form-box').not(`#${user_id}`).addClass('hide');
+    // Adds class "hide" to delete form in case it is not hidden yet
     $('.edit-form-box').not('.hide').addClass('hide');
-    // $(`.delete-form-box#${user_id}`).scrollIntoView();
-    // elTarget = $(`#${user_id}.delete-form-box`);
-    // setTimeout(scrollDown(elTarget), 1000);
+    // Scrolls and aligns the bottom of the form with the bottom of the screen
+    $('.delete-form-box').not('.hide').get(0).scrollIntoView(false)
+
 
 });
 
-/**
- * Function to scroll down and bring form to view
- */
-// function scrollDown(elTarget) {
-// console.log(elTarget);
-// elTarget.scrollIntoView(false);
-// console.log(elTarget);
-
-// }
-
-$('#is_staff').click(function(){
-    console.log(this)
-});
 $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15, // Creates a dropdown of 15 years to control year,
