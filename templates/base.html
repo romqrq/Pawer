@@ -20,12 +20,18 @@
                     <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons menu-icon">menu</i></a>
                     <ul id="nav-mobile" class="hide-on-med-and-down">
                         <li><a href="{{url_for('user_home')}}">Home</a></li>
+                        {% if session['is_staff'] %}
+                        <li><a href="{{url_for('get_users')}}">Users</a></li>
+                        {% endif %}
                         <li><a href="{{url_for('get_dogs')}}">Adoption</a></li>
                         <li><a href="{{url_for('get_services')}}">Services</a></li>
                         <li><a href="{{url_for('get_stores')}}">Stores</a></li>                
                     </ul>
                     <ul class="side-nav" id="mobile-menu">
                         <li><a href="{{url_for('user_home')}}">Home</a></li>
+                        {% if session['is_staff'] %}
+                        <li><a href="{{url_for('get_users')}}">Users</a></li>
+                        {% endif %}
                         <li><a href="{{url_for('get_dogs')}}">Adoption</a></li>
                         <li><a href="{{url_for('get_services')}}">Services</a></li>
                         <li><a href="{{url_for('get_stores')}}">Stores</a></li> 
