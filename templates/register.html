@@ -66,17 +66,17 @@
                 <form action="{{ url_for('insert_dog') }}" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="dog_name" name="dog_name" type="text" class="validate" required>
+                            <input name="dog_name" type="text" class="validate" required>
                             <label for="dog_name">Name</label>
                         </div>
                          <div class="input-field col s6">
-                            <input id="dog_breed" name="dog_breed" type="text" class="validate" required>
+                            <input name="dog_breed" type="text" class="validate" required>
                             <label for="dog_breed">Breed</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="dog_description" name="dog_description" class="materialize-textarea"></textarea>
+                            <textarea name="dog_description" class="materialize-textarea"></textarea>
                             <label for="icon_telephone">Short description</label>
                         </div>
                     </div>
@@ -91,23 +91,23 @@
                 <form action="{{ url_for('insert_user') }}" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="first_name" name="first_name" type="text" class="validate" required>
+                            <input name="first_name" type="text" class="validate" required>
                             <label for="first_name">First Name</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="last_name" name="last_name" type="text" class="validate">
+                            <input name="last_name" type="text" class="validate">
                             <label for="last_name">Last Name</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password" name="password" type="password" class="validate">
+                            <input name="password" type="password" class="validate">
                             <label for="password">Password</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="_email" name="_email" type="email" class="validate">
+                            <input name="_email" type="email" class="validate">
                             <label for="_email">Email</label>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                         <div class="switch">
                             <label>
                             Client
-                            <input id="is_staff" name="is_staff" type="checkbox">
+                            <input name="is_staff" type="checkbox">
                             <span class="lever"></span>
                             Staff
                             </label>
@@ -123,7 +123,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="user_description" name="user_description" class="materialize-textarea"></textarea>
+                            <textarea name="user_description" class="materialize-textarea"></textarea>
                             <label for="user_description">Bio</label>
                         </div>
                     </div>
@@ -138,35 +138,35 @@
                 <form action="{{ url_for('insert_service') }}" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="service_first_name" name="service_first_name" type="text" class="validate" required>
+                            <input name="service_first_name" type="text" class="validate" required>
                             <label for="service_first_name">First Name</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="service_last_name" name="service_last_name" type="text" class="validate">
+                            <input name="service_last_name" type="text" class="validate">
                             <label for="service_last_name">Last Name</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password" name="password" type="password" class="validate">
+                            <input name="password" type="password" class="validate">
                             <label for="password">Password</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="type_of_service" name="type_of_service" type="text" class="validate" required>
+                            <input name="type_of_service" type="text" class="validate" required>
                             <label for="first_name">Type of service</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="service_description" name="service_description" class="materialize-textarea"></textarea>
+                            <textarea name="service_description" class="materialize-textarea"></textarea>
                             <label for="service_description">Short description</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="_email" name="_email" type="email" class="validate">
+                            <input name="_email" type="email" class="validate">
                             <label for="_email">Email</label>
                         </div>
                     </div>
@@ -181,29 +181,29 @@
                 <form action="{{ url_for('insert_store') }}" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="store_name" name="store_name" type="text" class="validate">
+                            <input name="store_name" type="text" class="validate">
                             <label for="store_name">Store Name</label>
                         </div>
                         <div class="input-field col s6">
-                            <input id="store_address" name="store_address" type="text" class="validate" required>
+                            <input name="store_address" type="text" class="validate" required>
                             <label for="store_addres">Store Address</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="_email" name="_email" type="email" class="validate">
+                            <input name="_email" type="email" class="validate">
                             <label for="_email">Email</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password" name="password" type="password" class="validate">
+                            <input name="password" type="password" class="validate">
                             <label for="password">Password</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="store_description" name="store_description" class="materialize-textarea"></textarea>
+                            <textarea name="store_description" class="materialize-textarea"></textarea>
                             <label for="store_description">Short description</label>
                         </div>
                     </div>
