@@ -162,30 +162,18 @@ def get_stores():
 def update_entry(usr_type, usr_id):
 
     if usr_type == 'dogs':
-        return update_dog(usr_id)
+        user = mongo.db.dogs
+        get_user = 'get_dogs'
     elif usr_type == 'users':
-        return update_user(usr_id)
+        user = mongo.db.users
+        get_user = 'get_users'
     elif usr_type == 'services':
-        return update_service(usr_id)
+        user = mongo.db.services
+        get_user = 'get_services'
     else:
-        return update_store(usr_id)
-
-
-# @app.route('/<usr_type>/<usr_id>', methods=['GET', 'POST'])
-def update_dog(usr_type, usr_id):
-    dogs = mongo.db.dogs
-    dogs.update_one({'_id': ObjectId(usr_id)},
-        {
-            'dog_name': request.form.get('dog_name'),
-            'dog_breed': request.form.get('dog_breed'),
-            'dog_description': request.form.get('dog_description')
-        })
-    # return redirect(url_for('get_dogs', edit_dog=mongo.db.dogs.find_one({'_id': usr_id})))
-    return redirect(url_for('get_dogs'))
-
-
-def update_user(usr_type, usr_id):
-    user = mongo.db.users
+        user = mongo.db.stores
+        get_user = 'get_stores'
+    
     document = user.find_one()
     for key in document:
         if key != '_id':
@@ -193,33 +181,59 @@ def update_user(usr_type, usr_id):
             if field_name:
                 user.update_one({'_id': ObjectId(usr_id)},
                     {'$set': {key: request.form.get(key)} })
+    
+    return redirect(url_for(get_user))
 
-    return redirect(url_for('get_users'))
+
+# # @app.route('/<usr_type>/<usr_id>', methods=['GET', 'POST'])
+# def update_dog(usr_type, usr_id):
+#     dogs = mongo.db.dogs
+#     dogs.update_one({'_id': ObjectId(usr_id)},
+#         {
+#             'dog_name': request.form.get('dog_name'),
+#             'dog_breed': request.form.get('dog_breed'),
+#             'dog_description': request.form.get('dog_description')
+#         })
+#     # return redirect(url_for('get_dogs', edit_dog=mongo.db.dogs.find_one({'_id': usr_id})))
+#     return redirect(url_for('get_dogs'))
 
 
-def update_service(usr_id):
-    service = mongo.db.services
-    document = service.find_one()
-    for key in document:
-        if key != '_id':
-            field_name = request.form.get(key)
-            if field_name:
-                service.update_one({'_id': ObjectId(usr_id)},
-                    {'$set': {key: request.form.get(key)} })           
+# def update_user(usr_type, usr_id):
+#     user = mongo.db.users
+#     document = user.find_one()
+#     for key in document:
+#         if key != '_id':
+#             field_name = request.form.get(key)
+#             if field_name:
+#                 user.update_one({'_id': ObjectId(usr_id)},
+#                     {'$set': {key: request.form.get(key)} })
 
-    return redirect(url_for('get_services'))
+#     return redirect(url_for('get_users'))
 
-@app.route('/<usr_type>/<usr_id>', methods=['GET', 'POST'])
-def update_store(usr_type, usr_id):
-    store = mongo.db.stores
-    store.update_one({'_id': ObjectId(usr_id)},
-        {
-            'store_name': request.form.get('store_name'),
-            'store_address': request.form.get('store_address'),
-            'store_description': request.form.get('store_description'),
-            '_email': request.form.get('_email')
-        })
-    return redirect(url_for('get_stores'))
+
+# def update_service(usr_id):
+#     service = mongo.db.services
+#     document = service.find_one()
+#     for key in document:
+#         if key != '_id':
+#             field_name = request.form.get(key)
+#             if field_name:
+#                 service.update_one({'_id': ObjectId(usr_id)},
+#                     {'$set': {key: request.form.get(key)} })           
+
+#     return redirect(url_for('get_services'))
+
+# @app.route('/<usr_type>/<usr_id>', methods=['GET', 'POST'])
+# def update_store(usr_type, usr_id):
+#     store = mongo.db.stores
+#     store.update_one({'_id': ObjectId(usr_id)},
+#         {
+#             'store_name': request.form.get('store_name'),
+#             'store_address': request.form.get('store_address'),
+#             'store_description': request.form.get('store_description'),
+#             '_email': request.form.get('_email')
+#         })
+#     return redirect(url_for('get_stores'))
 
 
 # DELETE
