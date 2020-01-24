@@ -22,11 +22,11 @@
                             <span>Adopt</span>
                         </a>
                         {% if session['is_staff'] %}
-                        <a type="submit" id="{{dog._id}}" name="edit" value="dogs" class="waves-effect waves-light btn card-action-button edit-button">
+                        <a id="{{dog._id}}" name="edit" value="dog" class="waves-effect waves-light btn card-action-button edit-button">
                             <i class="material-icons right card-action-button-icon">edit</i>
                             <span>Edit</span>
                         </a>
-                        <a type="submit" id="{{dog._id}}" name="delete_dog" class="waves-effect waves-light btn card-action-button delete-button">
+                        <a id="{{dog._id}}" name="delete_dog" class="waves-effect waves-light btn card-action-button delete-button">
                             <i class="material-icons right card-action-button-icon">delete</i>
                             <span>Delete</span>
                         </a>
@@ -44,17 +44,17 @@
                     <form action="{{ url_for('update_entry', usr_type='dogs', usr_id=dog._id) }}" method="POST" class="col s12 edit-dog-form">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="dog_name" name="dog_name" type="text" class="validate">
+                                <input name="dog_name" type="text" class="validate">
                                 <label for="dog_name">{{dog.dog_name}}</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="dog_breed" name="dog_breed" type="text" class="validate">
+                                <input name="dog_breed" type="text" class="validate">
                                 <label for="dog_breed">{{dog.dog_breed}}</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="dog_description" name="dog_description" class="materialize-textarea"></textarea>
+                                <textarea name="dog_description" class="materialize-textarea"></textarea>
                                 <label for="icon_telephone">{{dog.dog_description}}</label>
                             </div>
                         </div>

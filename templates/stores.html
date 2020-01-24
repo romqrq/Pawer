@@ -17,11 +17,11 @@
                     </div>
                     {% if session['is_staff'] %}
                     <div class="col s12 m2 buttons-row">
-                        <a type="submit" id="{{store._id}}" name="edit-store" value="store" class="waves-effect waves-light btn card-action-button edit-button">
+                        <a id="{{store._id}}" name="edit-store" value="store" class="waves-effect waves-light btn card-action-button edit-button">
                             <i class="material-icons right card-action-button-icon">edit</i>
                             <span>Edit</span>
                         </a>
-                        <a type="submit" id="{{store._id}}" name="delete_store" class="waves-effect waves-light btn card-action-button delete-button">
+                        <a id="{{store._id}}" name="delete_store" class="waves-effect waves-light btn card-action-button delete-button">
                             <i class="material-icons right card-action-button-icon">delete</i>
                             <span>Delete</span>
                         </a>
@@ -40,29 +40,29 @@
                     <form action="{{ url_for('update_entry', usr_type='stores', usr_id=store._id) }}" method="POST" class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="store_name" name="store_name" type="text" class="validate">
+                                <input name="store_name" type="text" class="validate">
                                 <label for="store_name">{{store.store_name}}</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="store_address" name="store_address" type="text" class="validate">
+                                <input name="store_address" type="text" class="validate">
                                 <label for="store_addres">{{store.store_address}}</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="_email" name="_email" type="email" class="validate">
+                                <input name="_email" type="email" class="validate">
                         <label for="_email">{{store._email}}</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="password" name="password" type="password" class="validate">
+                                <input name="password" type="password" class="validate">
                                 <label for="password">{{store.password}}</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea id="store_description" name="store_description" class="materialize-textarea"></textarea>
+                                <textarea name="store_description" class="materialize-textarea"></textarea>
                                 <label for="store_description">{{store.store_description}}</label>
                             </div>
                         </div>
