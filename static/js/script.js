@@ -26,14 +26,11 @@ $('.edit-button').click(function(){
     $(`#${user_id}.edit-form-box`).removeClass('hide');
     $('.edit-form-box').not(`#${user_id}`).addClass('hide');
     $('.delete-form-box').not('.hide').addClass('hide');
-    elTarget = $(`#${user_id}.edit-form-box`);
-    // setTimeout(scrollDown(elTarget), 1000);
-    // $(`.edit-form-box#${user_id}`).scrollIntoView();
-    // $(`#${user_id}.edit-form-box`).scrollIntoView();
-    // scrolldown(target)
+
 });
+
 //Event triggered by click to show "delete form" and hide the "edit form" or any forms
-//belonging to other user_id's are being displayed.
+//belonging to other user_id's that are being displayed.
 $('.delete-button').click(function(){
     user_id = $(this).attr('id');
     $(`#${user_id}.delete-form-box`).removeClass('hide');
