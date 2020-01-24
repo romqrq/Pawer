@@ -18,8 +18,9 @@ a {
 }
 
 .parallax-container {
-  top: 5.5rem;
+  top: 3.5rem;
   width: 100%;
+  max-height: 70vh;
 }
 
 .parallax-container .parallax img {
