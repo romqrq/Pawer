@@ -158,10 +158,23 @@ def get_stores():
     return render_template('stores.html', stores=mongo.db.stores.find())
 
 # UPDATE
-@app.route('/dogs/<usr_id>', methods=['GET', 'POST'])
-def update_dog(usr_id):
+@app.route('/update/<usr_type>/<usr_id>', methods=['GET', 'POST'])
+def update_entry(usr_type, usr_id):
+
+    if usr_type == 'dogs':
+        return update_dog(usr_id)
+    elif usr_type == 'users':
+        return update_user(usr_id)
+    elif usr_type == 'services':
+        return update_service(usr_id)
+    else:
+        return update_store(usr_id)
+
+
+# @app.route('/<usr_type>/<usr_id>', methods=['GET', 'POST'])
+def update_dog(usr_type, usr_id):
     dogs = mongo.db.dogs
-    dogs.update({'_id': ObjectId(usr_id)},
+    dogs.update_one({'_id': ObjectId(usr_id)},
         {
             'dog_name': request.form.get('dog_name'),
             'dog_breed': request.form.get('dog_breed'),
@@ -171,39 +184,35 @@ def update_dog(usr_id):
     return redirect(url_for('get_dogs'))
 
 
-@app.route('/user/<usr_id>', methods=['GET', 'POST'])
-def update_user(usr_id):
+def update_user(usr_type, usr_id):
     user = mongo.db.users
-    user.update({'_id': ObjectId(usr_id)},
-        {
-            'first_name': request.form.get('first_name'),
-            'last_name': request.form.get('last_name'),
-            'password': request.form.get('password'),
-            '_email': request.form.get('_email'),
-            'is_staff': request.form.get('is_staff'),
-            'user_description': request.form.get('user_description')
-        })
+    document = user.find_one()
+    for key in document:
+        if key != '_id':
+            field_name = request.form.get(key)
+            if field_name:
+                user.update_one({'_id': ObjectId(usr_id)},
+                    {'$set': {key: request.form.get(key)} })
+
     return redirect(url_for('get_users'))
 
 
-@app.route('/services/<usr_id>', methods=['GET', 'POST'])
 def update_service(usr_id):
     service = mongo.db.services
-    service.update({'_id': ObjectId(usr_id)}, 
-        {
-            'first_name': request.form.get('first_name'),
-            'last_name': request.form.get('last_name'),
-            'type_of_service': request.form.get('type_of_service'),
-            'service_description': request.form.get('service_description'),
-            '_email': request.form.get('_email'),
-            'password': request.form.get('password')
-        })
+    document = service.find_one()
+    for key in document:
+        if key != '_id':
+            field_name = request.form.get(key)
+            if field_name:
+                service.update_one({'_id': ObjectId(usr_id)},
+                    {'$set': {key: request.form.get(key)} })           
+
     return redirect(url_for('get_services'))
 
-@app.route('/stores/<usr_id>', methods=['GET', 'POST'])
-def update_store(usr_id):
+@app.route('/<usr_type>/<usr_id>', methods=['GET', 'POST'])
+def update_store(usr_type, usr_id):
     store = mongo.db.stores
-    store.update({'_id': ObjectId(usr_id)},
+    store.update_one({'_id': ObjectId(usr_id)},
         {
             'store_name': request.form.get('store_name'),
             'store_address': request.form.get('store_address'),
@@ -211,6 +220,7 @@ def update_store(usr_id):
             '_email': request.form.get('_email')
         })
     return redirect(url_for('get_stores'))
+
 
 # DELETE
 @app.route('/delete/<usr_type>/<usr_id>', methods=['GET', 'POST'])
@@ -229,7 +239,7 @@ def delete_entry(usr_type, usr_id):
         url = 'get_stores'
     usr.delete_one({'_id': ObjectId(usr_id)})
     return redirect(url_for(url))
-    
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
