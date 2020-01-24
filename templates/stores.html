@@ -37,7 +37,7 @@
                 </div>
                 {% if session['is_staff'] %}
                 <div class="edit-form-box hide" id="{{ store._id }}">
-                    <form action="{{ url_for('update_store', usr_id=store._id) }}" method="POST" class="col s12">
+                    <form action="{{ url_for('update_entry', usr_type='stores', usr_id=store._id) }}" method="POST" class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="store_name" name="store_name" type="text" class="validate">

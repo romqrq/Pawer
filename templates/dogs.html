@@ -41,14 +41,14 @@
                 </div>
                 {% if session['is_staff'] %}
                 <div class="edit-form-box hide" id="{{dog._id}}">
-                    <form action="{{ url_for('update_dog', usr_id=dog._id) }}" method="POST" class="col s12 edit-dog-form">
+                    <form action="{{ url_for('update_entry', usr_type='dogs', usr_id=dog._id) }}" method="POST" class="col s12 edit-dog-form">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="dog_name" name="dog_name" type="text" class="validate" required>
+                                <input id="dog_name" name="dog_name" type="text" class="validate">
                                 <label for="dog_name">{{dog.dog_name}}</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="dog_breed" name="dog_breed" type="text" class="validate" required>
+                                <input id="dog_breed" name="dog_breed" type="text" class="validate">
                                 <label for="dog_breed">{{dog.dog_breed}}</label>
                             </div>
                         </div>
