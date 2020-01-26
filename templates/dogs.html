@@ -22,11 +22,11 @@
                             <span>Adopt</span>
                         </a>
                         {% if session['is_staff'] %}
-                        <a id="{{dog._id}}" name="edit" value="dog" class="waves-effect waves-light btn card-action-button edit-button">
+                        <a id="{{dog._id}}" value="edit" class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">edit</i>
                             <span>Edit</span>
                         </a>
-                        <a id="{{dog._id}}" name="delete_dog" class="waves-effect waves-light btn card-action-button delete-button">
+                        <a id="{{dog._id}}" value="delete" class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">delete</i>
                             <span>Delete</span>
                         </a>
@@ -40,22 +40,22 @@
                     </div>
                 </div>
                 {% if session['is_staff'] %}
-                <div class="edit-form-box hide" id="{{dog._id}}">
+                <div class="form-box hide" id="{{dog._id}}" value='edit'>
                     <form action="{{ url_for('update_entry', usr_type='dogs', usr_id=dog._id) }}" method="POST" class="col s12 edit-dog-form">
                         <div class="row">
                             <div class="input-field col s6">
                                 <input name="dog_name" type="text" class="validate">
-                                <label for="dog_name">{{dog.dog_name}}</label>
+                                <label for="dog_name">Dog Name</label>
                             </div>
                             <div class="input-field col s6">
                                 <input name="dog_breed" type="text" class="validate">
-                                <label for="dog_breed">{{dog.dog_breed}}</label>
+                                <label for="dog_breed">Dog Breed</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea name="dog_description" class="materialize-textarea"></textarea>
-                                <label for="icon_telephone">{{dog.dog_description}}</label>
+                                <label for="icon_telephone">Description</label>
                             </div>
                         </div>
                         <div class="row">
@@ -65,7 +65,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="delete-form-box hide" id="{{dog._id}}">
+                <div class="form-box hide" id="{{dog._id}}" value='delete'>
                     <form action="{{ url_for('delete_entry', usr_type='dogs', usr_id=dog._id) }}" method="POST" class="col s12 delete-form">
                         <div class="row">
                            <h3>Are you sure ou want to delete?</h3>
