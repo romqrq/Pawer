@@ -35,6 +35,10 @@ a {
   z-index: 1;
 }
 
+.drag-target {
+  z-index: 1;
+}
+
 /* Typography */
 .heading-text {
   font-family: "Alfa Slab One", sans-serif;
