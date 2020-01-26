@@ -14,7 +14,7 @@
                     <p class="card-title">Dogs</p>
                     <div class="card-image">
                         <i class="material-icons card-icon">pets</i>
-                        <a value="dogs" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse account-type"><i class="material-icons">add</i></a>
+                        <a id="dogs" value="dogs" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse form-trigger"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>Add new dog to the database</p>
@@ -26,7 +26,7 @@
                     <p class="card-title">User</p>
                     <div class="card-image">
                         <i class="material-icons card-icon">person</i>     
-                        <a value="users" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse account-type"><i class="material-icons">add</i></a>
+                        <a id="users" value="users" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse form-trigger"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>Adopt, hire a service or find the nearest store!</p>
@@ -38,7 +38,7 @@
                     <p class="card-title">Services</p>
                     <div class="card-image">
                         <i class="material-icons card-icon">supervisor_account</i>  
-                        <a value="services" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse account-type"><i class="material-icons">add</i></a>
+                        <a id="services" value="services" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse form-trigger"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>Offer your service and find new customers!</p>
@@ -50,7 +50,7 @@
                     <p class="card-title">Stores</p>
                     <div class="card-image">
                         <i class="material-icons card-icon">shopping_cart</i>
-                        <a value="stores" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse account-type"><i class="material-icons">add</i></a>
+                        <a id="stores" value="stores" class="btn-floating btn-large halfway-fab waves-effect waves-light red pulse form-trigger"><i class="material-icons">add</i></a>
                     </div>
                     <div class="card-content">
                         <p>Expose your brand to new consumers!</p>
@@ -58,12 +58,12 @@
                 </div>
             </div>
         </div>
-        {%if dog==True%}
+        {%if existing_dog==True%}
             <h2>This dog is already in the database!</h2>
         {% endif %}
         <div class="row">
-            <div class="row hide" id="dogs">
-                <form action="{{ url_for('insert_dog') }}" method="POST" class="col s12">
+            <div class="row form-box hide" id="dogs" value="dogs">
+                <form action="{{ url_for('add_entry', usr_type='dogs') }}" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
                             <input name="dog_name" type="text" class="validate" required>
@@ -87,8 +87,11 @@
                     </div>
                 </form>
             </div>
-            <div class="row hide" id="users">
-                <form action="{{ url_for('insert_user') }}" method="POST" class="col s12">
+            {%if existing_user==True%}
+            <h2>This user email is already in the database!</h2>
+            {% endif %}
+            <div class="row form-box hide" id="users" value="users">
+                <form action="{{ url_for('add_entry', usr_type='users') }}" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
                             <input name="first_name" type="text" class="validate" required>
@@ -111,16 +114,18 @@
                             <label for="_email">Email</label>
                         </div>
                     </div>
+                    {% if session['is_staff'] %}
                     <div class="row">
                         <div class="switch">
                             <label>
                             Client
-                            <input name="is_staff" type="checkbox">
+                            <input name="is_staff" type="checkbox" unchecked>
                             <span class="lever"></span>
                             Staff
                             </label>
                         </div>
                     </div>
+                    {% endif %}
                     <div class="row">
                         <div class="input-field col s12">
                             <textarea name="user_description" class="materialize-textarea"></textarea>
@@ -134,8 +139,11 @@
                     </div>
                 </form>
             </div>
-            <div class="row hide" id="services">
-                <form action="{{ url_for('insert_service') }}" method="POST" class="col s12">
+            {%if existing_service==True%}
+            <h2>This service email is already in the database!</h2>
+            {% endif %}
+            <div class="row form-box hide" id="services" value="services">
+                <form action="{{ url_for('add_entry', usr_type='service') }}" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
                             <input name="service_first_name" type="text" class="validate" required>
@@ -177,8 +185,11 @@
                     </div>
                 </form>
             </div>
-            <div class="row hide" id="stores">
-                <form action="{{ url_for('insert_store') }}" method="POST" class="col s12">
+            {%if existing_store==True%}
+            <h2>This store email is already in the database!</h2>
+            {% endif %}
+            <div class="row form-box hide" id="stores" value="stores">
+                <form action="{{ url_for('add_entry', usr_type='stores') }}" method="POST" class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
                             <input name="store_name" type="text" class="validate">

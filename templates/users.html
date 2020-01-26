@@ -15,13 +15,13 @@
                             <i class="material-icons card-icon">person</i>
                         </div>
                     </div>
-                    {% if ( session['is_staff'] or user._id == session['_id'] ) %}
+                    {% if session['is_staff'] %}
                     <div class="col s12 m2 buttons-row">
-                        <a id="{{user._id}}" name="edit-user" value="user" class="waves-effect waves-light btn card-action-button edit-button">
+                        <a id="{{user._id}}" value="edit" class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">edit</i>
                             <span>Edit</span>
                         </a>
-                        <a id="{{user._id}}" name="delete-user" class="waves-effect waves-light btn card-action-button delete-button">
+                        <a id="{{user._id}}" value="delete" class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">delete</i>
                             <span>Delete</span>
                         </a>
@@ -38,30 +38,31 @@
                     </div>
                 </div>
                 {% if session['is_staff'] %}
-                <div class="edit-form-box hide" id="{{ user._id }}">
+                <div class="form-box hide" id="{{ user._id }}" value="edit">
                     <form action="{{ url_for('update_entry', usr_type='users', usr_id=user._id) }}" method="POST" class="col s12">
                         <div class="row">
                             <div class="input-field col s6">
                                 <input name="first_name" type="text" class="validate">
-                                <label for="first_name">{{user.first_name}}</label>
+                                <label for="first_name">First Name</label>
                             </div>
                             <div class="input-field col s6">
                                 <input name="last_name" type="text" class="validate">
-                                <label for="last_name">{{user.last_name}}</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="password" type="password" class="validate">
-                                <label for="password">{{user.password}}</label>
+                                <label for="last_name">Last Name</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="_email" type="email" class="validate">
-                                <label for="_email">{{user._email}}</label>
+                                <label for="_email">Email</label>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        {% if session['is_staff'] %}
                         <div class="row">
                             <div class="switch">
                                 <label>
@@ -72,10 +73,11 @@
                                 </label>
                             </div>
                         </div>
+                        {% endif %}
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea name="user_description" class="materialize-textarea"></textarea>
-                                <label for="user_description">{{user.user_description}}</label>
+                                <label for="user_description">Bio</label>
                             </div>
                         </div>
                         <div class="row">
@@ -85,7 +87,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="delete-form-box hide" id="{{user._id}}">
+                <div class="form-box hide" id="{{user._id}}" value="delete">
                     <form action="{{ url_for('delete_entry', usr_type='users', usr_id=user._id) }}" method="POST" class="col s12 delete-form">
                         <div class="row">
                            <h3>Are you sure ou want to delete?</h3>

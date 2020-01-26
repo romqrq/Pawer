@@ -17,11 +17,11 @@
                     </div>
                     {% if session['is_staff'] %}
                     <div class="col s12 m2 buttons-row">
-                        <a id="{{service._id}}" name="edit-service" value="service" class="waves-effect waves-light btn card-action-button edit-button">
+                        <a id="{{service._id}}" value="edit" class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">edit</i>
                             <span>Edit</span>
                         </a>
-                        <a id="{{service._id}}" name="delete-service" class="waves-effect waves-light btn card-action-button delete-button">
+                        <a id="{{service._id}}" value="delete" class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">delete</i>
                             <span>Delete</span>
                         </a>
@@ -36,34 +36,40 @@
                     </div>
                 </div>
                 {% if session['is_staff'] %}
-                <div class="edit-form-box hide" id="{{ service._id }}">
+                <div class="form-box hide" id="{{ service._id }}" value="edit">
                     <form action="{{ url_for('update_entry', usr_type='services', usr_id=service._id) }}" method="POST" class="col s12">
                         <div class="row">
                             <div class="input-field col s6">
                                 <input name="first_name" type="text" class="validate">
-                                <label for="first_name">{{service.first_name}}</label>
+                                <label for="first_name">First Name</label>
                             </div>
                             <div class="input-field col s6">
                                 <input name="last_name" type="text" class="validate">
-                                <label for="last_name">{{service.last_name}}</label>
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input name="_email" type="email" class="validate">
+                                <label for="_email">Email</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <input name="password" type="password" class="validate">
-                                <label for="password">{{service.password}}</label>
+                                <label for="password">Password</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
                                 <input name="type_of_service" type="text" class="validate">
-                                <label for="first_name">{{service.type_of_service}}</label>
+                                <label for="first_name">Type of Service</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
                                 <textarea name="service_description" class="materialize-textarea"></textarea>
-                                <label for="service_description">{{service.service_description}}</label>
+                                <label for="service_description">Service Description</label>
                             </div>
                         </div>
                         <div class="row">
@@ -79,7 +85,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="delete-form-box hide" id="{{service._id}}">
+                <div class="form-box hide" id="{{service._id}}" value="delete">
                     <form action="{{ url_for('delete_entry', usr_type='services', usr_id=service._id) }}" method="POST" class="col s12 delete-form">
                         <div class="row">
                            <h3>Are you sure ou want to delete?</h3>
