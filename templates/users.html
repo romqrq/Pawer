@@ -1,11 +1,24 @@
 
 {% extends 'base.html' %}
 {% block content %}
+
 <div class="parallax-container">
     <div class="parallax"><img src="/static/images/pup_deck.jpg"></div>
 </div>
 <div class="section white">
     <div class="row container">
+    {% if session[is_staff] != 'is_staff' %}
+        <div class="col s12">
+            <p class="heading-text">Oops! This area is for staff only.</p>
+            <p class="secondary-text">Not to worry! Click on the button below and we will bring you back home.</p>
+            <a href="{{url_for('user_home')}}" class="waves-effect waves-light btn card-action-button">
+                <i class="material-icons right card-action-button-icon">home</i>
+                <span>Bring me back home</span>
+            </a>
+
+        </div>
+    {% endif %}
+    {% if session['is_staff'] == 'is_staff' %}
         <div class="row card-row-find">
             {% for user in users %}
                 <div class="card row card-item-row">
@@ -43,7 +56,9 @@
                 {% endif %}
             {% endfor %}
         </div>
+    {% endif %}    
     </div>
 </div>  
+
 
 {% endblock %}
