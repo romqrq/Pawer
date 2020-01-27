@@ -1,23 +1,35 @@
-<div class="form-box hide" id="{{dog._id}}" value='edit'>
-    <form action="{{ url_for('update_entry', usr_type='dogs', usr_id=dog._id) }}" method="POST" class="col s12 edit-dog-form">
+<div class="form-box hide" id="{{ store._id }}" value="edit">
+    <form action="{{ url_for('update_entry', usr_type='stores', usr_id=store._id) }}" method="POST" class="col s12">
         <div class="row">
-            <div class="input-field col s6">
-                <input name="dog_name" type="text" class="validate">
-                <label for="dog_name">Dog Name</label>
+            <div class="input-field col s12">
+                <input name="store_name" type="text" class="validate">
+                <label for="store_name">Store Name</label>
             </div>
             <div class="input-field col s6">
-                <input name="dog_breed" type="text" class="validate">
-                <label for="dog_breed">Dog Breed</label>
+                <input name="store_address" type="text" class="validate">
+                <label for="store_addres">Store Address</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="dog_description" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Description</label>
+                <input name="_email" type="email" class="validate">
+        <label for="_email">Email</label>
             </div>
         </div>
         <div class="row">
-            <button action="" class="btn waves-effect waves-light" type="submit">Update
+            <div class="input-field col s12">
+                <input name="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="store_description" class="materialize-textarea"></textarea>
+                <label for="store_description">Store Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Update Account
                 <i class="material-icons right">edit</i>
             </button>
         </div>
