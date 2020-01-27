@@ -22,10 +22,9 @@ app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
 # Creating an instance of PyMongo
 mongo = PyMongo(app)
 @app.route('/')
-# @app.route('/user_home')
 def user_home():
     """ Main page where users can choose where to go"""
-    return render_template('user_home.html')
+    return render_template('index.html')
 
 # Choosing type of account and adding a new user to database
 @app.route('/register')
@@ -53,7 +52,7 @@ def user_login():
                     if login_user['is_staff']:
                         session['is_staff'] = login_user['is_staff']
                     else:
-                        session['not_staff'] = 'not_staff'
+                        session['is_staff'] = 'not_staff'
                     return render_template('login.html', user='valid')
         if user_type == 'service':
             login_user = services.find_one({'_email': request.form['login_email']})
@@ -79,40 +78,10 @@ def user_login():
 @app.route('/logout', methods=['GET', 'POST'])
 def user_logout():
     """ Loads page where users can login """
-    users = mongo.db.users
-    services = mongo.db.services
-    stores = mongo.db.stores
-    if request.method == 'POST':
-        user_type = request.form["user_type_radio"]
-        form_pwd = request.form['password']
-        if user_type == 'user':
-            login_user = users.find_one({'_email' : request.form['login_email']})
-            if login_user:
-                user_id = str(login_user['_id'])
-                db_pwd = login_user['password']
-                if form_pwd == db_pwd:
-                    session['user_id'] = user_id
-                    # staff_user = login_user['is_staff']
-                    if login_user['is_staff']:
-                        session['is_staff'] = login_user['is_staff']
-                    else:
-                        session['not_staff'] = 'not_staff'
-                    return render_template('login.html', user='valid')
-        if user_type == 'service':
-            login_user = services.find_one({'_email': request.form['login_email']})
-            if login_user:
-                db_pwd = login_user['password']
-                if form_pwd == db_pwd:
-                    return render_template('login.html', user='valid')
-        if user_type == 'store':
-            login_user = stores.find_one({'_email': request.form['login_email']})
-            if login_user:
-                db_pwd = login_user['password']
-                if form_pwd == db_pwd:
-                    return render_template('login.html', user='valid')
 
-        else: 
-            return render_template('login.html', user='invalid')
+    session.pop('user_id')
+    session.pop('is_staff')
+
  
     return render_template('login.html')
 
@@ -149,69 +118,6 @@ def add_entry(usr_type):
                         {'$set': {'is_staff': 'not_staff'} })
             return redirect(url_for('user_home'))
     
-
-
-# Add dog
-# @app.route('/new_dog', methods=['POST'])
-# def insert_dog():
-#     """ Function to add dogs to the database """
-#     # Check if the user already exists in the database
-#     if request.method == "POST":
-#         dogs = mongo.db.dogs
-#         existing_dog = dogs.find_one({'dog_name': request.form['dog_name']})
-
-#         if existing_dog is None:
-#             dogs.insert_one(request.form.to_dict())
-#             return redirect(url_for('register'))
-        
-#         return render_template('register.html', existing_dog=True)
-
-#     return redirect(url_for('user_home'))
-
-# # Add user
-# @app.route('/new_user', methods=['POST'])
-# def insert_user():
-#     """ Function to add users to the database """
-#     users = mongo.db.users
-#     # Check for existing user email. If the user exists, user gets visual feedback
-#     existing_user = users.find_one({'_email': request.form['_email']})
-
-#     if existing_user is None:
-#         # If the user doesn't exists, convert form to dictionary and add to Mongo DB
-#         users.insert_one(request.form.to_dict())
-#         #Checking for 'is_staff' key, if none is returned from form, add key and value to user document on database.
-#         try:
-#             request.form['is_staff']
-#         except:
-#             users.update_one({'_email': request.form.get('_email')},
-#                     {'$set': {'is_staff': 'not_staff'} })
-
-#         return redirect(url_for('user_home'))
-        
-#     return render_template('register.html', existing_user=True)
-    
-    
-
-# # Add service
-# @app.route('/new_service', methods=['POST'])
-# def insert_service():
-#     """ Function to add services to the database """
-#     services = mongo.db.services
-#     # Converting form to dictionary for Mongo
-#     services.insert_one(request.form.to_dict())
-#     # Redirecting user to home screen
-#     return redirect(url_for('user_home'))
-
-# # Add store
-# @app.route('/new_store', methods=['POST'])
-# def insert_store():
-#     """ Function to add stores to the database """
-#     stores=mongo.db.stores
-#     # Converting form to dictionary for Mongo
-#     stores.insert_one(request.form.to_dict())
-#     # Redirecting user to home screen
-#     return redirect(url_for('user_home'))
-
 
 # READ
 # Find dog
