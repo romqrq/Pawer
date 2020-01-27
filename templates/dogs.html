@@ -40,7 +40,8 @@
                     </div>
                 </div>
                 {% if session['is_staff'] %}
-                <div class="form-box hide" id="{{dog._id}}" value='edit'>
+                {% include 'forms/dogs/edit-dog.html' %}
+                <!-- <div class="form-box hide" id="{{dog._id}}" value='edit'>
                     <form action="{{ url_for('update_entry', usr_type='dogs', usr_id=dog._id) }}" method="POST" class="col s12 edit-dog-form">
                         <div class="row">
                             <div class="input-field col s6">
@@ -64,8 +65,9 @@
                             </button>
                         </div>
                     </form>
-                </div>
-                <div class="form-box hide" id="{{dog._id}}" value='delete'>
+                </div> -->
+                {% include 'forms/dogs/delete-dog.html' %}
+                <!-- <div class="form-box hide" id="{{dog._id}}" value='delete'>
                     <form action="{{ url_for('delete_entry', usr_type='dogs', usr_id=dog._id) }}" method="POST" class="col s12 delete-form">
                         <div class="row">
                            <h3>Are you sure ou want to delete?</h3>
@@ -74,7 +76,7 @@
                             </button>
                         </div>
                     </form>
-                </div>
+                </div> -->
                 {% endif %}
 
             {% endfor %}
