@@ -6,7 +6,7 @@
                 <ul id="nav-mobile" class="hide-on-med-and-down">
                     <li><a href="{{url_for('user_home')}}">Home</a></li>
                     <li><a href="{{url_for('get_dogs')}}">Adoption</a></li>
-                    {% if session['is_staff'] %}
+                    {% if session['is_staff'] == 'is_staff' %}
                     <li><a href="{{url_for('get_users')}}">Users</a></li>
                     {% endif %}
                     <li><a href="{{url_for('get_services')}}">Services</a></li>
@@ -15,7 +15,7 @@
                 <ul class="side-nav" id="mobile-menu">
                     <li><a href="{{url_for('user_home')}}">Home</a></li>
                     <li><a href="{{url_for('get_dogs')}}">Adoption</a></li>
-                    {% if session['is_staff'] %}
+                    {% if session['is_staff'] == 'is_staff' %}
                     <li><a href="{{url_for('get_users')}}">Users</a></li>
                     {% endif %}
                     <li><a href="{{url_for('get_services')}}">Services</a></li>
@@ -25,12 +25,12 @@
                         <a href="{{url_for('register')}}" class="col s12 btn waves-effect general-text nav-action-button">Register</a>
                         <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect general-text nav-action-button">Login</a>
                         {% endif %}
-                        {% if session['is_staff'] %}
+                        {% if session['is_staff'] == 'is_staff' %}
                         <a href="{{url_for('register')}}" class="col s12 btn waves-effect general-text nav-action-button">Register</a>
-                        <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect general-text nav-action-button">Logout</a>
+                        <a href="{{url_for('user_logout')}}" class="col s12 btn waves-effect general-text nav-action-button">Logout</a>
                         {% endif %}
-                        {% if session['not_staff'] %}     
-                        <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect general-text nav-action-button">Logout</a>
+                        {% if session['is_staff'] == 'not_staff' %}     
+                        <a href="{{url_for('user_logout')}}" class="col s12 btn waves-effect general-text nav-action-button">Logout</a>
                         {% endif %}
 
                     </div>
