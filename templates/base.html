@@ -13,91 +13,13 @@
 </head>
 
 <body>
-	<header>
-		<nav>
-			<div class="row nav-wrapper">
-                <div class="col s4 menu-box">
-                    <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons menu-icon">menu</i></a>
-                    <ul id="nav-mobile" class="hide-on-med-and-down">
-                        <li><a href="{{url_for('user_home')}}">Home</a></li>
-                        <li><a href="{{url_for('get_dogs')}}">Adoption</a></li>
-                        {% if session['is_staff'] %}
-                        <li><a href="{{url_for('get_users')}}">Users</a></li>
-                        {% endif %}
-                        <li><a href="{{url_for('get_services')}}">Services</a></li>
-                        <li><a href="{{url_for('get_stores')}}">Stores</a></li>                
-                    </ul>
-                    <ul class="side-nav" id="mobile-menu">
-                        <li><a href="{{url_for('user_home')}}">Home</a></li>
-                        <li><a href="{{url_for('get_dogs')}}">Adoption</a></li>
-                        {% if session['is_staff'] %}
-                        <li><a href="{{url_for('get_users')}}">Users</a></li>
-                        {% endif %}
-                        <li><a href="{{url_for('get_services')}}">Services</a></li>
-                        <li><a href="{{url_for('get_stores')}}">Stores</a></li> 
-                        <div class="row register-box show-on-small-only">
-                            {% if not session %}
-                            <a href="{{url_for('register')}}" class="col s12 btn waves-effect general-text nav-action-button">Register</a>
-                            <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect general-text nav-action-button">Login</a>
-                            {% endif %}
-                            {% if session['is_staff'] %}
-                            <a href="{{url_for('register')}}" class="col s12 btn waves-effect general-text nav-action-button">Register</a>
-                            <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect general-text nav-action-button">Logout</a>
-                            {% endif %}
-                            {% if session['not_staff'] %}     
-                            <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect general-text nav-action-button">Logout</a>
-                            {% endif %}
-
-                        </div>
-                    </ul>
-                </div>
-                <div class="col s4 logo-box">
-                    <img src="./static/images/pawer_logo.png" alt="Pawer Logo">
-                    <a class="pawer-logo-name" href="{{url_for('user_home')}}" >PAWER</a>
-                    <div class="three-words">
-                        <p>|ADOPTION</p>
-                        <p>|SERVICES</p>
-                        <p>|STORES</p>
-                    </div>
-                </div>
-                <div class="col s4 register-box hide-on-small-only">
-                    <a href="{{url_for('register')}}" class="btn waves-effect general-text nav-action-button">Register</a>
-                    <a href="{{url_for('user_login')}}" class="btn waves-effect general-text nav-action-button">Login</a>
-                </div>
-                
-			</div>
-		</nav>
-	</header>
+    {% include 'header.html' %}
     <main>
         {% block content %}
 
         {% endblock %}
     </main>
-    <!-- Footer structure from Materialize documentation -->
-    <footer class="page-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col s6">
-                    <h5>About PAWER</h5>
-                    <p>We are passionate about dogs and we want to make it easier for everyone to find their best friends.</p>
-                </div>
-                <div class="col offset-s2 s4">
-                    <h5>Visit our Social Channels</h5>
-                    <ul>
-                        <li><a href="#!">Youtube</a></li>
-                        <li><a href="#!">Twitter</a></li>
-                        <li><a href="#!">Facebook</a></li>
-                        <li><a href="#!">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2020 PAWER Copyright
-            </div>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
 	<!-- jQueryhere has to go BEFORE Materialize because jQuery needs to be active FIRST -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
