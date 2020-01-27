@@ -36,53 +36,8 @@
                     </div>
                 </div>
                 {% if session['is_staff'] %}
-                <div class="form-box hide" id="{{ store._id }}" value="edit">
-                    <form action="{{ url_for('update_entry', usr_type='stores', usr_id=store._id) }}" method="POST" class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="store_name" type="text" class="validate">
-                                <label for="store_name">Store Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input name="store_address" type="text" class="validate">
-                                <label for="store_addres">Store Address</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="_email" type="email" class="validate">
-                        <label for="_email">Email</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea name="store_description" class="materialize-textarea"></textarea>
-                                <label for="store_description">Store Description</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <button class="btn waves-effect waves-light" type="submit">Update Account
-                                <i class="material-icons right">edit</i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="form-box hide" id="{{store._id}}" value="delete">
-                    <form action="{{ url_for('delete_entry', usr_type='stores', usr_id=store._id) }}" method="POST" class="col s12 delete-form">
-                        <div class="row">
-                           <h3>Are you sure ou want to delete?</h3>
-                            <button class="btn waves-effect waves-light" type="submit">Yes, Delete
-                                <i class="material-icons right">delete</i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    {% include 'forms/stores/edit-store.html' %}
+                    {% include 'forms/stores/delete-store.html' %}
                 {% endif %}
             {% endfor %}
         </div>
