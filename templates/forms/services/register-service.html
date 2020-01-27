@@ -1,0 +1,43 @@
+<div class="row form-box hide" id="services" value="services">
+    <form action="{{ url_for('add_entry', usr_type='service') }}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input name="service_first_name" type="text" class="validate" required>
+                <label for="service_first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+                <input name="service_last_name" type="text" class="validate">
+                <label for="service_last_name">Last Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input name="_email" type="email" class="validate">
+                <label for="_email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input name="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input name="type_of_service" type="text" class="validate" required>
+                <label for="first_name">Type of service</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="service_description" class="materialize-textarea"></textarea>
+                <label for="service_description">Short description</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Create Account
+                <i class="material-icons right">playlist_add</i>
+            </button>
+        </div>
+    </form>
+</div>

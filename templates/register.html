@@ -58,37 +58,14 @@
                 </div>
             </div>
         </div>
-        {%if existing_dog==True%}
-            <h2>This dog is already in the database!</h2>
-        {% endif %}
         <div class="row">
-            <div class="row form-box hide" id="dogs" value="dogs">
-                <form action="{{ url_for('add_entry', usr_type='dogs') }}" method="POST" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input name="dog_name" type="text" class="validate" required>
-                            <label for="dog_name">Name</label>
-                        </div>
-                         <div class="input-field col s6">
-                            <input name="dog_breed" type="text" class="validate" required>
-                            <label for="dog_breed">Breed</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="dog_description" class="materialize-textarea"></textarea>
-                            <label for="icon_telephone">Short description</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button class="btn waves-effect waves-light" type="submit">Create Account
-                            <i class="material-icons right">playlist_add</i>
-                        </button>
-                    </div>
-                </form>
-            </div>
+            {%if existing_dog==True%}
+                <h2>This dog is already in the database!</h2>
+            {% endif %}
+            {% include 'forms/dogs/register-dog.html' %}
+
             {%if existing_user==True%}
-            <h2>This user email is already in the database!</h2>
+                <h2>This user email is already in the database!</h2>
             {% endif %}
             <div class="row form-box hide" id="users" value="users">
                 <form action="{{ url_for('add_entry', usr_type='users') }}" method="POST" class="col s12">
@@ -140,53 +117,12 @@
                 </form>
             </div>
             {%if existing_service==True%}
-            <h2>This service email is already in the database!</h2>
+                <h2>This service email is already in the database!</h2>
             {% endif %}
-            <div class="row form-box hide" id="services" value="services">
-                <form action="{{ url_for('add_entry', usr_type='service') }}" method="POST" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input name="service_first_name" type="text" class="validate" required>
-                            <label for="service_first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input name="service_last_name" type="text" class="validate">
-                            <label for="service_last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input name="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input name="type_of_service" type="text" class="validate" required>
-                            <label for="first_name">Type of service</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="service_description" class="materialize-textarea"></textarea>
-                            <label for="service_description">Short description</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input name="_email" type="email" class="validate">
-                            <label for="_email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button class="btn waves-effect waves-light" type="submit">Create Account
-                            <i class="material-icons right">playlist_add</i>
-                        </button>
-                    </div>
-                </form>
-            </div>
+            {% include 'forms/services/register-service.html' %}
+
             {%if existing_store==True%}
-            <h2>This store email is already in the database!</h2>
+                <h2>This store email is already in the database!</h2>
             {% endif %}
             <div class="row form-box hide" id="stores" value="stores">
                 <form action="{{ url_for('add_entry', usr_type='stores') }}" method="POST" class="col s12">
