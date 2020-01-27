@@ -15,7 +15,7 @@
                             <i class="material-icons card-icon">supervisor_account</i>
                         </div>
                     </div>
-                    {% if session['is_staff'] %}
+                    {% if session['is_staff'] == 'is_staff' %}
                     <div class="col s12 m2 buttons-row">
                         <a id="{{service._id}}" value="edit" class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">edit</i>
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                 </div>
-                {% if session['is_staff'] %}
+                {% if session['is_staff'] == 'is_staff' %}
                     {% include 'forms/services/edit-service.html' %}
                     {% include 'forms/services/delete-service.html' %}
                 {% endif %}
