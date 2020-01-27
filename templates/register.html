@@ -124,43 +124,7 @@
             {%if existing_store==True%}
                 <h2>This store email is already in the database!</h2>
             {% endif %}
-            <div class="row form-box hide" id="stores" value="stores">
-                <form action="{{ url_for('add_entry', usr_type='stores') }}" method="POST" class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input name="store_name" type="text" class="validate">
-                            <label for="store_name">Store Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input name="store_address" type="text" class="validate" required>
-                            <label for="store_addres">Store Address</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input name="_email" type="email" class="validate">
-                            <label for="_email">Email</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input name="password" type="password" class="validate">
-                            <label for="password">Password</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea name="store_description" class="materialize-textarea"></textarea>
-                            <label for="store_description">Short description</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button class="btn waves-effect waves-light" type="submit">Create Account
-                            <i class="material-icons right">playlist_add</i>
-                        </button>
-                    </div>
-                </form>
-            </div>
+            {% include 'forms/stores/register-store.html' %}
         </div>
     </div>
 </div>  

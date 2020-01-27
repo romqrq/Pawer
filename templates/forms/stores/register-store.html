@@ -1,19 +1,31 @@
-<div class="row form-box hide" id="dogs" value="dogs">
-    <form action="{{ url_for('add_entry', usr_type='dogs') }}" method="POST" class="col s12">
+<div class="row form-box hide" id="stores" value="stores">
+    <form action="{{ url_for('add_entry', usr_type='stores') }}" method="POST" class="col s12">
         <div class="row">
-            <div class="input-field col s6">
-                <input name="dog_name" type="text" class="validate" required>
-                <label for="dog_name">Name</label>
+            <div class="input-field col s12">
+                <input name="store_name" type="text" class="validate">
+                <label for="store_name">Store Name</label>
             </div>
-                <div class="input-field col s6">
-                <input name="dog_breed" type="text" class="validate" required>
-                <label for="dog_breed">Breed</label>
+            <div class="input-field col s6">
+                <input name="store_address" type="text" class="validate" required>
+                <label for="store_addres">Store Address</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="dog_description" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Short description</label>
+                <input name="_email" type="email" class="validate">
+                <label for="_email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input name="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="store_description" class="materialize-textarea"></textarea>
+                <label for="store_description">Short description</label>
             </div>
         </div>
         <div class="row">
