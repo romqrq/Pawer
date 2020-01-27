@@ -38,65 +38,8 @@
                     </div>
                 </div>
                 {% if session['is_staff'] %}
-                <div class="form-box hide" id="{{ user._id }}" value="edit">
-                    <form action="{{ url_for('update_entry', usr_type='users', usr_id=user._id) }}" method="POST" class="col s12">
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <input name="first_name" type="text" class="validate">
-                                <label for="first_name">First Name</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input name="last_name" type="text" class="validate">
-                                <label for="last_name">Last Name</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="_email" type="email" class="validate">
-                                <label for="_email">Email</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input name="password" type="password" class="validate">
-                                <label for="password">Password</label>
-                            </div>
-                        </div>
-                        {% if session['is_staff'] %}
-                        <div class="row">
-                            <div class="switch">
-                                <label>
-                                Client
-                                <input name="is_staff" type="checkbox">
-                                <span class="lever"></span>
-                                Staff
-                                </label>
-                            </div>
-                        </div>
-                        {% endif %}
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea name="user_description" class="materialize-textarea"></textarea>
-                                <label for="user_description">Bio</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <button class="btn waves-effect waves-light" type="submit">Update Account
-                                <i class="material-icons right">edit</i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="form-box hide" id="{{user._id}}" value="delete">
-                    <form action="{{ url_for('delete_entry', usr_type='users', usr_id=user._id) }}" method="POST" class="col s12 delete-form">
-                        <div class="row">
-                           <h3>Are you sure ou want to delete?</h3>
-                            <button class="btn waves-effect waves-light" type="submit">Yes, Delete
-                                <i class="material-icons right">delete</i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    {% include 'forms/users/edit-user.html' %}
+                    {% include 'forms/users/delete-user.html' %}
                 {% endif %}
             {% endfor %}
         </div>
