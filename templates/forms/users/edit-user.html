@@ -1,23 +1,47 @@
-<div class="form-box hide" id="{{dog._id}}" value='edit'>
-    <form action="{{ url_for('update_entry', usr_type='dogs', usr_id=dog._id) }}" method="POST" class="col s12 edit-dog-form">
+<div class="form-box hide" id="{{ user._id }}" value="edit">
+    <form action="{{ url_for('update_entry', usr_type='users', usr_id=user._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input name="dog_name" type="text" class="validate">
-                <label for="dog_name">Dog Name</label>
+                <input name="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input name="dog_breed" type="text" class="validate">
-                <label for="dog_breed">Dog Breed</label>
+                <input name="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="dog_description" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Description</label>
+                <input name="_email" type="email" class="validate">
+                <label for="_email">Email</label>
             </div>
         </div>
         <div class="row">
-            <button action="" class="btn waves-effect waves-light" type="submit">Update
+            <div class="input-field col s12">
+                <input name="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        {% if session['is_staff'] %}
+        <div class="row">
+            <div class="switch">
+                <label>
+                Client
+                <input name="is_staff" type="checkbox">
+                <span class="lever"></span>
+                Staff
+                </label>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="user_description" class="materialize-textarea"></textarea>
+                <label for="user_description">Bio</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Update Account
                 <i class="material-icons right">edit</i>
             </button>
         </div>
