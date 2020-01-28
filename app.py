@@ -6,18 +6,15 @@ from bson.objectid import ObjectId
 from os import path
 if path.exists('env.py'):
     import env
-# from bs4 import BeautifulSoup
 
 # Creating instance of Flask
 app = Flask(__name__)
-# app.secret_key = 'SESSION_KEY'
 app.secret_key = os.environ.get('SECRET_KEY')
-# SECRET_KEY = os.environ.get('SECRET_KEY')
 # Adding Mongo database name and URI linking to that database.
 # URI variable saved as environment variable on GitPod
 app.config["MONGO_DBNAME"] = 'pawer'
-# MONGO_URI = os.environ.get('MONGO_URI')
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
+# app.config['SCSS_LOAD_DIR'] = '/sass'
 
 # Creating an instance of PyMongo
 mongo = PyMongo(app)
@@ -82,7 +79,6 @@ def user_logout():
     session.pop('user_id')
     session.pop('is_staff')
 
- 
     return render_template('login.html')
 
 
@@ -107,8 +103,10 @@ def add_entry(usr_type):
 
     if request.method == 'POST':
         
-        if existing_dog or existing_user:
+        if existing_user:
             return render_template('register.html', existing_user=True)
+        elif existing_dog:
+            return render_template('register.html', existing_dog=True)
         else:
             user.insert_one(request.form.to_dict())
             try:

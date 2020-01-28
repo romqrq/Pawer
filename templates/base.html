@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- Material icons by google, possible to also use font awesome, no problem. -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<link rel="stylesheet" href="{{url_for('static', filename='sass/main.css')}}" type="text/css" />
@@ -20,7 +19,6 @@
         {% endblock %}
     </main>
     {% include 'components/footer.html' %}
-	<!-- jQueryhere has to go BEFORE Materialize because jQuery needs to be active FIRST -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="static/js/script.js"></script>
