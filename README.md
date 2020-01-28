@@ -25,7 +25,7 @@ Other options such as premium accounts and business/service accounts are also re
     - [**Project Goals**](#project-goals)
     - [**Customer goals**](#customer-goals)
     - [**Service Provider goals**](#service-provider-goals)
-    - [**Stores goals**](#stores-goals)
+    - [**Store goals**](#store-goals)
     - [**Developer and Business Goals**](#developer-and-Business-Goals)
     - [**User Stories**](#user-stories)
     - [**Design choices**](#design-choices)
@@ -59,6 +59,15 @@ This structure has the objective of making easier for the adoptant to get it rig
 
 Pawer has four target audiences: potential dog adoptants, people that already have pets, dog-related service providers and stores.  
 
+Potential source of income are:
+- Premium accounts for customers: 
+    - Discount codes for partner services or stores.
+    - Personalized content from partner services or stores
+- Affiliate links
+- Services and stores accounts:
+    - Specific paid accounts for businesses to be showcased on the platform.
+
+
 #### Customer goals
 
 The central target audience for us are the potential adoptants and people that already have pets and are looking for products or services.
@@ -80,73 +89,119 @@ Pawer helps the customer meeting these goals because:
 
 #### Service Provider goals
 
-Parents of pre-school children have a large amount of say about what games their children are exposed to, 
-therefore parental needs must also be at the forefront of any project designed for children in this age group. 
+The pet service sector is getting more diverse by the day. 
+Our target for services providers are both companies and self employed individuals.
 
-Parent's goals are:
-- A game with child development value. In this case to improve their memory and spatial awareness.
-- Usability for the range of abilities in pre-school kids.
-- A visually appealing, well-functioning game. 
-- The ability for a parent to reset the stored player profile. 
-- A mute button.
+- Exposing their service to a mass of potential new customers.
+- Reasonable possibility of return over investment (when services account system is implemented)
+- A reliable and reputable platform to advertise and aggregate value to the service.
+- Balanced competition for space between companies and individuals providing the same service.
 
-PicFlip! is a great way to help parents meet these needs because:
-- PicFlip! gives a child a fun environment in which to practice their memory skills. 
-- Game includes 3 levels of difficulty ranging from 8 to 16 cards.
-- It has been designed with user experience as a priority, not only for a child using it but also for a parent.
-- The game includes a reset data option, which is easy to find and operate by an adult who can read and do simple mathematics.
+Pawer helps the service providers meeting these goals because:
+- Users have access to free accounts that gives them access to a pool of services to choose from. 
+- Exists the possibility to offer discount codes for services to influence the user decision into hiring the service.
+- With affiliate links, it's possible to increase online traffic to the service website.
+- Information is prioritized and organized in a way that users can find what is bein offered in a glance.
+- With the feedback system, great service providers will stand out and set themselves apart, attracting more customers.
+- The standardised layout allows similar exposure for all service providers, creating a plain field for competition.
+
+#### Store goals
+
+With more businness being done virtually, we are aiming for stores are looking to conquer this new territory and virtual stores that depend completely on their virtual presence.
+
+- Showcasing their products to a mass of potential new customers.
+- Increase physical customer presence at stores (for business with physical stores)
+- Reasonable possibility of return over investment (when stores account system is implemented)
+- A reliable and reputable platform to advertise and aggregate value to their products.
+- Balanced competition for space between different sizes of business.
+
+Pawer helps the stores meeting these goals because:
+- Users have access to free accounts that gives them access to a pool of stores to choose from. 
+- Exists the possibility to offer discount codes for products to influence the user decision into buying the product.
+- With affiliate links, it's possible to increase online traffic to the store website.
+- Information is prioritized and organized in a way that users can find what is bein offered in a glance.
+- With the feedback system, great stores will stand out and set themselves apart, attracting more customers.
+- The standardised layout allows similar exposure for all stores, creating a plain field for competition.
 
 #### Developer and Business Goals
 
-- Well thought out programming that prepares for a child's random and unpredictable use of PicFlip! 
-For example, that the game cannot be broken by clicking many areas quickly, or if it is restarted at an unexpected moment. 
-- A professional looking first dip into the world of using JavaScript, jQuery and Jasmine. 
-- A project the developer is excited to make a part of her portfolio. 
+- Well thought out programming that offers a responsive, easy-to-use and stable platform to all users.
+- A professional looking, first projeck with Python + Flask, Mongo DB, Materialize and modulated structure of files.
+- Project that the developer is excited to make part of his portfolio. 
+- Allow users to allow users to store and manipulate data records about a particular domain.
+- Showcase an application with real possibility for monetization and with user feedback system.
 
 #### User Stories
 
-As a player aged between 1-5 years old, I want:
-1. The ability to easily find and understand the controls for the game, so that I can operate them easily. 
-2. A large easy to press buttons and controls, so that my young fingers can use on all devices.
-3. Audio and/or visual feedback when I play the game, so that I know when I have clicked or not clicked something.
-4. The ability to choose from cards with my favourite children’s characters on, so that I am even more engaged in finding them in the game.
-5. Positive audio feedback when I complete a step in the game (for example when I find a matching pair of cards), because this increases my enjoyment from playing.
-6. Visual icons and images that I recognise, so that I understand when I have achieved something in the game. For example stars out of five, and a trophy for high score.
-7. The ability to see my old scores when I return to the game, so I can try to beat them.
+As a customer I want:
+1. The ability to easily navigate through the application with controls that are intuitive and easy to find.
+2. Visual feedback for my interactions with the content, so that I know if I have clicked or not clicked something.
+3. Be able to register to the website and avail from the discounts on products and services.
+4. Be able to update my register information.
+5. Find a dog to adopt.
+6. Find a service.
+7. Find a store.
+8. Leave feedback for a service provider.
+9. Leave feedback for a store.
 
-As a parent of a player, I want:
-1. Levels of difficulty for my child to choose from, so that they are engaged for longer and the game is useable for a wider age range.
-2. A visually and operationally appealing game, so that I also have a positive experience when using it with my child.
-3. The ability to delete a stored profile, so that I can reset the game for another go, or for another child. 
-4. The option to delete a profile to be easy for me to find, but not easy for a child who is randomly pressing buttons to access, so that a profile is not deleted by accident.
-5. A mute button to be included, so that the sounds can be switched off when they become annoying. (If only the actual child came with one of those too!).
-6. To know who made the game and how I can contact them. 
+As a staff member I want:
+1. The ability to easily navigate through the application with controls that are intuitive and easy to find.
+2. Visual feedback for my interactions with the content, so that I know if I have clicked or not clicked something.
+3. Be able to register to the website.
+4. Be able to easily update register information from customers, services and stores.
+
+As a service provider I want:
+1. The ability to easily navigate through the application with controls that are intuitive and easy to find.
+2. Visual feedback for my interactions with the content, so that I know if I have clicked or not clicked something.
+3. Be able to register to the website and expose my service to potential customers.
+4. Showcase my service on a platform that aggregates value to the service.
+5. Be able to update my register information.
+
+As a store I want:
+1. The ability to easily navigate through the application with controls that are intuitive and easy to find.
+2. Visual feedback for my interactions with the content, so that I know if I have clicked or not clicked something.
+3. Be able to register to the website and expose my store and products to potential customers.
+4. Showcase my service on a platform that aggregates value to the service.
+5. Be able to update my register information.
+
 
 ### Design Choices
 
-The overall feel of the game is one that is designed for children to enjoy. The following design choices were made with this in mind:
+The application is aimed to provide users with a clean, consistent and easy-to-use interface with an engaging and intuitive design.
+
 
 **Fonts**
 
-- The primary font **Fredoka One** was chosen because it resembles the simple letters used in products made for pre-school children. It's likeness to fridge magnets for children is nostalgic for parents as well. 
+- The header font **Alfa Slab One** was chosen because it has a professional look and strong character while still highly readable. It is aimed to catch the eye when the user is "sweeping" the screen looking for information. 
 
-- The secondary font **Bubblegum Sans** was chosen for its childlike qualities, while complementing the primary font nicely in style because it is more compact.
+- The secondary font **Lexend Tera** was chosen to counter balance the header, adding a slim look with more spaced letters. It introduces a more informal visual while still favoring the readability.
+
+- The tertiary font **Roboto** was chosen for the general text, offering a mid-term to the two previous fonts and keeping the page ballanced. It is a font with high readability and keeps a clean and professional look.
 
 **Icons**
 
-- All icons used were chosen for their obvious meaning and purpose so that they can be understood by everyone.
+- All icons used were chosen from materialize library. They are all icons that have strongly established meaning and are widely used accross the internet making them easy to understand by the users.
 
 **Colours**
 
-- The primary colour choices of dark and light blue for the logo, titles and text were chosen because they have a clean clear aspect while contrasting each other well.
-- Other colours used in the project were taken from the trophy image sourced, using a colour picker in Photoshop to make sure all colours used were consistent across the entire project.
+- The colours chosen to the logo were a mustard-yellow, black and red. The red and yellow colours have an attention-grabbing propriety as human brain is hardwired to pay attention to these colours for primitive survival reasons. The black colour brings contrast, balance and readability to the logo.
+
+- The buttons are on a green colour and this colour is used only for buttons, the contrast with the main colour scheme makes it grab attention. This way the user has a more consistent and predictable experience.
+
+- The colours were saved as variables on scss file and are recalled from these variables accross the styling files to make sure the colours are consistent across the entire project.
 
 **Styling**
 
-- Cards and container boxes were given rounded corners to continue the child friendly theme, many real life memory cards for children have corners like this. 
-- Repeating the same rounded corner pattern throughout the page keeps consistency in design and maintains the feeling that all elements belong together. 
+- The materialize parallax class was used to give users a distinct scrolling experience while framing content, helping user to localize the information.
+- Cards and buttons have slightly rounded corners for a more smooth visual.
+- Cards and buttons have a slight shading for improved perspective perception by the user, helping them to recognize interactive elements on the page.
+- Each database entry is displayed on a separate card, making clear to the user the individuality of each entry.
+- Repetition of patterns accross the whole application provides consistency and helps the user getting familiarized to the application.
 
 **Backgrounds**
+
+- The elements with the parallax class display pictures that help setting the theme and the feel for each specific section or page.
+- Content areas have plain white background to keep it neutral and not to compete for attention with content and pictures.
 
 - The background image of toy trains was chosen to give the feeling of playing the game in a child's playroom. 
 - Specifically chosen because it is a "flat-lay" - a photograph taken from directly above - this means the background complements the game without distracting from it.
