@@ -133,22 +133,37 @@ Pawer helps the stores meeting these goals because:
 
 #### User Stories
 
-As a player aged between 1-5 years old, I want:
-1. The ability to easily find and understand the controls for the game, so that I can operate them easily. 
-2. A large easy to press buttons and controls, so that my young fingers can use on all devices.
-3. Audio and/or visual feedback when I play the game, so that I know when I have clicked or not clicked something.
-4. The ability to choose from cards with my favourite children’s characters on, so that I am even more engaged in finding them in the game.
-5. Positive audio feedback when I complete a step in the game (for example when I find a matching pair of cards), because this increases my enjoyment from playing.
-6. Visual icons and images that I recognise, so that I understand when I have achieved something in the game. For example stars out of five, and a trophy for high score.
-7. The ability to see my old scores when I return to the game, so I can try to beat them.
+As a customer I want:
+1. The ability to easily navigate through the application with controls that are intuitive and easy to find.
+2. Visual feedback for my interactions with the content, so that I know if I have clicked or not clicked something.
+3. Be able to register to the website and avail from the discounts on products and services.
+4. Be able to update my register information.
+5. Find a dog to adopt.
+6. Find a service.
+7. Find a store.
+8. Leave feedback for a service provider.
+9. Leave feedback for a store.
 
-As a parent of a player, I want:
-1. Levels of difficulty for my child to choose from, so that they are engaged for longer and the game is useable for a wider age range.
-2. A visually and operationally appealing game, so that I also have a positive experience when using it with my child.
-3. The ability to delete a stored profile, so that I can reset the game for another go, or for another child. 
-4. The option to delete a profile to be easy for me to find, but not easy for a child who is randomly pressing buttons to access, so that a profile is not deleted by accident.
-5. A mute button to be included, so that the sounds can be switched off when they become annoying. (If only the actual child came with one of those too!).
-6. To know who made the game and how I can contact them. 
+As a staff member I want:
+1. The ability to easily navigate through the application with controls that are intuitive and easy to find.
+2. Visual feedback for my interactions with the content, so that I know if I have clicked or not clicked something.
+3. Be able to register to the website.
+4. Be able to easily update register information from customers, services and stores.
+
+As a service provider I want:
+1. The ability to easily navigate through the application with controls that are intuitive and easy to find.
+2. Visual feedback for my interactions with the content, so that I know if I have clicked or not clicked something.
+3. Be able to register to the website and expose my service to potential customers.
+4. Showcase my service on a platform that aggregates value to the service.
+5. Be able to update my register information.
+
+As a store I want:
+1. The ability to easily navigate through the application with controls that are intuitive and easy to find.
+2. Visual feedback for my interactions with the content, so that I know if I have clicked or not clicked something.
+3. Be able to register to the website and expose my store and products to potential customers.
+4. Showcase my service on a platform that aggregates value to the service.
+5. Be able to update my register information.
+
 
 ### Design Choices
 
