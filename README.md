@@ -167,29 +167,41 @@ As a store I want:
 
 ### Design Choices
 
-The overall feel of the game is one that is designed for children to enjoy. The following design choices were made with this in mind:
+The application is aimed to provide users with a clean, consistent and easy-to-use interface with an engaging and intuitive design.
+
 
 **Fonts**
 
-- The primary font **Fredoka One** was chosen because it resembles the simple letters used in products made for pre-school children. It's likeness to fridge magnets for children is nostalgic for parents as well. 
+- The header font **Alfa Slab One** was chosen because it has a professional look and strong character while still highly readable. It is aimed to catch the eye when the user is "sweeping" the screen looking for information. 
 
-- The secondary font **Bubblegum Sans** was chosen for its childlike qualities, while complementing the primary font nicely in style because it is more compact.
+- The secondary font **Lexend Tera** was chosen to counter balance the header, adding a slim look with more spaced letters. It introduces a more informal visual while still favoring the readability.
+
+- The tertiary font **Roboto** was chosen for the general text, offering a mid-term to the two previous fonts and keeping the page ballanced. It is a font with high readability and keeps a clean and professional look.
 
 **Icons**
 
-- All icons used were chosen for their obvious meaning and purpose so that they can be understood by everyone.
+- All icons used were chosen from materialize library. They are all icons that have strongly established meaning and are widely used accross the internet making them easy to understand by the users.
 
 **Colours**
 
-- The primary colour choices of dark and light blue for the logo, titles and text were chosen because they have a clean clear aspect while contrasting each other well.
-- Other colours used in the project were taken from the trophy image sourced, using a colour picker in Photoshop to make sure all colours used were consistent across the entire project.
+- The colours chosen to the logo were a mustard-yellow, black and red. The red and yellow colours have an attention-grabbing propriety as human brain is hardwired to pay attention to these colours for primitive survival reasons. The black colour brings contrast, balance and readability to the logo.
+
+- The buttons are on a green colour and this colour is used only for buttons, the contrast with the main colour scheme makes it grab attention. This way the user has a more consistent and predictable experience.
+
+- The colours were saved as variables on scss file and are recalled from these variables accross the styling files to make sure the colours are consistent across the entire project.
 
 **Styling**
 
-- Cards and container boxes were given rounded corners to continue the child friendly theme, many real life memory cards for children have corners like this. 
-- Repeating the same rounded corner pattern throughout the page keeps consistency in design and maintains the feeling that all elements belong together. 
+- The materialize parallax class was used to give users a distinct scrolling experience while framing content, helping user to localize the information.
+- Cards and buttons have slightly rounded corners for a more smooth visual.
+- Cards and buttons have a slight shading for improved perspective perception by the user, helping them to recognize interactive elements on the page.
+- Each database entry is displayed on a separate card, making clear to the user the individuality of each entry.
+- Repetition of patterns accross the whole application provides consistency and helps the user getting familiarized to the application.
 
 **Backgrounds**
+
+- The elements with the parallax class display pictures that help setting the theme and the feel for each specific section or page.
+- Content areas have plain white background to keep it neutral and not to compete for attention with content and pictures.
 
 - The background image of toy trains was chosen to give the feeling of playing the game in a child's playroom. 
 - Specifically chosen because it is a "flat-lay" - a photograph taken from directly above - this means the background complements the game without distracting from it.
