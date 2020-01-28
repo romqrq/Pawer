@@ -25,7 +25,7 @@ Other options such as premium accounts and business/service accounts are also re
     - [**Project Goals**](#project-goals)
     - [**Customer goals**](#customer-goals)
     - [**Service Provider goals**](#service-provider-goals)
-    - [**Stores goals**](#stores-goals)
+    - [**Store goals**](#store-goals)
     - [**Developer and Business Goals**](#developer-and-Business-Goals)
     - [**User Stories**](#user-stories)
     - [**Design choices**](#design-choices)
@@ -59,6 +59,15 @@ This structure has the objective of making easier for the adoptant to get it rig
 
 Pawer has four target audiences: potential dog adoptants, people that already have pets, dog-related service providers and stores.  
 
+Potential source of income are:
+- Premium accounts for customers: 
+    - Discount codes for partner services or stores.
+    - Personalized content from partner services or stores
+- Affiliate links
+- Services and stores accounts:
+    - Specific paid accounts for businesses to be showcased on the platform.
+
+
 #### Customer goals
 
 The central target audience for us are the potential adoptants and people that already have pets and are looking for products or services.
@@ -80,28 +89,47 @@ Pawer helps the customer meeting these goals because:
 
 #### Service Provider goals
 
-Parents of pre-school children have a large amount of say about what games their children are exposed to, 
-therefore parental needs must also be at the forefront of any project designed for children in this age group. 
+The pet service sector is getting more diverse by the day. 
+Our target for services providers are both companies and self employed individuals.
 
-Parent's goals are:
-- A game with child development value. In this case to improve their memory and spatial awareness.
-- Usability for the range of abilities in pre-school kids.
-- A visually appealing, well-functioning game. 
-- The ability for a parent to reset the stored player profile. 
-- A mute button.
+- Exposing their service to a mass of potential new customers.
+- Reasonable possibility of return over investment (when services account system is implemented)
+- A reliable and reputable platform to advertise and aggregate value to the service.
+- Balanced competition for space between companies and individuals providing the same service.
 
-PicFlip! is a great way to help parents meet these needs because:
-- PicFlip! gives a child a fun environment in which to practice their memory skills. 
-- Game includes 3 levels of difficulty ranging from 8 to 16 cards.
-- It has been designed with user experience as a priority, not only for a child using it but also for a parent.
-- The game includes a reset data option, which is easy to find and operate by an adult who can read and do simple mathematics.
+Pawer helps the service providers meeting these goals because:
+- Users have access to free accounts that gives them access to a pool of services to choose from. 
+- Exists the possibility to offer discount codes for services to influence the user decision into hiring the service.
+- With affiliate links, it's possible to increase online traffic to the service website.
+- Information is prioritized and organized in a way that users can find what is bein offered in a glance.
+- With the feedback system, great service providers will stand out and set themselves apart, attracting more customers.
+- The standardised layout allows similar exposure for all service providers, creating a plain field for competition.
+
+#### Store goals
+
+With more businness being done virtually, we are aiming for stores are looking to conquer this new territory and virtual stores that depend completely on their virtual presence.
+
+- Showcasing their products to a mass of potential new customers.
+- Increase physical customer presence at stores (for business with physical stores)
+- Reasonable possibility of return over investment (when stores account system is implemented)
+- A reliable and reputable platform to advertise and aggregate value to their products.
+- Balanced competition for space between different sizes of business.
+
+Pawer helps the stores meeting these goals because:
+- Users have access to free accounts that gives them access to a pool of stores to choose from. 
+- Exists the possibility to offer discount codes for products to influence the user decision into buying the product.
+- With affiliate links, it's possible to increase online traffic to the store website.
+- Information is prioritized and organized in a way that users can find what is bein offered in a glance.
+- With the feedback system, great stores will stand out and set themselves apart, attracting more customers.
+- The standardised layout allows similar exposure for all stores, creating a plain field for competition.
 
 #### Developer and Business Goals
 
-- Well thought out programming that prepares for a child's random and unpredictable use of PicFlip! 
-For example, that the game cannot be broken by clicking many areas quickly, or if it is restarted at an unexpected moment. 
-- A professional looking first dip into the world of using JavaScript, jQuery and Jasmine. 
-- A project the developer is excited to make a part of her portfolio. 
+- Well thought out programming that offers a responsive, easy-to-use and stable platform to all users.
+- A professional looking, first projeck with Python + Flask, Mongo DB, Materialize and modulated structure of files.
+- Project that the developer is excited to make part of his portfolio. 
+- Allow users to allow users to store and manipulate data records about a particular domain.
+- Showcase an application with real possibility for monetization and with user feedback system.
 
 #### User Stories
 
