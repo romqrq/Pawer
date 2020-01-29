@@ -173,7 +173,13 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 **Fonts**
 
 - The header font **Alfa Slab One** was chosen because it has a professional look and strong character while still highly readable. It is aimed to catch the eye when the user is "sweeping" the screen looking for information. 
+<<<<<<< HEAD
 - The secondary font **Lexend Tera** was chosen to counter balance the header, adding a slim look with more spaced letters. It introduces a more informal visual while still favoring the readability.
+=======
+
+- The secondary font **Lexend Tera** was chosen to counter balance the header, adding a slim look with more spaced letters. It introduces a more informal visual while still favoring the readability.
+
+>>>>>>> 76df9c56ca90781138e5f2be4d4622ec8f5427fc
 - The tertiary font **Roboto** was chosen for the general text, offering a mid-term to the two previous fonts and keeping the page ballanced. It is a font with high readability and keeps a clean and professional look.
 
 **Icons**
@@ -183,7 +189,13 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 **Colours**
 
 - The colours chosen to the logo were a mustard-yellow, black and red. The red and yellow colours have an attention-grabbing propriety as human brain is hardwired to pay attention to these colours for primitive survival reasons. The black colour brings contrast, balance and readability to the logo.
+<<<<<<< HEAD
 - The buttons are on a green colour and this colour is used only for buttons, the contrast with the main colour scheme makes it grab attention. This way the user has a more consistent and predictable experience.
+=======
+
+- The buttons are on a green colour and this colour is used only for buttons, the contrast with the main colour scheme makes it grab attention. This way the user has a more consistent and predictable experience.
+
+>>>>>>> 76df9c56ca90781138e5f2be4d4622ec8f5427fc
 - The colours were saved as variables on scss file and are recalled from these variables accross the styling files to make sure the colours are consistent across the entire project.
 
 **Styling**
@@ -199,6 +211,7 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 - The elements with the parallax class display pictures that help setting the theme and the feel for each specific section or page.
 - Content areas have plain white background to keep it neutral and not to compete for attention with content and pictures.
 
+<<<<<<< HEAD
 **Card images**
 
 - Due to technical limitations at this poit, the databae entries can't contain images. Pertinent Materialize icons were used as a placeholder until future update.
@@ -223,6 +236,28 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 ### Wireframes
 
 These wireframes were created using [Mockflow](https://mockflow.com/) during the Scope Plane part of the design and planning process for this project. 
+=======
+- The background image of toy trains was chosen to give the feeling of playing the game in a child's playroom. 
+- Specifically chosen because it is a "flat-lay" - a photograph taken from directly above - this means the background complements the game without distracting from it.
+- The background images for the modals were chosen for their comic-book like qualities, adding a little positive emotional feedback at a level that appeals to a child. 
+
+**Card images**
+
+- Disney and Pixar characters were chosen for this game because they are recognised and loved by children. 
+Cars characters were specifically chosen because it is extremely popular with boys, 
+the Frozen characters because they are very popular with girls, 
+and the Toy Story Characters because they appeal to both girls and boys. 
+
+**Audio files**
+
+- To continue the feeling of a game made for children, clicking button sounds were added that are similar to the sounds a child might hear when operating a physical toy with buttons. 
+- The card flipping sounds and "bing" on a correct match were added to give positive feedback on use of the game. 
+- The sound of applauding children played on completing the game was chosen because it appeals most to children, and again fits within the theme of PicFlip!
+
+### Wireframes
+
+These wireframes were created using [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project. 
+>>>>>>> 76df9c56ca90781138e5f2be4d4622ec8f5427fc
 
 - [User info modal](https://i.ibb.co/FWBy68Q/Create-profile.png)
 - [Game page](https://i.ibb.co/H2XtCW9/Game-page.png)
@@ -232,6 +267,7 @@ These wireframes were created using [Mockflow](https://mockflow.com/) during the
  
 ### Existing Features
 
+<<<<<<< HEAD
 1. **Landing Page**
     - On arriving at the page, the user will find a structure like the one on the image below.
 
@@ -251,6 +287,17 @@ These wireframes were created using [Mockflow](https://mockflow.com/) during the
     - The default setting for modals that they can be closed if clicking on the modal background has also been disabled for this modal specifically.  
 
 
+=======
+1. **Player info modal**
+    - On arriving at the page for the first time, this modal pops up to collect the players name and their choice of avatar image from the three available. 
+    - This modal is also activated if stored player data is reset. 
+    - The modal has been programmed to not close unless both the name has been filled out at an avatar has been chosen. Tooltips appear to guide the user to enter both.
+    - The default setting for modals that they can be closed if clicking on the modal background has also been disabled for this modal specifically.  
+
+<div align="center">
+<img src="https://i.ibb.co/NpXs3QC/user-info-modal.jpg" alt="Screenshot: User info modal" >
+</div>
+>>>>>>> 76df9c56ca90781138e5f2be4d4622ec8f5427fc
 
 
 2. **Dashboard**
