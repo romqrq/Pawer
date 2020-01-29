@@ -170,13 +170,6 @@ nav .button-collapse {
   font-weight: 700;
 }
 
-/* Register Page */
-.card-row-register {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 /* Buttons */
 .nav-action-button {
   color: #343334;
@@ -244,10 +237,16 @@ nav .button-collapse {
 }
 
 /* Media Queries */
-@media only screen and (min-width: 601px) {
-  .menu-icon {
-    font-size: 4rem !important;
-    margin: -0.5rem !important;
+@media only screen and (min-width: 600px) {
+  .logo-box img {
+    max-height: 3.3rem;
+    margin: 0.4rem;
+  }
+  .pawer-logo-name {
+    font-size: 3.8rem;
+  }
+  .three-words {
+    padding: 0.5rem 0.4rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

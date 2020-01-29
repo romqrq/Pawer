@@ -245,9 +245,13 @@ These wireframes were created using [Mockflow](https://mockflow.com/) during the
     - At the center, the Pawer logo is linked to the index page and it holds an attention grabbing place while leving the more accessible to touch edges for the menu and buttons.
     - For medium screens and up, the Register, Login and Logout buttons are on the right side and they are shown/hidden dynamically according to user's account status(not logged in, logged in, non-staff and staff)
 
-2. **Dashboard**
-    - The game dashboard contains the player info display, difficulty selection, character selection, info, mute and reset buttons. 
-    - On mobile devices a chevron arrow is displayed to tell the player to scroll downwards to the game board. 
+2. **Users page - Staff account**
+    - This page is visible only by user accounts with staff status.
+    - It lists all the users. From this page staff can update and delete records.
+    - From this page is also possible to switch accounts privileges to staff or non staff.
+
+    **Users page - Non staff account**
+    - Users can access their own information and update or delete the data under their user domain.
 
 <div align="center">
 <img src="https://i.ibb.co/pwn3GFV/game-board.jpg" alt="Screenshot: Game board"><br>

@@ -79,7 +79,7 @@ def user_logout():
     session.pop('user_id')
     session.pop('is_staff')
 
-    return render_template('login.html')
+    return render_template('index.html')
 
 
 
