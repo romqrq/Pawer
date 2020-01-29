@@ -1,21 +1,22 @@
 /* Media Queries */
 
-@media only screen and (min-width: 601px) {
-    .menu-icon{
-        font-size: 4rem!important;
-        margin: -0.5rem!important;
+@media only screen and (min-width: 600px) {
+    // .menu-icon{
+    //     font-size: 4rem!important;
+    //     margin: -0.5rem!important;
+    // }
+    .logo-box img {
+        max-height: 3.3rem;
+        margin: 0.4rem;
+    }
+    .pawer-logo-name {
+    font-size: 3.8rem;
+    }
+    .three-words {
+    padding: 0.5rem 0.4rem;
     }
 }
 
 @media screen and (max-width: 1025px) {
-    // nav {
-    //     height: 5.5rem;
-    //     padding: 0.5rem 0;
-    //     background-color: #FCD23C;
-    // }
-
-    // .nav-wrapper li a {
-    //     padding: 0 0.5rem;
-    // }
 
 }

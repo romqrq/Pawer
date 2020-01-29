@@ -235,7 +235,7 @@ These wireframes were created using [Mockflow](https://mockflow.com/) during the
     - On arriving at the page, the user will find a structure like the one on the image below.
 
 <div align="center">
-<img src="static/images/wf-images/landing-page.png" alt="Screenshot: Landing page" >
+    <img src="static/images/wf-images/landing-page.png" alt="Screenshot: Landing page" >
 </div>
 
 **Navigation bar**
@@ -245,13 +245,37 @@ These wireframes were created using [Mockflow](https://mockflow.com/) during the
     - At the center, the Pawer logo is linked to the index page and it holds an attention grabbing place while leving the more accessible to touch edges for the menu and buttons.
     - For medium screens and up, the Register, Login and Logout buttons are on the right side and they are shown/hidden dynamically according to user's account status(not logged in, logged in, non-staff and staff)
 
-2. **Dashboard**
-    - The game dashboard contains the player info display, difficulty selection, character selection, info, mute and reset buttons. 
-    - On mobile devices a chevron arrow is displayed to tell the player to scroll downwards to the game board. 
-
+***User not logged in***
 <div align="center">
-<img src="https://i.ibb.co/pwn3GFV/game-board.jpg" alt="Screenshot: Game board"><br>
-<img src="https://i.ibb.co/JFr93rH/mobile-view-dashboard.jpg" alt="Screenshot: dashboard mobile view" >
+    <img class="col-6" src="static/images/wf-images/navbar-mobile-expanded-menu-logged-out.png" alt="Screenshot: Collapsible menu logged out"><br>
+    <img class="col-6" src="static/images/wf-images/navbar-logged-out.png" alt="Screenshot: Navbar logged out" >
+</div>
+
+***Non staff user logged in***
+<div align="center">
+    <img class="col-6" src="static/images/wf-images/navbar-mobile-expanded-menu-ns-user.png" alt="Screenshot: Collapsible menu non staff user"><br>
+    <img class="col-6" src="static/images/wf-images/navbar-ns-user.png" alt="Screenshot: Navbarnon staff user" >
+</div>
+
+***Staff user logged in***
+<div align="center">
+    <img class="col-6" src="static/images/wf-images/navbar-mobile-expanded-menu-staff-user.png" alt="Screenshot: Collapsible menu staff user"><br>
+    <img class="col-6" src="static/images/wf-images/navbar-staff-user.png" alt="Screenshot: Navbar staff user" >
+</div>
+
+2. **Users page - Staff account**
+    - This page is visible only by user accounts with staff status.
+    - It lists all the users. From this page staff can update and delete records through the edit and delete buttons.
+    - Forms to update or delete entries are shown and hidden dynamically according to user's choice and only one form is visible at a time.
+    - From this page is also possible to switch accounts privileges to staff or non staff.
+<div align="center">
+    <img src="static/images/wf-images/navbar-staff-user.png" alt="Screenshot: Navbar staff user" >
+</div>
+
+**Users page - Non staff account**
+    - Users can access their own information and update or delete the data under their user domain.
+<div align="center">
+    <img src="static/images/wf-images/navbar-staff-user.png" alt="Screenshot: Navbar staff user" >
 </div>
 
 3. **Player info display**
