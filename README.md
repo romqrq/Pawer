@@ -246,13 +246,6 @@ These wireframes were created using [Mockflow](https://mockflow.com/) during the
     - At the center, the Pawer logo is linked to the index page and it holds an attention grabbing place while leving the more accessible to touch edges for the menu and buttons.
     - For medium screens and up, the Register, Login and Logout buttons are on the right side and they are shown/hidden dynamically according to user's account status(not logged in, logged in, non-staff and staff)
 
-
-    - The modal has been programmed to not close unless both the name has been filled out at an avatar has been chosen. Tooltips appear to guide the user to enter both.
-    - The default setting for modals that they can be closed if clicking on the modal background has also been disabled for this modal specifically.  
-
-
-
-
 2. **Dashboard**
     - The game dashboard contains the player info display, difficulty selection, character selection, info, mute and reset buttons. 
     - On mobile devices a chevron arrow is displayed to tell the player to scroll downwards to the game board. 
