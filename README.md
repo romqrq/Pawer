@@ -30,7 +30,6 @@ Other options such as premium accounts and business/service accounts are also re
     - [**User Stories**](#user-stories)
     - [**Design choices**](#design-choices)
     - [**Wireframes**](#wireframes)
-
 2. [**Features**](#features)
     - [**Existing Features**](#existing-features)
     - [**Features Left to Implement**](#features-left-to-implement)
