@@ -173,9 +173,7 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 **Fonts**
 
 - The header font **Alfa Slab One** was chosen because it has a professional look and strong character while still highly readable. It is aimed to catch the eye when the user is "sweeping" the screen looking for information. 
-
 - The secondary font **Lexend Tera** was chosen to counter balance the header, adding a slim look with more spaced letters. It introduces a more informal visual while still favoring the readability.
-
 - The tertiary font **Roboto** was chosen for the general text, offering a mid-term to the two previous fonts and keeping the page ballanced. It is a font with high readability and keeps a clean and professional look.
 
 **Icons**
@@ -185,9 +183,7 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 **Colours**
 
 - The colours chosen to the logo were a mustard-yellow, black and red. The red and yellow colours have an attention-grabbing propriety as human brain is hardwired to pay attention to these colours for primitive survival reasons. The black colour brings contrast, balance and readability to the logo.
-
 - The buttons are on a green colour and this colour is used only for buttons, the contrast with the main colour scheme makes it grab attention. This way the user has a more consistent and predictable experience.
-
 - The colours were saved as variables on scss file and are recalled from these variables accross the styling files to make sure the colours are consistent across the entire project.
 
 **Styling**
@@ -203,26 +199,30 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 - The elements with the parallax class display pictures that help setting the theme and the feel for each specific section or page.
 - Content areas have plain white background to keep it neutral and not to compete for attention with content and pictures.
 
-- The background image of toy trains was chosen to give the feeling of playing the game in a child's playroom. 
-- Specifically chosen because it is a "flat-lay" - a photograph taken from directly above - this means the background complements the game without distracting from it.
-- The background images for the modals were chosen for their comic-book like qualities, adding a little positive emotional feedback at a level that appeals to a child. 
-
 **Card images**
 
-- Disney and Pixar characters were chosen for this game because they are recognised and loved by children. 
-Cars characters were specifically chosen because it is extremely popular with boys, 
-the Frozen characters because they are very popular with girls, 
-and the Toy Story Characters because they appeal to both girls and boys. 
+- Due to technical limitations at this poit, the databae entries can't contain images. Pertinent Materialize icons were used as a placeholder until future update.
 
-**Audio files**
+**Forms**
 
-- To continue the feeling of a game made for children, clicking button sounds were added that are similar to the sounds a child might hear when operating a physical toy with buttons. 
-- The card flipping sounds and "bing" on a correct match were added to give positive feedback on use of the game. 
-- The sound of applauding children played on completing the game was chosen because it appeals most to children, and again fits within the theme of PicFlip!
+- Materialize forms were used for this project. Placeholders were used to auxiliate the user while identifying each field.
+- Forms can take up valuable space on the screen so, for this project, we used jQuery to hide or show forms based on user actions and only one form will be visible at a time.
+- When a form is activated, jQuery code will automatically scroll it into view.
+
+**Navigation bar**
+
+- Navigation bar is fixed at the top of the screen. This way the user has the controls always visible and within immediate reach.
+- Action buttons/links were kept to the sides for ease of reach on mobile devices.
+- Buttons are shown or hidden dynamically on the following situations:
+    - user is not logged in or not registered
+    - user is logged in but doesn't have staff privileges
+    - user is logged in and has staff privileges
+- Menu is collapsed to a button when on small resolution screen and expanded when from medium resolution and up.    
+
 
 ### Wireframes
 
-These wireframes were created using [Balsamiq](https://balsamiq.com/) during the Scope Plane part of the design and planning process for this project. 
+These wireframes were created using [Mockflow](https://mockflow.com/) during the Scope Plane part of the design and planning process for this project. 
 
 - [User info modal](https://i.ibb.co/FWBy68Q/Create-profile.png)
 - [Game page](https://i.ibb.co/H2XtCW9/Game-page.png)
@@ -232,15 +232,25 @@ These wireframes were created using [Balsamiq](https://balsamiq.com/) during the
  
 ### Existing Features
 
-1. **Player info modal**
-    - On arriving at the page for the first time, this modal pops up to collect the players name and their choice of avatar image from the three available. 
-    - This modal is also activated if stored player data is reset. 
+1. **Landing Page**
+    - On arriving at the page, the user will find a structure like the one on the image below.
+
+<div align="center">
+<img src="static/images/wf-images/landing-page.png" alt="Screenshot: Landing page" >
+</div>
+
+**Navigation bar**
+    - The navigation bar is fixed at the top of the screen, always visible and is responsive to screen size.
+    - On the left side the menu offers all the navigation options for the user to go from one page to another.
+        - On small resolution screens, the menu also contains the Register, Login and Logout buttons.
+    - At the center, the Pawer logo is linked to the index page and it holds an attention grabbing place while leving the more accessible to touch edges for the menu and buttons.
+    - For medium screens and up, the Register, Login and Logout buttons are on the right side and they are shown/hidden dynamically according to user's account status(not logged in, logged in, non-staff and staff)
+
+
     - The modal has been programmed to not close unless both the name has been filled out at an avatar has been chosen. Tooltips appear to guide the user to enter both.
     - The default setting for modals that they can be closed if clicking on the modal background has also been disabled for this modal specifically.  
 
-<div align="center">
-<img src="https://i.ibb.co/NpXs3QC/user-info-modal.jpg" alt="Screenshot: User info modal" >
-</div>
+
 
 
 2. **Dashboard**
