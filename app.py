@@ -149,7 +149,7 @@ def adopt_dog(dog_id):
 # READ
 # Find dog
 @app.route('/dogs', methods=['GET', 'POST'])
-def get_dogs():
+def get_dogs(adoption):
     """ Function to list dogs contained in the database """
     return render_template('dogs.html', dogs=mongo.db.dogs.find())
 
