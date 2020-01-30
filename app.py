@@ -144,12 +144,12 @@ def adopt_dog(dog_id):
             adopt.update_one({'_email': request.form.get('_email')},
                             {'$set': {key: this_dog[key]} })
 
-    return redirect(url_for('get_dogs', adoption='form sent'))
+    return redirect(url_for('get_dogs')
 
 # READ
 # Find dog
 @app.route('/dogs', methods=['GET', 'POST'])
-def get_dogs(adoption):
+def get_dogs():
     """ Function to list dogs contained in the database """
     return render_template('dogs.html', dogs=mongo.db.dogs.find())
 
