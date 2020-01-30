@@ -1,23 +1,32 @@
-<div class="row form-box hide" id="dogs" value="dogs">
-    <form action="{{ url_for('add_entry', usr_type='adopt') }}" method="POST" class="col s12">
+<div class="form-box hide" id="{{dog._id}}" value='adopt'>
+    <h2 class="heading-text">Awesome!</h2>
+    <p class="secondary-text">Great to see your interest in our little friend!</p>
+    <p>please give us some details and our team will get back to you as soon as possible!</p>
+    <form action="{{ url_for('adopt_dog', dog_id=dog._id) }}" method="POST" class="col s12 edit-dog-form">
         <div class="row">
             <div class="input-field col s6">
-                <input name="dog_name" type="text" class="validate" required>
-                <label for="dog_name">Name</label>
+                <input name="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
             </div>
-                <div class="input-field col s6">
-                <input name="dog_breed" type="text" class="validate" required>
-                <label for="dog_breed">Breed</label>
+            <div class="input-field col s6">
+                <input name="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="dog_description" class="materialize-textarea"></textarea>
-                <label for="icon_telephone">Short description</label>
+                <input name="_email" type="email" class="validate">
+                <label for="_email">Email</label>
             </div>
         </div>
         <div class="row">
-            <button class="btn waves-effect waves-light" type="submit">Create Account
+            <div class="input-field col s12">
+                <textarea name="user_description" class="materialize-textarea"></textarea>
+                <label for="user_description">Tell us a little about why you want this dog</label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Send
                 <i class="material-icons right">playlist_add</i>
             </button>
         </div>
