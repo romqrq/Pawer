@@ -86,9 +86,9 @@ def user_logout():
     return render_template('index.html')
 
 #DASHBOARD
-@app.route('/dashboard/<usr_id>', methods=['GET', 'POST'])
-def get_dashboard(usr_id):
-
+@app.route('/dashboard', methods=['GET', 'POST'])
+def get_dashboard():
+    usr_id = session['user_id']
     if session['user_type'] == 'user':
         return render_template('dashboard.html', user=mongo.db.users.find_one({'_id': ObjectId(usr_id)}))
     elif session['user_type'] == 'service':
