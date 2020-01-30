@@ -6,6 +6,12 @@
 </div>
 <div class="section white">
     <div class="container">
+    <!-- {% if adoption == 'form sent' %}
+        <div class="col s12">
+            <p class="heading-text">Thank you"</p>
+            <p class="secondary-text">Thanks for considering adoption! We'll get back to you soon!</p>
+        </div>
+    {% endif %} -->
         <div class="row card-row-find">
             {% for dog in dogs %}
                 <div class="row card card-item-row">
@@ -17,7 +23,7 @@
                         <p class="card-breed">{{dog.dog_breed}}</p>
                     </div>
                     <div class="col s12 m2 card-buttons-row">
-                        <a href="#" class="waves-effect waves-light btn card-action-button">
+                        <a id="{{dog._id}}" value="adopt" class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">favorite</i>
                             <span>Adopt</span>
                         </a>
@@ -39,6 +45,9 @@
                         </div>
                     </div>
                 </div>
+                {% if session['is_staff'] %}
+                    {% include 'forms/dogs/adopt-dog.html' %}
+                {% endif %}
                 {% if session['is_staff'] == 'is_staff' %}
                     {% include 'forms/dogs/edit-dog.html' %}
                     {% include 'forms/dogs/delete-dog.html' %}

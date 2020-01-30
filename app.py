@@ -46,6 +46,7 @@ def user_login():
                 db_pwd = login_user['password']
                 if form_pwd == db_pwd:
                     session['user_id'] = user_id
+                    session['user_type'] = 'user'
                     if login_user['is_staff']:
                         session['is_staff'] = login_user['is_staff']
                     else:
@@ -57,6 +58,7 @@ def user_login():
                 db_pwd = login_user['password']
                 if form_pwd == db_pwd:
                     session['user_id'] = str(login_user['_id'])
+                    session['user_type'] = 'service'
                     return render_template('login.html', user='valid')
         if user_type == 'store':
             login_user = stores.find_one({'_email': request.form['login_email']})
@@ -64,6 +66,7 @@ def user_login():
                 db_pwd = login_user['password']
                 if form_pwd == db_pwd:
                     session['user_id'] = str(login_user['_id'])
+                    session['user_type'] = 'store'
                     return render_template('login.html', user='valid')
 
         else: 
@@ -78,10 +81,22 @@ def user_logout():
 
     session.pop('user_id')
     session.pop('is_staff')
+    session.pop['usr_type']
 
     return render_template('index.html')
 
+#DASHBOARD
+@app.route('/dashboard', methods=['GET', 'POST'])
+def get_dashboard():
+    usr_id = session['user_id']
+    if session['user_type'] == 'user':
+        return render_template('dashboard.html', user=mongo.db.users.find_one({'_id': ObjectId(usr_id)}))
+    elif session['user_type'] == 'service':
+        return render_template('dashboard.html', users=mongo.db.services.find())
+    else:
+        return render_template('dashboard.html', users=mongo.db.stores.find_one())
 
+    # return render_template('dashboard.html', user=mongo.db.<usr_type>.find_one({'_id': ObjectId(usr_id)}))
 
 # CREATE
 #Add entry
@@ -97,12 +112,11 @@ def add_entry(usr_type):
     elif usr_type == 'services':
         user = mongo.db.services
         existing_user = user.find_one({'_email': request.form['_email']})
-    else:
+    elif usr_type == 'stores':
         user = mongo.db.stores
         existing_user = user.find_one({'_email': request.form['_email']})
 
     if request.method == 'POST':
-        
         if existing_user:
             return render_template('register.html', existing_user=True)
         elif existing_dog:
@@ -115,7 +129,22 @@ def add_entry(usr_type):
                 user.update_one({'_email': request.form.get('_email')},
                         {'$set': {'is_staff': 'not_staff'} })
             return redirect(url_for('user_home'))
-    
+
+#Adopt a dog
+@app.route('/adopt/<dog_id>', methods=['GET', 'POST'])
+def adopt_dog(dog_id):
+    adopt = mongo.db.adoptRequest
+    adopt.insert_one(request.form.to_dict())
+
+    # this_entry = adopt.find_one({'_email': request.form['_email']})
+    this_dog = mongo.db.dogs.find_one({'_id': ObjectId(dog_id)})
+
+    for key in this_dog:
+        if key != '_id':
+            adopt.update_one({'_email': request.form.get('_email')},
+                            {'$set': {key: this_dog[key]} })
+
+    return redirect(url_for('get_dogs')
 
 # READ
 # Find dog
