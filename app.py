@@ -112,12 +112,11 @@ def add_entry(usr_type):
     elif usr_type == 'services':
         user = mongo.db.services
         existing_user = user.find_one({'_email': request.form['_email']})
-    else:
+    elif usr_type == 'stores':
         user = mongo.db.stores
         existing_user = user.find_one({'_email': request.form['_email']})
 
     if request.method == 'POST':
-        
         if existing_user:
             return render_template('register.html', existing_user=True)
         elif existing_dog:
@@ -130,7 +129,22 @@ def add_entry(usr_type):
                 user.update_one({'_email': request.form.get('_email')},
                         {'$set': {'is_staff': 'not_staff'} })
             return redirect(url_for('user_home'))
-    
+
+#Adopt a dog
+@app.route('/adopt/<dog_id>', methods=['GET', 'POST'])
+def adopt_dog(dog_id):
+    adopt = mongo.db.adoptRequest
+    adopt.insert_one(request.form.to_dict())
+
+    # this_entry = adopt.find_one({'_email': request.form['_email']})
+    this_dog = mongo.db.dogs.find_one({'_id': ObjectId(dog_id)})
+
+    for key in this_dog:
+        if key != '_id':
+            adopt.update_one({'_email': request.form.get('_email')},
+                            {'$set': {key: this_dog[key]} })
+
+    return redirect(url_for('get_dogs', adoption='form sent'))
 
 # READ
 # Find dog
