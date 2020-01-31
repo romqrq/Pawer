@@ -71,14 +71,14 @@
             {% endif %}
             {% include 'forms/users/register-user.html' %}
 
-            {%if existing_user==True%}
+            <!-- {%if existing_user==True%}
                 <h2>This service email is already in the database!</h2>
-            {% endif %}
+            {% endif %} -->
             {% include 'forms/services/register-service.html' %}
 
-            {%if existing_user==True%}
+            <!-- {%if existing_user==True%}
                 <h2>This store email is already in the database!</h2>
-            {% endif %}
+            {% endif %} -->
             {% include 'forms/stores/register-store.html' %}
         </div>
     </div>
