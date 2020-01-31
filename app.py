@@ -139,6 +139,9 @@ def adopt_dog(dog_id):
     this_dog = mongo.db.dogs.find_one({'_id': ObjectId(dog_id)})
 
     for key in this_dog:
+        if key == '_id':
+            adopt.update_one({'_email': request.form.get('_email')},
+                            {'$set': {dog_id: this_dog[key]} })
         if key != '_id':
             adopt.update_one({'_email': request.form.get('_email')},
                             {'$set': {key: this_dog[key]} })
