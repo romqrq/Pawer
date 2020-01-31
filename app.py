@@ -14,7 +14,6 @@ app.secret_key = os.environ.get('SECRET_KEY')
 # URI variable saved as environment variable on GitPod
 app.config["MONGO_DBNAME"] = 'pawer'
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
-# app.config['SCSS_LOAD_DIR'] = '/sass'
 
 # Creating an instance of PyMongo
 mongo = PyMongo(app)
@@ -144,9 +143,14 @@ def adopt_dog(dog_id):
             adopt.update_one({'_email': request.form.get('_email')},
                             {'$set': {key: this_dog[key]} })
 
-    return redirect(url_for('get_dogs')
+    return redirect(url_for('get_dogs'))
 
 # READ
+#List adoption requests
+@app.route('/requests', methods=['GET', 'POST'])
+def get_adopt_requests():
+    return render_template('requests.html', adopt=mongo.db.adoptRequest.find())
+
 # Find dog
 @app.route('/dogs', methods=['GET', 'POST'])
 def get_dogs():
