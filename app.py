@@ -105,15 +105,15 @@ def add_entry(usr_type):
     if usr_type == 'dogs':
         user = mongo.db.dogs
         existing_dog = user.find_one({'dog_name': request.form['dog_name']})
-    elif usr_type == 'users':
+    else:
         user = mongo.db.users
         existing_user = user.find_one({'_email': request.form['_email']})
-    elif usr_type == 'services':
-        user = mongo.db.services
-        existing_user = user.find_one({'_email': request.form['_email']})
-    elif usr_type == 'stores':
-        user = mongo.db.stores
-        existing_user = user.find_one({'_email': request.form['_email']})
+    # elif usr_type == 'services':
+    #     user = mongo.db.services
+    #     existing_user = user.find_one({'_email': request.form['_email']})
+    # elif usr_type == 'stores':
+    #     user = mongo.db.stores
+    #     existing_user = user.find_one({'_email': request.form['_email']})
 
     if request.method == 'POST':
         if existing_user:
