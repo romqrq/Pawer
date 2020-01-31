@@ -1,0 +1,31 @@
+<div class="row card-row-find">
+    <div class="card row card-item-row">
+        <div class="col s12 m3">
+            <p class="card-title">{{user.first_name}} {{user.last_name}}</p>
+            <div class="card-image">
+                <i class="material-icons card-icon">person</i>
+            </div>
+        </div>
+        <div class="col s12 m2 buttons-row">
+            <a id="{{user._id}}" value="edit" class="waves-effect waves-light btn card-action-button form-trigger">
+                <i class="material-icons right card-action-button-icon">edit</i>
+                <span>Edit</span>
+            </a>
+            <a id="{{user._id}}" value="delete" class="waves-effect waves-light btn card-action-button form-trigger">
+                <i class="material-icons right card-action-button-icon">delete</i>
+                <span>Delete</span>
+            </a>
+        </div>
+        <div class="col s12 m7">
+            <div class="card-content">
+                {% if user.is_staff == 'on' %}
+                    <h4>STAFF</h4>
+                {% endif %}
+                <p class="card-content-title">Description</p>
+                <p class="truncate">{{user.user_description}}</p>
+            </div>
+        </div>
+    </div>
+    {% include 'forms/users/edit-user.html' %}
+    {% include 'forms/users/delete-user.html' %}
+</div>  

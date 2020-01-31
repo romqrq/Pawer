@@ -1,0 +1,20 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="parallax-container">
+    <div class="parallax"><img src="/static/images/pup_deck.jpg"></div>
+</div>
+<div class="section white">
+    <div class="container">
+    {% if session['is_staff'] == 'is_staff' %}
+        {% include 'templates/dashboard-staff.html' %}
+    {% endif %}
+    {% if session['is_staff'] != 'is_staff' %}
+        {% include 'templates/user-dashboard.html' %}
+    {% endif %} 
+    </div>
+</div>  
+
+
+{% endblock %}
