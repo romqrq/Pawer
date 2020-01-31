@@ -10,26 +10,7 @@
         {% if user == 'invalid' %}
             <h5>Invalid User</h5>
         {% endif %}
-        {% if user == 'valid' %}
-            <h5>Successful login</h5>
-        {% endif %}
-        <!-- <h5>{{user}}</h5> -->
         <form method="POST" action="{{ url_for('user_login') }}" class="col s6 offset-s3">
-            <p>Please select your account type:</p>
-            <div class="login-radio">
-                <label>
-                    <input class="with-gap" value="user" name="user_type_radio" type="radio" checked/>
-                    <span>User</span>
-                </label>
-                <label>
-                    <input class="with-gap" value="service" name="user_type_radio" type="radio"/>
-                    <span>Service</span>
-                </label>
-                <label>
-                    <input class="with-gap" value="store" name="user_type_radio" type="radio"/>
-                    <span>Store</span>
-                </label>
-            </div>
             <div class="row">
                 <div class="row">
                     <div class="input-field col s12">
