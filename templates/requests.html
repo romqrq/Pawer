@@ -35,16 +35,18 @@
                         </div>
                     </div>
                     <div class="col s12 m4 card-buttons-row">
-                        <a id="{{request._id}}" value="edit" class="waves-effect waves-light btn card-action-button form-trigger">
+                        <a value="not_adopted_dog" id="{{request._id}}" class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">clear</i>
                             <span>Not Adopted</span>
                         </a>
-                        <a id="{{request._id}}" value="delete" class="waves-effect waves-light btn card-action-button form-trigger">
+                        <a value="adopted_dog" id="{{request._id}}"  class="waves-effect waves-light btn card-action-button form-trigger">
                             <i class="material-icons right card-action-button-icon">done</i>
                             <span>Adopted</span>
                         </a>
                     </div>
                 </div>
+                {% include 'forms/adoption/adopted.html' %}
+                {% include 'forms/adoption/not-adopted.html' %}
             {% endfor %}
         </div>
     {% endif %}
@@ -52,3 +54,4 @@
 </div>  
 
 {% endblock %}
+ action="{{ url_for('delete_entry', usr_type='not_adopted', usr_id=request._id) }}"  method="POST"

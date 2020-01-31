@@ -89,11 +89,11 @@ def user_logout():
 def get_dashboard():
     usr_id = session['user_id']
     if session['user_type'] == 'user':
-        return render_template('dashboard.html', user=mongo.db.users.find_one({'_id': ObjectId(usr_id)}))
+        return render_template('dashboard/dashboard.html', user=mongo.db.users.find_one({'_id': ObjectId(usr_id)}))
     elif session['user_type'] == 'service':
-        return render_template('dashboard.html', users=mongo.db.services.find())
+        return render_template('dashboard/dashboard.html', users=mongo.db.services.find())
     else:
-        return render_template('dashboard.html', users=mongo.db.stores.find_one())
+        return render_template('dashboard/dashboard.html', users=mongo.db.stores.find_one())
 
     # return render_template('dashboard.html', user=mongo.db.<usr_type>.find_one({'_id': ObjectId(usr_id)}))
 
@@ -139,6 +139,9 @@ def adopt_dog(dog_id):
     this_dog = mongo.db.dogs.find_one({'_id': ObjectId(dog_id)})
 
     for key in this_dog:
+        if key == '_id':
+            adopt.update_one({'_email': request.form.get('_email')},
+                            {'$set': {dog_id: this_dog[key]} })
         if key != '_id':
             adopt.update_one({'_email': request.form.get('_email')},
                             {'$set': {key: this_dog[key]} })
