@@ -1,31 +1,47 @@
 <div class="row form-box hide" id="stores" value="stores">
     <form action="{{ url_for('add_entry', usr_type='stores') }}" method="POST" class="col s12">
         <div class="row">
-            <div class="input-field col s12">
-                <input name="store_name" type="text" class="validate">
+            <div class="input-field col s6">
+                <input name="store_name" type="text" class="validate" required>
                 <label for="store_name">Store Name</label>
             </div>
-            <div class="input-field col s6">
-                <input name="store_address" type="text" class="validate" required>
-                <label for="store_addres">Store Address</label>
-            </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input name="_email" type="email" class="validate">
+                <textarea name="store_description" class="materialize-textarea"  required></textarea>
+                <label for="store_description">Address</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input name="_email" type="email" class="validate" required>
                 <label for="_email">Email</label>
             </div>
+            <div class="input-field col s6">
+                <input name="aff_link" type="text" class="validate">
+                <label for="aff_link">website</label>
+            </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input name="password" type="password" class="validate">
+                <input name="password" type="password" class="validate" required>
                 <label for="password">Password</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="store_description" class="materialize-textarea"></textarea>
+                <textarea name="store_description" class="materialize-textarea" required></textarea>
                 <label for="store_description">Short description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input name="discount_code" type="text" class="validate">
+                <label for="discount_code">Discount Code</label>
+            </div>
+            <div class="input-field col s6">
+                <input name="discount_amount" type="text" class="validate">
+                <label for="discount_amount">Discount Amount</label>
             </div>
         </div>
         <div class="row">

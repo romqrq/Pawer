@@ -3,6 +3,10 @@
 .card {
     min-height: 100%;
     padding: 2.5rem 0 0;
+    .card-content {
+        margin: 0;
+        padding: 0;
+    }
 }
 .card-title{
     font-family: "Alfa Slab One", sans-serif;
@@ -16,10 +20,6 @@
 }
 .card-icon{
     font-size: 7rem;
-}
-.card-content {
-    margin: 0;
-    padding: 0;
 }
 .card-content-title {
     font-size: 1.5rem;

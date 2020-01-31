@@ -152,6 +152,15 @@ nav .button-collapse {
   margin: auto;
 }
 
+.card-row-register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
 /* Footer */
 .page-footer {
   background-color: #FCD23C;
@@ -197,6 +206,11 @@ nav .button-collapse {
   padding: 2.5rem 0 0;
 }
 
+.card .card-content {
+  margin: 0;
+  padding: 0;
+}
+
 .card-title {
   font-family: "Alfa Slab One", sans-serif;
   color: #343334;
@@ -211,11 +225,6 @@ nav .button-collapse {
 
 .card-icon {
   font-size: 7rem;
-}
-
-.card-content {
-  margin: 0;
-  padding: 0;
 }
 
 .card-content-title {

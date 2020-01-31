@@ -5,7 +5,7 @@
     <div class="parallax"><img src="/static/images/pup_deck.jpg"></div>
 </div>
 <div class="section white">
-    <div class="row container">
+    <div class="container">
         <h2 class="heading-text">Register</h2>
         <p>Choose one of the categories below to choose a type for your account</p>
         <div class="row card-row-register">
@@ -71,14 +71,8 @@
             {% endif %}
             {% include 'forms/users/register-user.html' %}
 
-            <!-- {%if existing_user==True%}
-                <h2>This service email is already in the database!</h2>
-            {% endif %} -->
             {% include 'forms/services/register-service.html' %}
 
-            <!-- {%if existing_user==True%}
-                <h2>This store email is already in the database!</h2>
-            {% endif %} -->
             {% include 'forms/stores/register-store.html' %}
         </div>
     </div>

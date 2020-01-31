@@ -31,43 +31,23 @@ def register():
 # User Login
 @app.route('/login', methods=['GET', 'POST'])
 def user_login():
-    """ Loads page where users can login """
+    """ Loads page where users can login, checks the email and password on the database. If the user is valid, variables are added to session to be used 
+        to adjust the content to the type of user and privileges """
     users = mongo.db.users
-    services = mongo.db.services
-    stores = mongo.db.stores
     if request.method == 'POST':
-        user_type = request.form["user_type_radio"]
         form_pwd = request.form['password']
-        if user_type == 'user':
-            login_user = users.find_one({'_email' : request.form['login_email']})
-            if login_user:
-                user_id = str(login_user['_id'])
-                db_pwd = login_user['password']
-                if form_pwd == db_pwd:
-                    session['user_id'] = user_id
-                    session['user_type'] = 'user'
-                    if login_user['is_staff']:
-                        session['is_staff'] = login_user['is_staff']
-                    else:
-                        session['is_staff'] = 'not_staff'
-                    return render_template('login.html', user='valid')
-        if user_type == 'service':
-            login_user = services.find_one({'_email': request.form['login_email']})
-            if login_user:
-                db_pwd = login_user['password']
-                if form_pwd == db_pwd:
-                    session['user_id'] = str(login_user['_id'])
-                    session['user_type'] = 'service'
-                    return render_template('login.html', user='valid')
-        if user_type == 'store':
-            login_user = stores.find_one({'_email': request.form['login_email']})
-            if login_user:
-                db_pwd = login_user['password']
-                if form_pwd == db_pwd:
-                    session['user_id'] = str(login_user['_id'])
-                    session['user_type'] = 'store'
-                    return render_template('login.html', user='valid')
-
+        login_user = users.find_one({'_email' : request.form['login_email']})
+        if login_user:
+            user_id = str(login_user['_id'])
+            db_pwd = login_user['password']
+            if form_pwd == db_pwd:
+                session['user_id'] = user_id
+                session['user_type'] = login_user['usr_type']
+                if login_user['is_staff']:
+                    session['is_staff'] = login_user['is_staff']
+                else:
+                    session['is_staff'] = 'not_staff'
+                return render_template('index.html')
         else: 
             return render_template('login.html', user='invalid')
  
@@ -76,7 +56,7 @@ def user_login():
 #USER LOGOUT
 @app.route('/logout', methods=['GET', 'POST'])
 def user_logout():
-    """ Loads page where users can login """
+    """ Simplified logout function that removes items added to the session list during login """
 
     session.pop('user_id')
     session.pop('is_staff')
@@ -87,20 +67,16 @@ def user_logout():
 #DASHBOARD
 @app.route('/dashboard', methods=['GET', 'POST'])
 def get_dashboard():
+    """ Function to load the dashboard where users can update their account details or delete their account."""
     usr_id = session['user_id']
-    if session['user_type'] == 'user':
-        return render_template('dashboard/dashboard.html', user=mongo.db.users.find_one({'_id': ObjectId(usr_id)}))
-    elif session['user_type'] == 'service':
-        return render_template('dashboard/dashboard.html', users=mongo.db.services.find())
-    else:
-        return render_template('dashboard/dashboard.html', users=mongo.db.stores.find_one())
-
-    # return render_template('dashboard.html', user=mongo.db.<usr_type>.find_one({'_id': ObjectId(usr_id)}))
-
+    return render_template('dashboard/dashboard.html', user=mongo.db.users.find_one({'_id': ObjectId(usr_id)}))
+    
 # CREATE
 #Add entry
 @app.route('/new-entry/<usr_type>', methods=['POST'])
 def add_entry(usr_type):
+    """ Function to create new document in the users collection. It looks up for pre-existing records and only adding to database if the record doesn't exist.
+        The function also adds the 'staff' status of the account and the account type."""
     existing_dog = None
     if usr_type == 'dogs':
         user = mongo.db.dogs
@@ -127,10 +103,10 @@ def add_entry(usr_type):
 #Adopt a dog
 @app.route('/adopt/<dog_id>', methods=['GET', 'POST'])
 def adopt_dog(dog_id):
+    """ Function to create new document in the adoptRequest collection. It gets information from the adoptant and the dog to create a separate file."""
     adopt = mongo.db.adoptRequest
     adopt.insert_one(request.form.to_dict())
 
-    # this_entry = adopt.find_one({'_email': request.form['_email']})
     this_dog = mongo.db.dogs.find_one({'_id': ObjectId(dog_id)})
 
     for key in this_dog:
@@ -159,19 +135,19 @@ def get_dogs():
 @app.route('/users')
 def get_users():
     """ Function to list users contained in the database """
-    return render_template('users.html', users=mongo.db.users.find())
+    return render_template('users.html', users=mongo.db.users.find({'usr_type': 'users'}))
 
 # Find service
 @app.route('/services')
 def get_services():
     """ Function to list services contained in the database """
-    return render_template('services.html', services=mongo.db.services.find())
+    return render_template('services.html', services=mongo.db.users.find({'usr_type': 'services'}))
 
 # Find stores
 @app.route('/stores')
 def get_stores():
     """ Function to list stores contained in the database """
-    return render_template('stores.html', stores=mongo.db.stores.find())
+    return render_template('stores.html', stores=mongo.db.users.find({'usr_type': 'stores'}))
 
 # UPDATE
 @app.route('/update/<usr_type>/<usr_id>', methods=['GET', 'POST'])
