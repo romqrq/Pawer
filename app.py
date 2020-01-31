@@ -80,7 +80,7 @@ def user_logout():
 
     session.pop('user_id')
     session.pop('is_staff')
-    session.pop['usr_type']
+    session.pop('user_type')
 
     return render_template('index.html')
 
@@ -149,7 +149,7 @@ def adopt_dog(dog_id):
 #List adoption requests
 @app.route('/requests', methods=['GET', 'POST'])
 def get_adopt_requests():
-    return render_template('requests.html', adopt=mongo.db.adoptRequest.find())
+    return render_template('requests.html', requests=mongo.db.adoptRequest.find())
 
 # Find dog
 @app.route('/dogs', methods=['GET', 'POST'])
