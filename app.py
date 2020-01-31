@@ -89,11 +89,11 @@ def user_logout():
 def get_dashboard():
     usr_id = session['user_id']
     if session['user_type'] == 'user':
-        return render_template('dashboard.html', user=mongo.db.users.find_one({'_id': ObjectId(usr_id)}))
+        return render_template('dashboard/dashboard.html', user=mongo.db.users.find_one({'_id': ObjectId(usr_id)}))
     elif session['user_type'] == 'service':
-        return render_template('dashboard.html', users=mongo.db.services.find())
+        return render_template('dashboard/dashboard.html', users=mongo.db.services.find())
     else:
-        return render_template('dashboard.html', users=mongo.db.stores.find_one())
+        return render_template('dashboard/dashboard.html', users=mongo.db.stores.find_one())
 
     # return render_template('dashboard.html', user=mongo.db.<usr_type>.find_one({'_id': ObjectId(usr_id)}))
 
