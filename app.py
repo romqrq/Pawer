@@ -194,9 +194,6 @@ def delete_entry(usr_type, usr_id):
     elif usr_type == 'adopted':
         usr = mongo.db.adoptRequest
         adoption_file = usr.find_one({'_id': ObjectId(usr_id)})
-        print('--------------------------------')
-        print(usr_id)
-        print(adoption_file['dog_id'])
         mongo.db.dogs.delete_one({'_id': ObjectId(adoption_file['dog_id'])})
         url = 'get_adopt_requests'
     else:
