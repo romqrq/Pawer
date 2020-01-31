@@ -8,10 +8,10 @@
 <div class="section white">
     <div class="container">
     {% if session['is_staff'] == 'is_staff' %}
-        {% include 'templates/dashboard-staff.html' %}
-    {% endif %}
+        {% include 'dashboard/dash-staff.html' %}
+    {% endif %} 
     {% if session['is_staff'] != 'is_staff' %}
-        {% include 'templates/user-dashboard.html' %}
+        {% include 'dashboard/dash-user.html' %}
     {% endif %} 
     </div>
 </div>  
