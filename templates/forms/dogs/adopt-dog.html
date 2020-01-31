@@ -1,24 +1,8 @@
 <div class="form-box hide" id="{{dog._id}}" value='adopt'>
     <h2 class="heading-text">Awesome!</h2>
     <p class="secondary-text">Great to see your interest in our little friend!</p>
-    <p>please give us some details and our team will get back to you as soon as possible!</p>
-    <form action="{{ url_for('adopt_dog', dog_id=dog._id) }}" method="POST" class="col s12 edit-dog-form">
-        <div class="row">
-            <div class="input-field col s6">
-                <input name="first_name" type="text" class="validate">
-                <label for="first_name">First Name</label>
-            </div>
-            <div class="input-field col s6">
-                <input name="last_name" type="text" class="validate">
-                <label for="last_name">Last Name</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input name="_email" type="email" class="validate">
-                <label for="_email">Email</label>
-            </div>
-        </div>
+    <p>please tell us why do you want this dog and our team will get back to you as soon as possible!</p>
+    <form action="{{ url_for('adopt_dog', dog_id=dog._id, usr_id=session['user_id']) }}" method="POST" class="col s12 edit-dog-form">
         <div class="row">
             <div class="input-field col s12">
                 <textarea name="why_adopt" class="materialize-textarea"></textarea>
