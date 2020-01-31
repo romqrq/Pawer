@@ -101,20 +101,26 @@ def add_entry(usr_type):
         return redirect(url_for('user_home'))
 
 #Adopt a dog
-@app.route('/adopt/<dog_id>', methods=['GET', 'POST'])
-def adopt_dog(dog_id):
-    """ Function to create new document in the adoptRequest collection. It gets information from the adoptant and the dog to create a separate file."""
+@app.route('/adopt/<usr_id>/<dog_id>', methods=['GET', 'POST'])
+def adopt_dog(usr_id, dog_id):
+    """ Function to create new document in the adoptRequest collection. It gets information from the adoptant and the dog to create a single file."""
     adopt = mongo.db.adoptRequest
-    adopt.insert_one(request.form.to_dict())
+    this_user = mongo.db.users.find_one({'_id': ObjectId(usr_id)})
+    adopt.insert_one(this_user)
+    
+    for key in this_user:
+        if key == '_id':
+            adopt.update_one({'_email': this_user['_email']},
+                            {'$set': {'usr_id': this_user[key]} })
+
 
     this_dog = mongo.db.dogs.find_one({'_id': ObjectId(dog_id)})
-
     for key in this_dog:
         if key == '_id':
-            adopt.update_one({'_email': request.form.get('_email')},
-                            {'$set': {dog_id: this_dog[key]} })
+            adopt.update_one({'_email': this_user['_email']},
+                            {'$set': {'dog_id': this_dog[key]} })
         if key != '_id':
-            adopt.update_one({'_email': request.form.get('_email')},
+            adopt.update_one({'_email': this_user['_email']},
                             {'$set': {key: this_dog[key]} })
 
     return redirect(url_for('get_dogs'))
@@ -182,16 +188,21 @@ def delete_entry(usr_type, usr_id):
     if usr_type == 'dogs':
         usr = mongo.db.dogs
         url = 'get_dogs'
-    elif usr_type == 'users':
+    elif usr_type == 'not_adopted':
+        usr = mongo.db.adoptRequest
+        url = 'get_adopt_requests'
+    elif usr_type == 'adopted':
+        usr = mongo.db.adoptRequest
+        adoption_file = usr.find_one({'_id': ObjectId(usr_id)})
+        mongo.db.dogs.delete_one({'_id': ObjectId(adoption_file['dog_id'])})
+        url = 'get_adopt_requests'
+    else:
         usr = mongo.db.users
         url = 'get_users'
-    elif usr_type == 'services':
-        usr = mongo.db.services
-        url = 'get_services'
-    else:
-        usr = mongo.db.stores
-        url = 'get_stores'
+
+     
     usr.delete_one({'_id': ObjectId(usr_id)})
+
     return redirect(url_for(url))
 
 if __name__ == '__main__':
