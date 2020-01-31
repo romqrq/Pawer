@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-                {% if session['is_staff'] %}
+                {% if session %}
                     {% include 'forms/dogs/adopt-dog.html' %}
                 {% endif %}
                 {% if session['is_staff'] == 'is_staff' %}
