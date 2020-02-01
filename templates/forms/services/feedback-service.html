@@ -1,0 +1,21 @@
+<div class="form-box hide" id="{{ service._id }}" value="feedback">
+    <form action="{{ url_for('update_entry', usr_type='services', usr_id=service._id) }}" method="POST" class="col s12">
+        <div class="row">
+            <div class="col s6 offset-s3">
+                <label>
+                    <input class="with-gap" name="group1" type="radio"  />
+                    <span>Positive</span>
+                </label>
+                <label>
+                    <input class="with-gap" name="group1" type="radio"  />
+                    <span>Negative</span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Leave Feedback
+                <i class="material-icons right">check</i>
+            </button>
+        </div>
+    </form>
+</div>
