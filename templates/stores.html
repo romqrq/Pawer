@@ -1,4 +1,3 @@
-
 {% extends 'base.html' %}
 {% block content %}
 <div class="parallax-container">
@@ -6,42 +5,56 @@
 </div>
 <div class="section white">
     <div class="row container">
+        <div class="container">
+            <h2 class="heading-text">Pawer Stores</h2>
+            <p class="secondary-text">Pet food, medicines, accessories, toys...you can find all that and more in our
+                associate stores!</p>
+            <p>Have a look athe the nearest store and go shopping! You can use as a reference the feedbacks they
+                received
+                from previous customers!</p>
+            <p>If you are registered, <a href="{{url_for('user_login')}}">login here</a>! If you aren't registered yet,
+                <a href="{{url_for('register')}}">register here</a> and get amazing discounts in products and
+                services!</p>
+            <p>Only registered and logged in users are able to leave feedback to stores.</p>
+        </div>
         <div class="row card-row-find">
             {% for store in stores %}
-                <div class="card row card-item-row">
-                    <div class="col s12 m3">
-                        <p class="card-title">{{store.store_name}}</p>
-                        <div class="card-image">
-                            <i class="material-icons card-icon">shopping_cart</i>
-                        </div>
+            <div class="card row card-item-row">
+                <div class="col s12 m3">
+                    <p class="card-title">{{store.store_name}}</p>
+                    <div class="card-image">
+                        <i class="material-icons card-icon">shopping_cart</i>
                     </div>
-                    <div class="col s12 m6">
-                        <div class="card-content">
-                            <p class="card-content-title">Description</p>
-                            <p>Address: {{store.store_address}}</p>
-                            <p class="truncate">{{store.store_description}}</p>
-                        </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="card-content">
+                        <p class="card-content-title">Description</p>
+                        <p>Address: {{store.store_address}}</p>
+                        <p class="truncate">{{store.store_description}}</p>
                     </div>
-                    {% if session['is_staff'] == 'is_staff' %}
-                    <div class="col s12 m3 buttons-row">
-                        <a id="{{store._id}}" value="edit" class="waves-effect waves-light btn card-action-button form-trigger">
-                            <i class="material-icons right card-action-button-icon">edit</i>
-                            <span>Edit</span>
-                        </a>
-                        <a id="{{store._id}}" value="delete" class="waves-effect waves-light btn card-action-button form-trigger">
-                            <i class="material-icons right card-action-button-icon">delete</i>
-                            <span>Delete</span>
-                        </a>
-                    </div>
-                    {% endif %}
                 </div>
                 {% if session['is_staff'] == 'is_staff' %}
-                    {% include 'forms/stores/edit-store.html' %}
-                    {% include 'forms/stores/delete-store.html' %}
+                <div class="col s12 m3 buttons-row">
+                    <a id="{{store._id}}" value="edit"
+                        class="waves-effect waves-light btn card-action-button form-trigger">
+                        <i class="material-icons right card-action-button-icon">edit</i>
+                        <span>Edit</span>
+                    </a>
+                    <a id="{{store._id}}" value="delete"
+                        class="waves-effect waves-light btn card-action-button form-trigger">
+                        <i class="material-icons right card-action-button-icon">delete</i>
+                        <span>Delete</span>
+                    </a>
+                </div>
                 {% endif %}
+            </div>
+            {% if session['is_staff'] == 'is_staff' %}
+            {% include 'forms/stores/edit-store.html' %}
+            {% include 'forms/stores/delete-store.html' %}
+            {% endif %}
             {% endfor %}
         </div>
     </div>
-</div>  
+</div>
 
 {% endblock %}
