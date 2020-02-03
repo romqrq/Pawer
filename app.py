@@ -31,12 +31,12 @@ def register():
 # User Login
 @app.route('/login', methods=['GET', 'POST'])
 def user_login():
-    """ Loads page where users can login, checks the email and password on the database. If the user is valid, variables are added to session to be used 
+    """ Loads page where users can login, checks the email and password on the database. If the user is valid, variables are added to session to be used
         to adjust the content to the type of user and privileges """
     users = mongo.db.users
     if request.method == 'POST':
         form_pwd = request.form['password']
-        login_user = users.find_one({'_email' : request.form['login_email']})
+        login_user = users.find_one({'_email': request.form['login_email']})
         if login_user:
             user_id = str(login_user['_id'])
             db_pwd = login_user['password']
@@ -48,12 +48,12 @@ def user_login():
                 else:
                     session['is_staff'] = 'not_staff'
                 return render_template('index.html')
-        else: 
+        else:
             return render_template('login.html', user='invalid')
- 
+
     return render_template('login.html')
 
-#USER LOGOUT
+# USER LOGOUT
 @app.route('/logout', methods=['GET', 'POST'])
 def user_logout():
     """ Simplified logout function that removes items added to the session list during login """
@@ -64,15 +64,15 @@ def user_logout():
 
     return render_template('index.html')
 
-#DASHBOARD
+# DASHBOARD
 @app.route('/dashboard', methods=['GET', 'POST'])
 def get_dashboard():
     """ Function to load the dashboard where users can update their account details or delete their account."""
     usr_id = session['user_id']
     return render_template('dashboard/dashboard.html', user=mongo.db.users.find_one({'_id': ObjectId(usr_id)}))
-    
+
 # CREATE
-#Add entry
+# Add entry
 @app.route('/new-entry/<usr_type>', methods=['POST'])
 def add_entry(usr_type):
     """ Function to create new document in the users collection. It looks up for pre-existing records and only adding to database if the record doesn't exist.
@@ -95,38 +95,37 @@ def add_entry(usr_type):
             request.form['is_staff']
         except:
             user.update_one({'_email': request.form.get('_email')},
-                    {'$set': {'is_staff': 'not_staff',
-                                'usr_type': usr_type} })
-        
+                            {'$set': {'is_staff': 'not_staff',
+                                      'usr_type': usr_type}})
+
         return redirect(url_for('user_home'))
 
-#Adopt a dog
+# Adopt a dog
 @app.route('/adopt/<usr_id>/<dog_id>', methods=['GET', 'POST'])
 def adopt_dog(usr_id, dog_id):
     """ Function to create new document in the adoptRequest collection. It gets information from the adoptant and the dog to create a single file."""
     adopt = mongo.db.adoptRequest
     this_user = mongo.db.users.find_one({'_id': ObjectId(usr_id)})
     adopt.insert_one(this_user)
-    
+
     for key in this_user:
         if key == '_id':
             adopt.update_one({'_email': this_user['_email']},
-                            {'$set': {'usr_id': this_user[key]} })
-
+                             {'$set': {'usr_id': this_user[key]}})
 
     this_dog = mongo.db.dogs.find_one({'_id': ObjectId(dog_id)})
     for key in this_dog:
         if key == '_id':
             adopt.update_one({'_email': this_user['_email']},
-                            {'$set': {'dog_id': this_dog[key]} })
+                             {'$set': {'dog_id': this_dog[key]}})
         if key != '_id':
             adopt.update_one({'_email': this_user['_email']},
-                            {'$set': {key: this_dog[key]} })
+                             {'$set': {key: this_dog[key]}})
 
     return redirect(url_for('get_dogs'))
 
 # READ
-#List adoption requests
+# List adoption requests
 @app.route('/requests', methods=['GET', 'POST'])
 def get_adopt_requests():
     return render_template('requests.html', requests=mongo.db.adoptRequest.find())
@@ -165,22 +164,41 @@ def update_entry(usr_type, usr_id):
     elif usr_type == 'users':
         user = mongo.db.users
         get_user = 'get_users'
-    elif usr_type == 'services':
+    elif usr_type == 'feedback':
         user = mongo.db.services
         get_user = 'get_services'
     else:
         user = mongo.db.stores
         get_user = 'get_stores'
-    
+
     document = user.find_one()
     for key in document:
         if key != '_id':
             field_name = request.form.get(key)
             if field_name:
                 user.update_one({'_id': ObjectId(usr_id)},
-                    {'$set': {key: request.form.get(key)} })
-    
+                                {'$set': {key: request.form.get(key)}})
+
     return redirect(url_for(get_user))
+
+
+def user_feedback(usr_typee, usr_id):
+    user = mongo.db.users
+
+    if request.form.get(fbck) == 'positive':
+        user.update_one({'_id': ObjectId(usr_id)},
+                        {'$inc': {"fb_received.positive": 1}})
+    if request.form.get(fbck) == 'negative':
+        user.update_one({'_id': ObjectId(usr_id)},
+                        {'$inc': {"fb_received.negative": 1}})
+
+    if usr_type == 'services':
+        url = 'get_services'
+    else:
+        url = 'get_stores'
+
+    return redirect(url_for(url))
+
 
 # DELETE
 @app.route('/delete/<usr_type>/<usr_id>', methods=['GET', 'POST'])
@@ -200,12 +218,12 @@ def delete_entry(usr_type, usr_id):
         usr = mongo.db.users
         url = 'get_users'
 
-     
     usr.delete_one({'_id': ObjectId(usr_id)})
 
     return redirect(url_for(url))
 
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
-            debug=True)           
+            port=os.environ.get('PORT'),
+            debug=True)
