@@ -1,0 +1,24 @@
+<div class="form-box hide" id="{{ service._id }}" value="feedback">
+    <form action="{{ url_for('user_feedback', fb_receiver='service.id', usr_type='services') }}" method="POST"
+        class="col s12">
+        <div class="row">
+            <div class="col s6">
+                <label>
+                    <input class="with-gap" name="fbck" value="positive" type="radio" />
+                    <span>Positive</span>
+                </label>
+            </div>
+            <div class="col s6">
+                <label>
+                    <input class="with-gap" name="fbck" value="negative" type="radio" />
+                    <span>Negative</span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit">Create Account
+                <i class="material-icons right">playlist_add</i>
+            </button>
+        </div>
+    </form>
+</div>
