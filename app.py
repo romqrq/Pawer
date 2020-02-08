@@ -158,19 +158,21 @@ def get_stores():
 # UPDATE
 @app.route('/update/<usr_type>/<usr_id>', methods=['GET', 'POST'])
 def update_entry(usr_type, usr_id):
-
+    user = mongo.db.users
     if usr_type == 'dogs':
         user = mongo.db.dogs
         get_user = 'get_dogs'
-    elif usr_type == 'users':
-        user = mongo.db.users
-        get_user = 'get_users'
-    elif usr_type == 'services':
-        user = mongo.db.services
-        get_user = 'get_services'
+    # elif usr_type =='feedback':
+        
     else:
-        user = mongo.db.stores
-        get_user = 'get_stores'
+
+        get_user = 'get_'+str(usr_type)
+    # elif usr_type == 'feedback':
+    #     user = mongo.db.services
+    #     get_user = 'get_services'
+    # else:
+    #     user = mongo.db.stores
+    #     get_user = 'get_stores'
     
     document = user.find_one()
     for key in document:
@@ -182,6 +184,16 @@ def update_entry(usr_type, usr_id):
     
     return redirect(url_for(get_user))
 
+
+def user_feedback(usr_type, usr_id):
+    user = mongo.db.users
+    feedback = request.form.get['fbck']
+    print('---------------------')
+    print(feedback)
+    # if feedback == ''
+    # user.update_one({'_id': ObjectId(usr_id)},
+    #                 {'$inc': {key: request.form.get(key)} })
+    return print(feedback)
 # DELETE
 @app.route('/delete/<usr_type>/<usr_id>', methods=['GET', 'POST'])
 def delete_entry(usr_type, usr_id):
