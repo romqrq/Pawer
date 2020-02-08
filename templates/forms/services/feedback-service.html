@@ -1,13 +1,13 @@
 <div class="form-box hide" id="{{ service._id }}" value="feedback">
-    <form action="{{ url_for('update_entry', usr_type='services', usr_id=service._id) }}" method="POST" class="col s12">
+    <form action="{{ url_for('update_entry', usr_type='feedback', usr_id=service._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="col s6 offset-s3">
                 <label>
-                    <input class="with-gap" name="group1" type="radio"  />
+                    <input class="with-gap" name="fbck" type="radio" />
                     <span>Positive</span>
                 </label>
                 <label>
-                    <input class="with-gap" name="group1" type="radio"  />
+                    <input class="with-gap" name="fbck" type="radio" />
                     <span>Negative</span>
                 </label>
             </div>
