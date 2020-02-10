@@ -1,7 +1,7 @@
 # Importing libraries
 import os
 from os import path
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, flash, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -11,26 +11,28 @@ if path.exists('env.py'):
 # Creating instance of Flask
 APP = Flask(__name__)
 APP.secret_key = os.environ.get('SECRET_KEY')
+
 # Adding Mongo database name and URI linking to that database.
-# URI variable saved as environment variable on GitPod
 APP.config["MONGO_DBNAME"] = 'pawer'
 APP.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
 
 # Creating an instance of PyMongo
 MONGO = PyMongo(APP)
+
+
 @APP.route('/')
 def user_home():
     """ Main page where users can choose where to go"""
-    return render_template('index.html')
+    return render_template('pages/index.html')
 
-# Choosing type of account and adding a new user to database
+
 @APP.route('/register')
 def register():
     """ Page where users can choose a type of account and
      register through the specific form"""
-    return render_template('register.html')
+    return render_template('pages/register.html')
 
-# User Login
+
 @APP.route('/login', methods=['GET', 'POST'])
 def user_login():
     """ Loads page where users can login, checks the email and password on the
@@ -50,23 +52,25 @@ def user_login():
                     session['is_staff'] = login_user['is_staff']
                 else:
                     session['is_staff'] = 'not_staff'
-                return render_template('index.html')
+                flash('Welcome Back! You were successfully logged in.', 'info')
+                return render_template('pages/index.html')
+            else:
+                flash('Invalid email or password.', 'info')
         else:
-            return render_template('login.html', user='invalid')
+            flash('Invalid email or password.', 'info')
 
-    return render_template('login.html')
+    return render_template('pages/login.html')
 
-# USER LOGOUT
+
 @APP.route('/logout', methods=['GET', 'POST'])
 def user_logout():
     """ Simplified logout function that removes items added to the session
     list during login """
 
-    session.pop('user_id')
-    session.pop('is_staff')
-    session.pop('user_type')
+    session.clear()
 
-    return render_template('index.html')
+    flash('You have been logged out successfully.', 'info')
+    return render_template('pages/index.html')
 
 # DASHBOARD
 @APP.route('/dashboard', methods=['GET', 'POST'])
@@ -74,12 +78,12 @@ def get_dashboard():
     """ Function to load the dashboard where users can update their account
     details or delete their account."""
     usr_id = session['user_id']
-    return render_template('dashboard/dashboard.html',
+    return render_template('pages/dashboard.html',
                            user=MONGO.db.users.find_one({'_id': ObjectId(usr_id)}))
 
 # CREATE
 # Add entry
-@APP.route('/new-entry/<usr_type>', methods=['POST'])
+@APP.route('/add/<usr_type>', methods=['POST'])
 def add_entry(usr_type):
     """ Function to create new document in the users collection. It looks up
     for pre-existing records and only adding to database if the record
@@ -95,18 +99,24 @@ def add_entry(usr_type):
         existing_user = user.find_one({'_email': request.form['_email']})
 
     if existing_user:
-        return render_template('register.html', existing_user=True)
+        flash('Sorry, this email is already registered.', 'info')
+        return redirect(url_for('add_entry'))
     elif existing_dog:
-        return render_template('register.html', existing_dog=True)
+        flash('Sorry, this dog is already registered.', 'info')
+        return redirect(url_for('add_entry'))
     else:
         user.insert_one(request.form.to_dict())
         try:
             request.form['is_staff']
-        except:
+        except KeyError:
             user.update_one({'_email': request.form.get('_email')},
                             {'$set': {'is_staff': 'not_staff',
                                       'usr_type': usr_type}})
-
+        if usr_type == 'services' or usr_type == 'stores':
+            user.update_one({'_email': request.form.get('_email')},
+                            {'$set': {'fb_received': {'positive': '0',
+                                      'negative': '0'}}})
+        flash('You have been registered successfully! Welcome!', 'info')
         return redirect(url_for('user_home'))
 
 # Adopt a dog
@@ -136,42 +146,47 @@ def adopt_dog(usr_id, dog_id):
     return redirect(url_for('get_dogs'))
 
 # READ
-# List adoption requests
 @APP.route('/requests', methods=['GET', 'POST'])
 def get_adopt_requests():
-    return render_template('requests.html',
+    """ Function to list adoption requests in the database """
+    return render_template('pages/requests.html',
                            requests=MONGO.db.adoptRequest.find())
 
 # Find dog
 @APP.route('/dogs', methods=['GET', 'POST'])
 def get_dogs():
     """ Function to list dogs contained in the database """
-    return render_template('dogs.html', dogs=MONGO.db.dogs.find())
+    return render_template('pages/dogs.html', dogs=MONGO.db.dogs.find())
 
 # Find user
 @APP.route('/users')
 def get_users():
     """ Function to list users contained in the database """
-    return render_template('users.html',
+    return render_template('pages/users.html',
                            users=MONGO.db.users.find({'usr_type': 'users'}))
 
 # Find service
 @APP.route('/services')
 def get_services():
     """ Function to list services contained in the database """
-    return render_template('services.html',
+    return render_template('pages/services.html',
                            services=MONGO.db.users.find({'usr_type': 'services'}))
 
 # Find stores
 @APP.route('/stores')
 def get_stores():
     """ Function to list stores contained in the database """
-    return render_template('stores.html',
+    return render_template('pages/stores.html',
                            stores=MONGO.db.users.find({'usr_type': 'stores'}))
 
 # UPDATE
 @APP.route('/update/<usr_type>/<usr_id>', methods=['GET', 'POST'])
 def update_entry(usr_type, usr_id):
+    """
+    Function to update entries on the database. It takes the user to determine
+    the collection to be targeted and the user id to find the specific record
+    in the collection.
+    """
 
     if usr_type == 'dogs':
         user = MONGO.db.dogs
@@ -179,12 +194,12 @@ def update_entry(usr_type, usr_id):
     elif usr_type == 'users':
         user = MONGO.db.users
         get_user = 'get_users'
-    elif usr_type == 'feedback':
-        user = MONGO.db.services
-        get_user = 'get_services'
-    else:
-        user = MONGO.db.stores
-        get_user = 'get_stores'
+    # elif usr_type == 'feedback':
+    #     user = MONGO.db.services
+    #     get_user = 'get_services'
+    # else:
+    #     user = MONGO.db.stores
+    #     get_user = 'get_stores'
 
     document = user.find_one()
     for key in document:
@@ -198,12 +213,16 @@ def update_entry(usr_type, usr_id):
 
 
 def user_feedback(usr_type, usr_id):
+    """
+    Function to increment the number of feedbacks received by store or service,
+    based on user inputs through the form.
+    """
     user = MONGO.db.users
 
-    if request.form.get(fbck) == 'positive':
+    if request.form.get('feedback-radio') == 'positive':
         user.update_one({'_id': ObjectId(usr_id)},
                         {'$inc': {"fb_received.positive": 1}})
-    if request.form.get(fbck) == 'negative':
+    if request.form.get('feedback-radio') == 'negative':
         user.update_one({'_id': ObjectId(usr_id)},
                         {'$inc': {"fb_received.negative": 1}})
 
