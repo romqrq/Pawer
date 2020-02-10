@@ -6,11 +6,13 @@ html {
 
 body {
   text-align: center;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: #343334;
 }
 
 .container {
@@ -20,6 +22,7 @@ a {
 .parallax-container {
   top: 5.5rem;
   width: 100%;
+  max-height: 70vh;
 }
 
 .parallax-container .parallax img {
@@ -258,4 +261,3 @@ nav .button-collapse {
     padding: 0.5rem 0.4rem;
   }
 }
-/*# sourceMappingURL=main.css.map */

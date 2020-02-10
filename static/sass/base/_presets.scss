@@ -5,10 +5,12 @@ html {
 }
 body {
     text-align: center;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
 }
 a {
     text-decoration: none;
-    color: black;
+    color: $black-color;
 }
 .container {
     padding: 1rem;
