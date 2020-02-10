@@ -209,21 +209,22 @@ def update_entry(usr_type, usr_id):
                 user.update_one({'_id': ObjectId(usr_id)},
                                 {'$set': {key: request.form.get(key)}})
 
-    return redirect(url_for(get_user))
+    return redirect(url_for('get_user'))
 
-
-def user_feedback(usr_type, usr_id):
+@APP.route('/feedback/<usr_type>/<receiver_id>', methods=['GET', 'POST'])
+def user_feedback(usr_type, receiver_id):
     """
     Function to increment the number of feedbacks received by store or service,
     based on user inputs through the form.
     """
     user = MONGO.db.users
-
+    print('----------------------------')
+    print(receiver_id)
     if request.form.get('feedback-radio') == 'positive':
-        user.update_one({'_id': ObjectId(usr_id)},
+        user.update_one({'_id': ObjectId(receiver_id)},
                         {'$inc': {"fb_received.positive": 1}})
     if request.form.get('feedback-radio') == 'negative':
-        user.update_one({'_id': ObjectId(usr_id)},
+        user.update_one({'_id': ObjectId(receiver_id)},
                         {'$inc': {"fb_received.negative": 1}})
 
     if usr_type == 'services':
