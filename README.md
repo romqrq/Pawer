@@ -792,7 +792,7 @@ The following **must be installed** on your machine:
 1. Save a copy of the github repository located at https://github.com/romqrq/pawer by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
 
 ```
-git clone https://github.com/AJGreaves/familyhub
+git clone https://github.com/romqrq/Pawer
 ```
 
 2. If possible open a terminal session in the unzip folder or cd to the correct location.
