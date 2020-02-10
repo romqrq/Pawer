@@ -1,15 +1,14 @@
-
-{% extends 'base.html' %}
+{% extends 'layout/base.html' %}
 {% block content %}
 <div class="parallax-container">
     <div class="parallax"><img src="/static/images/pup_deck.jpg"></div>
 </div>
 <div class="section white">
+
+    {% include 'layout/user-feedback-message.html' %}
+    
     <div class="row container">
         <h2 class="heading-text">Login</h2>
-        {% if user == 'invalid' %}
-            <h5>Invalid User</h5>
-        {% endif %}
         <form method="POST" action="{{ url_for('user_login') }}" class="col s6 offset-s3">
             <div class="row">
                 <div class="row">

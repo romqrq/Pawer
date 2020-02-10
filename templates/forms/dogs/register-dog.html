@@ -2,17 +2,17 @@
     <form action="{{ url_for('add_entry', usr_type='dogs') }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input name="dog_name" type="text" class="validate" required>
+                <input name="dog_name" type="text" class="validate" data-length="30" required>
                 <label for="dog_name">Name</label>
             </div>
                 <div class="input-field col s6">
-                <input name="dog_breed" type="text" class="validate" required>
+                <input name="dog_breed" type="text" class="validate" data-length="30" required>
                 <label for="dog_breed">Breed</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="dog_description" class="materialize-textarea"></textarea>
+                <textarea name="dog_description" class="materialize-textarea" data-length="300"></textarea>
                 <label for="icon_telephone">Short description</label>
             </div>
         </div>
