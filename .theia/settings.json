@@ -3,5 +3,22 @@
    "python.linting.enabled": true,
    "python.linting.flake8Enabled": true,
     "python.terminal.activateEnvironment": false,
-    "python.linting.pylintArgs": ["--load-plugins", "pylint_flask"]
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_flask"],
+    "liveSassCompile.settings.autoprefix": [
+        "> 1%",
+        "last 2 versions"
+    ],
+    "liveSassCompile.settings.generateMap": false,
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/static/css"
+        },
+        {
+            "format": "compressed",
+            "extensionName": ".min.css",
+            "savePath": "/static/css"
+        },
+    ],
 }
