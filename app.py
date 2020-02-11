@@ -191,9 +191,10 @@ def update_entry(usr_type, usr_id):
     if usr_type == 'dogs':
         user = MONGO.db.dogs
         get_user = 'get_dogs'
-    elif usr_type == 'users':
+
+    else:
+        get_user = 'get_'+str(usr_type)
         user = MONGO.db.users
-        get_user = 'get_users'
 
     document = user.find_one()
     for key in document:
@@ -213,8 +214,6 @@ def user_feedback(usr_type, receiver_id):
     based on user inputs through the form.
     """
     user = MONGO.db.users
-    print('----------------------------')
-    print(receiver_id)
     if request.form.get('feedback-radio') == 'positive':
         user.update_one({'_id': ObjectId(receiver_id)},
                         {'$inc': {"fb_received.positive": 1}})
