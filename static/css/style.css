@@ -151,10 +151,6 @@ nav .button-collapse {
           flex-direction: column;
 }
 
-.card-buttons-row {
-  margin: auto;
-}
-
 .card-row-register {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -162,6 +158,17 @@ nav .button-collapse {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+}
+
+.single-card {
+  padding: 2rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.buttons-row {
+  margin: auto;
 }
 
 /* Footer */
@@ -219,11 +226,12 @@ nav .button-collapse {
   color: #343334;
   font-size: 2rem !important;
   font-weight: 500;
-  margin-top: 0;
+  margin: 0;
 }
 
 .card-breed {
-  font-family: Lexend Tera, sans-serif;
+  font-family: "Lexend Tera", sans-serif;
+  margin: 0;
 }
 
 .card-icon {
@@ -238,6 +246,10 @@ nav .button-collapse {
 
 .card-icon {
   opacity: 0.5;
+}
+
+.single-card {
+  padding: 2rem 1rem;
 }
 
 .side-nav {

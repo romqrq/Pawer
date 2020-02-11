@@ -1,0 +1,20 @@
+/* Cards */
+
+.card-row-find {
+    display: flex;
+    flex-direction: column;
+}
+// .card-buttons-row {
+//         margin: auto;
+// }
+.card-row-register {
+    display: flex;
+    align-items: stretch;
+}
+.single-card{
+    padding: 2rem 1rem;
+    display: flex;
+}
+.buttons-row {
+    margin: auto;
+}

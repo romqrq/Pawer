@@ -1,0 +1,42 @@
+/* Presets */
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    text-align: center;
+    font-size: 16px;
+    font-family: "Roboto", sans-serif;
+}
+a {
+    text-decoration: none;
+    color: $black-color;
+}
+.container {
+    padding: 1rem;
+}
+.parallax-container {
+    top: 5.5rem;
+    width: 100%;
+    max-height: 70vh;
+}
+.parallax-container .parallax img {
+    max-width: 300%;
+}
+
+[type="radio"]:not(:checked), [type="radio"]:checked {
+    position: relative;
+    opacity: 1;
+}
+#sidenav-overlay {
+  z-index: 1;
+}
+.drag-target {
+    z-index: 1;
+}
+
+
+
+
+
+
