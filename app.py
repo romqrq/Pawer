@@ -194,12 +194,6 @@ def update_entry(usr_type, usr_id):
     elif usr_type == 'users':
         user = MONGO.db.users
         get_user = 'get_users'
-    # elif usr_type == 'feedback':
-    #     user = MONGO.db.services
-    #     get_user = 'get_services'
-    # else:
-    #     user = MONGO.db.stores
-    #     get_user = 'get_stores'
 
     document = user.find_one()
     for key in document:
@@ -209,7 +203,8 @@ def update_entry(usr_type, usr_id):
                 user.update_one({'_id': ObjectId(usr_id)},
                                 {'$set': {key: request.form.get(key)}})
 
-    return redirect(url_for('get_user'))
+    return redirect(url_for(get_user))
+
 
 @APP.route('/feedback/<usr_type>/<receiver_id>', methods=['GET', 'POST'])
 def user_feedback(usr_type, receiver_id):
