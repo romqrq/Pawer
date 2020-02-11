@@ -19,18 +19,18 @@
     {% if session['is_staff'] == 'is_staff' %}
         <div class="row card-row-find">
             {% for request in requests %}
-                <div class="row card card-item-row">
+                <div class="row card single-card">
                     <div class="col s12 m5">
                         <p class="card-title">Adoptant</p>
                         <p>{{request.first_name}} {{request.last_name}}</p>
                         <p>{{request._email}}</p>
-                        <p>{{request.why_adopt}}</p>
                     </div>
                     <div class="col s12 m3">
                         <div class="card-content">
                             <p class="card-title">Dog</p>
                             <p>{{request.dog_name}}</p>
                             <p>{{request.dog_breed}}</p>
+                            <p>{{request.why_adopt}}</p>
                         </div>
                     </div>
                     <div class="col s12 m4 card-buttons-row">
