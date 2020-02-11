@@ -15,5 +15,12 @@
     .three-words {
     padding: 0.5rem 0.4rem;
     }
+    label {
+        font-size: 2rem;
+        justify-content: center;
+    }
+    [type="radio"]:not(:checked), [type="radio"]:checked {
+        margin: 1rem;
+    }
 }
 

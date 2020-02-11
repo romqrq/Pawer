@@ -32,6 +32,7 @@ a {
 [type="radio"]:not(:checked), [type="radio"]:checked {
   position: relative;
   opacity: 1;
+  margin: 0.6rem;
 }
 
 #sidenav-overlay {
@@ -40,6 +41,17 @@ a {
 
 .drag-target {
   z-index: 1;
+}
+
+label {
+  font-size: 1.5rem;
+  color: #343334;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 /* Typography */
@@ -277,5 +289,14 @@ nav .button-collapse {
   }
   .three-words {
     padding: 0.5rem 0.4rem;
+  }
+  label {
+    font-size: 2rem;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  [type="radio"]:not(:checked), [type="radio"]:checked {
+    margin: 1rem;
   }
 }

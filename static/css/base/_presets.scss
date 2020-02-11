@@ -27,6 +27,7 @@ a {
 [type="radio"]:not(:checked), [type="radio"]:checked {
     position: relative;
     opacity: 1;
+    margin: 0.6rem;
 }
 #sidenav-overlay {
   z-index: 1;
@@ -34,9 +35,9 @@ a {
 .drag-target {
     z-index: 1;
 }
-
-
-
-
-
-
+label {
+    font-size: 1.5rem;
+    color: $black-color;
+    display: flex;
+    justify-content: space-evenly;
+}
