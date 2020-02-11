@@ -21,7 +21,7 @@
     {% if session['is_staff'] == 'is_staff' %}
         <div class="row card-row-find">
             {% for user in users %}
-                <div class="card row card-item-row">
+                <div class="card row single-card">
                     <div class="col s12 m3">
                         <p class="card-title">{{user.first_name}} {{user.last_name}}</p>
                         <div class="card-image">

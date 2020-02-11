@@ -189,6 +189,11 @@ nav .button-collapse {
   font-weight: 700;
 }
 
+/* Register Page */
+.register-card-content {
+  margin-top: 2.5rem !important;
+}
+
 /* Buttons */
 .nav-action-button {
   color: #343334;
@@ -213,7 +218,8 @@ nav .button-collapse {
 /* Cards */
 .card {
   min-height: 100%;
-  padding: 2.5rem 0 0;
+  padding: 2rem 1rem;
+  margin: 0;
 }
 
 .card .card-content {
