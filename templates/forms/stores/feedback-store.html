@@ -1,5 +1,5 @@
-<div class="form-box hide" id="{{ service._id }}" value="feedback">
-    <form action="{{ url_for('user_feedback', fb_receiver='service.id', usr_type='services') }}" method="POST"
+<div class="form-box hide" id="{{ store._id }}" value="feedback">
+    <form action="{{ url_for('user_feedback', usr_type='stores', receiver_id=store._id) }}" method="POST"
         class="col s12">
         <div class="row">
             <div class="col s6">
@@ -16,8 +16,8 @@
             </div>
         </div>
         <div class="row">
-            <button class="btn waves-effect waves-light" type="submit">Leave Feedback
-                <i class="material-icons right">check</i>
+            <button class="btn waves-effect waves-light" type="submit">Leave feedback
+                <i class="material-icons right">thumbs_up_down</i>
             </button>
         </div>
     </form>

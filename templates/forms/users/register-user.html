@@ -2,23 +2,23 @@
     <form action="{{ url_for('add_entry', usr_type='users') }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input name="first_name" type="text" class="validate" required>
+                <input name="first_name" type="text" class="validate" data-length="40" required>
                 <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input name="last_name" type="text" class="validate" required> 
+                <input name="last_name" type="text" class="validate" data-length="40" required> 
                 <label for="last_name">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input name="_email" type="email" class="validate" required> 
+                <input name="_email" type="email" class="validate" data-length="40" required> 
                 <label for="_email">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input name="password" type="password" class="validate" required>
+                <input name="password" type="password" class="validate" data-length="40" required>
                 <label for="password">Password</label>
             </div>
         </div>
@@ -36,7 +36,7 @@
         {% endif %}
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="user_description" class="materialize-textarea"></textarea>
+                <textarea name="user_description" class="materialize-textarea" data-length="400"></textarea>
                 <label for="user_description">Bio</label>
             </div>
         </div>

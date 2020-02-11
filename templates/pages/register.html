@@ -1,5 +1,5 @@
 
-{% extends 'base.html' %}
+{% extends 'layout/base.html' %}
 {% block content %}
 <div class="parallax-container">
     <div class="parallax"><img src="/static/images/pup_deck.jpg"></div>
@@ -61,14 +61,8 @@
             </div>
         </div>
         <div class="row">
-            {%if existing_dog==True%}
-                <h2>This dog is already in the database!</h2>
-            {% endif %}
-            {% include 'forms/dogs/register-dog.html' %}
+            {% include 'layout/user-feedback-message.html' %}
 
-            {%if existing_user==True%}
-                <h2>This user email is already in the database!</h2>
-            {% endif %}
             {% include 'forms/users/register-user.html' %}
 
             {% include 'forms/services/register-service.html' %}

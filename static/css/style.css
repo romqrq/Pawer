@@ -1,4 +1,4 @@
-/* General */
+/* Presets */
 @import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lexend+Tera|Roboto&display=swap");
 html {
   scroll-behavior: smooth;
@@ -6,35 +6,27 @@ html {
 
 body {
   text-align: center;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
 }
 
 a {
   text-decoration: none;
-  color: black;
-}
-
-.header {
-  font-family: "Alfa Slab One", sans-serif;
-  font-size: 5rem;
   color: #343334;
 }
 
-.secondary-text {
-  font-family: "Lexend Tera", sans-serif;
-  color: #343334;
-  font-weight: 900;
-  font-size: 2.5rem;
-}
-
-p {
-  font-family: "Roboto", sans-serif;
-  color: #343334;
-  font-size: 1.5rem;
+.container {
+  padding: 1rem;
 }
 
 .parallax-container {
   top: 5.5rem;
   width: 100%;
+  max-height: 70vh;
+}
+
+.parallax-container .parallax img {
+  max-width: 300%;
 }
 
 [type="radio"]:not(:checked), [type="radio"]:checked {
@@ -42,6 +34,35 @@ p {
   opacity: 1;
 }
 
+#sidenav-overlay {
+  z-index: 1;
+}
+
+.drag-target {
+  z-index: 1;
+}
+
+/* Typography */
+.heading-text {
+  font-family: "Alfa Slab One", sans-serif;
+  font-size: 3rem;
+  color: #343334;
+}
+
+.secondary-text {
+  font-family: "Lexend Tera", sans-serif;
+  color: #343334;
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+  color: #343334;
+  font-size: 1.2rem;
+}
+
+/* Header */
 nav {
   position: fixed;
   z-index: 2;
@@ -49,117 +70,77 @@ nav {
 
 .nav-wrapper {
   background-color: #FCD23C;
-  padding: 0 1rem;
 }
 
-.nav-wrapper .menu-box {
+.menu-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0;
+  padding: 0 !important;
   max-height: 100%;
 }
 
-.nav-wrapper .menu-box .menu-icon {
-  color: #343334;
-}
-
-.nav-wrapper .menu-box li {
+.menu-box li {
   max-height: 100%;
 }
 
-.nav-wrapper li a {
+.menu-box li a {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   color: #343334;
 }
 
-.nav-wrapper .button-collapse {
-  padding: 0.5rem 0;
+.menu-icon {
+  color: #343334;
+  font-size: 2.5rem !important;
 }
 
-.nav-wrapper .logo-box {
+nav .button-collapse {
+  margin: 0 1rem;
+}
+
+.logo-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 0.2rem 0;
+  padding-left: 5rem !important;
+  max-height: 100%;
 }
 
-.nav-wrapper .logo-box .three-words {
-  padding: 0 0.3rem 0.6rem;
+.logo-box img {
+  max-height: 2.3rem;
+  margin: auto;
+}
+
+.pawer-logo-name {
+  font-family: "Alfa Slab One", sans-serif;
+  font-size: 2.5rem;
+  color: #343334;
+}
+
+.three-words {
+  padding: 0.4rem 0.4rem;
   text-align: left;
 }
 
-.nav-wrapper .logo-box .three-words p {
+.three-words p {
   margin: 0;
   color: #D8414B;
-  font-size: 1.2rem;
-  line-height: 1.3rem;
+  font-size: 1rem;
+  line-height: 1rem;
   font-weight: 600;
 }
 
-.nav-wrapper .logo-box img {
-  max-height: 4rem;
-}
-
-.nav-wrapper .register-box {
+.register-box {
   text-align: right;
   font-size: 1.5rem;
   padding: 0;
 }
 
-.nav-wrapper span {
-  color: #D8414B;
-  font-family: "Lexend Tera", "Sans Serif";
-  color: #343334;
-  font-size: 1.3rem;
-  line-height: 1.3rem;
-}
-
-.nav-wrapper .register-button {
-  color: #343334;
-  font-weight: 700;
-  margin: auto;
-  padding: 0;
-  width: 35%;
-}
-
-#sidenav-overlay {
-  z-index: 1;
-}
-
-.page-footer {
-  background-color: #FCD23C;
-  color: #343334;
-  font-family: "Roboto", sans-serif;
-}
-
-.page-footer h5 {
-  font-weight: 900;
-}
-
-/* User_home */
-.carousel .carousel-bg-1 {
-  background-image: url(../images/pawer_logo.png);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: 50%;
-  background-color: #FCD23C;
-}
-
-.carousel .carousel-bg-1 div {
-  width: 55%;
-}
-
-.card-row-register {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
+/* Cards */
 .card-row-find {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -170,80 +151,113 @@ nav {
           flex-direction: column;
 }
 
-.find-row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.find-row .buttons-row {
+.card-buttons-row {
   margin: auto;
 }
 
-.find-row .buttons-row .action-button-card {
-  width: 100%;
-  padding: 0 0.5rem;
-  margin: 1rem 0;
+.card-row-register {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
-.find-row .buttons-row .action-button-card .action-button-card-icon {
-  margin: 0 0.5rem;
-}
-
-.card {
-  min-height: 100%;
-  padding: 2.5rem 0 0;
-}
-
-.card .card-title {
+/* Footer */
+.page-footer {
+  background-color: #FCD23C;
   color: #343334;
-  font-weight: 500;
-  margin-top: 0;
+  font-family: "Roboto", sans-serif;
 }
 
-.card .card-icon {
-  font-size: 7rem;
+.page-footer h5 {
+  font-weight: 900;
 }
 
-.card .card-content {
-  margin: 0 2rem;
-  padding: 0;
-  text-align: left;
-}
-
-.card .cards_buttons {
-  margin: 1rem;
-}
-
-.card .card-content-title {
-  font-size: 2rem;
-}
-
-.card .card-icon {
-  opacity: 0.5;
-}
-
+/* Login Page */
 .login-radio label {
   margin: 1rem;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-@media only screen and (min-width: 601px) {
-  .menu-icon {
-    font-size: 4rem !important;
-    margin: -0.5rem !important;
-  }
+/* Buttons */
+.nav-action-button {
+  color: #343334;
+  font-weight: 700;
+  margin: auto;
+  padding: 0;
+  width: 35%;
 }
 
-@media screen and (max-width: 1025px) {
-  nav {
-    height: 5.5rem;
-    padding: 0.5rem;
-    background-color: #FCD23C;
+.card-action-button {
+  width: 100%;
+  padding: 0 0.5rem;
+  margin: 1rem 0;
+  font-family: Lexend Tera, sans-serif;
+  font-weight: 600;
+}
+
+.card-action-button-icon {
+  margin: 0 0.5rem;
+}
+
+/* Cards */
+.card {
+  min-height: 100%;
+  padding: 2.5rem 0 0;
+}
+
+.card .card-content {
+  margin: 0;
+  padding: 0;
+}
+
+.card-title {
+  font-family: "Alfa Slab One", sans-serif;
+  color: #343334;
+  font-size: 2rem !important;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.card-breed {
+  font-family: Lexend Tera, sans-serif;
+}
+
+.card-icon {
+  font-size: 7rem;
+}
+
+.card-content-title {
+  font-size: 1.5rem;
+  font-family: "Alfa Slab One", sans-serif;
+  color: #343334 !important;
+}
+
+.card-icon {
+  opacity: 0.5;
+}
+
+.side-nav {
+  padding: 1rem 2rem !important;
+}
+
+.side-nav .nav-action-button {
+  margin: 0.5rem 0;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 600px) {
+  .logo-box img {
+    max-height: 3.3rem;
+    margin: 0.4rem;
   }
-  .nav-wrapper li a {
-    padding: 0 0.5rem;
+  .pawer-logo-name {
+    font-size: 4rem;
+  }
+  .three-words {
+    padding: 0.5rem 0.4rem;
   }
 }
-/*# sourceMappingURL=style.css.map */

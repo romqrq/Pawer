@@ -1,19 +1,24 @@
-
-{% extends 'base.html' %}
+{% extends 'layout/base.html' %}
 {% block content %}
+		
 <div class="parallax-container">
     <div class="parallax"><img src="/static/images/pup_basket.jpeg"></div>
 </div>
 <div class="section white">
-    <div class="row container">
+
+    {% include 'layout/user-feedback-message.html' %}
+    
+    <div class="container">
         <h2 class="heading-text">Find your best friend!</h2>
         <p class="secondary-text">We have a great variety of dogs and the staff to find your perfect match.</p>
-        <p>Adopting a dog is a big deal, we know. We are here to make sure you find a new best friend that will be a great fit to your life.</p>
-        <p>Our team of specialists are looking forward to hear from you what do you look for and to give you directions on how to enhance your experience as a 
-        dog-owner-to-be or how to help your pack accepting their new buddy.</p>
-        <h4>Visit our <a href="{{url_for('get_dogs')}}" >adoption page</a></h4>
+        <p>Adopting a dog is a big deal, we know. We are here to make sure you find a new best friend that will be a
+            great fit to your life.</p>
+        <p>Our team of specialists are looking forward to hear from you what do you look for and to give you directions
+            on how to enhance your experience as a
+            dog-owner-to-be or how to help your pack accepting their new buddy.</p>
+        <h4>Visit our <a href="{{url_for('get_dogs')}}">adoption page</a></h4>
     </div>
-</div>  
+</div>
 <div class="parallax-container">
     <div class="parallax"><img src="/static/images/dog_training.jpg"></div>
 </div>
@@ -21,11 +26,12 @@
     <div class="row container">
         <h2 class="heading-text">Pawer Services!</h2>
         <p class="secondary-text">Find the best trainers, groomers and vets!</p>
-        <p>There's no better thing than going out and showing off a healthy, good looking dog while having your friends saying how smart and well behaved they are!</p>
+        <p>There's no better thing than going out and showing off a healthy, good looking dog while having your friends
+            saying how smart and well behaved they are!</p>
         <p>We have a great pool of certified professionals that can help you reaching your goals and even more.</p>
-        <h4>Visit our <a href="{{url_for('get_services')}}" >PAWER Services</a> page</h4>
+        <h4>Visit our <a href="{{url_for('get_services')}}">PAWER Services</a> page</h4>
     </div>
-</div>  
+</div>
 <div class="parallax-container">
     <div class="parallax"><img src="/static/images/pet_store.jpg"></div>
 </div>
@@ -34,7 +40,7 @@
         <h2 class="heading-text">Go shopping!</h2>
         <p class="secondary-text">Looking for dog food, new toys, medicines and more? We've got your back!</p>
         <p>Go through a variety of shops that offer as many options of products as you can dare to imagine!</p>
-        <h4>Visit our <a href="{{url_for('get_stores')}}" >PAWER Shops</a> page</h4>
+        <h4>Visit our <a href="{{url_for('get_stores')}}">PAWER Shops</a> page</h4>
     </div>
-</div>  
+</div>
 {% endblock %}
