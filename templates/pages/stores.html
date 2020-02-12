@@ -23,26 +23,33 @@
         <div class="row card-row-find">
             {% for store in stores %}
             <div class="card row single-card">
-                <div class="col s12 m3">
+                <div class="col s12 m3 card-first-div">
                     <p class="card-title">{{store.store_name}}</p>
                     <div class="card-image">
                         <i class="material-icons card-icon">shopping_cart</i>
                     </div>
                     <div class="card-content-title">
+                        <p>Users Feedback</p>
                         <span>{{store.fb_received.positive}}</span>
                         <i class="material-icons card-action-button-icon">thumb_up</i>
                         <span>{{store.fb_received.negative}}</span>
                         <i class="material-icons card-action-button-icon">thumb_down</i>
                     </div>
                 </div>
+                {% if session['is_staff'] %}
                 <div class="col s12 m5 l6">
                     <div class="card-content">
+                        <p class="card-content-title first-element">Address</p>
+                        <p>{{store.store_address}}</p>
+                        <p class="card-content-title">Contact</p>
+                        <p>{{store.email}}</p>
+                        <p class="card-content-title">Promotion</p>
+                        <p>Visit: {{store.aff_link}}</p>
+                        <p>Use the code <strong>{{store.discount_code}}</strong> to get <strong>{{store.discount_amount}} off</strong>!</p>
                         <p class="card-content-title">Description</p>
-                        <p>Address: {{store.store_address}}</p>
-                        <p class="truncate">{{store.store_description}}</p>
+                        <p>{{store.store_description}}</p>
                     </div>
                 </div>
-                {% if session['is_staff'] %}
                 <div class="col s12 m4 l3 buttons-row">
                     <a id="{{store._id}}" value="feedback"
                         class="waves-effect waves-light btn card-action-button form-trigger">
@@ -60,14 +67,14 @@
                         <i class="material-icons right card-action-button-icon">delete</i>
                         <span>Delete</span>
                     </a>
-                {% endif %}
                 </div>
+                {% endif %}
                 {% endif %}
             </div>
             {% include 'forms/stores/feedback-store.html' %}
             {% if session['is_staff'] == 'is_staff' %}
-            {% include 'forms/stores/edit-store.html' %}
-            {% include 'forms/stores/delete-store.html' %}
+                {% include 'forms/stores/edit-store.html' %}
+                {% include 'forms/stores/delete-store.html' %}
             {% endif %}
             {% endfor %}
         </div>
