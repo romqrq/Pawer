@@ -9,7 +9,7 @@
         <h2 class="heading-text">Register</h2>
         <p>Choose one of the categories below to choose a type for your account</p>
         <div class="row card-row-register">
-             {% if session['is_staff'] == 'is_staff' %}
+            {% if session['is_staff'] == 'is_staff' %}
             <div class="col s12 m3">
                 <div class="card">
                     <p class="card-title">Dogs</p>
@@ -23,7 +23,11 @@
                 </div>
             </div>
             {% endif %}
+            {% if session['is_staff'] == 'is_staff' %}
             <div class="col s12 m3">
+            {% else %}
+            <div class="col s12 m4">
+            {% endif %}
                 <div class="card">
                     <p class="card-title">User</p>
                     <div class="card-image">
@@ -35,7 +39,11 @@
                     </div>
                 </div>
             </div>
+            {% if session['is_staff'] == 'is_staff' %}
             <div class="col s12 m3">
+            {% else %}
+            <div class="col s12 m4">
+            {% endif %}
                 <div class="card">
                     <p class="card-title">Services</p>
                     <div class="card-image">
@@ -47,7 +55,11 @@
                     </div>
                 </div>
             </div>
+            {% if session['is_staff'] == 'is_staff' %}
             <div class="col s12 m3">
+            {% else %}
+            <div class="col s12 m4">
+            {% endif %}
                 <div class="card">
                     <p class="card-title">Stores</p>
                     <div class="card-image">
@@ -61,7 +73,7 @@
             </div>
         </div>
         <div class="row">
-            {% include 'layout/user-feedback-message.html' %}
+            {% include 'forms/dogs/register-dog.html' %}
 
             {% include 'forms/users/register-user.html' %}
 
