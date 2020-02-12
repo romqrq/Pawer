@@ -1,10 +1,13 @@
 /* Media Queries */
 
 @media only screen and (min-width: 600px) {
-    // .menu-icon{
-    //     font-size: 4rem!important;
-    //     margin: -0.5rem!important;
-    // }
+    label {
+        font-size: 2rem;
+        justify-content: center;
+    }
+    [type="radio"]:not(:checked), [type="radio"]:checked {
+        margin: 1rem;
+    }
     .switch label .lever {
         margin: 1rem;
     }
@@ -18,12 +21,14 @@
     .three-words {
     padding: 0.5rem 0.4rem;
     }
-    label {
-        font-size: 2rem;
-        justify-content: center;
+    .single-card{
+        display: flex;
     }
-    [type="radio"]:not(:checked), [type="radio"]:checked {
-        margin: 1rem;
+    .card-content-title {
+        margin-top: 0;
+    }
+    .first-element{
+        margin: 0!important;
     }
 }
 
