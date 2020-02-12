@@ -172,6 +172,7 @@ nav .button-collapse {
 }
 
 .single-card {
+  margin: 1rem 0;
   padding: 2rem 1rem;
 }
 
@@ -280,10 +281,6 @@ nav .button-collapse {
 
 .card-icon {
   opacity: 0.5;
-}
-
-.single-card {
-  padding: 2rem 1rem;
 }
 
 .side-nav {
