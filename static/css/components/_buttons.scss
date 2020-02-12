@@ -17,3 +17,16 @@
 .card-action-button-icon {
     margin: 0 0.5rem;
 }
+.index-action-button{
+    color: $white-color;
+    margin: 1rem 0;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i{
+        font-size: 2rem;
+        margin-right: 0.5rem;
+    }
+}
