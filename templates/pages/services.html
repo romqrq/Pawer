@@ -28,6 +28,7 @@
                         <i class="material-icons card-icon">supervisor_account</i>
                     </div>
                     <div class="card-content-title">
+                        <p>Users Feedback</p>
                         <span>{{service.fb_received.positive}}</span>
                         <i class="material-icons card-action-button-icon">thumb_up</i>
                         <span>{{service.fb_received.negative}}</span>
@@ -37,8 +38,14 @@
                 {% if session['is_staff'] %}
                 <div class="col s12 m5 l6">
                     <div class="card-content">
+                        <p class="card-content-title">Service Provider</p>
+                        <p>{{service.service_first_name}} {{service.service_last_name}}</p>
+                        <p class="card-content-title">Contact</p>
+                        <p>{{service.email}}</p>
+                        <p class="card-content-title">Promotion</p>
+                        <p>Visit: {{service.aff_link}}</p>
+                        <p>Use the code <strong>{{service.discount_code}}</strong> to get <strong>{{service.discount_amount}} off</strong>!</p>
                         <p class="card-content-title">Description</p>
-                        <p>Provider: {{service.first_name}} {{service.last_name}}</p>
                         <p class="truncate">{{service.service_description}}</p>
                     </div>
                 </div>
