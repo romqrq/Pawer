@@ -291,6 +291,10 @@ nav .button-collapse {
   margin: 0.5rem 0;
 }
 
+.light, .page-footer .footer-copyright {
+  height: 3rem;
+}
+
 /* Media Queries */
 @media only screen and (min-width: 600px) {
   .switch label .lever {
