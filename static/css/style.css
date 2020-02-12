@@ -15,15 +15,9 @@ a {
   color: #343334;
 }
 
-label {
-  font-size: 1.5rem;
+.switch label, .feedback-radio label {
+  font-size: 2rem;
   color: #343334;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
 }
 
 [type="radio"]:not(:checked), [type="radio"]:checked {
@@ -172,7 +166,7 @@ nav .button-collapse {
 }
 
 .single-card {
-  margin: 1rem 0;
+  margin: 1rem 0 !important;
   padding: 2rem 1rem;
 }
 
@@ -188,6 +182,22 @@ nav .button-collapse {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+}
+
+.single-card .card-first-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 /* Footer */
@@ -310,9 +320,6 @@ nav .button-collapse {
 @media only screen and (min-width: 600px) {
   label {
     font-size: 2rem;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
   }
   [type="radio"]:not(:checked), [type="radio"]:checked {
     margin: 1rem;

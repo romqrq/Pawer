@@ -9,7 +9,7 @@
     align-items: stretch;
 }
 .single-card{
-    margin: 1rem 0;
+    margin: 1rem 0!important;
     padding: 2rem 1rem;
 
     .buttons-row {
@@ -17,6 +17,13 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+    }
+
+    .card-first-div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
     }
 
 }

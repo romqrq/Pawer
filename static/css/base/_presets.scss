@@ -12,11 +12,11 @@ a {
     text-decoration: none;
     color: $black-color;
 }
-label {
-    font-size: 1.5rem;
-    color: $black-color;
-    display: flex;
-    justify-content: space-evenly;
+.switch, .feedback-radio {
+    label {
+        font-size: 2rem;
+        color: $black-color;
+    }
 }
 [type="radio"]:not(:checked), [type="radio"]:checked {
     position: relative;
