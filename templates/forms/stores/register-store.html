@@ -1,7 +1,12 @@
 <div class="row form-box hide" id="stores" value="stores">
     <form action="{{ url_for('add_entry', usr_type='stores') }}" method="POST" class="col s12">
         <div class="row">
-            <div class="input-field col s6">
+            <h2 class="heading-text">Register a Store</h2>
+            <p class="secondary-text center">Here you can register your store.</p>
+            <p class="center">Please fill in the form below and then press "Create Account".</p>
+        </div>
+        <div class="row">
+            <div class="input-field col s6 offset-s3">
                 <input name="store_name" type="text" class="validate" data-length="40" required>
                 <label for="store_name">Store Name</label>
             </div>
