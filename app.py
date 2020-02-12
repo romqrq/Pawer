@@ -41,7 +41,7 @@ def user_login():
     users = MONGO.db.users
     if request.method == 'POST':
         form_pwd = request.form['password']
-        login_user = users.find_one({'_email': request.form['login_email']})
+        login_user = users.find_one({'email': request.form['login_email']})
         if login_user:
             user_id = str(login_user['_id'])
             db_pwd = login_user['password']
@@ -96,7 +96,7 @@ def add_entry(usr_type):
         existing_dog = user.find_one({'dog_name': request.form['dog_name']})
     else:
         user = MONGO.db.users
-        existing_user = user.find_one({'_email': request.form['_email']})
+        existing_user = user.find_one({'email': request.form['email']})
 
     if existing_user:
         flash('Sorry, this email is already registered.', 'info')
@@ -109,11 +109,11 @@ def add_entry(usr_type):
         try:
             request.form['is_staff']
         except KeyError:
-            user.update_one({'_email': request.form.get('_email')},
+            user.update_one({'email': request.form.get('email')},
                             {'$set': {'is_staff': 'not_staff',
                                       'usr_type': usr_type}})
         if usr_type == 'services' or usr_type == 'stores':
-            user.update_one({'_email': request.form.get('_email')},
+            user.update_one({'email': request.form.get('email')},
                             {'$set': {'fb_received': {'positive': 0,
                                       'negative': 0}}})
         flash('You have been registered successfully! Welcome!', 'info')
@@ -131,16 +131,16 @@ def adopt_dog(usr_id, dog_id):
 
     for key in this_user:
         if key == '_id':
-            adopt.update_one({'_email': this_user['_email']},
+            adopt.update_one({'email': this_user['email']},
                              {'$set': {'usr_id': this_user[key]}})
 
     this_dog = MONGO.db.dogs.find_one({'_id': ObjectId(dog_id)})
     for key in this_dog:
         if key == '_id':
-            adopt.update_one({'_email': this_user['_email']},
+            adopt.update_one({'email': this_user['email']},
                              {'$set': {'dog_id': this_dog[key]}})
         if key != '_id':
-            adopt.update_one({'_email': this_user['_email']},
+            adopt.update_one({'email': this_user['email']},
                              {'$set': {key: this_dog[key]}})
 
     return redirect(url_for('get_dogs'))
