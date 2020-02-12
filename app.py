@@ -225,7 +225,7 @@ def user_feedback(usr_type, receiver_id):
         url = 'get_services'
     else:
         url = 'get_stores'
-
+    flash('Thanks for your feedback!')
     return redirect(url_for(url))
 
 

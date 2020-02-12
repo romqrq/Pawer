@@ -1,6 +1,11 @@
 <div class="row form-box hide" id="dogs" value="dogs">
     <form action="{{ url_for('add_entry', usr_type='dogs') }}" method="POST" class="col s12">
         <div class="row">
+            <h2 class="heading-text">New dog</h2>
+            <p class="secondary-text center">Here you can add a new dog to the database</p>
+            <p class="center">Just fill in the fields and then press the "Create Account" button at the end of the form.</p>
+        </div>
+        <div class="row">
             <div class="input-field col s6">
                 <input name="dog_name" type="text" class="validate" data-length="30" required>
                 <label for="dog_name">Name</label>

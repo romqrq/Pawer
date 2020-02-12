@@ -1,6 +1,11 @@
 <div class="row form-box hide" id="users" value="users">
     <form action="{{ url_for('add_entry', usr_type='users') }}" method="POST" class="col s12">
         <div class="row">
+            <h2 class="heading-text">Welcome!</h2>
+            <p class="secondary-text center">Here you can register a new user and you're good to go!</p>
+            <p class="center">Just fill in the fields and then press the "Create Account" button at the end of the form.</p>
+        </div>
+        <div class="row">
             <div class="input-field col s6">
                 <input name="first_name" type="text" class="validate" data-length="40" required>
                 <label for="first_name">First Name</label>
