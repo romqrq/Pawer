@@ -11,8 +11,13 @@
 .single-card{
     margin: 1rem 0;
     padding: 2rem 1rem;
-}
-.buttons-row {
-    margin: auto;
-}
+    display: flex;
+    
+    .buttons-row {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
 
+}
