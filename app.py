@@ -114,8 +114,8 @@ def add_entry(usr_type):
                                       'usr_type': usr_type}})
         if usr_type == 'services' or usr_type == 'stores':
             user.update_one({'_email': request.form.get('_email')},
-                            {'$set': {'fb_received': {'positive': '0',
-                                      'negative': '0'}}})
+                            {'$set': {'fb_received': {'positive': 0,
+                                      'negative': 0}}})
         flash('You have been registered successfully! Welcome!', 'info')
         return redirect(url_for('user_home'))
 
