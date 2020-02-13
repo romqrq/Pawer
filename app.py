@@ -245,7 +245,7 @@ def delete_entry(usr_type, usr_id):
         url = 'get_adopt_requests'
     else:
         usr = MONGO.db.users
-        url = 'get_users'
+        url = 'get_'+str(usr_type)
 
     usr.delete_one({'_id': ObjectId(usr_id)})
 
