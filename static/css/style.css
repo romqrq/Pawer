@@ -258,6 +258,8 @@ nav .button-collapse {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: -3px 6px 13px 0px #00000094;
+          box-shadow: -3px 6px 13px 0px #00000094;
 }
 
 .index-action-button i {
