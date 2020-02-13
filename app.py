@@ -130,6 +130,7 @@ def adopt_dog(usr_id, dog_id):
 
     existing_request = adopt.find_one({'usr_id': ObjectId(usr_id)})
     if existing_request:
+
         flash('We already have one request from you. We will get in touch very soon!')
         return redirect(url_for('get_dogs'))
     adopt.insert_one(this_user)
@@ -149,8 +150,8 @@ def adopt_dog(usr_id, dog_id):
                              {'$set': {key: this_dog[key]}})
     adopt.update_one({'email': this_user['email']},
                      {'$set': {'why_adopt': request.form.get('why_adopt')}})
-    
-    flash('Thank you! Your adoption request was successful. We\'ll be in touch soon!)
+
+    flash('Thank you! Your adoption request was successful. We\'ll be in touch soon!')
     return redirect(url_for('get_dogs'))
 
 # READ
