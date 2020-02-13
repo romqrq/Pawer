@@ -9,10 +9,10 @@
     <div class="container">
     {% if session['is_staff'] == 'is_staff' %}
         {% include 'dashboard/dash-staff.html' %}
-    {% endif %} 
-    {% if session['is_staff'] != 'is_staff' %}
+    {% else %}
         {% include 'dashboard/dash-user.html' %}
     {% endif %} 
+
     </div>
 </div>  
 

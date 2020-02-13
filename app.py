@@ -77,9 +77,9 @@ def user_logout():
 def get_dashboard():
     """ Function to load the dashboard where users can update their account
     details or delete their account."""
-    usr_id = session['user_id']
     return render_template('pages/dashboard.html',
-                           user=MONGO.db.users.find_one({'_id': ObjectId(usr_id)}))
+                           user=MONGO.db.users.find_one(
+                               {'_id': ObjectId(session['user_id'])}))
 
 # CREATE
 # Add entry
@@ -170,7 +170,8 @@ def get_users():
 def get_services():
     """ Function to list services contained in the database """
     return render_template('pages/services.html',
-                           services=MONGO.db.users.find({'usr_type': 'services'}))
+                           services=MONGO.db.users.find(
+                               {'usr_type': 'services'}))
 
 # Find stores
 @APP.route('/stores')
