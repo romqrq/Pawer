@@ -20,13 +20,14 @@
 .index-action-button{
     color: $white-color;
     margin: 1rem 0;
-    height: 3rem;
+    font-size: 2rem;
+    height: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
 
     i{
-        font-size: 2rem;
+        font-size: 3rem;
         margin-right: 0.5rem;
     }
 }
