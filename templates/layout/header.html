@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="col s4 register-box hide-on-med-and-down">
-             {% if not session %}
+             {% if not session['is_staff'] %}
                 <a href="{{url_for('register')}}" class="btn waves-effect general-text nav-action-button">Register</a>
                 <a href="{{url_for('user_login')}}" class="btn waves-effect general-text nav-action-button">Login</a>
             {% endif %}
