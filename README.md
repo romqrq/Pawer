@@ -39,20 +39,20 @@ Other options such as premium accounts and business/service accounts are also re
 2. [Features](#features)
 
    - [Existing Features](#existing-features)
-     - [Elements on every Page](#elements-on-every-page)
+     - [Elements common to every Page](#elements-common-to-every-page)
      - [Home Page](#home-page)
-     - [Activities Page](#activities-page)
-     - [Listing Page](#listing-page)
-     - [Create Account Page](#create-account-page)
-     - [Log In Page](#log-in-page)
-     - [Account Settings Page](#account-settings-page)
-     - [Account Page](#account-page)
-     - [Add new Listing Page](#add-new-listing-page)
+     - [Adoption Page](#adoption-page)
+     - [Services Page](#services-page)
+     - [Stores Page](#stores-page)
+     - [Register Page](#register-page)
+     - [Login Page](#login-page)
+     - [Dashboard](#dashboard-page)
+       <!-- - [Add new Listing Page](#add-new-listing-page)
      - [Preview Listing Page](#preview-listing-page)
      - [Edit Listing Page](#edit-listing-page)
      - [Contact Page](#contact-page)
      - [404 Page](#404-page)
-     - [Permission Denied Page](#permission-denied-page)
+     - [Permission Denied Page](#permission-denied-page) -->
    - [Features Left to Implement](#features-left-to-implement)
 
 3. [Information Architecture](#information-architecture)
@@ -60,28 +60,34 @@ Other options such as premium accounts and business/service accounts are also re
    - [Database choice](#database-choice)
    - [Data Storage Types](#data-storage-types)
    - [Collections Data Structure](#collections-data-structure)
+
+     - [Adoption Requests Collection](#dogs-collection)
+     - [Dogs Collection](#dogs-collection)
      - [Users Collection](#users-collection)
-     - [Activities Collection](#activities-collection)
 
-4. [Technologies Used](#technologies-used)
+4) [Technologies Used](#technologies-used)
 
-5. [Testing](#testing)
+   - [Tools](#tools)
+   - [Libraries](#libraries)
+   - [Languages](#languages)
 
-6. [Deployment](#deployment)
+5) [Testing](#testing)
+
+6) [Deployment](#deployment)
 
    - [Heroku Deployment](#heroku-deployment)
    - [How to run this project locally](#how-to-run-this-project-locally)
 
-7. [Credits](#credits)
+7) [Credits](#credits)
 
    - [Content](#content)
    - [Media](#media)
    - [Code](#code)
    - [Acknowledgements](#acknowledgements)
 
-8. [Contact](#contact)
+8) [Contact](#contact)
 
-9. [Disclaimer](#disclaimer)
+9) [Disclaimer](#disclaimer)
 
 ---
 
@@ -623,77 +629,6 @@ The types of data stored in MongoDB for this project are:
 
 Pawer structure is based on three collections:
 
-#### Users Collection
-
-This collection keeps all user types (customer, services and stores) together for this project but on a real world application it could be hard to manage. We consider the use of separate files to be a better choice both for organization and management reasons.
-
-Different user types contain different keys:
-
--**User**
-| Title | Key in db | Form Validation Type | Data Type|
---- | --- | --- | ---
-Account ID | \_id | None | ObjectId
-First Name | first_name | text | string
-Last Name | last_name | text | string
-Email Address | \_email | email | string
-Password | password | password | string
-Bio | user_description | text | string
-Staff Status | is_staff | text | string
-Type of user | usr_type | text | string
-
-<!--
-Account ID | _id | None | ObjectId
-Name | username | text, `maxlength="40"` | string
-Email Address | email | email, `maxlength="40"` | string
-Password | password | text, `maxlength="15"` | string -->
-
--**Service**
-| Title | Key in db | Form Validation Type | Data Type|
---- | --- | --- | ---
-Account ID | \_id | None | ObjectId
-Service Provider First Name | service_first_name | text | string
-Service Provider Last Name | service_last_name | text | string
-Email Address | \_email | email | string
-Password | password | password | string
-Type of Service | type_of_service | text | string
-Affiliate Link | aff_link | text | string
-Discount Code | discount_code | text | string
-Discount Amount | discount_amount | text | string
-Service Description | service_description | text | string
-Staff Status | is_staff | text | string
-Type of user | usr_type | text | string
-Feedback Received | fb_received | None | object
-Positive Feedback | positive | text | string
-Negative Feedback | negative | text | string
-
--**Store**
-| Title | Key in db | Form Validation Type | Data Type|
---- | --- | --- | ---
-Account ID | \_id | None | ObjectId
-Store Name | store_name | text | string
-Store Address | store_address | text | string
-Email Address | \_email | email | string
-Password | password | password | string
-Type of Service | type_of_service | text | string
-Affiliate Link | aff_link | text | string
-Discount Code | discount_code | text | string
-Discount Amount | discount_amount | text | string
-Store Description | service_description | text | string
-Staff Status | is_staff | text | string
-Type of user | usr_type | text | string
-Feedback Received | fb_received | None | object
-Positive Feedback | positive | text | string
-Negative Feedback | negative | text | string
-
-#### Dogs Collection
-
-| Title           | Key in db       | Form Validation Type | Data Type |
-| --------------- | --------------- | -------------------- | --------- |
-| Dog ID          | \_id            | None                 | ObjectId  |
-| Dog Name        | dog_name        | text                 | string    |
-| Dog Breed       | dog_breed       | text                 | string    |
-| Dog Description | dog_description | text                 | string    |
-
 #### Adoption Requests Collection
 
 The documents within the adoptRequest collection are a result of the junction of information from the the user (that applied for the adoption) and dog records.
@@ -714,28 +649,83 @@ The documents within the adoptRequest collection are a result of the junction of
 | Dog Breed       | dog_breed        | text                 | string    |
 | Dog Description | dog_description  | text                 | string    |
 
-<!--
-| Title | Key in db | form validation type | Data type |
---- | --- | --- | ---
-Activity ID | _id | None | ObjectId
-Username | username |text, `maxlength="40"` | string
-Title | title | text, `maxlength="50"` | string
-Activity image | imgUrl | url, `maxlength="200"` | string
-Indoor | indoor | checkbox | boolean
-Outdoor | outdoor | checkbox | boolean
-Description | description | textarea | string
-Short Description | shortDescription | automatically generated | string
-Published | published | User click "publish" button | boolean
-Recommended | recommended | checkbox (admin only) | boolean
-  |   |   |    -->
+#### Dogs Collection
+
+| Title           | Key in db       | Form Validation Type | Data Type |
+| --------------- | --------------- | -------------------- | --------- |
+| Dog ID          | \_id            | None                 | ObjectId  |
+| Dog Name        | dog_name        | text                 | string    |
+| Dog Breed       | dog_breed       | text                 | string    |
+| Dog Description | dog_description | text                 | string    |
+
+#### Users Collection
+
+This collection keeps all user types (customer, services and stores) together for this project but on a real world application it could be hard to manage. We consider the use of separate files to be a better choice both for organization and management reasons.
+
+Different user types contain different keys:
+
+-**User**
+
+| Title         | Key in db        | Form Validation Type       | Data Type |
+| ------------- | ---------------- | -------------------------- | --------- |
+| Account ID    | \_id             | None                       | ObjectId  |
+| First Name    | first_name       | text, `maxlength="40"`     | string    |
+| Last Name     | last_name        | text, `maxlength="40"`     | string    |
+| Email Address | email            | email, `maxlength="40"`    | string    |
+| Password      | password         | password, `maxlength="40"` | string    |
+| Bio           | user_description | text, `maxlength="400"`    | string    |
+| Staff Status  | is_staff         | text                       | string    |
+| Type of user  | usr_type         | text                       | string    |
+
+-**Service**
+
+| Title                       | Key in db           | Form Validation Type       | Data Type |
+| --------------------------- | ------------------- | -------------------------- | --------- |
+| Account ID                  | \_id                | None                       | ObjectId  |
+| Service Provider First Name | service_first_name  | text, `maxlength="40"`     | string    |
+| Service Provider Last Name  | service_last_name   | text, `maxlength="40"`     | string    |
+| Email Address               | email               | email, `maxlength="40"`    | string    |
+| Password                    | password            | password, `maxlength="40"` | string    |
+| Type of Service             | type_of_service     | text                       | string    |
+| Affiliate Link              | aff_link            | text, `maxlength="40"`     | string    |
+| Discount Code               | discount_code       | text, `maxlength="40"`     | string    |
+| Discount Amount             | discount_amount     | text, `maxlength="40"`     | string    |
+| Service Description         | service_description | text, `maxlength="400"`    | string    |
+| Staff Status                | is_staff            | text                       | string    |
+| Type of user                | usr_type            | text                       | string    |
+| Feedback Received           | fb_received         | None                       | object    |
+| Positive Feedback           | positive            | integer                    | int32     |
+| Negative Feedback           | negative            | integer                    | int32     |
+
+-**Store**
+
+| Title             | Key in db           | Form Validation Type       | Data Type |
+| ----------------- | ------------------- | -------------------------- | --------- |
+| Account ID        | \_id                | None                       | ObjectId  |
+| Store Name        | store_name          | text, `maxlength="40"`     | string    |
+| Store Address     | store_address       | text, `maxlength="40"`     | string    |
+| Email Address     | email               | email, `maxlength="40"`    | string    |
+| Password          | password            | password, `maxlength="40"` | string    |
+| Type of Service   | type_of_service     | text, `maxlength="40"`     | string    |
+| Affiliate Link    | aff_link            | text, `maxlength="40"`     | string    |
+| Discount Code     | discount_code       | text, `maxlength="40"`     | string    |
+| Discount Amount   | discount_amount     | text, `maxlength="40"`     | string    |
+| Store Description | service_description | text, `maxlength="400"`    | string    |
+| Staff Status      | is_staff            | text                       | string    |
+| Type of user      | usr_type            | text                       | string    |
+| Feedback Received | fb_received         | None                       | object    |
+| Positive Feedback | positive            | integer                    | int32     |
+| Negative Feedback | negative            | integer                    | int32     |
 
 - The usr_type field is retrieved from the type of form that the user chose during the registration.
 
 - The is_staff value is only changeable by staff accounts and Python uses an if statement to determine if it was activated on the registration/edit forms and attributes a value to the key accordingly.
 
+- The feedback object and its keys/values are set on the registration function to assure the database will store the value will store an integer that can be increased as the users leave their feedback.
+
 # Technologies Used
 
-### Tools
+## Tools
 
 - [Gitpod](https://www.gitpod.io/) is the main IDE used for developing this project.
 - [Visual Studio Code](https://code.visualstudio.com/) was also used as IDE for development when Gitpod wasn't available.
@@ -749,7 +739,7 @@ Recommended | recommended | checkbox (admin only) | boolean
 - [Am I Responsive](http://ami.responsivedesign.is/) to create the responsive image when displayed on different devices.
   <!-- - [EZgif](https://ezgif.com/video-to-gif) provided gif editing software for the gif in this readme file. -->
 
-### Libraries
+## Libraries
 
 - [JQuery](https://jquery.com) to simplify DOM manipulation.
   <!-- - [Jasmine](https://jasmine.github.io/) to run automated tests on JavaScript and jQuery code.
@@ -761,7 +751,7 @@ Recommended | recommended | checkbox (admin only) | boolean
 - [Flask](https://flask.palletsprojects.com/en/1.0.x/) to construct and render pages.
 - [Jinja](http://jinja.pocoo.org/docs/2.10/) to simplify displaying data from the backend of this project smoothly and effectively in html.
 
-### Languages
+## Languages
 
 - This project uses HTML, CSS, JavaScript and Python programming languages.
 
@@ -770,6 +760,42 @@ Recommended | recommended | checkbox (admin only) | boolean
 <!-- Testing information can be found in separate [testing.md](testing.md) file -->
 
 # Deployment
+
+## Heroku Deployment
+
+To deploy Pawer to heroku, take the following steps:
+
+1. Create a `requirements.txt` file using the terminal command `pip freeze > requirements.txt`.
+
+2. Create a `Procfile` with the terminal command `echo web: python app.py > Procfile`.
+
+3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
+
+4. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+
+5. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
+
+6. Confirm the linking of the heroku app to the correct GitHub repository.
+
+7. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+
+8. Set the following config vars:
+
+| Key        | Value                                                                                                              |
+| ---------- | ------------------------------------------------------------------------------------------------------------------ |
+| DEBUG      | FALSE                                                                                                              |
+| IP         | 0.0.0.0                                                                                                            |
+| MONGO_URI  | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority` |
+| PORT       | 5000                                                                                                               |
+| SECRET_KEY | `<your_secret_key>`                                                                                                |
+
+- To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
+
+8. In the heroku dashboard, click "Deploy".
+
+9. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
+
+10. The site is now successfully deployed.
 
 ## How to run this project locally
 
@@ -839,42 +865,6 @@ python app.py
 
 9. You can visit the website at `http://127.0.0.1:5000`
 
-## Heroku Deployment
-
-To deploy Pawer to heroku, take the following steps:
-
-1. Create a `requirements.txt` file using the terminal command `pip freeze > requirements.txt`.
-
-2. Create a `Procfile` with the terminal command `echo web: python app.py > Procfile`.
-
-3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
-
-4. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
-
-5. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
-
-6. Confirm the linking of the heroku app to the correct GitHub repository.
-
-7. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
-
-8. Set the following config vars:
-
-| Key        | Value                                                                                                              |
-| ---------- | ------------------------------------------------------------------------------------------------------------------ |
-| DEBUG      | FALSE                                                                                                              |
-| IP         | 0.0.0.0                                                                                                            |
-| MONGO_URI  | `mongodb+srv://<username>:<password>@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority` |
-| PORT       | 5000                                                                                                               |
-| SECRET_KEY | `<your_secret_key>`                                                                                                |
-
-- To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
-
-8. In the heroku dashboard, click "Deploy".
-
-9. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
-
-10. The site is now successfully deployed.
-
 # Credits
 
 ## Content
@@ -895,6 +885,14 @@ To deploy Pawer to heroku, take the following steps:
 
 ## Code
 
+- For [MongoDB - Atlas](https://www.mongodb.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x/), [Python](https://www.python.org/doc/) and [jQuery](https://api.jquery.com/) the documentation on official websites was constantly used to learn how to use functionalities and avoid deprecated terms and expressions.
+
+- Page components such as buttons, navbar, footer, sidenav and others were taken from [Materialize CSS](https://materializecss.com) and modified to suit the applications needs.
+
+- The code for the parallax feature was taken from [Materialize - Parallax](https://materializecss.com/parallax.html) and edited to fit images better on different screen sizes.
+
+- Code for the pulse effect on buttons was taken from [Materialize - Pulse](https://materializecss.com/pulse.html) and edited to match the style of the application.
+
 <!-- - Template code for multi-card carousel using bootstrap classes taken from [MDBootstrap](https://mdbootstrap.com/docs/jquery/javascript/carousel/) and heavily modified to suit the sites needs.
 
 - Code for floating buttons taken from this [W3Schools](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp) post.
@@ -911,9 +909,7 @@ To deploy Pawer to heroku, take the following steps:
 
 - Code for animated side-nav taken from this [w3schools.com](https://www.w3schools.com/howto/howto_js_sidenav.asp) post.
 
-- Code to generate slug-friendly-urls in Python taken from this [Flask](http://flask.pocoo.org/snippets/5/) post
 
-- Code to generate slug-friendly-urls in JavaScript was taken from this [medium.com](https://medium.com/@mhagemann/the-ultimate-way-to-slugify-a-url-string-in-javascript-b8e4a0d849e1) post. -->
 
 ## Acknowledgements
 
@@ -923,7 +919,7 @@ To deploy Pawer to heroku, take the following steps:
 
 To contact me feel free to email
 
-`gilhespy (dot) anna (at) gmail (dot) com`
+`rjaalbuquerque (at) gmail (dot) com`
 
 ## Disclaimer
 
