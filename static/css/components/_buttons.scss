@@ -25,10 +25,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: -3px 6px 13px 0px #00000094;
+    box-shadow: -3px 6px 6px 0px #00000094;
     
     i{
         font-size: 3rem;
         margin-right: 0.5rem;
     }
+}
+.dogs-action-button {
+    color: $white-color;
+    font-size: 1rem;
+    padding: 0rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -3px 6px 6px 0px #00000094;
 }

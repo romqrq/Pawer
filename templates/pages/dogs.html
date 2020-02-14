@@ -15,10 +15,9 @@
             <p>Have a look below and choose the one you want to adopt. Our team will get back to you as soon as possible
                 to talk about the adoption process and to help you to accomodate your new best friend to its new home!
             </p>
-            <p>Only registered and logged in users are able to apply for adoption.</p>
-            <p>If you are registered, <a href="{{url_for('user_login')}}">login here</a>! If you aren't registered yet,
-                <a href="{{url_for('register')}}">register here</a> and get amazing discounts in products and
-                services!</p>
+            <p><strong>Only registered and logged in users are able to apply for adoption.</strong></p>
+            <p>If you are registered, <a class="s12 offset-m4 m4 btn waves-effect secondary-text dogs-action-button" href="{{url_for('user_login')}}">login here</a> If you aren't registered yet,
+                <a class="s12 offset-m4 m4 btn waves-effect secondary-text dogs-action-button" href="{{url_for('register')}}">register here</a> </p>
         </div>
         <div class="row card-row-find">
             {% for dog in dogs %}
@@ -36,6 +35,7 @@
                         <p class="truncate">{{dog.dog_description}}</p>
                     </div>
                 </div>
+                {% if session['is_staff'] %}
                 <div class="col s12 m3 card-buttons-row">
                     <a id="{{dog._id}}" value="adopt"
                         class="waves-effect waves-light btn card-action-button form-trigger">
@@ -55,6 +55,7 @@
                     </a>
                     {% endif %}
                 </div>
+                {% endif %}
             </div>
 
             {% if session %}
