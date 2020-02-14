@@ -18,13 +18,13 @@
 
                     <div class="row register-box show-on-medium-and-down">
                         {% if not session %}
-                            <a href="{{url_for('register')}}" class="col s12 btn waves-effect general-text nav-action-button">Register</a>
-                            <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect general-text nav-action-button">Login</a>
+                            <a href="{{url_for('register')}}" class="col s12 btn waves-effect nav-action-button">Register</a>
+                            <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect nav-action-button">Login</a>
                         {% endif %}
 
                         {% if session['is_staff'] %}     
-                            <a href="{{url_for('get_dashboard')}}" class="col s12 btn waves-effect general-text nav-action-button">Dashboard</a>
-                            <a href="{{url_for('user_logout')}}" class="col s12 btn waves-effect general-text nav-action-button">Logout</a>
+                            <a href="{{url_for('get_dashboard')}}" class="col s12 btn waves-effect nav-action-button">Dashboard</a>
+                            <a href="{{url_for('user_logout')}}" class="col s12 btn waves-effect nav-action-button">Logout</a>
                         {% endif %}
 
                     </div>
@@ -41,12 +41,12 @@
             </div>
             <div class="col s4 register-box hide-on-med-and-down">
              {% if not session['is_staff'] %}
-                <a href="{{url_for('register')}}" class="btn waves-effect general-text nav-action-button">Register</a>
-                <a href="{{url_for('user_login')}}" class="btn waves-effect general-text nav-action-button">Login</a>
+                <a href="{{url_for('register')}}" class="btn waves-effect nav-action-button">Register</a>
+                <a href="{{url_for('user_login')}}" class="btn waves-effect nav-action-button">Login</a>
             {% endif %}
             {% if session['is_staff'] %}     
-                <a href="{{url_for('get_dashboard')}}" class="btn waves-effect general-text nav-action-button">Dashboard</a>
-                <a href="{{url_for('user_logout')}}" class="btn waves-effect general-text nav-action-button">Logout</a>
+                <a href="{{url_for('get_dashboard')}}" class="btn waves-effect nav-action-button">Dashboard</a>
+                <a href="{{url_for('user_logout')}}" class="btn waves-effect nav-action-button">Logout</a>
             {% endif %}
             </div>
         </div>
