@@ -542,25 +542,12 @@ This document was created during the planning phase of this project as a way to 
         <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
     </div>
 
-<!-- ### Contact Page
-
-- The Contact Page features an **email contact form**, which is wired up to my email address with [EmailJS](http://www.emailjs.com/).
-
-- The contact page also features the contact information for Family Hub as displayed in the footer, with a link to google maps for the location. -->
-
-<!-- ### Privacy and Cookies Policy Page
-
-- Features a dummy privacy and cookies policy (to be updated and checked for legality before the site is launched for real).
-
-### 404 Page
-
-- The custom 404 Page contains a fun animation of a robot playing hide and seek, and two buttons to return the user back to the Family Hub **home page** or **activities page**.
 
 ### Permission Denied page
 
-- The custom permission denied page features a humorous surprise for the user who attempts to access pages you must be logged in to access, while being logged out.
+- The custom permission denied message is displayed to the user who attempts to access pages you must be logged in as staff to access.
 
-- Two buttons on this page give the user a choice to either go to the **log in** page or **go back** one item in their browser history to whatever page they were on before this one. -->
+- The button on this page give the user the option to go back to the home page or use the navbar to go to another page on the website.
 
 ## Features Left to Implement
 
