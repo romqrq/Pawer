@@ -13,3 +13,4 @@ $('.form-trigger').click(function(){
     $('.form-box').not('.hide').addClass('hide');
     $(`#${user_id}.form-box[value=${form_type}]`).removeClass('hide').get(0).scrollIntoView(false);
 });
+

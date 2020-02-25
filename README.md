@@ -47,12 +47,6 @@ Other options such as premium accounts and business/service accounts are also re
      - [Register Page](#register-page)
      - [Login Page](#login-page)
      - [Dashboard](#dashboard-page)
-       <!-- - [Add new Listing Page](#add-new-listing-page)
-     - [Preview Listing Page](#preview-listing-page)
-     - [Edit Listing Page](#edit-listing-page)
-     - [Contact Page](#contact-page)
-     - [404 Page](#404-page)
-     - [Permission Denied Page](#permission-denied-page) -->
    - [Features Left to Implement](#features-left-to-implement)
 
 3. [Information Architecture](#information-architecture)
@@ -101,11 +95,13 @@ The central target audience for us are the potential adoptants and people that a
 
 Customer goals are:
 
+- To login or register.
 - Finding a dog to adopt.
 - Finding products or services to buy.
 - Finding stores or services nearby.
 - Minimum effort to reach goal.
-- Intuitive navigation.
+- Use the application intuitively with minimum of learning.
+- Ability to edit and delete my account details.
 
 Pawer helps the customer meeting these goals because:
 
@@ -121,10 +117,10 @@ Pawer helps the customer meeting these goals because:
 The pet service sector is getting more diverse by the day.
 Our target for services providers are both companies and self employed individuals.
 
-- Exposing their service to a mass of potential new customers.
-- Reasonable possibility of return over investment (when services account system is implemented)
-- A reliable and reputable platform to advertise and aggregate value to the service.
-- Balanced competition for space between companies and individuals providing the same service.
+- Expose my service to a mass of potential new customers.
+- To have reasonable possibility of return over investment (when services account system is implemented).
+- Ability to edit my account details.
+- Protection against accidental deletion of my information.
 
 Pawer helps the service providers meeting these goals because:
 
@@ -139,10 +135,9 @@ Pawer helps the service providers meeting these goals because:
 
 With more businness being done virtually, we are aiming for stores are looking to conquer this new territory and virtual stores that depend completely on their virtual presence.
 
-- Showcasing their products to a mass of potential new customers.
+- Showcasing my products to a mass of potential new customers.
 - Increase physical customer presence at stores (for business with physical stores)
 - Reasonable possibility of return over investment (when stores account system is implemented)
-- A reliable and reputable platform to advertise and aggregate value to their products.
 - Balanced competition for space between different sizes of business.
 
 Pawer helps the stores meeting these goals because:
@@ -737,14 +732,10 @@ Different user types contain different keys:
 - [GIMP](https://www.gimp.org/) to edit, crop and save images.
   <!-- - [Browserstack](https://www.browserstack.com/) to test functionality on all browsers and devices. -->
 - [Am I Responsive](http://ami.responsivedesign.is/) to create the responsive image when displayed on different devices.
-  <!-- - [EZgif](https://ezgif.com/video-to-gif) provided gif editing software for the gif in this readme file. -->
 
 ## Libraries
 
 - [JQuery](https://jquery.com) to simplify DOM manipulation.
-  <!-- - [Jasmine](https://jasmine.github.io/) to run automated tests on JavaScript and jQuery code.
-- [Jasmine-jQuery](https://github.com/velesin/jasmine-jquery) to make it possible to test jQuery code using Jasmine. -->
-  <!-- - [Bootstrap](https://www.bootstrapcdn.com/) to simplify the structure of the website and make the website responsive easily. -->
 - [Materialize](https://materializecss.com/) to provide icons and a consistent and responsive structure to the website.
 - [Google Fonts](https://fonts.google.com/) to style the website fonts.
 - [PyMongo](https://api.mongodb.com/python/current/) to make communication between Python and MongoDB possible.
