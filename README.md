@@ -1,12 +1,12 @@
 <div align="center">
-    <img src="GET LOGO IMG" href="GET HEROKU LINK" target="_blank" rel="noopener" alt="Pawer Logo" aria-label="Pawer Logo" />
-    <a href="GET HEROKU LINK" target="_blank">Pawer - Dog adoption, services and stores.</a>
+    <img src="static/images/readme/pawer_logo.jpg" href="https://pawer-db.herokuapp.com/" target="_blank" rel="noopener" alt="Pawer Logo" aria-label="Pawer Logo" />
+    <a href="https://pawer-db.herokuapp.com/" target="_blank">Pawer - Dog adoption, services and stores.</a>
 </div>
 
 ## Introduction
 
 <div align="center">
-    <img src="GET IMAGE WITH DIFFERENT DEVICES? OR SCREENSHOT" href="GET HEROKU LINK" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+    <img src="static/images/readme/responsiveness.jpg" href="https://pawer-db.herokuapp.com/" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
 <br>
 
