@@ -6,7 +6,7 @@
 ## Introduction
 
 <div align="center">
-    <img src="static/images/readme/responsiveness.jpg" href="https://pawer-db.herokuapp.com/" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+    <img src="static/images/readme/responsiveness.png" href="https://pawer-db.herokuapp.com/" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
 <br>
 
@@ -279,29 +279,41 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 
 These wireframes were created using [Mockflow](https://mockflow.com/) during the Scope Plane part of the design and planning process for this project.
 
-<!-- - [Home](https://ibb.co/52Z3P4r)
-- [Search](https://ibb.co/Wcgbtqs)
-- [Activity search](https://ibb.co/Nm8FYbd)
-- [Activity listing](https://ibb.co/PMb9jCm)
-- [Event search](https://ibb.co/MR8BFC3)
-- [Event listing](https://ibb.co/njnP5C5)
-- [Create or Edit account](https://ibb.co/1TyV9sN)
-- [Log in](https://ibb.co/yhbBSV0)
-- [My account](https://ibb.co/nr2s9cw)
-- [Create or Edit Activity page](https://ibb.co/Wv349RB)
-- [Create or Edit Event page](https://ibb.co/sqj60xb) -->
+- [Mobile - PDF](static/wireframes/mobile_wireframe.pdf)
+- [Tablet - PDF](static/wireframes/tablet_wireframe.pdf)
+- [Desktop - PDF](static/wireframes/desktop_wireframe.pdf)
+
+- Notes about the wireframes: 
+    
+    - The **dashboard**, **adoption requests** and **users** pages aren't included as they were introduced at a later stage after reassessment of the progress on the project. The same standard used on the website was adopted for these pages to keep consistency.
+
+    - On mobile, the **Register** and **Login** buttons were removed from the navbar and added to the sidenav due to the reduced space.
+
+    - On mobile, the organizational orientation of the information inside the cards were changed from **horizontal** to **vertical**, giving full width to the main elements inside the cards. 
+
+    - **Register** and **Login** buttons were set to be dinamically replaced by the **Dashboard** and **Logout** buttons according to user's login status.
+
+    - The **register** page on the wireframes was altered and only displays the four cards under staff credentials. For other users only three cards are displayed.
+
+    - We chose to remove the radio buttons from the original plan of the **login** page. It reduces complexity for the user and keeps the page less visually cluttered.
+
+    - All the cards were altered, moving the buttons (where existent) to the extreme right (or bottom on small screen resolution), keeping all information together.
+
+    - For the **services** and **stores** cards, the contact button was replaced by the feedback button. The feedback information was also added to the cards.
+
+    -
 
 ### Flowchart
 
 During the planning stages, we created some flowcharts:
 
-- [Pawer - Website hierarchy and structure](GET LINK)
-
 This flowchart illustrates the structure of the website, areas users with different privileges can access and actions they can take.
 
-- [Pawer - Database structure](GET LINK)
+- [Pawer - Website hierarchy and structure](static/images/readme/flowcharts/pawer_flowchart.jpg)
 
 This flowchart represents the structure of the database and how files are used to generate new documents combining information from existing files and new input from user.
+
+- [Pawer - Database structure](static/images/readme/flowcharts/database_flowchart.jpg)
 
 On the flowcharts the feedback functionality isn't displayed as it wasn't considered to be feasible under the timeframe set for this project. The feature was added after a reassessment of the progress and the positive impact that the feature could bring to the website.
 
