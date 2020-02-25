@@ -724,13 +724,12 @@ Different user types contain different keys:
 
 - [Gitpod](https://www.gitpod.io/) is the main IDE used for developing this project.
 - [Visual Studio Code](https://code.visualstudio.com/) was also used as IDE for development when Gitpod wasn't available.
-  <!-- - [Imgbb](https://imgbb.com) to store all external images for this project. -->
 - [PIP](https://pip.pypa.io/en/stable/installing/) for installation of tools needed in this project.
 - [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03) to handle version control.
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) is the database for this project
 - [GitHub](https://github.com/) to store and share all project code remotely.
 - [GIMP](https://www.gimp.org/) to edit, crop and save images.
-  <!-- - [Browserstack](https://www.browserstack.com/) to test functionality on all browsers and devices. -->
+- [PowerMapper](https://www.powermapper.com/) to test functionality on all browsers and devices.
 - [Am I Responsive](http://ami.responsivedesign.is/) to create the responsive image when displayed on different devices.
 
 ## Libraries
@@ -748,7 +747,7 @@ Different user types contain different keys:
 
 # Testing
 
-<!-- Testing information can be found in separate [testing.md](testing.md) file -->
+Testing information can be found in separate [testing.md](testing.md) file
 
 # Deployment
 
@@ -806,7 +805,7 @@ The following **must be installed** on your machine:
 
 ### Instructions
 
-1. Save a copy of the github repository located at https://github.com/romqrq/pawer by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
+1. Save a copy of the github repository located at https://github.com/romqrq/Pawer by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
 
 ```
 git clone https://github.com/romqrq/Pawer
@@ -846,8 +845,6 @@ pip -r requirements.txt.
 
 7. Inside the .flaskenv file, create a SECRET_KEY variable and a MONGO_URI to link to your own database. Please make sure to call your database `pawer`, with 3 collections called `dogs`, `users` and `adoptRequest`.
 
-   <!-- You will find example json structures for these collections in the [schemas](familyhubapp/data/schemas) folder. -->
-
 8. You can now run the application with the command
 
 ```
@@ -866,13 +863,12 @@ python app.py
 
 ### Images
 
-<!-- - The FamilyHub logo was created using [Hatchful](https://hatchful.shopify.com).
+- The Pawer logo was created using [Canva](https://www.canva.com/).
 
-- The photographs for the hero images were sourced from [Pexels](https://www.pexels.com/)
+- [Wikimedia](https://upload.wikimedia.org/)
 
-- Where possible the links to the images for the events were taken directly from the source images url in the activity listings I sourced the data from.
+- [Pexels](https://images.pexels.com/)
 
-- On occasion when this did not work the image was copied to my local machine and then uploaded to my [imgBB](https://anna-gilhespy.imgbb.com/) account, where I took the link from instead. -->
 
 ## Code
 
