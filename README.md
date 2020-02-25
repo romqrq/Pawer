@@ -487,20 +487,13 @@ This document was created during the planning phase of this project as a way to 
 - A form is centered on the page with two fields: email and password.
 - The fields have placeholders that help the user knowing what information we are asking.
 - The login button is placed just below the fields and follows the style for buttons throughout the application.
+- If the user inputs incorrect data a **message** is displayed informing that the email or password are incorrect.
+    - For this feature, we decided to leave it vague as it would make more difficult for someone trying to guess someone elses login details.
+- When the user logs in with a correct email and password a **Welcome message** is displayed after the user is redirected to the home page.
 
-<!-- - The submit button is placed just below the fields and follows the style for buttons throughout the application.
-
-- This form also uses JavaScript `fetch()` to pass the input data from the user to Python. The reason for this use is that I wanted to provide the user with a modal once they were logged in, rather than reloading the page.
-
-- If the user inputs incorrect data a **modal** responds with various messages depending on what was incorrect.
-
-- When the user logs in with a correct email and password a **success modal** appears with links to their personal account page and editor page to add a new activity to the database.
-
-- This [Account and Log In Pages Flowchart](https://i.ibb.co/x1wxDsZ/flowchart.jpg) fully explains the behavior of the forms, data checks and modal messages on this page and the [Account Page](#account-page). -->
-
-<div align="center">
+<!-- <div align="center">
     <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-</div>
+</div> -->
 
 ### Dashboard
 
@@ -513,9 +506,9 @@ This document was created during the planning phase of this project as a way to 
 - This page displays a card with the information under the register of the account logged in.
 - User can edit the information or delete the account through the dynamic forms.
 
-<div align="center">
+<!-- <div align="center">
     <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-</div>
+</div> -->
 
 **Staff user**
 
@@ -524,23 +517,23 @@ This document was created during the planning phase of this project as a way to 
 
   - **Users page**: Displays all the users on the database individually on cards that contain the "Edit" and "Delete" buttons activating the respective dynamic form. This page is visible only to staff users.
 
-    <div align="center">
+    <!-- <div align="center">
     <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-    </div>
+    </div> -->
 
   - **Adoption Requests page**: Displays a list of cards, each one containing one of the adoption requests in the database. This page is visible only to staff users.
     The staff user can mark the dog as: - Adopted: Deletes the dog and the adoption request records from the database. - Not Adopted: Keeps the dog record and deletes only the adoption record.
 
-    <div align="center">
+    <!-- <div align="center">
     <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-    </div>
+    </div> -->
 
   - **Register page**: Directs the user to the register page where staff can create new dog or user(customer, service or store) entries in the database.
     The staff user can mark the dog as: - Adopted: Deletes the dog and the adoption request records from the database. - Not Adopted: Keeps the dog record and deletes only the adoption record.
 
-    <div align="center">
+    <!-- <div align="center">
         <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-    </div>
+    </div> -->
 
 
 ### Permission Denied page
@@ -591,6 +584,10 @@ This document was created during the planning phase of this project as a way to 
 
    - Implementation of a field on services and stores cards near the promotional codes displaying an expiration date as a way to create the sense of urgency on users.
 
+10. One feedback per user
+
+    - Creation of a separate collection for the feedbacks containing the id for the store or service that is receiving the feedback, the id of the user who left the feedback, the positive or negative feedback and add a field for a text feedback where the user can write and explain the reasons for the feedback. 
+
 This section will continue to grow as the site is deployed to it's own domain. New issues and needs will be found as we continually revaulate the application and other can become apparent as the site is used.
 
 # Information Architecture
@@ -605,6 +602,7 @@ The types of data stored in MongoDB for this project are:
 
 - ObjectId
 - String
+- int32
 - Object
 
 ### Collections Data Structure
@@ -620,7 +618,7 @@ The documents within the adoptRequest collection are a result of the junction of
 | Request ID      | \_id             | None                 | ObjectId  |
 | User First Name | first_name       | text                 | string    |
 | User Last Name  | last_name        | text                 | string    |
-| Email Address   | \_email          | email                | string    |
+| Email Address   | email          | email                | string    |
 | Password        | password         | password             | string    |
 | Bio             | user_description | text                 | string    |
 | Staff Status    | is_staff         | text                 | string    |
