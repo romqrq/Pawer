@@ -6,19 +6,23 @@
     <div class="parallax"><img src="/static/images/pup_deck.jpg"></div>
 </div>
 <div class="section white">
-    <div class="container">
+    <div class="row container">
     {% if session['is_staff'] != 'is_staff' %}
         <div class="col s12">
             <p class="heading-text">Oops! This area is for staff only.</p>
             <p class="secondary-text">Not to worry! Click on the button below and we will bring you back home.</p>
+        </div>
+        <div class="col offset-s3 s6">
             <a href="{{url_for('user_home')}}" class="waves-effect waves-light btn card-action-button">
                 <i class="material-icons right card-action-button-icon">home</i>
                 <span>Bring me back home</span>
             </a>
-
         </div>
     {% endif %}
     {% if session['is_staff'] == 'is_staff' %}
+    <h2 class="heading-text">Users</h2>
+    <p class="secondary-text">Here you can manipulate all users records in the database.</p>
+    <p>Each card below corresponds to one record in the database and operations will affect the selected records individually as you edit or delete them.</p>
         <div class="row card-row-find">
             {% for user in users %}
                 <div class="card row single-card">

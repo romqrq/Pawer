@@ -180,6 +180,7 @@ nav .button-collapse {
 
 .single-card .buttons-row {
   margin: 0;
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

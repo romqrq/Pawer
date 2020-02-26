@@ -1,7 +1,8 @@
 <div class="form-box hide" id="{{request._id}}" value='adopted_dog'>
     <form action="{{ url_for('delete_entry', usr_type='adopted', usr_id=request._id) }}" method="POST" class="col s12 delete-form">
         <div class="row">
-            <h3>Are you sure ou want to delete?</h3>
+            <h2 class="heading-text">Adopted!</h2>
+            <p class="secondary-text center">Another dog found a forever home!</p>
             <p class="center">This will permanently delete the records for this dog and adoption request.</p>
             <button class="btn waves-effect waves-light" type="submit">Yes, Delete
                 <i class="material-icons right">delete</i>

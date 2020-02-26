@@ -1,7 +1,9 @@
 <div class="form-box hide" id="{{user._id}}" value="delete">
     <form action="{{ url_for('delete_entry', usr_type='users', usr_id=user._id) }}" method="POST" class="col s12 delete-form">
         <div class="row">
-            <h3>Are you sure ou want to delete?</h3>
+            <h2 class="heading-text">Delete user</h2>
+            <p class="secondary-text center">This will delete this user from the database.</p>
+            <p class="center">Are you sure ou want to delete?</p>
             <button class="btn waves-effect waves-light" type="submit">Yes, Delete
                 <i class="material-icons right">delete</i>
             </button>

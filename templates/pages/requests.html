@@ -10,6 +10,8 @@
         <div class="col s12">
             <p class="heading-text">Oops! This area is for staff only.</p>
             <p class="secondary-text">Not to worry! Click on the button below and we will bring you back home.</p>
+        </div>
+        <div class="col offset-s3 s6">
             <a href="{{url_for('user_home')}}" class="waves-effect waves-light btn card-action-button">
                 <i class="material-icons right card-action-button-icon">home</i>
                 <span>Bring me back home</span>
@@ -17,6 +19,9 @@
         </div>
     {% endif %}
     {% if session['is_staff'] == 'is_staff' %}
+    <h2 class="heading-text">Adoption Requests</h2>
+    <p class="secondary-text">Here you can review all the adoption requests we have received.</p>
+    <p>Each card below corresponds to one request in the database and operations will affect the selected requests individually.</p>
         <div class="row card-row-find">
             {% for request in requests %}
                 <div class="row card single-card">
