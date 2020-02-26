@@ -91,15 +91,14 @@ Other options such as premium accounts and business/service accounts are also re
 
 ### Customer Goals
 
-The central target audience for us are the potential adoptants and people that already have pets and are looking for products or services.
+The central target audience for us are the potential adoptants such as families and individuals over 18 years old and also people that already have pets and are looking for products or services.
 
 Customer goals are:
 
 - To login or register.
 - Finding a dog to adopt.
-- Finding products or services to buy.
+- Finding pet products or services to buy.
 - Finding stores or services nearby.
-- Minimum effort to reach goal.
 - Use the application intuitively with minimum of learning.
 - Ability to edit and delete my account details.
 
@@ -107,7 +106,7 @@ Pawer helps the customer meeting these goals because:
 
 - The application was developed around those customers' goals from the planning stages of the construction.
 - All the navigation is done from the navigation bar menu so the user won't be looking for it.
-- Buttons exibit text and icons that together make the navigation more intuitive.
+- Buttons exhibit text and icons that together make the navigation more intuitive.
 - Forms where users can interact have explicit field placeholders to guide the user
 - Forms that aren't activated by the user are hidden dynamically to avoid cluttering the page.
 - Options and features that aren't relevant for customers are omitted according to their account type.
@@ -127,13 +126,13 @@ Pawer helps the service providers meeting these goals because:
 - Users have access to free accounts that gives them access to a pool of services to choose from.
 - Exists the possibility to offer discount codes for services to influence the user decision into hiring the service.
 - With affiliate links, it's possible to increase online traffic to the service website.
-- Information is prioritized and organized in a way that users can find what is bein offered in a glance.
+- Information is prioritized and organized in a way that users can find what is being offered in a glance.
 - With the feedback system, great service providers will stand out and set themselves apart, attracting more customers.
 - The standardised layout allows similar exposure for all service providers, creating a plain field for competition.
 
 ### Store Goals
 
-With more businness being done virtually, we are aiming for stores are looking to conquer this new territory and virtual stores that depend completely on their virtual presence.
+With more and more customers shopping online, we are aiming for stores are looking to brave this new territory and virtual stores that depend completely on their virtual presence.
 
 - Showcasing my products to a mass of potential new customers.
 - Increase physical customer presence at stores (for business with physical stores)
@@ -145,14 +144,14 @@ Pawer helps the stores meeting these goals because:
 - Users have access to free accounts that gives them access to a pool of stores to choose from.
 - Exists the possibility to offer discount codes for products to influence the user decision into buying the product.
 - With affiliate links, it's possible to increase online traffic to the store website.
-- Information is prioritized and organized in a way that users can find what is bein offered in a glance.
+- Information is prioritized and organized in a way that users can find what is being offered in a glance.
 - With the feedback system, great stores will stand out and set themselves apart, attracting more customers.
 - The standardised layout allows similar exposure for all stores, creating a plain field for competition.
 
 ### Pawer Goals
 
 The primary goal of Pawer is to create, around the dog adoption process, a meeting point for customers and business/services to meet and improve the adoption experience.
-This structure has the objective of making easier for the adoptant to get it right from the first time and reducing the chances of dogs being abandoned again.
+This structure has the objective of making it easier for the adoptant to get things right from the first time and reducing the chances of dogs being abandoned again.
 
 Pawer has four main target audiences: potential dog adoptants, people that already have pets, dog-related service providers and stores.
 
@@ -215,13 +214,13 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 
 - The secondary font `Lexend Tera` was chosen to counter balance the header, adding a slim look with more spaced letters. It introduces a more informal visual while still favoring the readability.
 
-- The tertiary font `Roboto` was chosen for the general text, offering a mid-term to the two previous fonts and keeping the page ballanced. It is a font with high readability and keeps a clean and professional look.
+- The tertiary font `Roboto` was chosen for the general text, offering a mid-term to the two previous fonts and keeping the page balanced. It is a font with high readability and keeps a clean and professional look.
 
 ### Icons
 
-- All icons used were chosen from materialize library. They are all icons that have strongly established meaning and are widely used accross the internet making them easy to be understood by the users.
+- All icons used were chosen from materialize library. They are all icons that have strongly established meaning and are widely used across the internet making them easy to be understood by the users.
 
-- Social media icons for facebook, instagram, twitter and youtube are used on the footer of the website. These links are targeting the main page of their respective social media network
+- Social media icons for Facebook, Instagram, Twitter and Youtube are used on the footer of the website. These links are targeting the main page of their respective social media network
 
 ### Colours
 
@@ -229,7 +228,7 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 
 - The buttons are on a green colour (#26a69a) which is used only for buttons, the contrast with the main colour scheme makes it grab attention. This way the user has a more consistent and predictable experience.
 
-- The colours were saved as variables on scss file and are recalled from these variables accross the styling files to make sure the colours are consistent across the entire project.
+- The colours were saved as variables on scss file and are recalled from these variables across the styling files to make sure the colours are consistent across the entire project.
 
 ### Styling
 
@@ -239,7 +238,7 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 
 - Each database entry is displayed on a separate card, making clear to the user the individuality of each entry.
 
-- Repetition of patterns accross the whole application provides consistency and helps the user getting familiarized to the application on first time use.
+- Repetition of patterns across the whole application provides consistency and helps the user getting familiarized to the application on first time use.
 
 - Hover effect along with color change for active elements have been added to give users visual feedback.
 
@@ -251,7 +250,7 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 
 **Card images**
 
-- Due to technical limitations at this poit, the databae entries can't contain images. Pertinent Materialize icons were used as a placeholder until future update.
+- Due to technical limitations at this point, the database entries can't contain images. Pertinent Materialize icons were used as a placeholder until future update.
 
 **Forms**
 
@@ -334,7 +333,7 @@ This document was created during the planning phase of this project as a way to 
   - The navigation bar is fixed at the top of the screen, always visible and is responsive to screen size.
   - On the left side the menu offers all the navigation options for the user to go from one page to another.
   - On small resolution screens, the menu also contains the Register, Dashboard, Login and Logout buttons, depending on user status (not logged in, logged in non-staff and staff).
-  - At the center, the Pawer logo is linked to the index page and it holds an attention grabbing place while leving the more accessible to touch edges for the menu and buttons.
+  - At the center, the Pawer logo is linked to the index page and it holds an attention grabbing place while leaving the more accessible to touch edges for the menu and buttons.
   - For medium screens and up, the Register, Login and Logout buttons are on the right side and they are shown/hidden dynamically according to user's account status.
 
 **_User not logged in_**
@@ -449,7 +448,7 @@ This document was created during the planning phase of this project as a way to 
 ### Register Page
 
 - This page allows users to create records in the database.
-- Staff members are allowed to create 4 types of user acounts:
+- Staff members are allowed to create 4 types of user accounts:
   - Dogs
   - Users
   - Services
@@ -499,7 +498,7 @@ This document was created during the planning phase of this project as a way to 
 - The fields have placeholders that help the user knowing what information we are asking.
 - The login button is placed just below the fields and follows the style for buttons throughout the application.
 - If the user inputs incorrect data a **message** is displayed informing that the email or password are incorrect.
-    - For this feature, we decided to leave it vague as it would make more difficult for someone trying to guess someone elses login details.
+    - For this feature, we decided to leave it vague as it would make more difficult for someone trying to guess someone else's login details.
 - When the user logs in with a correct email and password a **Welcome message** is displayed after the user is redirected to the home page.
 
 <!-- <div align="center">
@@ -549,7 +548,7 @@ This document was created during the planning phase of this project as a way to 
 
 ### Permission Denied page
 
-- The custom permission denied message is displayed to the user who attempts to access pages you must be logged in as staff to access.
+- Pages that are of restricted access have jinja conditional tests that will display a custom permission denied message to the user who attempts to access these pages without the staff privileges.
 
 - The button on this page give the user the option to go back to the home page or use the navbar to go to another page on the website.
 
@@ -584,8 +583,8 @@ This document was created during the planning phase of this project as a way to 
 
 7. Events Section
 
-   - As an oportunity to promote more business and engagement among customers, service providers and stores.
-   - This section also opens more oportunities of revenue and brand exposition.
+   - As an opportunity to promote more business and engagement among customers, service providers and stores.
+   - This section also opens more opportunities of revenue and brand exposition.
 
 8. Profile images on cards
 
@@ -599,7 +598,7 @@ This document was created during the planning phase of this project as a way to 
 
     - Creation of a separate collection for the feedbacks containing the id for the store or service that is receiving the feedback, the id of the user who left the feedback, the positive or negative feedback and add a field for a text feedback where the user can write and explain the reasons for the feedback. 
 
-This section will continue to grow as the site is deployed to it's own domain. New issues and needs will be found as we continually revaulate the application and other can become apparent as the site is used.
+This section will continue to grow as the site is deployed to it's own domain. New issues and needs will be found as we continually reevaluate the application and other can become apparent as the site is used.
 
 # Information Architecture
 
@@ -864,6 +863,8 @@ python app.py
 - [Wikimedia](https://upload.wikimedia.org/)
 
 - [Pexels](https://images.pexels.com/)
+
+- [Pxhere](https://pxhere.com/)
 
 
 ## Code
