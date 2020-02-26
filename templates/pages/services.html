@@ -14,10 +14,15 @@
                 here!</p>
             <p>Have a look at our amazing services providers! You can use as a reference the feedbacks they received
                 from previous customers!</p>
-            <p>If you are registered, <a href="{{url_for('user_login')}}">login here</a>! If you aren't registered yet,
-                <a href="{{url_for('register')}}">register here</a> and get amazing discounts in products and
-                services!</p>
-            <p>Only registered and logged in users are able to leave feedback to service providers.</p>
+            {% if not session %}
+            <p><strong>Only registered and logged in users are able to leave feedback to service providers.</strong></p>
+            <div class="row dogs-callout">
+                <p>If you are registered</p>
+                <a class="offset-s4 s4 btn waves-effect secondary-text dogs-action-button" href="{{url_for('user_login')}}">login here</a>
+                <p>If you aren't registered yet</p>
+                <a class="s4 offset-s4 btn waves-effect secondary-text dogs-action-button" href="{{url_for('register')}}">register here</a>
+            </div>
+            {% endif %}
         </div>
         <div class="row card-row-find">
             {% for service in services %}
