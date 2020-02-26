@@ -15,10 +15,10 @@
         margin: 0.4rem;
     }
     .pawer-logo-name {
-    font-size: 4rem;
+        font-size: 4rem;
     }
     .three-words {
-    padding: 0.5rem 0.4rem;
+        padding: 0.5rem 0.4rem;
     }
     .single-card{
         display: flex;
@@ -31,6 +31,9 @@
     }
     .dogs-action-button {
         width: 50%;
+    }
+    .card-row-register {
+        flex-direction: row;
     }
 }
 
