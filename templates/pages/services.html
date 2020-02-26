@@ -48,7 +48,8 @@
                         <p>{{service.email}}</p>
                         {% if session['is_staff'] %}
                         <p class="card-content-title">Promotion</p>
-                        <p>Visit {{service.service_first_name}}'s page <a href={{service.aff_link}} target="_blank" rel="noopener"><strong>HERE</strong></a> </p>
+                        <!--Code left commented to show how I did but to avoid link bringing users to nonexistent pages-->
+                         <p>Visit {{service.service_first_name}}'s page <!--<a href={{service.aff_link}} target="_blank" rel="noopener"><strong>HERE</strong></a>--> HERE </p> 
                         <p>Use the code <strong>{{service.discount_code}}</strong> to get <strong>{{service.discount_amount}} off</strong>!</p>
                         {% endif %}
                         <p class="card-content-title">Description</p>
