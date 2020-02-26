@@ -331,23 +331,19 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 **_User not logged in_**
 
 <div align="center">
-    <img class="col-6" src="static/images/readme/navbar/navbar-mobile-expanded-menu-logged-out.png" alt="Screenshot: Collapsible menu logged out"><br>
-    <img class="col-6" src="static/images/readme/navbar/navbar-logged-out.png" alt="Screenshot: Navbar logged out" >
+    <img class="col-6" src="static/images/readme/navbar/navbar_mobile_expanded_menu_logged_out.png" alt="Screenshot: Collapsible menu logged out"><br>
+    <img class="col-6" src="static/images/readme/navbar/navbar_desktop_logged_out.png" alt="Screenshot: Navbar logged out" >
 </div>
 
-**_Non staff user logged in_**
+**_User logged in_**
+
+- Despite the dashboard being displayed for all users logged in, staff and non-staff users will be displayed different content on the dashboard page.
 
 <div align="center">
-    <img class="col-6" src="static/images/readme/navbar/navbar-mobile-expanded-menu-ns-user.png" alt="Screenshot: Collapsible menu non staff user"><br>
-    <img class="col-6" src="static/images/readme/navbar/navbar-ns-user.png" alt="Screenshot: Navbarnon staff user" >
+    <img class="col-6" src="static/images/readme/navbar/navbar_mobile_logged_in.png" alt="Screenshot: Collapsible menu non staff user"><br>
+    <img class="col-6" src="static/images/readme/navbar/navbar_desktop_ns_logged_in_.png" alt="Screenshot: Navbarnon staff user" >
 </div>
 
-**_Staff user logged in_**
-
-<div align="center">
-    <img class="col-6" src="static/images/readme/navbar/navbar-mobile-expanded-menu-staff-user.png" alt="Screenshot: Collapsible menu staff user"><br>
-    <img class="col-6" src="static/images/readme/navbar/navbar-staff-user.png" alt="Screenshot: Navbar staff user" >
-</div>
 
 - Footer
 
@@ -360,7 +356,7 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - Despite the website being fully responsive, there was no need for a different structure on the home page for different devices. The structure is as per image below.
 
 <div align="center">
-    <img src="static/images/readme/navbar/landing-page.png" alt="Screenshot: Landing page" >
+    <img src="static/images/readme/pages/index/landing-page.png" alt="Screenshot: Landing page" >
 </div>
 
 ### Adoption Page
@@ -375,13 +371,13 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - The adopt button will be visible but won't activate the form if the user isn't logged in.
 
 <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
+    <img src="static/images/readme/pages/dogs/adoption_desktop_ns.png" alt="Screenshot: Adoption page non-staff user" >
 </div>
 
 - For staff users, the edit and delete buttons will be available and the entry can be edited from there through the dynamic forms activated by the clicked button.
 
 <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
+    <img src="static/images/readme/pages/dogs/adoption_desktop_staff.png" alt="Screenshot: Adoption page staff user" >
 </div>
 
 ### Services Page
