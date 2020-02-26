@@ -301,7 +301,6 @@ These wireframes were created using [Mockflow](https://mockflow.com/) during the
 
     - For the **services** and **stores** cards, the contact button was replaced by the feedback button. The feedback information was also added to the cards.
 
-    -
 
 ### Flowchart
 
@@ -319,11 +318,11 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 
 We used [visme.co](https://www.my.visme.co) to make the digital version of the flow charts.
 
-### Conceptual plan (PDF)
+<!-- ### Conceptual plan (PDF)
 
 - [Pawer - Inception](GET LINK)
 
-This document was created during the planning phase of this project as a way to put the ideas in perspective for further consideration. The final website has some slight differences from what was planned. We have included this document in the project to provide insight into the original planning and direction of the site during the planning stages.
+This document was created during the planning phase of this project as a way to put the ideas in perspective for further consideration. The final website has some slight differences from what was planned. We have included this document in the project to provide insight into the original planning and direction of the site during the planning stages. -->
 
 # Features
 
