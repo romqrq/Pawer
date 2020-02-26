@@ -61,15 +61,13 @@
                     </a>
                     {% endif %}
                 </div>
-                {% endif %}
             </div>
 
-            {% if session %}
             {% include 'forms/dogs/adopt-dog.html' %}
             {% endif %}
             {% if session['is_staff'] == 'is_staff' %}
-            {% include 'forms/dogs/edit-dog.html' %}
-            {% include 'forms/dogs/delete-dog.html' %}
+                {% include 'forms/dogs/edit-dog.html' %}
+                {% include 'forms/dogs/delete-dog.html' %}
             {% endif %}
             {% endfor %}
         </div>

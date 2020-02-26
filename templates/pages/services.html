@@ -46,9 +46,11 @@
                         <p>{{service.service_first_name}} {{service.service_last_name}}</p>
                         <p class="card-content-title">Contact</p>
                         <p>{{service.email}}</p>
+                        {% if session['is_staff'] %}
                         <p class="card-content-title">Promotion</p>
                         <p>Visit {{service.service_first_name}}'s page <a href={{service.aff_link}} target="_blank" rel="noopener"><strong>HERE</strong></a> </p>
                         <p>Use the code <strong>{{service.discount_code}}</strong> to get <strong>{{service.discount_amount}} off</strong>!</p>
+                        {% endif %}
                         <p class="card-content-title">Description</p>
                         <p>{{service.service_description}}</p>
                     </div>
@@ -72,7 +74,6 @@
                     </a>
                     {% endif %}
                 </div>
-                {% endif %}
             </div>
             {% include 'forms/services/feedback-service.html' %}
             {% endif %}
