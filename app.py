@@ -116,7 +116,7 @@ def add_entry(usr_type):
             user.update_one({'email': request.form.get('email')},
                             {'$set': {'fb_received': {'positive': 0,
                                       'negative': 0}}})
-        flash('You have been registered successfully! Welcome!', 'info')
+        flash('You have been successfully registered! Welcome!', 'info')
         return redirect(url_for('user_home'))
 
 # Adopt a dog
@@ -131,7 +131,7 @@ def adopt_dog(usr_id, dog_id):
     existing_request = adopt.find_one({'usr_id': ObjectId(usr_id)})
     if existing_request:
 
-        flash('We already have one request from you. We will get in touch very soon!')
+        flash('We already have one request from you. We will get in touch very soon!', 'info')
         return redirect(url_for('get_dogs'))
     adopt.insert_one(this_user)
 
@@ -151,7 +151,7 @@ def adopt_dog(usr_id, dog_id):
     adopt.update_one({'email': this_user['email']},
                      {'$set': {'why_adopt': request.form.get('why_adopt')}})
 
-    flash('Thank you! Your adoption request was successful. We\'ll be in touch soon!')
+    flash('Thank you! Your adoption request was successful. We\'ll be in touch soon!', 'info')
     return redirect(url_for('get_dogs'))
 
 # READ
@@ -235,7 +235,7 @@ def user_feedback(usr_type, receiver_id):
         url = 'get_services'
     else:
         url = 'get_stores'
-    flash('Thanks for your feedback!')
+    flash('Thanks for your feedback!', 'info')
     return redirect(url_for(url))
 
 
