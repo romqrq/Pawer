@@ -34,7 +34,6 @@ Other options such as premium accounts and business/service accounts are also re
    - [Design Choices](#design-choices)
    - [Wireframes](#wireframes)
    - [Flowchart](#flowchart)
-   - [PDF](#pdf)
 
 2. [Features](#features)
 
@@ -315,13 +314,6 @@ This flowchart represents the structure of the database and how files are used t
 
 On the flowcharts the feedback functionality isn't displayed as it wasn't considered to be feasible under the timeframe set for this project. The feature was added after a reassessment of the progress and the positive impact that the feature could bring to the website.
 
-We used [visme.co](https://www.my.visme.co) to make the digital version of the flow charts.
-
-<!-- ### Conceptual plan (PDF)
-
-- [Pawer - Inception](GET LINK)
-
-This document was created during the planning phase of this project as a way to put the ideas in perspective for further consideration. The final website has some slight differences from what was planned. We have included this document in the project to provide insight into the original planning and direction of the site during the planning stages. -->
 
 # Features
 
@@ -339,22 +331,22 @@ This document was created during the planning phase of this project as a way to 
 **_User not logged in_**
 
 <div align="center">
-    <img class="col-6" src="static/images/wf-images/navbar-mobile-expanded-menu-logged-out.png" alt="Screenshot: Collapsible menu logged out"><br>
-    <img class="col-6" src="static/images/wf-images/navbar-logged-out.png" alt="Screenshot: Navbar logged out" >
+    <img class="col-6" src="static/images/readme/navbar/navbar-mobile-expanded-menu-logged-out.png" alt="Screenshot: Collapsible menu logged out"><br>
+    <img class="col-6" src="static/images/readme/navbar/navbar-logged-out.png" alt="Screenshot: Navbar logged out" >
 </div>
 
 **_Non staff user logged in_**
 
 <div align="center">
-    <img class="col-6" src="static/images/wf-images/navbar-mobile-expanded-menu-ns-user.png" alt="Screenshot: Collapsible menu non staff user"><br>
-    <img class="col-6" src="static/images/wf-images/navbar-ns-user.png" alt="Screenshot: Navbarnon staff user" >
+    <img class="col-6" src="static/images/readme/navbar/navbar-mobile-expanded-menu-ns-user.png" alt="Screenshot: Collapsible menu non staff user"><br>
+    <img class="col-6" src="static/images/readme/navbar/navbar-ns-user.png" alt="Screenshot: Navbarnon staff user" >
 </div>
 
 **_Staff user logged in_**
 
 <div align="center">
-    <img class="col-6" src="static/images/wf-images/navbar-mobile-expanded-menu-staff-user.png" alt="Screenshot: Collapsible menu staff user"><br>
-    <img class="col-6" src="static/images/wf-images/navbar-staff-user.png" alt="Screenshot: Navbar staff user" >
+    <img class="col-6" src="static/images/readme/navbar/navbar-mobile-expanded-menu-staff-user.png" alt="Screenshot: Collapsible menu staff user"><br>
+    <img class="col-6" src="static/images/readme/navbar/navbar-staff-user.png" alt="Screenshot: Navbar staff user" >
 </div>
 
 - Footer
@@ -368,7 +360,7 @@ This document was created during the planning phase of this project as a way to 
 - Despite the website being fully responsive, there was no need for a different structure on the home page for different devices. The structure is as per image below.
 
 <div align="center">
-    <img src="static/images/wf-images/landing-page.png" alt="Screenshot: Landing page" >
+    <img src="static/images/readme/navbar/landing-page.png" alt="Screenshot: Landing page" >
 </div>
 
 ### Adoption Page
@@ -720,12 +712,14 @@ Different user types contain different keys:
 - [Gitpod](https://www.gitpod.io/) is the main IDE used for developing this project.
 - [Visual Studio Code](https://code.visualstudio.com/) was also used as IDE for development when Gitpod wasn't available.
 - [PIP](https://pip.pypa.io/en/stable/installing/) for installation of tools needed in this project.
-- [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03) to handle version control.
+- [Git](https://gist.github.com/) to handle version control.
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) is the database for this project
 - [GitHub](https://github.com/) to store and share all project code remotely.
 - [GIMP](https://www.gimp.org/) to edit, crop and save images.
 - [PowerMapper](https://www.powermapper.com/) to test functionality on all browsers and devices.
 - [Am I Responsive](http://ami.responsivedesign.is/) to create the responsive image when displayed on different devices.
+- [Jspell](https://www.jspell.com/) to spell check readme file.
+- [visme.co](https://www.my.visme.co) to make the digital version of the flow charts.
 
 ## Libraries
 
