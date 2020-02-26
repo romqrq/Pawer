@@ -25,7 +25,7 @@
             {% endif %}
         </div>
         <div class="row card-row-find">
-            {% for service in services %}
+        {% for service in services %}
             <div class="card row single-card">
                 <div class="col s12 m3 card-first-div">
                     <p class="card-title">{{service.type_of_service}}</p>
@@ -75,8 +75,10 @@
                     </a>
                     {% endif %}
                 </div>
+                {% endif %}
             </div>
-            {% include 'forms/services/feedback-service.html' %}
+            {% if session['is_staff'] %}
+                {% include 'forms/services/feedback-service.html' %}
             {% endif %}
             {% if session['is_staff'] == 'is_staff' %}
                 {% include 'forms/services/edit-service.html' %}

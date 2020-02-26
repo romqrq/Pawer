@@ -367,8 +367,15 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
   - Breed
   - A short description of the dog
   - Action button(s).
+
+- For users that aren't logged in, it will be displayed one extra section of content, immediately before the cards, clarifying that the user must be registered and logged in to be able to apply for adoption.
+
+<div align="center">
+    <img src="static/images/readme/pages/dogs/adoption_desktop_not_logged_in.png" alt="Screenshot: Adoption page non-staff user" >
+</div>
+
 - For non-staff users, the only button available will be "Adopt". This button activates a form that contains a text area for a brief reasoning for the adoption and a submit button.
-- The adopt button will be visible but won't activate the form if the user isn't logged in.
+- The Register and Login buttons above the cards aren't shown anymore after user is logged in.
 
 <div align="center">
     <img src="static/images/readme/pages/dogs/adoption_desktop_ns.png" alt="Screenshot: Adoption page non-staff user" >
