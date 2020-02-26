@@ -5,7 +5,7 @@
     <form action="{{ url_for('adopt_dog', dog_id=dog._id, usr_id=session['user_id']) }}" method="POST" class="col s12 edit-dog-form">
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="why_adopt" class="materialize-textarea" data-length="500"></textarea>
+                <textarea name="why_adopt" class="materialize-textarea" data-length="500" required></textarea>
                 <label for="why_adopt">Tell us a little about why you want this dog</label>
             </div>
         </div>
