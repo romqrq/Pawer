@@ -15,6 +15,7 @@
             <p>Have a look below and choose the one you want to adopt. Our team will get back to you as soon as possible
                 to talk about the adoption process and to help you to accomodate your new best friend to its new home!
             </p>
+            {% if not session %}
             <p><strong>Only registered and logged in users are able to apply for adoption.</strong></p>
             <div class="row dogs-callout">
                 <p>If you are registered</p>
@@ -22,6 +23,7 @@
                 <p>If you aren't registered yet</p>
                 <a class="s4 offset-s4 btn waves-effect secondary-text dogs-action-button" href="{{url_for('register')}}">register here</a>
             </div>
+            {% endif %}
         </div>
         <div class="row card-row-find">
             {% for dog in dogs %}
