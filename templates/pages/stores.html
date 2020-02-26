@@ -26,7 +26,7 @@
             {% endif %}
         </div>
         <div class="row card-row-find">
-            {% for store in stores %}
+        {% for store in stores %}
             <div class="card row single-card">
                 <div class="col s12 m3 card-first-div">
                     <p class="card-title">{{store.store_name}}</p>
@@ -77,8 +77,10 @@
                     </a>
                 {% endif %}
                 </div>
+                {% endif %}
             </div>
-            {% include 'forms/stores/feedback-store.html' %}
+            {% if session['is_staff'] %}
+                {% include 'forms/stores/feedback-store.html' %}
             {% endif %}
             {% if session['is_staff'] == 'is_staff' %}
                 {% include 'forms/stores/edit-store.html' %}

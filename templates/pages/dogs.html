@@ -26,7 +26,7 @@
             {% endif %}
         </div>
         <div class="row card-row-find">
-            {% for dog in dogs %}
+        {% for dog in dogs %}
             <div class="row card single-card">
                 <div class="col s12 m3">
                     <p class="card-title">{{dog.dog_name}}</p>
@@ -61,15 +61,16 @@
                     </a>
                     {% endif %}
                 </div>
+                {% endif %}
             </div>
-
-            {% include 'forms/dogs/adopt-dog.html' %}
+            {% if session['is_staff'] %}
+                {% include 'forms/dogs/adopt-dog.html' %}
             {% endif %}
             {% if session['is_staff'] == 'is_staff' %}
                 {% include 'forms/dogs/edit-dog.html' %}
                 {% include 'forms/dogs/delete-dog.html' %}
             {% endif %}
-            {% endfor %}
+        {% endfor %}
         </div>
     </div>
 </div>
