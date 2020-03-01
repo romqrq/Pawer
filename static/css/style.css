@@ -240,6 +240,15 @@ nav .button-collapse {
   margin: auto;
   padding: 0;
   width: 35%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .card-action-button {
@@ -293,6 +302,10 @@ nav .button-collapse {
           align-items: center;
   -webkit-box-shadow: -3px 6px 6px 0px #00000094;
           box-shadow: -3px 6px 6px 0px #00000094;
+}
+
+.btn-icon {
+  margin-right: 1rem;
 }
 
 /* Cards */
