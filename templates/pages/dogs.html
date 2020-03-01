@@ -40,18 +40,18 @@
                 <div class="col s12 m3 card-buttons-row">
                     <a id="{{dog._id}}" value="adopt"
                         class="waves-effect waves-light btn card-action-button form-trigger">
-                        <i class="material-icons right card-action-button-icon">favorite</i>
+                        <i class="material-icons left card-action-button-icon">favorite</i>
                         <span>Adopt</span>
                     </a>
                     {% if session['is_staff'] == 'is_staff' %}
                     <a id="{{dog._id}}" value="edit"
                         class="waves-effect waves-light btn card-action-button form-trigger">
-                        <i class="material-icons right card-action-button-icon">edit</i>
+                        <i class="material-icons left card-action-button-icon">edit</i>
                         <span>Edit</span>
                     </a>
                     <a id="{{dog._id}}" value="delete"
                         class="waves-effect waves-light btn card-action-button form-trigger">
-                        <i class="material-icons right card-action-button-icon">delete</i>
+                        <i class="material-icons left card-action-button-icon">delete</i>
                         <span>Delete</span>
                     </a>
                     {% endif %}
