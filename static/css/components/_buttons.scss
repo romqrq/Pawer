@@ -6,6 +6,9 @@
     margin: auto;
     padding: 0;
     width: 35%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
 .card-action-button {
     width: 100%;
@@ -42,4 +45,6 @@
     align-items: center;
     box-shadow: -3px 6px 6px 0px #00000094;
 }
-
+.btn-icon {
+    margin-right: 1rem;
+}
