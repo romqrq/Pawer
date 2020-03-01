@@ -306,11 +306,11 @@ During the planning stages, we created some flowcharts:
 
 This flowchart illustrates the structure of the website, areas users with different privileges can access and actions they can take.
 
-- [Pawer - Website hierarchy and structure](static/images/readme/flowcharts/pawer_flowchart.jpg)
+- [Pawer - Website hierarchy and structure](wireframes/flowcharts/pawer_flowchart.jpg)
 
 This flowchart represents the structure of the database and how files are used to generate new documents combining information from existing files and new input from user.
 
-- [Pawer - Database structure](static/images/readme/flowcharts/database_flowchart.jpg)
+- [Pawer - Database structure](wireframes/flowcharts/database_flowchart.jpg)
 
 On the flowcharts the feedback functionality isn't displayed as it wasn't considered to be feasible under the timeframe set for this project. The feature was added after a reassessment of the progress and the positive impact that the feature could bring to the website.
 
@@ -331,8 +331,8 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 **_User not logged in_**
 
 <div align="center">
-    <img class="col-6" src="static/images/readme/navbar/navbar_mobile_expanded_menu_logged_out.png" alt="Screenshot: Collapsible menu logged out"><br>
-    <img class="col-6" src="static/images/readme/navbar/navbar_desktop_logged_out.png" alt="Screenshot: Navbar logged out" >
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar_mobile_expanded_menu_logged_out.png" alt="Screenshot: Collapsible menu logged out"><br>
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar_desktop_logged_out.png" alt="Screenshot: Navbar logged out" >
 </div>
 
 **_User logged in_**
@@ -340,8 +340,8 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - Despite the dashboard being displayed for all users logged in, staff and non-staff users will be displayed different content on the dashboard page.
 
 <div align="center">
-    <img class="col-6" src="static/images/readme/navbar/navbar_mobile_logged_in.png" alt="Screenshot: Collapsible menu non staff user"><br>
-    <img class="col-6" src="static/images/readme/navbar/navbar_desktop_ns_logged_in_.png" alt="Screenshot: Navbarnon staff user" >
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar_mobile_logged_in.png" alt="Screenshot: Collapsible menu non staff user"><br>
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar_desktop_ns_logged_in_.png" alt="Screenshot: Navbarnon staff user" >
 </div>
 
 
@@ -356,7 +356,7 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - Despite the website being fully responsive, there was no need for a different structure on the home page for different devices. The structure is as per image below.
 
 <div align="center">
-    <img src="static/images/readme/pages/index/landing-page.png" alt="Screenshot: Landing page" >
+    <img src="wireframes/screenshots/pages/index/landing-page.png" alt="Screenshot: Landing page" >
 </div>
 
 ### Adoption Page
@@ -371,20 +371,20 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - For users that aren't logged in, it will be displayed one extra section of content, immediately before the cards, clarifying that the user must be registered and logged in to be able to apply for adoption.
 
 <div align="center">
-    <img src="static/images/readme/pages/dogs/adoption_desktop_not_logged_in.png" alt="Screenshot: Adoption page non-staff user" >
+    <img src="wireframes/screenshots/pages/dogs/adoption_desktop_not_logged_in.png" alt="Screenshot: Adoption page non-staff user" >
 </div>
 
 - For non-staff users, the only button available will be "Adopt". This button activates a form that contains a text area for a brief reasoning for the adoption and a submit button.
 - The Register and Login buttons above the cards aren't shown anymore after user is logged in.
 
 <div align="center">
-    <img src="static/images/readme/pages/dogs/adoption_desktop_ns.png" alt="Screenshot: Adoption page non-staff user" >
+    <img src="wireframes/screenshots/pages/dogs/adoption_desktop_ns.png" alt="Screenshot: Adoption page non-staff user" >
 </div>
 
 - For staff users, the edit and delete buttons will be available and the entry can be edited from there through the dynamic forms activated by the clicked button.
 
 <div align="center">
-    <img src="static/images/readme/pages/dogs/adoption_desktop_staff.png" alt="Screenshot: Adoption page staff user" >
+    <img src="wireframes/screenshots/pages/dogs/adoption_desktop_staff.png" alt="Screenshot: Adoption page staff user" >
 </div>
 
 ### Services Page
