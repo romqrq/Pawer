@@ -1,12 +1,12 @@
 <div align="center">
-    <img src="static/images/readme/pawer_logo.jpg" href="https://pawer-db.herokuapp.com/" target="_blank" rel="noopener" alt="Pawer Logo" aria-label="Pawer Logo" />
+    <img src="wireframes/screenshots/pawer-logo.jpg" href="https://pawer-db.herokuapp.com/" target="_blank" rel="noopener" alt="Pawer Logo" aria-label="Pawer Logo" />
     <a href="https://pawer-db.herokuapp.com/" target="_blank">Pawer - Dog adoption, services and stores.</a>
 </div>
 
 ## Introduction
 
 <div align="center">
-    <img src="static/images/readme/responsiveness.png" href="https://pawer-db.herokuapp.com/" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
+    <img src="wireframes/screenshots/responsiveness.png" href="https://pawer-db.herokuapp.com/" target="_blank" rel="noopener" alt="Image of how home page looks on all screen sizes" aria-label="Image of how home page looks on all screen sizes" />
 </div>
 <br>
 
