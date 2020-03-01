@@ -277,9 +277,9 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 
 These wireframes were created using [Mockflow](https://mockflow.com/) during the Scope Plane part of the design and planning process for this project.
 
-- [Mobile - PDF](static/wireframes/mobile_wireframe.pdf)
-- [Tablet - PDF](static/wireframes/tablet_wireframe.pdf)
-- [Desktop - PDF](static/wireframes/desktop_wireframe.pdf)
+- [Mobile - PDF](wireframes/mobile-wireframe.pdf)
+- [Tablet - PDF](wireframes/tablet-wireframe.pdf)
+- [Desktop - PDF](wireframes/desktop-wireframe.pdf)
 
 - Notes about the wireframes: 
     
