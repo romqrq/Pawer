@@ -6,7 +6,11 @@
 </div>
 <div class="section white">
     <div class="container">
-        <h2 class="heading-text">Register</h2>
+        {% if session['is_staff'] = 'is_staff' %}
+        <h2 class="heading-text">Staff Register</h2>
+        {% else %}
+        <h2 class="heading-text">User Registration</h2>
+        {% endif %}
         <p>Choose one of the categories below to choose a type for your account</p>
         <div class="row card-row-register">
             {% if session['is_staff'] == 'is_staff' %}
