@@ -2,13 +2,19 @@
 
 .nav-action-button {
     color: #343334;
+    font-size: 1.05rem;
     font-weight: 700;
     margin: auto;
     padding: 0;
-    width: 35%;
+    width: 40%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+
+    i {
+        font-size: 1.4rem;
+        margin-right: 0.2rem;
+    }
 }
 .card-action-button {
     width: 100%;
