@@ -15,13 +15,8 @@
             <p>Have a look at our amazing services providers! You can use as a reference the feedbacks they received
                 from previous customers!</p>
             {% if not session %}
-            <p><strong>Only registered and logged in users are able to leave feedback to service providers.</strong></p>
-            <div class="row dogs-callout">
-                <p>If you are registered</p>
-                <a class="offset-s4 s4 btn waves-effect secondary-text dogs-action-button" href="{{url_for('user_login')}}">login here</a>
-                <p>If you aren't registered yet</p>
-                <a class="s4 offset-s4 btn waves-effect secondary-text dogs-action-button" href="{{url_for('register')}}">register here</a>
-            </div>
+                <p><strong>Only registered and logged in users are able to leave feedback to service providers.</strong></p>
+                {% include 'layout/login-register.html' %}
             {% endif %}
         </div>
         <div class="row card-row-find">
