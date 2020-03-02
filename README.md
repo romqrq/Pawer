@@ -306,11 +306,11 @@ During the planning stages, we created some flowcharts:
 
 This flowchart illustrates the structure of the website, areas users with different privileges can access and actions they can take.
 
-- [Pawer - Website hierarchy and structure](wireframes/flowcharts/pawer_flowchart.jpg)
+- [Pawer - Website hierarchy and structure](wireframes/flowcharts/pawer-flowchart.jpg)
 
 This flowchart represents the structure of the database and how files are used to generate new documents combining information from existing files and new input from user.
 
-- [Pawer - Database structure](wireframes/flowcharts/database_flowchart.jpg)
+- [Pawer - Database structure](wireframes/flowcharts/database-flowchart.jpg)
 
 On the flowcharts the feedback functionality isn't displayed as it wasn't considered to be feasible under the timeframe set for this project. The feature was added after a reassessment of the progress and the positive impact that the feature could bring to the website.
 
@@ -331,8 +331,8 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 **_User not logged in_**
 
 <div align="center">
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar_mobile_expanded_menu_logged_out.png" alt="Screenshot: Collapsible menu logged out"><br>
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar_desktop_logged_out.png" alt="Screenshot: Navbar logged out" >
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar-mobile-expanded-menu-logged-out.png" alt="Screenshot: Collapsible menu logged out"><br>
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar-desktop-logged-out.png" alt="Screenshot: Navbar logged out" >
 </div>
 
 **_User logged in_**
