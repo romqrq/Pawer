@@ -340,8 +340,8 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - Despite the dashboard being displayed for all users logged in, staff and non-staff users will be displayed different content on the dashboard page.
 
 <div align="center">
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar-mobile-logged-in.png" alt="Screenshot: Collapsible menu non staff user"><br>
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar-desktop-ns-logged-in_.png" alt="Screenshot: Navbar non staff user" >
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar-mobile-ns-logged-in.png" alt="Screenshot: Collapsible menu non staff user"><br>
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar-desktop-ns-logged-in.png" alt="Screenshot: Navbar non staff user" >
 </div>
 
 
