@@ -371,7 +371,7 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - For users that aren't logged in, it will be displayed one extra section of content, immediately before the cards, clarifying that the user must be registered and logged in to be able to apply for adoption.
 
 <div align="center">
-    <img src="wireframes/screenshots/pages/dogs/adoption-desktop-not-logged-in.png" alt="Screenshot: Adoption page non logged in user" >
+    <img src="wireframes/screenshots/pages/dogs/desktop-adoption-not-logged-in.png" alt="Screenshot: Adoption page non logged in user" >
 </div>
 
 - For non-staff users, the only button available will be "Adopt". This button activates a form that contains a text area for a brief reasoning for the adoption and a submit button.
@@ -551,7 +551,7 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
     <img src="wireframes/screenshots/pages/dashboard/desktop-adoption-requests.png" alt="Screenshot: Adoption requests page" >
 </div>
 
-    - **Register page**: Directs the user to the register page where staff can create new dog or user(customer, service or store) entries in the database.
+  - **Register page**: Directs the user to the register page where staff can create new dog or user(customer, service or store) entries in the database.
     The staff user can mark the dog as: - Adopted: Deletes the dog and the adoption request records from the database. - Not Adopted: Keeps the dog record and deletes only the adoption record.
 
 <div align="center">
