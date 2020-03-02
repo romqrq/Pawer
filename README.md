@@ -378,13 +378,13 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - The Register and Login buttons above the cards aren't shown anymore after user is logged in.
 
 <div align="center">
-    <img src="wireframes/screenshots/pages/dogs/adoption-desktop-ns.png" alt="Screenshot: Adoption page non-staff user" >
+    <img src="wireframes/screenshots/pages/dogs/desktop-adoption-ns.png" alt="Screenshot: Adoption page non-staff user" >
 </div>
 
 - For staff users, the edit and delete buttons will be available and the entry can be edited from there through the dynamic forms activated by the clicked button.
 
 <div align="center">
-    <img src="wireframes/screenshots/pages/dogs/adoption-desktop-staff.png" alt="Screenshot: Adoption page staff user" >
+    <img src="wireframes/screenshots/pages/dogs/desktop-adoption-staff.png" alt="Screenshot: Adoption page staff user" >
 </div>
 
 ### Services Page
