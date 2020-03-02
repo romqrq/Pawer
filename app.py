@@ -13,8 +13,8 @@ APP = Flask(__name__)
 APP.secret_key = os.environ.get('SECRET_KEY')
 
 # Adding Mongo database name and URI linking to that database.
-APP.config["MONGO_DBNAME"] = 'pawer'
-APP.config["MONGO_URI"] = os.environ.get('MONGO_URI', 'mongodb://localhost')
+APP.config["MONGO_DBNAME"] = os.environ.get('MONGO_DBNAME')
+APP.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 # Creating an instance of PyMongo
 MONGO = PyMongo(APP)
