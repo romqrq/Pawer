@@ -26,18 +26,20 @@
         <div class="row card-row-find">
             {% for user in users %}
                 <div class="card row single-card">
-                    <div class="col s12 m3">
-                        <p class="card-title">{{user.first_name}} {{user.last_name}}</p>
+                    <div class="col s12 m3 l3">
+                        <p class="card-content-title first-element">{{user.first_name}} {{user.last_name}}</p>
                         <div class="card-image">
                             <i class="material-icons card-icon">person</i>
                         </div>
                     </div>
                     <div class="col s12 m5 l6">
                         <div class="card-content">
-                            {% if user.is_staff == 'on' %}
-                                <h4>STAFF</h4>
+                            {% if user.is_staff == 'is_staff' %}
+                                <h5>STAFF</h5>
                             {% endif %}
-                            <p class="card-content-title">Description</p>
+                            <p class="card-content-title first-element">Email</p>
+                            <p>{{user.email}}</p>
+                            <p class="card-content-title">Bio</p>
                             <p class="truncate">{{user.user_description}}</p>
                         </div>
                     </div>
@@ -59,6 +61,4 @@
     {% endif %}    
     </div>
 </div>  
-
-
 {% endblock %}

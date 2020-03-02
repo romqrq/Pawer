@@ -340,8 +340,8 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - Despite the dashboard being displayed for all users logged in, staff and non-staff users will be displayed different content on the dashboard page.
 
 <div align="center">
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar_mobile_logged_in.png" alt="Screenshot: Collapsible menu non staff user"><br>
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar_desktop_ns_logged_in_.png" alt="Screenshot: Navbarnon staff user" >
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar-mobile-logged-in.png" alt="Screenshot: Collapsible menu non staff user"><br>
+    <img class="col-6" src="wireframes/screenshots/navbar/navbar-desktop-ns-logged-in_.png" alt="Screenshot: Navbar non staff user" >
 </div>
 
 
@@ -371,20 +371,20 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - For users that aren't logged in, it will be displayed one extra section of content, immediately before the cards, clarifying that the user must be registered and logged in to be able to apply for adoption.
 
 <div align="center">
-    <img src="wireframes/screenshots/pages/dogs/adoption_desktop_not_logged_in.png" alt="Screenshot: Adoption page non-staff user" >
+    <img src="wireframes/screenshots/pages/dogs/adoption-desktop-not-logged-in.png" alt="Screenshot: Adoption page non logged in user" >
 </div>
 
 - For non-staff users, the only button available will be "Adopt". This button activates a form that contains a text area for a brief reasoning for the adoption and a submit button.
 - The Register and Login buttons above the cards aren't shown anymore after user is logged in.
 
 <div align="center">
-    <img src="wireframes/screenshots/pages/dogs/adoption_desktop_ns.png" alt="Screenshot: Adoption page non-staff user" >
+    <img src="wireframes/screenshots/pages/dogs/adoption-desktop-ns.png" alt="Screenshot: Adoption page non-staff user" >
 </div>
 
 - For staff users, the edit and delete buttons will be available and the entry can be edited from there through the dynamic forms activated by the clicked button.
 
 <div align="center">
-    <img src="wireframes/screenshots/pages/dogs/adoption_desktop_staff.png" alt="Screenshot: Adoption page staff user" >
+    <img src="wireframes/screenshots/pages/dogs/adoption-desktop-staff.png" alt="Screenshot: Adoption page staff user" >
 </div>
 
 ### Services Page
@@ -401,17 +401,24 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
   - A short text describing the service
   - Positive and negative feedback
   - Action button(s).
+
+- For users that are not logged in, the callout section with the login and register buttons will be displayed and no buttons are displayed on the card.
+
+<div align="center">
+    <img src="wireframes/screenshots/pages/services/desktop-services-not-logged-in.png" alt="Screenshot: Services page non logged in user" >
+</div>
+
 - For non-staff users, the only button available will be "Feedback". This button activates a form that contains a radio button element where users can leave a positive or negative feedback and the submit button.
 - The Feedback button will be visible but won't activate the form if the user isn't logged in.
 
 <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
+    <img src="wireframes/screenshots/pages/services/desktop-services-not-logged-in.png" alt="Screenshot: Services page non staff user" >
 </div>
 
 - For staff users, the edit and delete buttons will be available and the entry can be edited from there through the dynamic forms activated by the clicked button.
 
 <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
+    <img src="wireframes/screenshots/pages/services/desktop-services-staff.png" alt="Screenshot: Services page staff user" >
 </div>
 
 ### Stores Page
@@ -427,17 +434,24 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
   - A short text describing the store
   - Positive and negative feedback
   - Action button(s).
+
+- For users that are not logged in, the callout section with the login and register buttons will be displayed and no buttons are displayed on the card.
+
+<div align="center">
+    <img src="wireframes/screenshots/pages/stores/desktop-stores-not-logged-in.png" alt="Screenshot: Stores page not logged in user" >
+</div>
+
 - For non-staff users, the only button available will be "Feedback". This button activates a form that contains a radio button element where users can leave a positive or negative feedback and the submit button.
 - The Feedback button will be visible but won't activate the form if the user isn't logged in.
 
 <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
+    <img src="wireframes/screenshots/pages/stores/desktop-stores-ns.png" alt="Screenshot: Stores page non staff user" >
 </div>
 
 - For staff users, the edit and delete buttons will be available and the entry can be edited from there through the dynamic forms activated by the clicked button.
 
 <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
+    <img src="wireframes/screenshots/pages/stores/desktop-stores-staff.png" alt="Screenshot: Stores page staff user" >
 </div>
 
 ### Register Page
@@ -496,9 +510,9 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
     - For this feature, we decided to leave it vague as it would make more difficult for someone trying to guess someone else's login details.
 - When the user logs in with a correct email and password a **Welcome message** is displayed after the user is redirected to the home page.
 
-<!-- <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-</div> -->
+<div align="center">
+    <img src="wireframes/screenshots/login/desktop-login.png" alt="Screenshot: Login page" >
+</div>
 
 ### Dashboard
 
@@ -511,35 +525,38 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - This page displays a card with the information under the register of the account logged in.
 - User can edit the information or delete the account through the dynamic forms.
 
-<!-- <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-</div> -->
+<div align="center">
+    <img src="wireframes/screenshots/dashboard/desktop-dashboard-non-staff.png" alt="Screenshot: User Dashboard" >
+</div>
 
 **Staff user**
 
 - For staff users, the dashboard gives access to all the information in the database.
 - The staff member can access the "Users", "Adoption Requests" and "Register" pages.
 
+<div align="center">
+    <img src="wireframes/screenshots/dashboard/desktop-dashboard-staff.png" alt="Screenshot: Staff Dashboard" >
+</div>
+
   - **Users page**: Displays all the users on the database individually on cards that contain the "Edit" and "Delete" buttons activating the respective dynamic form. This page is visible only to staff users.
 
-    <!-- <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-    </div> -->
+<div align="center">
+    <img src="wireframes/screenshots/dashboard/desktop-users.png" alt="Screenshot: Users staff page" >
+</div>
 
   - **Adoption Requests page**: Displays a list of cards, each one containing one of the adoption requests in the database. This page is visible only to staff users.
     The staff user can mark the dog as: - Adopted: Deletes the dog and the adoption request records from the database. - Not Adopted: Keeps the dog record and deletes only the adoption record.
 
-    <!-- <div align="center">
-    <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-    </div> -->
+<div align="center">
+    <img src="wireframes/screenshots/dashboard/desktop-adoption-requests.png" alt="Screenshot: Adoption requests page" >
+</div>
 
-  - **Register page**: Directs the user to the register page where staff can create new dog or user(customer, service or store) entries in the database.
+    - **Register page**: Directs the user to the register page where staff can create new dog or user(customer, service or store) entries in the database.
     The staff user can mark the dog as: - Adopted: Deletes the dog and the adoption request records from the database. - Not Adopted: Keeps the dog record and deletes only the adoption record.
 
-    <!-- <div align="center">
-        <img src="static/images/wf-images/" alt="Screenshot: Navbar staff user" >
-    </div> -->
-
+<div align="center">
+    <img src="wireframes/screenshots/dashboard/desktop-register-staff.png" alt="Screenshot: Staff register page" >
+</div>
 
 ### Permission Denied page
 
@@ -591,13 +608,13 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 
 10. One feedback per user
 
-    - Creation of a separate collection for the feedbacks containing the id for the store or service that is receiving the feedback, the id of the user who left the feedback, the positive or negative feedback and add a field for a text feedback where the user can write and explain the reasons for the feedback. 
+    - Creation of an independent collection for the feedbacks containing the id for the store or service that is receiving the feedback, the id of the user who left the feedback, the positive or negative feedback and add a field for a text feedback where the user can write and explain the reasons for the feedback.
 
 This section will continue to grow as the site is deployed to it's own domain. New issues and needs will be found as we continually reevaluate the application and other can become apparent as the site is used.
 
 # Information Architecture
 
-### Database Choice
+## Database Choice
 
 As a course requirement, this project is based on a NoSQL database structure. This project was molded to suit better the database characteristics but it could also have been based on a SQL database structure. This project uses the NoSQL MongoDB Database.
 
