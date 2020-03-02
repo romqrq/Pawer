@@ -217,15 +217,15 @@ The application is aimed to provide users with a clean, consistent and easy-to-u
 
 ### Icons
 
-- All icons used were chosen from materialize library. They are all icons that have strongly established meaning and are widely used across the internet making them easy to be understood by the users.
+- All icons used were chosen from [materialize library](https://material.io/resources/icons/?style=baseline). They are all icons that have strongly established meaning and are widely used across the internet making them easy to be understood by the users.
 
 - Social media icons for Facebook, Instagram, Twitter and Youtube are used on the footer of the website. These links are targeting the main page of their respective social media network
 
 ### Colours
 
-- The colours chosen to the logo were a mustard-yellow (#FCD23C), black (#343334) and red(#D8414B). The red and yellow colours have an attention-grabbing propriety as human brain is hardwired to pay attention to these colours for primitive survival reasons. The black colour brings contrast, balance and readability to the logo.
+- The colours chosen to the logo were a **mustard-yellow (#FCD23C)**, **black (#343334)** and **red(#D8414B)**. The red and yellow colours have an attention-grabbing propriety as human brain is hardwired to pay attention to these colours for primitive survival reasons. The black colour brings contrast, balance and readability to the logo.
 
-- The buttons are on a green colour (#26a69a) which is used only for buttons, the contrast with the main colour scheme makes it grab attention. This way the user has a more consistent and predictable experience.
+- The buttons are on a **green colour (#26a69a)** which is used only for buttons, the contrast with the main colour scheme makes it grab attention. This way the user has a more consistent and predictable experience.
 
 - The colours were saved as variables on scss file and are recalled from these variables across the styling files to make sure the colours are consistent across the entire project.
 
@@ -735,11 +735,14 @@ Different user types contain different keys:
 
 ## Languages
 
-- This project uses HTML, CSS, JavaScript and Python programming languages.
+- [HTML](https://html.com/).
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS).
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+- [Python](https://www.python.org/).
 
 # Testing
 
-Testing information can be found in separate [testing.md](testing.md) file
+Testing information can be found in separate [TESTING.md](TESTING.md) file
 
 # Deployment
 
@@ -749,7 +752,7 @@ To deploy Pawer to heroku, take the following steps:
 
 1. Create a `requirements.txt` file using the terminal command `pip freeze > requirements.txt`.
 
-2. Create a `Procfile` with the terminal command `echo web: python app.py > Procfile`.
+2. Create a `Procfile` with the terminal command `web: python app.py > Procfile`.
 
 3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
 
@@ -773,11 +776,11 @@ To deploy Pawer to heroku, take the following steps:
 
 - To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
 
-8. In the heroku dashboard, click "Deploy".
+9. In the heroku dashboard, click "Deploy".
 
-9. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
+10. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
 
-10. The site is now successfully deployed.
+11. The site is now successfully deployed.
 
 ## How to run this project locally
 
@@ -797,7 +800,7 @@ The following **must be installed** on your machine:
 
 ### Instructions
 
-1. Save a copy of the github repository located at https://github.com/romqrq/Pawer by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
+1. Save a copy of the github repository located at `https://github.com/romqrq/Pawer` by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
 
 ```
 git clone https://github.com/romqrq/Pawer
@@ -821,35 +824,35 @@ _NOTE: Your Python command may differ, such as python3 or py_
 
 _Again this **command may differ depending on your operating system**, please check the [Python Documentation on virtual environments](https://docs.python.org/3/library/venv.html) for further instructions._
 
-4. If needed, Upgrade pip locally with
+5. If needed, Upgrade pip locally with
 
 ```
 pip install --upgrade pip.
 ```
 
-5. Install all required modules with the command
+6. Install all required modules with the command
 
 ```
 pip -r requirements.txt.
 ```
 
-6. In your local IDE create a file called `.flaskenv`.
+7. In your local IDE create a file called `.flaskenv`.
 
-7. Inside the .flaskenv file, create a SECRET_KEY variable and a MONGO_URI to link to your own database. Please make sure to call your database `pawer`, with 3 collections called `dogs`, `users` and `adoptRequest`.
+8. Inside the .flaskenv file, create a SECRET_KEY variable and a MONGO_URI to link to your own database. Please make sure to call your database `pawer`, with 3 collections called `dogs`, `users` and `adoptRequest`.
 
-8. You can now run the application with the command
+9. You can now run the application with the command
 
 ```
 python app.py
 ```
 
-9. You can visit the website at `http://127.0.0.1:5000`
+10. You can visit the website at `http://127.0.0.1:5000`
 
 # Credits
 
 ## Content
 
-- All the content text was written by me.
+- The structure for the readme and testing files was based on my colleague Anna Greaves' files with her consent and the content was significantly changed to reflect the peculiarities of this project and my personal preferences.
 
 ## Media
 
@@ -863,7 +866,6 @@ python app.py
 
 - [Pxhere](https://pxhere.com/)
 
-
 ## Code
 
 - For [MongoDB - Atlas](https://www.mongodb.com/), [Flask](https://flask.palletsprojects.com/en/1.1.x/), [Python](https://www.python.org/doc/) and [jQuery](https://api.jquery.com/) the documentation on official websites was constantly used to learn how to use functionalities and avoid deprecated terms and expressions.
@@ -874,27 +876,12 @@ python app.py
 
 - Code for the pulse effect on buttons was taken from [Materialize - Pulse](https://materializecss.com/pulse.html) and edited to match the style of the application.
 
-<!-- - Template code for multi-card carousel using bootstrap classes taken from [MDBootstrap](https://mdbootstrap.com/docs/jquery/javascript/carousel/) and heavily modified to suit the sites needs.
-
-- Code for floating buttons taken from this [W3Schools](https://www.w3schools.com/howto/howto_js_scroll_to_top.asp) post.
-
-- Box shadow codes were taken from [Material Design Box Shadows](https://codepen.io/sdthornton/pen/wBZdXq).
-
-- Code for adding the correct prefixes to css was created using [AutoPrefixer](https://autoprefixer.github.io/).
-
-- [Hex2rgba](http://hex2rgba.devoth.com/) was used to convert hex colours to rgba when I needed transparent background colours without using opacity css.
-
-- Code for function to capitalize first letter of username was taken from this [paulund.co.uk](https://paulund.co.uk/how-to-capitalize-the-first-letter-of-a-string-in-javascript) post.
-
-- Code to make sticky footer was taken from this [css-tricks.com](https://css-tricks.com/couple-takes-sticky-footer/) post.
-
-- Code for animated side-nav taken from this [w3schools.com](https://www.w3schools.com/howto/howto_js_sidenav.asp) post.
-
-
-
 ## Acknowledgements
 
-<!-- Special thanks to my mentor [Simen Daehlin](https://github.com/Eventyret) for his never-ending patience and willingness to teach me not only what code works, but what is expected of my websites and code in industry. -->
+I would like to thank my mentor [Simen Daehlin](https://github.com/Eventyret) for pushing me and setting higher standards to push me out of my comfort zone and excel. Simen has also been a great guide as to what is expect from me as a professional, what is expected of my code and my applications.
+I would like to thank [Anna Greaves](https://github.com/AJGreaves) for allowing me to use her documentation as a reference to build mine. As a student it is hard to start something when you have no reference and Anna has been a great reference as a successful fellow student.
+
+I also would like to thank my fiance Rebecca Martin for being so patient and supportive when I'm spending endless hours on the computer. All this work is result of our teamwork and her belief on me starting a new career.
 
 # Contact
 
