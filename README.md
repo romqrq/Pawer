@@ -331,8 +331,8 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 **_User not logged in_**
 
 <div align="center">
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar-mobile-expanded-menu-logged-out.png" alt="Screenshot: Collapsible menu logged out"><br>
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar-desktop-logged-out.png" alt="Screenshot: Navbar logged out" >
+    <img class="col-6" src="wireframes/screenshots/navbar/mobile-navbar-expanded-menu-logged-out.png" alt="Screenshot: Collapsible menu logged out"><br>
+    <img class="col-6" src="wireframes/screenshots/navbar/desktop-navbar-logged-out.png" alt="Screenshot: Navbar logged out" >
 </div>
 
 **_User logged in_**
@@ -340,8 +340,8 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - Despite the dashboard being displayed for all users logged in, staff and non-staff users will be displayed different content on the dashboard page.
 
 <div align="center">
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar-mobile-ns-logged-in.png" alt="Screenshot: Collapsible menu non staff user"><br>
-    <img class="col-6" src="wireframes/screenshots/navbar/navbar-desktop-ns-logged-in.png" alt="Screenshot: Navbar non staff user" >
+    <img class="col-6" src="wireframes/screenshots/navbar/mobile-navbar-ns-logged-in.png" alt="Screenshot: Collapsible menu non staff user"><br>
+    <img class="col-6" src="wireframes/screenshots/navbar/desktop-navbar-ns-logged-in.png" alt="Screenshot: Navbar non staff user" >
 </div>
 
 
