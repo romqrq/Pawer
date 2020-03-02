@@ -412,7 +412,7 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - The Feedback button will be visible but won't activate the form if the user isn't logged in.
 
 <div align="center">
-    <img src="wireframes/screenshots/pages/services/desktop-services-not-logged-in.png" alt="Screenshot: Services page non staff user" >
+    <img src="wireframes/screenshots/pages/services/desktop-services-ns.png" alt="Screenshot: Services page non staff user" >
 </div>
 
 - For staff users, the edit and delete buttons will be available and the entry can be edited from there through the dynamic forms activated by the clicked button.
@@ -511,7 +511,7 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - When the user logs in with a correct email and password a **Welcome message** is displayed after the user is redirected to the home page.
 
 <div align="center">
-    <img src="wireframes/screenshots/login/desktop-login.png" alt="Screenshot: Login page" >
+    <img src="wireframes/screenshots/pages/login/desktop-login.png" alt="Screenshot: Login page" >
 </div>
 
 ### Dashboard
@@ -526,7 +526,7 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - User can edit the information or delete the account through the dynamic forms.
 
 <div align="center">
-    <img src="wireframes/screenshots/dashboard/desktop-dashboard-non-staff.png" alt="Screenshot: User Dashboard" >
+    <img src="wireframes/screenshots/pages/dashboard/desktop-dashboard-non-staff.png" alt="Screenshot: User Dashboard" >
 </div>
 
 **Staff user**
@@ -535,27 +535,27 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 - The staff member can access the "Users", "Adoption Requests" and "Register" pages.
 
 <div align="center">
-    <img src="wireframes/screenshots/dashboard/desktop-dashboard-staff.png" alt="Screenshot: Staff Dashboard" >
+    <img src="wireframes/screenshots/pages/dashboard/desktop-dashboard-staff.png" alt="Screenshot: Staff Dashboard" >
 </div>
 
   - **Users page**: Displays all the users on the database individually on cards that contain the "Edit" and "Delete" buttons activating the respective dynamic form. This page is visible only to staff users.
 
 <div align="center">
-    <img src="wireframes/screenshots/dashboard/desktop-users.png" alt="Screenshot: Users staff page" >
+    <img src="wireframes/screenshots/pages/dashboard/desktop-users.png" alt="Screenshot: Users staff page" >
 </div>
 
   - **Adoption Requests page**: Displays a list of cards, each one containing one of the adoption requests in the database. This page is visible only to staff users.
     The staff user can mark the dog as: - Adopted: Deletes the dog and the adoption request records from the database. - Not Adopted: Keeps the dog record and deletes only the adoption record.
 
 <div align="center">
-    <img src="wireframes/screenshots/dashboard/desktop-adoption-requests.png" alt="Screenshot: Adoption requests page" >
+    <img src="wireframes/screenshots/pages/dashboard/desktop-adoption-requests.png" alt="Screenshot: Adoption requests page" >
 </div>
 
     - **Register page**: Directs the user to the register page where staff can create new dog or user(customer, service or store) entries in the database.
     The staff user can mark the dog as: - Adopted: Deletes the dog and the adoption request records from the database. - Not Adopted: Keeps the dog record and deletes only the adoption record.
 
 <div align="center">
-    <img src="wireframes/screenshots/dashboard/desktop-register-staff.png" alt="Screenshot: Staff register page" >
+    <img src="wireframes/screenshots/pages/dashboard/desktop-register-staff.png" alt="Screenshot: Staff register page" >
 </div>
 
 ### Permission Denied page
