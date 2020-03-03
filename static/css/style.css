@@ -140,12 +140,6 @@ nav .button-collapse {
   font-weight: 600;
 }
 
-.register-box {
-  text-align: right;
-  font-size: 1.5rem;
-  padding: 0;
-}
-
 /* Cards */
 .card-row-find {
   display: -webkit-box;
@@ -219,13 +213,6 @@ nav .button-collapse {
 
 .page-footer h5 {
   font-weight: 900;
-}
-
-/* Login Page */
-.login-radio label {
-  margin: 1rem;
-  font-size: 1.5rem;
-  font-weight: 700;
 }
 
 /* Register Page */
@@ -358,8 +345,15 @@ nav .button-collapse {
   padding: 1rem 2rem !important;
 }
 
-.side-nav .nav-action-button {
-  margin: 0.5rem 0;
+.register-box {
+  text-align: right;
+  font-size: 1.5rem;
+  padding: 0;
+}
+
+.register-box .btn.nav-action-button {
+  color: #343334;
+  padding: 0 2rem;
 }
 
 .light, .page-footer .footer-copyright {

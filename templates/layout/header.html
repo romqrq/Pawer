@@ -16,7 +16,7 @@
                     <li><a href="{{url_for('get_services')}}">Services</a></li>
                     <li><a href="{{url_for('get_stores')}}">Stores</a></li> 
 
-                    <div class="row register-box show-on-medium-and-down">
+                    <li class="row register-box show-on-medium-and-down">
                         {% if not session['is_staff'] %}
                             <a href="{{url_for('register')}}" class="col s12 btn waves-effect nav-action-button">
                                 <i class="material-icons btn-icon">person_add</i>
@@ -38,8 +38,7 @@
                                 Logout
                             </a>
                         {% endif %}
-
-                    </div>
+                    </li>
                 </ul>
             </div>
             <div class="col s4 logo-box">
