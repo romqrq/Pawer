@@ -740,6 +740,7 @@ Different user types contain different keys:
 - [Am I Responsive](http://ami.responsivedesign.is/) to create the responsive image when displayed on different devices.
 - [Jspell](https://www.jspell.com/) to spell check readme file.
 - [visme.co](https://www.my.visme.co) to make the digital version of the flow charts.
+- [Compress or die](https://compress-or-die.com/) website used to compress image files.
 
 ## Libraries
 
