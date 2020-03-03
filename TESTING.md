@@ -14,10 +14,11 @@
 2. [Manual Testing](#manual-testing)
    - [Testing undertaken on desktop](#testing-undertaken-on-desktop)
    - [Testing undertaken on tablet and phone devices](#testing-undertaken-on-tablet-and-phone-devices)
-3. [Bugs discovered](#bugs-discovered)
+3. [Google Chrome Developer Tools Audits](#google-chrome-developer-tools-audits)
+4. [Bugs discovered](#bugs-discovered)
    - [Solved bugs](#solved-bugs)
    - [Unsolved bugs](#unsolved-bugs)
-4. [Further Testing](#further-testing)
+5. [Further Testing](#further-testing)
 
 ### A note about TDD and automated tests
 
@@ -565,7 +566,18 @@ The screen size of the iPhone 5/SE was used as reference as it is the smallest s
 
 - Confirm the layout of all other pages is as designed on mobiles and tablets.
 
-### Bugs discovered:
+### Google Chrome Developer Tools Audits
+
+- The application was also tested through Google Chrome Developer Tools Audits covering **Performance**, **Accessibility**, **Best Practices** and **SEO**.
+
+- Audits were made for Desktop and Mobile.
+
+- All areas tested reached satisfying results except for **Performance**
+  - A big delay is apparently being created by materialize triggering JavaScript calls during page loading.
+  - During the tests, it created delays between 2.3s and 3.3s.
+  - At this time we weren't able to come around this issue that even though wasn't the only one it is, by far, the most significative one that we couldn't fix.
+
+### Bugs discovered
 
 #### Solved bugs
 
