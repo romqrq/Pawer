@@ -7,23 +7,23 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input name="first_name" type="text" class="validate" data-length="40">
+                <input name="first_name" type="text" class="validate" data-length="40" aria-labelledby="Edit user's first name">
                 <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input name="last_name" type="text" class="validate" data-length="40">
+                <input name="last_name" type="text" class="validate" data-length="40" aria-labelledby="Edit user's last name">
                 <label for="last_name">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input name="email" type="email" class="validate" data-length="40">
+                <input name="email" type="email" class="validate" data-length="40" aria-labelledby="Edit account email">
                 <label for="email">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input name="password" type="password" class="validate" data-length="40">
+                <input name="password" type="password" class="validate" data-length="40" aria-labelledby="Edit account password">
                 <label for="password">Password</label>
             </div>
         </div>
@@ -41,12 +41,12 @@
         {% endif %}
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="user_description" class="materialize-textarea" data-length="400"></textarea>
+                <textarea name="user_description" class="materialize-textarea" data-length="400" aria-labelledby="Edit user's bio"></textarea>
                 <label for="user_description">Bio</label>
             </div>
         </div>
         <div class="row">
-            <button class="btn waves-effect waves-light" type="submit">Update Account
+            <button class="btn waves-effect waves-light" type="submit" aria-labelledby="Confirm changes in user account">Update Account
                 <i class="material-icons left">edit</i>
             </button>
         </div>
