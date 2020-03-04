@@ -36,7 +36,7 @@
                         <p class="truncate">{{dog.dog_description}}</p>
                     </div>
                 </div>
-                {% if session['is_staff'] %}
+                {% if session['is_staff'] == 'is_staff' or session['user_type'] == 'users' %}
                 <div class="col s12 m3 card-buttons-row">
                     <a id="{{dog._id}}" value="adopt"
                         class="waves-effect waves-light btn card-action-button form-trigger">
