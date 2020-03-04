@@ -281,8 +281,8 @@ These wireframes were created using [Mockflow](https://mockflow.com/) during the
 - [Tablet - PDF](wireframes/tablet-wireframe.pdf)
 - [Desktop - PDF](wireframes/desktop-wireframe.pdf)
 
-- Notes about the wireframes: 
-    
+- Notes about the wireframes:
+  
     - The **dashboard**, **adoption requests** and **users** pages aren't included as they were introduced at a later stage after reassessment of the progress on the project. The same standard used on the website was adopted for these pages to keep consistency.
 
     - On mobile, the **Register** and **Login** buttons were removed from the navbar and added to the sidenav due to the reduced space.
@@ -299,7 +299,6 @@ These wireframes were created using [Mockflow](https://mockflow.com/) during the
 
     - For the **services** and **stores** cards, the contact button was replaced by the feedback button. The feedback information was also added to the cards.
 
-
 ### Flowchart
 
 During the planning stages, we created some flowcharts:
@@ -313,7 +312,6 @@ This flowchart represents the structure of the database and how files are used t
 - [Pawer - Database structure](wireframes/flowcharts/database-flowchart.jpg)
 
 On the flowcharts the feedback functionality isn't displayed as it wasn't considered to be feasible under the timeframe set for this project. The feature was added after a reassessment of the progress and the positive impact that the feature could bring to the website.
-
 
 # Features
 
