@@ -18,22 +18,22 @@
 
                     <li class="row register-box show-on-medium-and-down">
                         {% if not session['is_staff'] %}
-                            <a href="{{url_for('register')}}" class="col s12 btn waves-effect nav-action-button">
+                            <a href="{{url_for('register')}}" class="col s12 btn waves-effect nav-action-button" aria-label="Go to register page">
                                 <i class="material-icons btn-icon">person_add</i>
                                 Register
                             </a>
-                            <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect nav-action-button">
+                            <a href="{{url_for('user_login')}}" class="col s12 btn waves-effect nav-action-button" aria-label="Go to login page">
                                 <i class="material-icons btn-icon">person</i>
                                 Login
                             </a>
                         {% endif %}
 
                         {% if session['is_staff'] %}     
-                            <a href="{{url_for('get_dashboard')}}" class="col s12 btn waves-effect nav-action-button">
+                            <a href="{{url_for('get_dashboard')}}" class="col s12 btn waves-effect nav-action-button" aria-label="Go to my dashboard">
                                 <i class="material-icons btn-icon">settings</i>
                                 Dashboard
                             </a>
-                            <a href="{{url_for('user_logout')}}" class="col s12 btn waves-effect nav-action-button">
+                            <a href="{{url_for('user_logout')}}" class="col s12 btn waves-effect nav-action-button" aria-label="Logout">
                                 <i class="material-icons btn-icon">power_settings_new</i>
                                 Logout
                             </a>
@@ -52,21 +52,21 @@
             </div>
             <div class="col s4 register-box hide-on-med-and-down">
             {% if not session['is_staff'] %}
-                <a href="{{url_for('register')}}" class="btn waves-effect nav-action-button">
+                <a href="{{url_for('register')}}" class="btn waves-effect nav-action-button" aria-label="Go to register page">
                     <i class="material-icons btn-icon">person_add</i>
                     Register
                 </a>
-                <a href="{{url_for('user_login')}}" class="btn waves-effect nav-action-button">
+                <a href="{{url_for('user_login')}}" class="btn waves-effect nav-action-button" aria-label="Go to login page">
                     <i class="material-icons btn-icon">person</i>
                     Login
                 </a>
             {% endif %}
             {% if session['is_staff'] %}     
-                <a href="{{url_for('get_dashboard')}}" class="btn waves-effect nav-action-button">
+                <a href="{{url_for('get_dashboard')}}" class="btn waves-effect nav-action-button" aria-label="Go to my dashboard">
                     <i class="material-icons btn-icon">settings</i>
                     Dashboard
                 </a>
-                <a href="{{url_for('user_logout')}}" class="btn waves-effect nav-action-button">
+                <a href="{{url_for('user_logout')}}" class="btn waves-effect nav-action-button" aria-label="Logout">
                     <i class="material-icons btn-icon">power_settings_new</i>
                     Logout
                 </a>

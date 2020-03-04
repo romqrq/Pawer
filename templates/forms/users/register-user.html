@@ -7,23 +7,23 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input name="first_name" type="text" class="validate" data-length="40" required>
+                <input name="first_name" type="text" class="validate" data-length="40" aria-labelledby="User's first name" required>
                 <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input name="last_name" type="text" class="validate" data-length="40" required> 
+                <input name="last_name" type="text" class="validate" data-length="40" aria-labelledby="User's last name" required> 
                 <label for="last_name">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input name="email" type="email" class="validate" data-length="40" required> 
+                <input name="email" type="email" class="validate" data-length="40" aria-labelledby="Account email" required> 
                 <label for="email">Email</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input name="password" type="password" class="validate" data-length="40" required>
+                <input name="password" type="password" class="validate" data-length="40" aria-labelledby="Account password" required>
                 <label for="password">Password</label>
             </div>
         </div>
@@ -41,12 +41,12 @@
         {% endif %}
         <div class="row">
             <div class="input-field col s12">
-                <textarea name="user_description" class="materialize-textarea" data-length="400"></textarea>
+                <textarea name="user_description" class="materialize-textarea" data-length="400" aria-labelledby="User bio"></textarea>
                 <label for="user_description">Bio</label>
             </div>
         </div>
         <div class="row">
-            <button class="btn waves-effect waves-light" type="submit">Create Account
+            <button class="btn waves-effect waves-light" type="submit" aria-labelledby="Confirm account creation">Create Account
                 <i class="material-icons left">playlist_add</i>
             </button>
         </div>
