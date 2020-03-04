@@ -369,6 +369,7 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
   - Action button(s).
 
 - For users that aren't logged in, it will be displayed one extra section of content, immediately before the cards, clarifying that the user must be registered and logged in to be able to apply for adoption.
+- The **adopt** button is not visible for users under stores or services account types.
 
 <div align="center">
     <img src="wireframes/screenshots/pages/dogs/desktop-adoption-not-logged-in.png" alt="Screenshot: Adoption page non logged in user" >
@@ -609,6 +610,10 @@ On the flowcharts the feedback functionality isn't displayed as it wasn't consid
 10. One feedback per user
 
     - Creation of an independent collection for the feedbacks containing the id for the store or service that is receiving the feedback, the id of the user who left the feedback, the positive or negative feedback and add a field for a text feedback where the user can write and explain the reasons for the feedback.
+
+11. Replace current form display method for modals
+
+    - The current way the forms are displayed is good but using modals, we will retain more of the user's focus on the task of filling up the forms.
 
 This section will continue to grow as the site is deployed to it's own domain. New issues and needs will be found as we continually reevaluate the application and other can become apparent as the site is used.
 
