@@ -104,7 +104,7 @@ def add_entry(usr_type):
     elif existing_dog:
         flash('Sorry, this dog is already registered.', 'info')
         return redirect(url_for('add_entry'))
-    else:  
+    else:
         user.insert_one(request.form.to_dict())
         try:
             request.form['is_staff']
