@@ -701,6 +701,24 @@ def update_entry(usr_type, usr_id):
     return redirect(url_for(get_user))
 ```
 
+6. **Staff account creation problem on is_staff key value**
+
+- When trying to create a staff user account, the is_staff key was receiving the value **"on"** instead of **"is_staff"**.
+
+- Upon revisiting the code, we figured that the **try** operation was only testing for the "is_staff" switch status but wasn't acting when it came back as **"on"**.
+
+- To solve the problem, we added an **update** operation where the **"is_staff" key** has the **value** set to **"is_staff"** in case the form returns the switch with the **"on"** value.
+
+```Python
+else:  
+    user.insert_one(request.form.to_dict())
+    try:
+        request.form['is_staff']
+        user.update_one({'email': request.form.get('email')},
+                        {'$set': {'is_staff': 'is_staff',
+                                    'usr_type': usr_type}})
+```
+
 #### Unsolved bugs
 
 No unsolved bugs at the moment!
