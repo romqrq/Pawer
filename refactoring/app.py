@@ -19,6 +19,9 @@ APP.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 # Creating an instance of PyMongo
 MONGO = PyMongo(APP)
 
+# Importing helper functions
+from refactoring.app_functions import check_user_on_login
+
 
 @APP.route('/')
 def user_home():
@@ -38,26 +41,9 @@ def user_login():
     """ Loads page where users can login, checks the email and password on the
      database. If the user is valid, variables are added to session to be used
     to adjust the content to the type of user and privileges """
-    users = MONGO.db.users
+
     if request.method == 'POST':
-        form_pwd = request.form['password']
-        login_user = users.find_one({'email': request.form['login_email']})
-        if login_user:
-            user_id = str(login_user['_id'])
-            db_pwd = login_user['password']
-            if form_pwd == db_pwd:
-                session['user_id'] = user_id
-                session['user_type'] = login_user['usr_type']
-                if login_user['is_staff']:
-                    session['is_staff'] = login_user['is_staff']
-                else:
-                    session['is_staff'] = 'not_staff'
-                flash('Welcome Back! You were successfully logged in.', 'info')
-                return render_template('pages/index.html')
-            else:
-                flash('Invalid email or password.', 'info')
-        else:
-            flash('Invalid email or password.', 'info')
+        check_user_on_login(request.form['password'], request.form['login_email'])
 
     return render_template('pages/login.html')
 
