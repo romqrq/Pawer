@@ -20,7 +20,8 @@ APP.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 MONGO = PyMongo(APP)
 
 # Importing helper functions
-from refactoring.app_functions import check_user_on_login
+import refactoring.app_functions as app_functions
+# from refactoring.app_functions import check_user_on_login, get_user_by_email, get_dog_by_name, get_existing_user_or_dog, insert_new_user_or_dog, set_user_type, set_staff_status, set_feedback
 
 
 @APP.route('/')
@@ -43,7 +44,7 @@ def user_login():
     to adjust the content to the type of user and privileges """
 
     if request.method == 'POST':
-        check_user_on_login(request.form['password'], request.form['login_email'])
+        app_functions.check_user_on_login(request.form['password'], request.form['login_email'])
 
     return render_template('pages/login.html')
 
@@ -71,42 +72,27 @@ def get_dashboard():
 # Add entry
 @APP.route('/add/<usr_type>', methods=['POST'])
 def add_entry(usr_type):
-    """ Function to create new document in the users collection. It looks up
-    for pre-existing records and only adding to database if the record
+    """ Function to create new entry in the users database collection. It looks up
+    for pre-existing records and only adds to database if the record
     doesn't exist.
-    The function also adds the 'staff' status of the account and the account
-    type."""
-    existing_dog = None
-    if usr_type == 'dogs':
-        user = MONGO.db.dogs
-        existing_dog = user.find_one({'dog_name': request.form['dog_name']})
-    else:
-        user = MONGO.db.users
-        existing_user = user.find_one({'email': request.form['email']})
+    """
+    # User or dog exists?
+    app_functions.get_existing_user_or_dog(usr_type, request.form)
 
-    if existing_user:
-        flash('Sorry, this email is already registered.', 'info')
-        return redirect(url_for('add_entry'))
-    elif existing_dog:
-        flash('Sorry, this dog is already registered.', 'info')
-        return redirect(url_for('add_entry'))
-    else:
-        user.insert_one(request.form.to_dict())
-        try:
-            request.form['is_staff']
-            user.update_one({'email': request.form.get('email')},
-                            {'$set': {'is_staff': 'is_staff',
-                                      'usr_type': usr_type}})
-        except KeyError:
-            user.update_one({'email': request.form.get('email')},
-                            {'$set': {'is_staff': 'not_staff',
-                                      'usr_type': usr_type}})
-        if usr_type == 'services' or usr_type == 'stores':
-            user.update_one({'email': request.form.get('email')},
-                            {'$set': {'fb_received': {'positive': 0,
-                                      'negative': 0}}})
-        flash('You have been successfully registered! Welcome!', 'info')
-        return redirect(url_for('user_home'))
+    # Insert user or dog to database
+    app_functions.insert_user_or_dog(library = usr_type, submitted_form = request.form)
+
+    # Add feedback key to services and stores
+    if usr_type == 'services' or usr_type == 'stores':
+        app_functions.update_feedback_key_to_user(request.form.to_dict())
+
+    # Update staff status on users
+    if usr_type != 'dogs':
+        app_functions.update_staff_status_and_user_type_on_user(usr_type, request.form.to_dict())
+    
+    # Confirmation message and redirect to home page
+    flash('You have been successfully registered! Welcome!', 'info')
+    return redirect(url_for('user_home'))
 
 # Adopt a dog
 @APP.route('/adopt/<usr_id>/<dog_id>', methods=['GET', 'POST'])
