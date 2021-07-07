@@ -147,6 +147,20 @@ def update_user_or_dog_through_form(usr_type: str, entry_id: str, submitted_form
                                     {'$set': {key: submitted_form[key]}})
 
 
+def update_user_feedback(receiver_id: str, feedback_form: dict):
+    """
+    Increments in 1 the number of feedbacks received by the user depending on it being
+    positive or negative
+    """
+    users = MONGO.db.users
+    if feedback_form['feedback-radio'] == 'positive':
+        users.update_one({'_id': ObjectId(receiver_id)},
+                         {'$inc': {"fb_received.positive": 1}})
+    if feedback_form['feedback-radio'] == 'negative':
+        users.update_one({'_id': ObjectId(receiver_id)},
+                         {'$inc': {"fb_received.negative": 1}})
+
+
 def set_user_on_session(login_user: dict):
     """
     Updates user id and user type(consumer, services, store) saved in the session.
@@ -191,7 +205,3 @@ def check_user_on_login(form_pwd: str, form_email: str):
     except Exception as e:
         print(e)
         flash('Invalid email or password.', 'info')
-
-
-
-        
