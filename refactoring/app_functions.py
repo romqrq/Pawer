@@ -128,21 +128,6 @@ def update_staff_status_and_user_type_on_user(usr_type: str, form: dict):
                                   'usr_type': usr_type}})
 
 
-# def update_dog_through_form(dog_id: str, submitted_form: dict):
-#     """
-#     Updates dog entry
-#     """
-#     dogs = MONGO.db.dogs
-#     dog = get_dog_by_id(dog_id)
-    
-#     for key in dog:
-#         if key != '_id':
-#             field_name = submitted_form[key]
-#             if field_name:
-#                 dogs.update_one({'_id': ObjectId(dog_id)},
-#                                 {'$set': {key: submitted_form[key]}})
-
-
 def update_user_or_dog_through_form(usr_type: str, entry_id: str, submitted_form: dict):
     """
     Updates user or dog entry using submitted form
@@ -160,22 +145,6 @@ def update_user_or_dog_through_form(usr_type: str, entry_id: str, submitted_form
             if field_name:
                 library.update_one({'_id': ObjectId(entry_id)},
                                     {'$set': {key: submitted_form[key]}})
-    
-
-
-# def update_user_through_form(user_id: str, submitted_form: dict):
-#     """
-#     Updates user entry
-#     """
-#     users = MONGO.db.users
-#     user = get_user_by_id(user_id)
-    
-#     for key in user:
-#         if key != '_id':
-#             field_name = submitted_form[key]
-#             if field_name:
-#                 users.update_one({'_id': ObjectId(user_id)},
-#                                 {'$set': {key: submitted_form[key]}})
 
 
 def set_user_on_session(login_user: dict):

@@ -75,7 +75,10 @@ def add_entry(usr_type):
     for pre-existing records and only adds to database if the record doesn't exist.
     """
     # User or dog exists?
-    app_functions.get_existing_user_or_dog(usr_type, request.form)
+    entry_exists = app_functions.get_existing_user_or_dog(usr_type, request.form)
+    if entry_exists:
+        flash('Sorry, this entry already exists.', 'info')
+        return redirect(url_for('add_entry'))  
 
     # Create user or dog to database
     app_functions.create_user_or_dog(library = usr_type, submitted_form = request.form)
@@ -157,26 +160,19 @@ def update_entry(usr_type, usr_id):
     in the collection.
     """
 
-    if usr_type == 'dogs':
-        app_functions.get_dog_by_id(usr_id)
-        app_functions.update_dog(usr_id, request.form.to_dict())
-        user = MONGO.db.dogs
-        get_user = 'get_dogs'
+    # Entry exists?
+    entry_exists = get_existing_user_or_dog(usr_type, request.form.to_dict())
+    if not entry_exists:
+        flash('Sorry, there seems to be a problem with this database entry.', 'info')
+        return redirect(url_for('update_entry'))
+    
+    # Update entry
+    app_functions.update_user_or_dog_through_form(usr_type, usr_id, request.form.to_dict())
+    
+    # Create target url for redirection
+    target_url = app_functions.build_target_url(usr_type)
 
-    else:
-
-        get_user = 'get_'+str(usr_type)
-        user = MONGO.db.users
-
-    document = user.find_one()
-    for key in document:
-        if key != '_id':
-            field_name = request.form.get(key)
-            if field_name:
-                user.update_one({'_id': ObjectId(usr_id)},
-                                {'$set': {key: request.form.get(key)}})
-
-    return redirect(url_for(get_user))
+    return redirect(url_for(target_url))
 
 
 @APP.route('/feedback/<usr_type>/<receiver_id>', methods=['GET', 'POST'])
