@@ -21,7 +21,6 @@ MONGO = PyMongo(APP)
 
 # Importing helper functions
 import refactoring.app_functions as app_functions
-# from refactoring.app_functions import check_user_on_login, get_user_by_email, get_dog_by_name, get_existing_user_or_dog, insert_new_user_or_dog, set_user_type, set_staff_status, set_feedback
 
 
 @APP.route('/')
@@ -73,14 +72,13 @@ def get_dashboard():
 @APP.route('/add/<usr_type>', methods=['POST'])
 def add_entry(usr_type):
     """ Function to create new entry in the users database collection. It looks up
-    for pre-existing records and only adds to database if the record
-    doesn't exist.
+    for pre-existing records and only adds to database if the record doesn't exist.
     """
     # User or dog exists?
     app_functions.get_existing_user_or_dog(usr_type, request.form)
 
-    # Insert user or dog to database
-    app_functions.insert_user_or_dog(library = usr_type, submitted_form = request.form)
+    # Create user or dog to database
+    app_functions.create_user_or_dog(library = usr_type, submitted_form = request.form)
 
     # Add feedback key to services and stores
     if usr_type == 'services' or usr_type == 'stores':
@@ -97,37 +95,23 @@ def add_entry(usr_type):
 # Adopt a dog
 @APP.route('/adopt/<usr_id>/<dog_id>', methods=['GET', 'POST'])
 def adopt_dog(usr_id, dog_id):
-    """ Function to create new document in the adoptRequest collection.
+    """ Function to create new entry in the adoptRequest collection.
     It gets information from the adoptant and the dog to create a single
     file."""
-    adopt = MONGO.db.adoptRequest
-    this_user = MONGO.db.users.find_one({'_id': ObjectId(usr_id)})
 
-    existing_request = adopt.find_one({'usr_id': ObjectId(usr_id)})
-    if existing_request:
+    # Adoption request exists?
+    app_functions.get_existing_adoption_request(usr_id)
 
-        flash('We already have one request from you. We will get in touch very soon!', 'info')
-        return redirect(url_for('get_dogs'))
-    adopt.insert_one(this_user)
+    # Build adoption request to match database
+    adopt_req = app_functions.build_adoption_request(usr_id, dog_id, request.form.to_dict())
+    
+    # Create new adoption request
+    app_functions.create_adoption_request(adopt_req)
 
-    for key in this_user:
-        if key == '_id':
-            adopt.update_one({'email': this_user['email']},
-                             {'$set': {'usr_id': this_user[key]}})
-
-    this_dog = MONGO.db.dogs.find_one({'_id': ObjectId(dog_id)})
-    for key in this_dog:
-        if key == '_id':
-            adopt.update_one({'email': this_user['email']},
-                             {'$set': {'dog_id': this_dog[key]}})
-        if key != '_id':
-            adopt.update_one({'email': this_user['email']},
-                             {'$set': {key: this_dog[key]}})
-    adopt.update_one({'email': this_user['email']},
-                     {'$set': {'why_adopt': request.form.get('why_adopt')}})
-
+    # Confirmation message and redirect
     flash('Thank you! Your adoption request was successful. We\'ll be in touch soon!', 'info')
     return redirect(url_for('get_dogs'))
+
 
 # READ
 @APP.route('/requests', methods=['GET', 'POST'])
