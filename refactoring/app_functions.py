@@ -13,12 +13,28 @@ def get_user_by_email(form_email: str):
     return users.find_one({'email': form_email})
 
 
+def get_user_by_id(user_id: str):
+    """
+    Queries the DB and returns user by id
+    """
+    users = MONGO.db.users
+    return users.find_one({'_id': user_id})
+
+
 def get_dog_by_name(form_name: str):
     """
     Queries the DB and returns dog by name
     """
     dogs = MONGO.db.dogs
     return dogs.find_one({'dog_name': form_name['dog_name']})
+
+
+def get_dog_by_id(dog_id: str):
+    """
+    Queries the DB and returns dog by id
+    """
+    dogs = MONGO.db.dogs
+    return dogs.find_one({'_id': dog_id})
 
 
 def get_existing_user_or_dog(usr_type: str, form: dict):
@@ -29,10 +45,8 @@ def get_existing_user_or_dog(usr_type: str, form: dict):
         entry_exists = get_dog_by_name(form)
     else:
         entry_exists = get_user_by_email(form)
-
-    if entry_exists:
-        flash('Sorry, this entry already exists.', 'info')
-        return redirect(url_for('add_entry'))    
+    
+    return entry_exists
 
 
 def get_existing_adoption_request(usr_id: str):
@@ -64,7 +78,7 @@ def create_adoption_request(adoption_request: dict):
 
 def build_adoption_request(user_id: str, dog_id: str, submitted_form: dict):
     """
-    Creates new adoption request entry to the database
+    Builds new adoption request dictionary to match required parameters for database entry
     """
     this_user = this_user = MONGO.db.users.find_one({'_id': ObjectId(user_id)})
     this_dog = MONGO.db.dogs.find_one({'_id': ObjectId(dog_id)})
@@ -75,6 +89,18 @@ def build_adoption_request(user_id: str, dog_id: str, submitted_form: dict):
                       'why_adopt': submitted_form['why_adopt']})
 
     return adopt_req
+
+
+def build_target_url(user_type: str):
+    """
+    Builds target url depending on the user type
+    """
+    if user_type == 'dogs':
+        target_url = 'get_dogs'
+    else:
+        target_url = 'get_'+str(user_type)
+
+    return target_url
 
 
 def update_feedback_key_to_user(form):
@@ -89,7 +115,7 @@ def update_feedback_key_to_user(form):
 
 def update_staff_status_and_user_type_on_user(usr_type: str, form: dict):
     """
-    updates user entry to set "staff status" and "user type"
+    Updates user entry to set "staff status" and "user type"
     """
     try:
         request.form['is_staff']
@@ -100,6 +126,56 @@ def update_staff_status_and_user_type_on_user(usr_type: str, form: dict):
         usr_type.update_one({'email': form['email']},
                         {'$set': {'is_staff': 'not_staff',
                                   'usr_type': usr_type}})
+
+
+# def update_dog_through_form(dog_id: str, submitted_form: dict):
+#     """
+#     Updates dog entry
+#     """
+#     dogs = MONGO.db.dogs
+#     dog = get_dog_by_id(dog_id)
+    
+#     for key in dog:
+#         if key != '_id':
+#             field_name = submitted_form[key]
+#             if field_name:
+#                 dogs.update_one({'_id': ObjectId(dog_id)},
+#                                 {'$set': {key: submitted_form[key]}})
+
+
+def update_user_or_dog_through_form(usr_type: str, entry_id: str, submitted_form: dict):
+    """
+    Updates user or dog entry using submitted form
+    """
+    if usr_type == 'dogs':
+        target = get_dog_by_name(submitted_form)
+        library = MONGO.db.dogs
+    else:
+        target = get_user_by_email(submitted_form)
+        library = MONGO.db.users
+
+    for key in target:
+        if key != '_id':
+            field_name = submitted_form[key]
+            if field_name:
+                library.update_one({'_id': ObjectId(entry_id)},
+                                    {'$set': {key: submitted_form[key]}})
+    
+
+
+# def update_user_through_form(user_id: str, submitted_form: dict):
+#     """
+#     Updates user entry
+#     """
+#     users = MONGO.db.users
+#     user = get_user_by_id(user_id)
+    
+#     for key in user:
+#         if key != '_id':
+#             field_name = submitted_form[key]
+#             if field_name:
+#                 users.update_one({'_id': ObjectId(user_id)},
+#                                 {'$set': {key: submitted_form[key]}})
 
 
 def set_user_on_session(login_user: dict):
