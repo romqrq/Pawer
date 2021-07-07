@@ -1,7 +1,80 @@
 from flask import Flask, flash, render_template, redirect, request, url_for, session
+from bson.objectid import ObjectId
 # from flask_pymongo import PyMongo
 
 from app import MONGO
+
+
+def get_user_by_email(form_email: str):
+    """
+    Queries the DB and returns user by email
+    """
+    users = MONGO.db.users
+    return users.find_one({'email': form_email})
+
+
+def get_dog_by_name(form_name: str):
+    """
+    Queries the DB and returns dog by name
+    """
+    dogs = MONGO.db.dogs
+    return dogs.find_one({'dog_name': form_name['dog_name']})
+
+
+def get_existing_user_or_dog(usr_type: str, form: dict):
+    """
+    Queries database for existing user or dog
+    """
+    if usr_type == 'dogs':
+        entry_exists = get_dog_by_name(form)
+    else:
+        entry_exists = get_user_by_email(form)
+
+    if entry_exists:
+        flash('Sorry, this entry already exists.', 'info')
+        return redirect(url_for('add_entry'))    
+
+
+def get_existing_adoption_request(usr_id: str):
+    """
+    Queries database for existing adoption request
+    """
+    adopt = MONGO.db.adoptRequest
+    existing_request = adopt.find_one({'usr_id': ObjectId(usr_id)})
+    
+    if existing_request:
+        flash('We already have one request from you. We will get in touch very soon!', 'info')
+        return redirect(url_for('get_dogs'))
+
+
+def create_user_or_dog(library: str, submitted_form: dict):
+    """
+    Creates new user or dog to the database
+    """
+    library.insert_one(submitted_form.to_dict())
+
+
+def create_adoption_request(adoption_request: dict):
+    """
+    Creates new adoption request entry to the database
+    """
+    adopt = MONGO.db.adoptRequest
+    adopt.insert_one(adoption_request)
+
+
+def build_adoption_request(user_id: str, dog_id: str, submitted_form: dict):
+    """
+    Creates new adoption request entry to the database
+    """
+    this_user = this_user = MONGO.db.users.find_one({'_id': ObjectId(user_id)})
+    this_dog = MONGO.db.dogs.find_one({'_id': ObjectId(dog_id)})
+
+    adopt_req = {**this_user, **this_dog}
+
+    adopt_req.update({'usr_id': this_user['_id'], 'dog_id': this_dog['_id'],
+                      'why_adopt': submitted_form['why_adopt']})
+
+    return adopt_req
 
 
 def update_feedback_key_to_user(form):
@@ -27,29 +100,6 @@ def update_staff_status_and_user_type_on_user(usr_type: str, form: dict):
         usr_type.update_one({'email': form['email']},
                         {'$set': {'is_staff': 'not_staff',
                                   'usr_type': usr_type}})
-
-
-def get_user_by_email(form_email: str):
-    """
-    Queries the DB and returns user by email
-    """
-    users = MONGO.db.users
-    return users.find_one({'email': form_email})
-
-
-def get_dog_by_name(form_name: str):
-    """
-    Queries the DB and returns dog by name
-    """
-    dogs = MONGO.db.dogs
-    return dogs.find_one({'dog_name': form_name['dog_name']})
-
-
-def insert_user_or_dog(library: str, submitted_form: dict):
-    """
-    Inserts new user or dog to the database
-    """
-    library.insert_one(submitted_form.to_dict())
 
 
 def set_user_on_session(login_user: dict):
@@ -98,16 +148,5 @@ def check_user_on_login(form_pwd: str, form_email: str):
         flash('Invalid email or password.', 'info')
 
 
-def get_existing_user_or_dog(usr_type: str, form: dict):
-    """
-    Queries database for existing user or dog
-    """
-    if usr_type == 'dogs':
-        entry_exists = get_dog_by_name(form)
-    else:
-        entry_exists = get_user_by_email(form)
 
-    if entry_exists:
-        flash('Sorry, this entry already exists.', 'info')
-        return redirect(url_for('add_entry'))
         
