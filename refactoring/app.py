@@ -74,24 +74,20 @@ def add_entry(usr_type):
     """ Function to create new entry in the users database collection. It looks up
     for pre-existing records and only adds to database if the record doesn't exist.
     """
-    # User or dog exists?
-    entry_exists = app_functions.get_existing_user_or_dog(usr_type, request.form)
+    
+    entry_exists = app_functions.check_existing_user_or_dog(usr_type, request.form)
     if entry_exists:
         flash('Sorry, this entry already exists.', 'info')
         return redirect(url_for('add_entry'))  
 
-    # Create user or dog to database
     app_functions.create_user_or_dog(library = usr_type, submitted_form = request.form)
 
-    # Add feedback key to services and stores
     if usr_type == 'services' or usr_type == 'stores':
         app_functions.update_feedback_key_to_user(request.form.to_dict())
 
-    # Update staff status on users
     if usr_type != 'dogs':
         app_functions.update_staff_status_and_user_type_on_user(usr_type, request.form.to_dict())
     
-    # Confirmation message and redirect to home page
     flash('You have been successfully registered! Welcome!', 'info')
     return redirect(url_for('user_home'))
 
@@ -102,16 +98,15 @@ def adopt_dog(usr_id, dog_id):
     It gets information from the adoptant and the dog to create a single
     file."""
 
-    # Adoption request exists?
-    app_functions.get_existing_adoption_request(usr_id)
+    existing_request = app_functions.check_existing_adoption_request(usr_id)
+    if existing_request:
+        flash('We already have one request from you. We will get in touch very soon!', 'info')
+        return redirect(url_for('get_dogs'))
 
-    # Build adoption request to match database
     adopt_req = app_functions.build_adoption_request(usr_id, dog_id, request.form.to_dict())
     
-    # Create new adoption request
     app_functions.create_adoption_request(adopt_req)
 
-    # Confirmation message and redirect
     flash('Thank you! Your adoption request was successful. We\'ll be in touch soon!', 'info')
     return redirect(url_for('get_dogs'))
 
@@ -141,8 +136,7 @@ def get_users():
 def get_services():
     """ Function to list services contained in the database """
     return render_template('pages/services.html',
-                           services=MONGO.db.users.find(
-                               {'usr_type': 'services'}))
+                           services=MONGO.db.users.find({'usr_type': 'services'}))
 
 # Find stores
 @APP.route('/stores')
@@ -160,16 +154,13 @@ def update_entry(usr_type, usr_id):
     in the collection.
     """
 
-    # Entry exists?
-    entry_exists = get_existing_user_or_dog(usr_type, request.form.to_dict())
+    entry_exists = app_functions.check_existing_user_or_dog(usr_type, request.form.to_dict())
     if not entry_exists:
         flash('Sorry, there seems to be a problem with this database entry.', 'info')
         return redirect(url_for('update_entry'))
     
-    # Update entry
     app_functions.update_user_or_dog_through_form(usr_type, usr_id, request.form.to_dict())
     
-    # Create target url for redirection
     target_url = app_functions.build_target_url(usr_type)
 
     return redirect(url_for(target_url))
@@ -182,10 +173,8 @@ def user_feedback(usr_type, receiver_id):
     based on user inputs through the form.
     """
 
-    # Update user feedbacks
     app_functions.update_user_feedback(receiver_id, feedback_form = request.form.to_dict())
 
-    # Create target url for redirection
     target_url = app_functions.build_target_url(usr_type)
 
     flash('Thanks for your feedback!', 'info')
@@ -195,24 +184,27 @@ def user_feedback(usr_type, receiver_id):
 # DELETE
 @APP.route('/delete/<usr_type>/<usr_id>', methods=['GET', 'POST'])
 def delete_entry(usr_type, usr_id):
+    """
+    Function to delete database entries. It deletes the entry depending on the user type.
+    """
     if usr_type == 'dogs':
-        usr = MONGO.db.dogs
-        url = 'get_dogs'
+        app_functions.delete_dog(usr_id)
+
     elif usr_type == 'not_adopted':
-        usr = MONGO.db.adoptRequest
-        url = 'get_adopt_requests'
+        app_functions.delete_adoption_request(usr_id)
+
     elif usr_type == 'adopted':
-        usr = MONGO.db.adoptRequest
-        adoption_file = usr.find_one({'_id': ObjectId(usr_id)})
-        MONGO.db.dogs.delete_one({'_id': ObjectId(adoption_file['dog_id'])})
-        url = 'get_adopt_requests'
+        adoption_request = app_functions.get_adoption_request(usr_id)
+        app_functions.delete_dog(adoption_request['dog_id'])
+        app_functions.delete_adoption_request(usr_id)
+
     else:
-        usr = MONGO.db.users
-        url = 'get_'+str(usr_type)
+        app_functions.delete_user(usr_id)
 
-    usr.delete_one({'_id': ObjectId(usr_id)})
+    target_url = app_functions.build_target_url(usr_type)
 
-    return redirect(url_for(url))
+    flash('This entry has been deleted.', 'info')
+    return redirect(url_for(target_url))
 
 
 if __name__ == '__main__':
