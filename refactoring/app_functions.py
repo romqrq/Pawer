@@ -37,7 +37,17 @@ def get_dog_by_id(dog_id: str):
     return dogs.find_one({'_id': dog_id})
 
 
-def get_existing_user_or_dog(usr_type: str, form: dict):
+def get_adoption_request(adoption_request_id: str):
+    """
+    Queries the DB and returns dog by id
+    """
+    adopt = MONGO.db.adoptRequest
+    existing_request = adopt.find_one({'usr_id': ObjectId(usr_id)})
+
+    return existing_request
+
+
+def check_existing_user_or_dog(usr_type: str, form: dict):
     """
     Queries database for existing user or dog
     """
@@ -49,16 +59,14 @@ def get_existing_user_or_dog(usr_type: str, form: dict):
     return entry_exists
 
 
-def get_existing_adoption_request(usr_id: str):
+def check_existing_adoption_request(usr_id: str):
     """
     Queries database for existing adoption request
     """
-    adopt = MONGO.db.adoptRequest
-    existing_request = adopt.find_one({'usr_id': ObjectId(usr_id)})
+    existing_request = get_adoption_request(usr_id)
     
-    if existing_request:
-        flash('We already have one request from you. We will get in touch very soon!', 'info')
-        return redirect(url_for('get_dogs'))
+    return existing_request
+    
 
 
 def create_user_or_dog(library: str, submitted_form: dict):
@@ -97,6 +105,8 @@ def build_target_url(user_type: str):
     """
     if user_type == 'dogs':
         target_url = 'get_dogs'
+    elif user_type == 'not_adopted' or user_type == 'adopted':
+        target_url = 'get_adopt_requests'
     else:
         target_url = 'get_'+str(user_type)
 
@@ -205,3 +215,27 @@ def check_user_on_login(form_pwd: str, form_email: str):
     except Exception as e:
         print(e)
         flash('Invalid email or password.', 'info')
+
+
+def delete_adoption_request(adoption_request_id: str):
+    """
+    Deletes adoption request entry from database.
+    """
+    adopt_req = MONGO.db.adoptRequest
+    adopt_req.delete_one({'_id': ObjectId(adoption_request_id)})
+
+
+def delete_dog(dog_id:str):
+    """
+    Deletes dog entry from database.
+    """
+    dogs = MONGO.db.dogs
+    dogs.delete_one({'_id': ObjectId(dog_id)})
+
+
+def delete_user(user_id:str):
+    """
+    Deletes user entry from database.
+    """
+    users = MONGO.db.users
+    users.delete_one({'_id': ObjectId(user_id)})
