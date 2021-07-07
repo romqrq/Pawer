@@ -158,10 +158,13 @@ def update_entry(usr_type, usr_id):
     """
 
     if usr_type == 'dogs':
+        app_functions.get_dog_by_id(usr_id)
+        app_functions.update_dog(usr_id, request.form.to_dict())
         user = MONGO.db.dogs
         get_user = 'get_dogs'
 
     else:
+
         get_user = 'get_'+str(usr_type)
         user = MONGO.db.users
 
