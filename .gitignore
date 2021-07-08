@@ -1,3 +1,5 @@
 env.py
+app_old.py
+refactoring/
 __pycache__/
 *.pyc
