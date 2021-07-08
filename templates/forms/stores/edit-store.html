@@ -1,5 +1,6 @@
 <div class="form-box hide" id="{{ store._id }}" value="edit">
     <form action="{{ url_for('update_entry', usr_type='stores', usr_id=store._id) }}" method="POST" class="col s12">
+        <input name = "is_staff" type = "hidden" value = "not_staff">
         <div class="row">
             <h2 class="heading-text">Edit store details</h2>
             <p class="secondary-text center">Here you can update the information about your store.</p>

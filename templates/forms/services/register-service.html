@@ -1,5 +1,6 @@
 <div class="row form-box hide" id="services" value="services">
     <form action="{{ url_for('add_entry', usr_type='services') }}" method="POST" class="col s12">
+        <input name = "is_staff" type = "hidden" value = "not_staff">
         <div class="row">
             <h2 class="heading-text">Register a Service</h2>
             <p class="secondary-text center">Here you can register your service.</p>
