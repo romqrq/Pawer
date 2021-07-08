@@ -6,6 +6,9 @@
     <div class="parallax"><img src="/static/images/users-image.jpg"></div>
 </div>
 <div class="section white">
+
+    {% include 'layout/user-feedback-message.html' %}
+    
     <div class="row container">
     {% if session['is_staff'] != 'is_staff' %}
         <div class="col s12">

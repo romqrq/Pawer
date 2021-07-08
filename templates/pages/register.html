@@ -5,6 +5,9 @@
     <div class="parallax"><img src="/static/images/pup-deck.jpg"></div>
 </div>
 <div class="section white">
+
+    {% include 'layout/user-feedback-message.html' %}
+    
     <div class="container">
         {% if session['is_staff'] == 'is_staff' %}
         <h2 class="heading-text">Staff Register</h2>
