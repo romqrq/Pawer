@@ -1,12 +1,16 @@
 # Importing libraries
 import os
 from os import path
+from re import DEBUG
+from dns.rdatatype import NULL
 from flask import Flask, flash, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 if path.exists('env.py'):
     import env
+
+DEBUG = True
 
 # Creating instance of Flask
 APP = Flask(__name__)
@@ -19,6 +23,10 @@ APP.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 # Creating an instance of PyMongo
 MONGO = PyMongo(APP)
 
+# Importing helper functions
+from helper_functions import data_manipulation as data_mnpt, db_operations as db_op, entry_checks as check_entry, session_manipulation as session_mnpt
+
+
 
 @APP.route('/')
 def user_home():
@@ -29,7 +37,8 @@ def user_home():
 @APP.route('/register')
 def register():
     """ Page where users can choose a type of account and
-     register through the specific form"""
+    register through the specific form"""
+
     return render_template('pages/register.html')
 
 
@@ -38,28 +47,17 @@ def user_login():
     """ Loads page where users can login, checks the email and password on the
      database. If the user is valid, variables are added to session to be used
     to adjust the content to the type of user and privileges """
-    users = MONGO.db.users
+
     if request.method == 'POST':
-        form_pwd = request.form['password']
-        login_user = users.find_one({'email': request.form['login_email']})
-        if login_user:
-            user_id = str(login_user['_id'])
-            db_pwd = login_user['password']
-            if form_pwd == db_pwd:
-                session['user_id'] = user_id
-                session['user_type'] = login_user['usr_type']
-                if login_user['is_staff']:
-                    session['is_staff'] = login_user['is_staff']
-                else:
-                    session['is_staff'] = 'not_staff'
-                flash('Welcome Back! You were successfully logged in.', 'info')
-                return render_template('pages/index.html')
-            else:
-                flash('Invalid email or password.', 'info')
+        login_check = session_mnpt.set_user_login(request.form.to_dict())
+        if login_check: 
+            flash('Welcome Back! You were successfully logged in.', 'info')
+            return redirect(url_for('user_home'))
         else:
             flash('Invalid email or password.', 'info')
-
-    return render_template('pages/login.html')
+            return redirect(url_for('user_login'))
+    else:
+        return render_template('pages/login.html')
 
 
 @APP.route('/logout', methods=['GET', 'POST'])
@@ -85,77 +83,49 @@ def get_dashboard():
 # Add entry
 @APP.route('/add/<usr_type>', methods=['POST'])
 def add_entry(usr_type):
-    """ Function to create new document in the users collection. It looks up
-    for pre-existing records and only adding to database if the record
-    doesn't exist.
-    The function also adds the 'staff' status of the account and the account
-    type."""
-    existing_dog = None
-    if usr_type == 'dogs':
-        user = MONGO.db.dogs
-        existing_dog = user.find_one({'dog_name': request.form['dog_name']})
-    else:
-        user = MONGO.db.users
-        existing_user = user.find_one({'email': request.form['email']})
+    """ Function to create new entry in the users database collection. It looks up
+    for pre-existing records and only adds to database if the record doesn't exist.
+    """
+    if request.form:
+        entry_exists = check_entry.check_existing_user_or_dog(usr_type, request.form)
 
-    if existing_user:
-        flash('Sorry, this email is already registered.', 'info')
-        return redirect(url_for('add_entry'))
-    elif existing_dog:
-        flash('Sorry, this dog is already registered.', 'info')
-        return redirect(url_for('add_entry'))
+        if entry_exists:
+            flash('Sorry, this entry already exists.')
+            return redirect(url_for('register'))
+
+    if usr_type == 'dogs':
+        db_op.create_dog(request.form.to_dict())
+
     else:
-        user.insert_one(request.form.to_dict())
-        try:
-            request.form['is_staff']
-            user.update_one({'email': request.form.get('email')},
-                            {'$set': {'is_staff': 'is_staff',
-                                      'usr_type': usr_type}})
-        except KeyError:
-            user.update_one({'email': request.form.get('email')},
-                            {'$set': {'is_staff': 'not_staff',
-                                      'usr_type': usr_type}})
+        db_op.create_user(request.form.to_dict())
+
         if usr_type == 'services' or usr_type == 'stores':
-            user.update_one({'email': request.form.get('email')},
-                            {'$set': {'fb_received': {'positive': 0,
-                                      'negative': 0}}})
-        flash('You have been successfully registered! Welcome!', 'info')
-        return redirect(url_for('user_home'))
+            db_op.update_feedback_key_to_user(request.form.to_dict())
+
+        db_op.update_staff_status_and_user_type_on_user(usr_type, request.form.to_dict())
+    
+    flash('You have been successfully registered! Welcome!', 'info')
+    return redirect(url_for('user_home'))
 
 # Adopt a dog
 @APP.route('/adopt/<usr_id>/<dog_id>', methods=['GET', 'POST'])
 def adopt_dog(usr_id, dog_id):
-    """ Function to create new document in the adoptRequest collection.
+    """ Function to create new entry in the adoptRequest collection.
     It gets information from the adoptant and the dog to create a single
     file."""
-    adopt = MONGO.db.adoptRequest
-    this_user = MONGO.db.users.find_one({'_id': ObjectId(usr_id)})
 
-    existing_request = adopt.find_one({'usr_id': ObjectId(usr_id)})
+    existing_request = check_entry.check_existing_adoption_request(usr_id)
     if existing_request:
-
         flash('We already have one request from you. We will get in touch very soon!', 'info')
         return redirect(url_for('get_dogs'))
-    adopt.insert_one(this_user)
 
-    for key in this_user:
-        if key == '_id':
-            adopt.update_one({'email': this_user['email']},
-                             {'$set': {'usr_id': this_user[key]}})
-
-    this_dog = MONGO.db.dogs.find_one({'_id': ObjectId(dog_id)})
-    for key in this_dog:
-        if key == '_id':
-            adopt.update_one({'email': this_user['email']},
-                             {'$set': {'dog_id': this_dog[key]}})
-        if key != '_id':
-            adopt.update_one({'email': this_user['email']},
-                             {'$set': {key: this_dog[key]}})
-    adopt.update_one({'email': this_user['email']},
-                     {'$set': {'why_adopt': request.form.get('why_adopt')}})
+    adopt_req = data_mnpt.build_adoption_request(usr_id, dog_id, request.form.to_dict())
+    
+    db_op.create_adoption_request(adopt_req)
 
     flash('Thank you! Your adoption request was successful. We\'ll be in touch soon!', 'info')
     return redirect(url_for('get_dogs'))
+
 
 # READ
 @APP.route('/requests', methods=['GET', 'POST'])
@@ -182,8 +152,7 @@ def get_users():
 def get_services():
     """ Function to list services contained in the database """
     return render_template('pages/services.html',
-                           services=MONGO.db.users.find(
-                               {'usr_type': 'services'}))
+                           services=MONGO.db.users.find({'usr_type': 'services'}))
 
 # Find stores
 @APP.route('/stores')
@@ -200,24 +169,18 @@ def update_entry(usr_type, usr_id):
     the collection to be targeted and the user id to find the specific record
     in the collection.
     """
+    target_url = data_mnpt.build_target_url(usr_type)
 
-    if usr_type == 'dogs':
-        user = MONGO.db.dogs
-        get_user = 'get_dogs'
-
+    entry_exists = check_entry.check_existing_user_or_dog(usr_type, usr_id, request.form.to_dict())
+    if entry_exists:
+        prepd_data = data_mnpt.set_missing_submitted_form_fields(usr_type, usr_id, request.form.to_dict())
+        db_op.update_user_or_dog_through_form(prepd_data[0], prepd_data[1], prepd_data[2])
     else:
-        get_user = 'get_'+str(usr_type)
-        user = MONGO.db.users
+        flash('Sorry, there seems to be a problem with this database entry.', 'info')
+        return redirect(url_for(target_url))
 
-    document = user.find_one()
-    for key in document:
-        if key != '_id':
-            field_name = request.form.get(key)
-            if field_name:
-                user.update_one({'_id': ObjectId(usr_id)},
-                                {'$set': {key: request.form.get(key)}})
-
-    return redirect(url_for(get_user))
+    flash('Done! Entry successfully updated.', 'info')
+    return redirect(url_for(target_url))
 
 
 @APP.route('/feedback/<usr_type>/<receiver_id>', methods=['GET', 'POST'])
@@ -226,43 +189,39 @@ def user_feedback(usr_type, receiver_id):
     Function to increment the number of feedbacks received by store or service,
     based on user inputs through the form.
     """
-    user = MONGO.db.users
-    if request.form.get('feedback-radio') == 'positive':
-        user.update_one({'_id': ObjectId(receiver_id)},
-                        {'$inc': {"fb_received.positive": 1}})
-    if request.form.get('feedback-radio') == 'negative':
-        user.update_one({'_id': ObjectId(receiver_id)},
-                        {'$inc': {"fb_received.negative": 1}})
 
-    if usr_type == 'services':
-        url = 'get_services'
-    else:
-        url = 'get_stores'
+    db_op.update_user_feedback(receiver_id, feedback_form = request.form.to_dict())
+
+    target_url = data_mnpt.build_target_url(usr_type)
+
     flash('Thanks for your feedback!', 'info')
-    return redirect(url_for(url))
+    return redirect(url_for(target_url))
 
 
 # DELETE
 @APP.route('/delete/<usr_type>/<usr_id>', methods=['GET', 'POST'])
 def delete_entry(usr_type, usr_id):
+    """
+    Function to delete database entries. It deletes the entry depending on the user type.
+    """
     if usr_type == 'dogs':
-        usr = MONGO.db.dogs
-        url = 'get_dogs'
+        db_op.delete_dog(usr_id)
+
     elif usr_type == 'not_adopted':
-        usr = MONGO.db.adoptRequest
-        url = 'get_adopt_requests'
+        db_op.delete_adoption_request(usr_id)
+
     elif usr_type == 'adopted':
-        usr = MONGO.db.adoptRequest
-        adoption_file = usr.find_one({'_id': ObjectId(usr_id)})
-        MONGO.db.dogs.delete_one({'_id': ObjectId(adoption_file['dog_id'])})
-        url = 'get_adopt_requests'
+        adoption_request = db_op.get_adoption_request(usr_id)
+        db_op.delete_dog(adoption_request['dog_id'])
+        db_op.delete_adoption_request(usr_id)
+
     else:
-        usr = MONGO.db.users
-        url = 'get_'+str(usr_type)
+        db_op.delete_user(usr_id)
 
-    usr.delete_one({'_id': ObjectId(usr_id)})
+    target_url = data_mnpt.build_target_url(usr_type)
 
-    return redirect(url_for(url))
+    flash('This entry has been deleted.', 'info')
+    return redirect(url_for(target_url))
 
 
 if __name__ == '__main__':
