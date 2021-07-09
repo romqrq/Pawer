@@ -6,10 +6,10 @@
     <div class="parallax"><img src="/static/images/users-image.jpg"></div>
 </div>
 <div class="section white">
+    <div class="row container">
 
     {% include 'layout/user-feedback-message.html' %}
     
-    <div class="row container">
     {% if session['is_staff'] != 'is_staff' %}
         <div class="col s12">
             <p class="heading-text">Oops! This area is for staff only.</p>

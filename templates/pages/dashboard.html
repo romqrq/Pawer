@@ -7,6 +7,9 @@
 </div>
 <div class="section white">
     <div class="container">
+
+    {% include 'layout/user-feedback-message.html' %}
+    
     {% if session['is_staff'] == 'is_staff' %}
         {% include 'dashboard/dash-staff.html' %}
     {% else %}

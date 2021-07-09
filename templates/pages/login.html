@@ -4,10 +4,10 @@
     <div class="parallax"><img src="/static/images/pup-deck.jpg"></div>
 </div>
 <div class="section white">
+    <div class="row container">
 
     {% include 'layout/user-feedback-message.html' %}
     
-    <div class="row container">
         <h2 class="heading-text">Login</h2>
         <form method="POST" action="{{ url_for('user_login') }}" class="col s12 m6 offset-m3">
             <div class="row">
